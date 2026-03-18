@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { contentfulClient, contentfulPreviewClient } from './contentful'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function parseContentfulPost(item: any) {
     return {
         title: item.fields.title,
@@ -29,23 +28,34 @@ function parseContentfulPost(item: any) {
 
 export async function getAllPosts(isDraftMode = false) {
     const client = isDraftMode ? contentfulPreviewClient : contentfulClient
-    const entries = await client.getEntries({
-        content_type: 'blogPost',
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        order: ['-fields.publishedDate'] as any,
-    })
-    return entries.items.map(parseContentfulPost)
+    if (!client) return []
+    try {
+        const entries = await client.getEntries({
+            content_type: 'blogPost',
+            order: ['-fields.publishedDate'] as any,
+        })
+        return entries.items.map(parseContentfulPost)
+    } catch (error) {
+        console.error('[Contentful] Error fetching posts:', error)
+        return []
+    }
 }
 
 export async function getPostBySlug(slug: string, isDraftMode = false) {
     const client = isDraftMode ? contentfulPreviewClient : contentfulClient
-    const entries = await client.getEntries({
-        content_type: 'blogPost',
-        'fields.slug': slug,
-        limit: 1,
-    })
-    if (entries.items.length > 0) {
-        return parseContentfulPost(entries.items[0])
+    if (!client) return null
+    try {
+        const entries = await client.getEntries({
+            content_type: 'blogPost',
+            'fields.slug': slug,
+            limit: 1,
+        })
+        if (entries.items.length > 0) {
+            return parseContentfulPost(entries.items[0])
+        }
+        return null
+    } catch (error) {
+        console.error('[Contentful] Error fetching post by slug:', error)
+        return null
     }
-    return null
 }
