@@ -1,0 +1,101 @@
+"use client"
+import React, { useEffect, useState, useRef } from 'react';
+import Link from 'next/link';
+import { StarsBackground } from '@/components/ui/stars-background';
+import { ShootingStars } from '@/components/ui/shooting-stars';
+
+export function GetStartedCTA() {
+  const [visible, setVisible] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (media.matches) return;
+    const handleMouseMove = (e: MouseEvent) => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => setMousePosition({ x: e.clientX, y: e.clientY }));
+    };
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const el = document.getElementById('get-started-cta');
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setVisible(true)),
+      { threshold: 0.1 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <section 
+      id="get-started-cta" 
+      className="relative min-h-[90vh] flex items-center justify-center py-20 overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900"
+    >
+      {/* Background Effects matching Contact section */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-cyan-900/30"></div>
+        <div
+          className="absolute inset-0 opacity-30 will-change-transform"
+          style={{ 
+            background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.25) 0%, transparent 50%)', 
+            transform: `translate3d(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px, 0)` 
+          }}
+        />
+        {visible && (
+          <>
+            <StarsBackground starDensity={0.00025} allStarsTwinkle={false} twinkleProbability={0.4} minTwinkleSpeed={2} maxTwinkleSpeed={4} className="pointer-events-none z-0 opacity-60" />
+            <ShootingStars minSpeed={8} maxSpeed={18} minDelay={2500} maxDelay={4500} starColor="#E5F6FF" trailColor="#89D2F6" starWidth={10} starHeight={1.25} className="pointer-events-none z-0 opacity-80" />
+          </>
+        )}
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+        <div className="inline-block px-4 py-1.5 mb-8 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
+          Get Started
+        </div>
+        
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight tracking-tight">
+          Your pharmacy revenue is waiting. <br className="hidden md:block" />
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
+            Let's recover it together.
+          </span>
+        </h2>
+        
+        <p className="text-lg md:text-xl text-gray-200 mb-12 leading-relaxed max-w-2xl mx-auto">
+          Free 30-minute discovery call. We audit your setup, show you exactly what is leaking, and give you a recovery plan — no commitment required.
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <Link
+            href="/#contact"
+            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold rounded-2xl shadow-2xl shadow-cyan-900/20 hover:scale-105 transition-all duration-300 overflow-hidden"
+          >
+            <span className="relative z-10">Book Free Demo</span>
+            <svg 
+              className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" 
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+          </Link>
+          
+          <div className="flex items-center gap-2 text-gray-300 font-medium text-sm backdrop-blur-sm px-4 py-2 rounded-lg bg-white/5 border border-white/10">
+            <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+            </svg>
+            No commitment required
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
