@@ -9,7 +9,7 @@ import { Header } from '@/components/Header'
 const Stats = dynamic(() => import('@/components/v2/Stats').then(m => ({ default: m.Stats })), { ssr: false })
 const ProblemSection = dynamic(() => import('@/components/v2/ProblemSection').then(m => ({ default: m.ProblemSection })))
 const PersonaROISection = dynamic(() => import('@/components/v2/PersonaROISection').then(m => ({ default: m.PersonaROISection })))
-const Solutions = dynamic(() => import('@/components/v2/Solutions').then(m => ({ default: m.Solutions })))
+const WhyItWorks = dynamic(() => import('@/components/v2/WhyItWorks').then(m => ({ default: m.WhyItWorks })))
 const Footer = dynamic(() => import('@/components/v2/Footer').then(m => ({ default: m.Footer })))
 const GetStartedCTA = dynamic(() => import('@/components/v2/GetStartedCTA').then(m => ({ default: m.GetStartedCTA })))
 const MarqueeSection = dynamic(() => import('@/components/v2/MarqueeSection').then(m => ({ default: m.MarqueeSection })))
@@ -41,8 +41,8 @@ export default function PageV2() {
         {/* 5. Social proof marquee */}
         <MarqueeSection />
 
-        {/* 6. Solutions deep-dive */}
-        <Solutions />
+        {/* 6. Why it works (summary) */}
+        <WhyItWorks />
       </main>
 
       <GetStartedCTA />

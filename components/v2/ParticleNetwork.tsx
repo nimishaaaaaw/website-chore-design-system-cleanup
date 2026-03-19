@@ -29,7 +29,7 @@ export function ParticleNetwork() {
 
     let animationFrameId: number
     let particles: Particle[] = []
-    const PARTICLE_COUNT = 65 // Increased count for denser feel
+    const PARTICLE_COUNT = 45 // Reduced count for cleaner feel
     const CONNECT_DIST = 110 // Added back short connecting lines
     const MOUSE_RADIUS = 280
 
@@ -133,6 +133,11 @@ export function ParticleNetwork() {
       }
 
       // 2. Update and draw particles
+      const centerX = w / 2
+      const centerY = h / 2
+      const REPEL_RADIUS_X = w * 0.35 // Large horizontal avoidance
+      const REPEL_RADIUS_Y = h * 0.45 // Even larger vertical avoidance for long text
+
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]
 
@@ -143,6 +148,22 @@ export function ParticleNetwork() {
         // Return to minimum drift speed
         if (Math.abs(p.vx) < 0.15) p.vx += p.vx > 0 ? 0.02 : -0.02
         if (Math.abs(p.vy) < 0.15) p.vy += p.vy > 0 ? 0.02 : -0.02
+
+        // --- NEW: Central Repulsion (Keep text area clear) ---
+        const dxCenter = p.x - centerX
+        const dyCenter = p.y - centerY
+        // Elliptical distance check
+        const normX = dxCenter / REPEL_RADIUS_X
+        const normY = dyCenter / REPEL_RADIUS_Y
+        const distCenterSq = normX * normX + normY * normY
+        
+        if (distCenterSq < 1) {
+          const distCenter = Math.sqrt(distCenterSq)
+          const force = (1 - distCenter) * 0.12 // Subtle outwards push
+          p.vx += (dxCenter / (distCenter * REPEL_RADIUS_X || 1)) * force
+          p.vy += (dyCenter / (distCenter * REPEL_RADIUS_Y || 1)) * force
+        }
+        // -----------------------------------------------------
 
         // Mouse Interaction (Crisper organic push)
         const dx = p.x - mouse.x
@@ -258,9 +279,9 @@ export function ParticleNetwork() {
       className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden" 
       style={{ 
         zIndex: 0,
-        // Softer mask: particles can drift slightly into the center, completely hidden only directly behind the H1
-        WebkitMaskImage: 'radial-gradient(ellipse 60% 50% at center, transparent 15%, black 50%)',
-        maskImage: 'radial-gradient(ellipse 60% 50% at center, transparent 15%, black 50%)'
+        // Stronger mask: ensuring center zone remains clear for high-contrast text
+        WebkitMaskImage: 'radial-gradient(ellipse 35% 65% at center, transparent 15%, black 60%)',
+        maskImage: 'radial-gradient(ellipse 35% 65% at center, transparent 15%, black 60%)'
       }} 
       aria-hidden="true"
     >

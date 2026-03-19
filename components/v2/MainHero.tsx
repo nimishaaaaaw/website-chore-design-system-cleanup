@@ -58,7 +58,7 @@ export function MainHero() {
             transition={{ duration: 0.4, delay: 0.2 }}
             className="text-[15px] md:text-base text-slate-500 max-w-xl mx-auto leading-[1.7] mb-8 md:mb-10"
           >
-            Complete <strong className="text-slate-600 font-medium">hospital pharmacy outsourcing</strong> — <strong className="text-slate-600 font-medium">operations</strong>, stock control, <strong className="text-slate-600 font-medium">clinical pharmacy</strong>, and <strong className="text-slate-600 font-medium">virtual pharmacy</strong> fulfillment.
+            Complete <strong className="text-slate-600 font-medium">hospital pharmacy management</strong> — <strong className="text-slate-600 font-medium">operations</strong>, stock control, <strong className="text-slate-600 font-medium">clinical pharmacy</strong>, and <strong className="text-slate-600 font-medium">virtual pharmacy</strong> fulfillment.
           </motion.p>
 
           {/* ── CTAs ── */}
@@ -113,7 +113,7 @@ export function MainHero() {
           {/* SEO hidden content */}
           <p className="sr-only">
             MediKloud is India&apos;s first tech-driven hospital pharmacy management company offering fully managed 
-            hospital pharmacy operations, hospital pharmacy outsourcing, and zero capex pharmacy setup for 
+            hospital pharmacy operations, hospital pharmacy management, and zero capex pharmacy setup for 
             independent hospitals and clinics. Our AI-powered platform covers pharmacy inventory management, 
             procurement automation, pharmacy billing and revenue leakage control, medicine home delivery, 
             and automated prescription refills. Free hospital management software (HMS) included with 

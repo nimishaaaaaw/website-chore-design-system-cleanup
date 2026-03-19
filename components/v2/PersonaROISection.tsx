@@ -217,7 +217,7 @@ export function PersonaROISection() {
           </h2>
           <div className="inline-block px-3 py-1 rounded-full bg-blue-50/80 border border-blue-100/50">
             <p className="text-[10px] text-blue-600 font-black uppercase tracking-[0.25em]">
-              Find your revenue potential
+              See what MediKloud can do for you.
             </p>
           </div>
         </div>
