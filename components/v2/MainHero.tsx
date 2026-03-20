@@ -51,7 +51,7 @@ export function MainHero() {
             className="mb-5 md:mb-8"
           >
             <span
-              className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-black leading-[1.1] tracking-tighter md:tracking-[-0.03em] bg-gradient-display bg-clip-text text-transparent mb-4 md:mb-6"
+              className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.2] tracking-tight md:tracking-[-0.02em] bg-gradient-display bg-clip-text text-transparent pb-3 mb-2 md:mb-4"
             >
               Building Inhouse Pharmacies
             </span>

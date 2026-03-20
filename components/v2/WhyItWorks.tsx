@@ -30,6 +30,7 @@ interface ContentItem {
   metric: string;
   traditional: string;
   medikloud: string;
+  themeColor: 'blue' | 'emerald' | 'indigo' | 'purple';
 }
 
 const CONTENT: ContentItem[] = [
@@ -45,7 +46,8 @@ const CONTENT: ContentItem[] = [
     ],
     metric: "Go live in under 7 days",
     traditional: "Setting up a compliant pharmacy takes months, lakhs in capital, and full management attention.",
-    medikloud: "We've already built the playbook. We deploy it into your hospital — you approve, we execute."
+    medikloud: "We've already built the playbook. We deploy it into your hospital — you approve, we execute.",
+    themeColor: "blue"
   },
   {
     id: 1,
@@ -59,7 +61,8 @@ const CONTENT: ContentItem[] = [
     ],
     metric: "30-40% avg. revenue recovered",
     traditional: "Losses surface at the month-end review. By the time you see the gap, the money is already gone.",
-    medikloud: "Billing, inventory, and dispense are cross-checked automatically. Discrepancies get caught the same day."
+    medikloud: "Billing, inventory, and dispense are cross-checked automatically. Discrepancies get caught the same day.",
+    themeColor: "emerald"
   },
   {
     id: 2,
@@ -73,7 +76,8 @@ const CONTENT: ContentItem[] = [
     ],
     metric: "15% avg. boost in gross margins",
     traditional: "You rely on standard distributor rates — the exact same price every independent hospital pays.",
-    medikloud: "MediKloud handles procurement for our entire network. You enjoy chain-level profitability without the purchasing hassle."
+    medikloud: "MediKloud handles procurement for our entire network. You enjoy chain-level profitability without the purchasing hassle.",
+    themeColor: "indigo"
   },
   {
     id: 3,
@@ -87,7 +91,8 @@ const CONTENT: ContentItem[] = [
     ],
     metric: "3x increase in patient LTV",
     traditional: "Chronic patients drift to the nearest retail chemist after discharge. You get absolutely nothing.",
-    medikloud: "Automated WhatsApp and SMS reminders bring them back to your pharmacy — month after month."
+    medikloud: "Automated WhatsApp and SMS reminders bring them back to your pharmacy — month after month.",
+    themeColor: "purple"
   }
 ];
 
@@ -95,18 +100,25 @@ const CONTENT: ContentItem[] = [
 const springTransition = { type: "spring", stiffness: 350, damping: 35 } as const;
 const contentSpring = { type: "spring", stiffness: 450, damping: 40 } as const;
 
-const CardProgress = ({ progress, index, total }: { progress: any, index: number, total: number }) => {
+const CardProgress = ({ progress, index, total, theme }: { progress: any, index: number, total: number, theme: string }) => {
   const scaleX = useTransform(
     progress,
     [index / total, (index + 1) / total],
     [0, 1],
     { clamp: true }
   );
+
+  const themeColors: Record<string, string> = {
+    blue: "from-blue-600 to-cyan-500",
+    emerald: "from-emerald-600 to-teal-500",
+    indigo: "from-indigo-600 to-blue-500",
+    purple: "from-purple-600 to-pink-500"
+  };
   
   return (
     <div className="absolute top-0 left-0 right-0 h-[3px] bg-slate-100/30 overflow-hidden">
       <motion.div 
-        className="absolute inset-y-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-indigo-600 z-10 origin-left"
+        className={`absolute inset-y-0 left-0 right-0 bg-gradient-to-r ${themeColors[theme] || themeColors.blue} z-10 origin-left`}
         style={{ scaleX }}
       />
     </div>
@@ -230,10 +242,15 @@ export function WhyItWorks() {
                       <>
                         <motion.div 
                           layoutId="cardGlow"
-                          className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none" 
+                          className={`absolute inset-0 bg-gradient-to-b ${
+                            item.themeColor === 'blue' ? 'from-blue-50/50' :
+                            item.themeColor === 'emerald' ? 'from-emerald-50/50' :
+                            item.themeColor === 'indigo' ? 'from-indigo-50/50' :
+                            'from-purple-50/50'
+                          } to-transparent pointer-events-none`} 
                           transition={springTransition}
                         />
-                        <CardProgress progress={scrollYProgress} index={idx} total={CONTENT.length} />
+                        <CardProgress progress={scrollYProgress} index={idx} total={CONTENT.length} theme={item.themeColor} />
                       </>
                     )}
 
@@ -246,7 +263,12 @@ export function WhyItWorks() {
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.8 }}
-                            className="absolute inset-0 bg-blue-600 rounded-xl shadow-lg shadow-blue-600/20"
+                            className={`absolute inset-0 ${
+                              item.themeColor === 'blue' ? 'bg-blue-600 shadow-blue-600/20' :
+                              item.themeColor === 'emerald' ? 'bg-emerald-600 shadow-emerald-600/20' :
+                              item.themeColor === 'indigo' ? 'bg-indigo-600 shadow-indigo-600/20' :
+                              'bg-purple-600 shadow-purple-600/20'
+                            } rounded-xl shadow-lg`}
                             transition={springTransition}
                           />
                         )}
@@ -259,7 +281,14 @@ export function WhyItWorks() {
                         <h3 className={`text-sm font-semibold tracking-tight leading-none transition-colors duration-500 mb-1.5 ${isActive ? 'text-slate-900' : 'text-slate-500'}`}>
                           {item.title}
                         </h3>
-                        <p className={`text-[10px] font-bold uppercase tracking-wider transition-colors duration-500 ${isActive ? 'text-blue-600' : 'text-slate-400'}`}>
+                        <p className={`text-[10px] font-bold uppercase tracking-wider transition-colors duration-500 ${
+                          isActive ? (
+                            item.themeColor === 'blue' ? 'text-blue-600' :
+                            item.themeColor === 'emerald' ? 'text-emerald-600' :
+                            item.themeColor === 'indigo' ? 'text-indigo-600' :
+                            'text-purple-600'
+                          ) : 'text-slate-400'
+                        }`}>
                           {item.subtitle}
                         </p>
                       </div>
@@ -303,11 +332,30 @@ export function WhyItWorks() {
           </div>
 
           {/* Premium Unified Dashboard */}
-          <div className="relative mt-1 bg-slate-900 rounded-3xl shadow-2xl overflow-hidden border border-slate-800">
-            {/* Pulsing Grid Background for the Right Side */}
-            <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none opacity-20">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#2563eb10_0%,transparent_100%)] animate-pulse" />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,#80808010_1px,transparent_1px),linear-gradient(0deg,#80808010_1px,transparent_1px)] bg-[size:20px_20px]" />
+          <motion.div 
+            animate={{
+              borderColor: 
+                activeData.themeColor === 'blue' ? 'rgba(37, 99, 235, 0.2)' :
+                activeData.themeColor === 'emerald' ? 'rgba(16, 185, 129, 0.2)' :
+                activeData.themeColor === 'indigo' ? 'rgba(79, 70, 229, 0.2)' :
+                'rgba(147, 51, 234, 0.2)',
+              borderBottomColor:
+                activeData.themeColor === 'blue' ? '#2563eb' :
+                activeData.themeColor === 'emerald' ? '#10b981' :
+                activeData.themeColor === 'indigo' ? '#4f46e5' :
+                '#9333ea'
+            }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="relative mt-1 bg-white rounded-3xl shadow-2xl overflow-hidden border border-b-4 transition-colors duration-500"
+          >
+            {/* Subtle Gradient Glow for the Right Side */}
+            <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none opacity-40">
+              <div className={`absolute inset-0 bg-[radial-gradient(circle_at_center,${
+                activeData.themeColor === 'blue' ? '#eff6ff' :
+                activeData.themeColor === 'emerald' ? '#ecfdf5' :
+                activeData.themeColor === 'indigo' ? '#eef2ff' :
+                '#f5f3ff'
+              }_0%,transparent_100%)] animate-pulse`} />
             </div>
 
             <div className="grid">
@@ -320,24 +368,24 @@ export function WhyItWorks() {
                         <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
                         <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-500">Impact Profile</span>
                       </div>
-                      <h4 className="text-lg md:text-xl font-semibold text-white tracking-tight leading-[1.1]">
+                      <h4 className="text-lg md:text-xl font-semibold text-slate-900 tracking-tight leading-[1.1]">
                         {item.metric}
                       </h4>
                     </div>
-                    <div className="lg:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-0 border border-slate-800 rounded-2xl overflow-hidden bg-slate-800/50 backdrop-blur-sm">
-                      <div className="p-2 md:p-3 border-b md:border-b-0 md:border-r border-slate-800 group">
+                    <div className="lg:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-0 border border-slate-100 rounded-2xl overflow-hidden bg-white shadow-sm">
+                      <div className="p-2 md:p-3 border-b md:border-b-0 md:border-r border-slate-100 group">
                         <div className="flex items-center gap-2 mb-2 md:mb-3">
-                          <div className="p-1 px-2 rounded bg-slate-700/50 text-slate-400 text-[8px] md:text-[9px] font-semibold uppercase tracking-widest">Traditional</div>
+                          <div className="p-1 px-2 rounded bg-slate-100 text-slate-500 text-[8px] md:text-[9px] font-semibold uppercase tracking-widest">Traditional</div>
                         </div>
-                        <p className="text-[11px] md:text-xs text-slate-400 font-medium leading-relaxed italic opacity-80">
+                        <p className="text-[11px] md:text-xs text-slate-500 font-medium leading-relaxed italic opacity-80">
                           "{item.traditional}"
                         </p>
                       </div>
-                      <div className="p-2 md:p-3 bg-gradient-to-br from-blue-600/5 to-transparent relative group">
+                      <div className="p-2 md:p-3 bg-blue-50/30 relative group">
                         <div className="flex items-center gap-2 mb-2 md:mb-3">
                           <div className="p-1 px-2 rounded bg-blue-600 text-white text-[8px] md:text-[9px] font-semibold uppercase tracking-widest shadow-lg shadow-blue-600/20">MediKloud</div>
                         </div>
-                        <p className="text-[11px] md:text-xs text-blue-50 font-normal leading-relaxed relative z-10">
+                           <p className="text-[11px] md:text-xs text-blue-900 font-normal leading-relaxed relative z-10">
                           {item.medikloud}
                         </p>
                       </div>
@@ -362,36 +410,66 @@ export function WhyItWorks() {
                       {/* Metric Section */}
                       <div className="lg:w-[30%] space-y-0.5">
                         <div className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-                          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-500">Impact Profile</span>
+                          <span className={`w-1.5 h-1.5 rounded-full ${
+                            activeData.themeColor === 'blue' ? 'bg-blue-500' :
+                            activeData.themeColor === 'emerald' ? 'bg-emerald-500' :
+                            activeData.themeColor === 'indigo' ? 'bg-indigo-500' :
+                            'bg-purple-500'
+                          } animate-pulse`} />
+                          <span className={`text-[10px] font-semibold uppercase tracking-[0.2em] ${
+                            activeData.themeColor === 'blue' ? 'text-blue-500' :
+                            activeData.themeColor === 'emerald' ? 'text-emerald-500' :
+                            activeData.themeColor === 'indigo' ? 'text-indigo-500' :
+                            'text-purple-500'
+                          }`}>Impact Profile</span>
                         </div>
-                        <h4 className="text-base md:text-lg font-semibold text-white tracking-tight leading-[1.1]">
+                        <h4 className="text-base md:text-lg font-semibold text-slate-900 tracking-tight leading-[1.1]">
                           {activeData.metric}
                         </h4>
                       </div>
 
                       {/* Split View Comparison */}
-                      <div className="lg:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-0 border border-slate-800 rounded-2xl overflow-hidden bg-slate-800/50 backdrop-blur-sm">
+                      <div className="lg:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-0 border border-slate-100 rounded-2xl overflow-hidden bg-white shadow-sm">
                         
                         {/* Traditional Pane */}
-                        <div className="p-2 md:p-3 border-b md:border-b-0 md:border-r border-slate-800 group">
+                        <div className="p-2 md:p-3 border-b md:border-b-0 md:border-r border-slate-100 group">
                           <div className="flex items-center gap-2 mb-2 md:mb-3">
-                            <div className="p-1 px-2 rounded bg-slate-700/50 text-slate-400 text-[8px] md:text-[9px] font-bold uppercase tracking-widest">Traditional</div>
+                            <div className="p-1 px-2 rounded bg-slate-100 text-slate-500 text-[8px] md:text-[9px] font-bold uppercase tracking-widest">Traditional</div>
                           </div>
-                          <p className="text-[11px] md:text-xs text-slate-400 font-medium leading-relaxed italic opacity-80">
+                          <p className="text-[11px] md:text-xs text-slate-500 font-medium leading-relaxed italic opacity-80">
                             "{activeData.traditional}"
                           </p>
                         </div>
 
                         {/* High-Growth Pane */}
-                        <div className="p-2 md:p-3 bg-gradient-to-br from-blue-600/5 to-transparent relative group">
+                        <div className={`p-2 md:p-3 relative group transition-colors duration-500 ${
+                          activeData.themeColor === 'blue' ? 'bg-blue-50/30' :
+                          activeData.themeColor === 'emerald' ? 'bg-emerald-50/30' :
+                          activeData.themeColor === 'indigo' ? 'bg-indigo-50/30' :
+                          'bg-purple-50/30'
+                        }`}>
                           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <CheckCircle2 className="w-10 h-10 md:w-12 md:h-12 text-blue-500" />
+                            <CheckCircle2 className={`w-10 h-10 md:w-12 md:h-12 ${
+                              activeData.themeColor === 'blue' ? 'text-blue-500' :
+                              activeData.themeColor === 'emerald' ? 'text-emerald-500' :
+                              activeData.themeColor === 'indigo' ? 'text-indigo-500' :
+                              'text-purple-500'
+                            }`} />
                           </div>
                           <div className="flex items-center gap-2 mb-2 md:mb-3">
-                            <div className="p-1 px-2 rounded bg-blue-600 text-white text-[8px] md:text-[9px] font-bold uppercase tracking-widest shadow-lg shadow-blue-600/20 animate-pulse">MediKloud</div>
+                            <div className={`p-1 px-2 rounded ${
+                              activeData.themeColor === 'blue' ? 'bg-blue-600' :
+                              activeData.themeColor === 'emerald' ? 'bg-emerald-600' :
+                              activeData.themeColor === 'indigo' ? 'bg-indigo-600' :
+                              'bg-purple-600'
+                            } text-white text-[8px] md:text-[9px] font-bold uppercase tracking-widest shadow-lg transition-colors duration-500`}>MediKloud</div>
                           </div>
-                          <p className="text-[11px] md:text-xs text-blue-50 font-normal leading-relaxed relative z-10">
+                          <p className={`text-[11px] md:text-xs ${
+                            activeData.themeColor === 'blue' ? 'text-blue-900' :
+                            activeData.themeColor === 'emerald' ? 'text-emerald-900' :
+                            activeData.themeColor === 'indigo' ? 'text-indigo-900' :
+                            'text-purple-900'
+                          } font-medium leading-relaxed relative z-10`}>
                             {activeData.medikloud}
                           </p>
                         </div>
@@ -402,8 +480,8 @@ export function WhyItWorks() {
                   </motion.div>
                 </AnimatePresence>
               </div>
-            </div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
