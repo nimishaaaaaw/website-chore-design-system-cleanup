@@ -18,25 +18,25 @@ export function MarqueeSection() {
             gradientWidth={100}
             autoFill={true}
           >
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               AI Prescription Reader
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               Drug Discovery
             </div>
-            <div className="mx-3 px-5 py-2 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-2 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               Clinical Decision Support
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               Drug Interaction Checker
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               Demand Forecasting
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               Fraud Prevention
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               Voice to Text Translation
             </div>
           </Marquee>
@@ -53,25 +53,25 @@ export function MarqueeSection() {
             gradientWidth={100}
             autoFill={true}
           >
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               Imaging Analysis
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               Lab Automation
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               AI Inventory Management
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               AI Billing Agent
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               AI Discharge Agent
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               Health Assistant
             </div>
-            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-normal text-gray-500">
+            <div className="mx-3 px-5 py-3 bg-white rounded-full text-base md:text-lg font-medium text-slate-500">
               Test Recommendation Engine
             </div>
           </Marquee>

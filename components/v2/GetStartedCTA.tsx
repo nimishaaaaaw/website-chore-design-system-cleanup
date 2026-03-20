@@ -38,7 +38,7 @@ export function GetStartedCTA() {
   return (
     <section
       id="get-started-cta"
-      className="relative w-full py-16 md:py-24 flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900"
+      className="relative w-full py-12 md:py-16 flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
@@ -71,14 +71,14 @@ export function GetStartedCTA() {
           </span>
         </h2>
 
-        <p className="text-base md:text-lg text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
+        <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed max-w-4xl mx-auto">
           Stop leaving money on the table. Book a free 30-minute call to discuss actionable ways to improve your pharmacy&apos;s efficiency and unlock hidden profit potential—zero commitment, total clarity.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/#contact"
-            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold rounded-2xl shadow-2xl shadow-cyan-900/20 hover:scale-105 transition-all duration-300 overflow-hidden whitespace-nowrap"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-accent text-white font-bold rounded-2xl shadow-2xl shadow-cyan-900/20 hover:scale-105 transition-all duration-300 overflow-hidden whitespace-nowrap"
           >
             <span className="relative z-10">Book Free Demo</span>
             <svg className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>

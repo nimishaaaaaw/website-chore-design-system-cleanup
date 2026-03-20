@@ -5,8 +5,10 @@ import './globals.css'
 import { ScrollIndicator } from '@/components/scroll-indicator'
 
 const poppins = Poppins({
+  weight: ['400', '600', '700', '900'],
   subsets: ['latin'],
-  weight: ['400', '700']
+  variable: '--font-poppins',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {

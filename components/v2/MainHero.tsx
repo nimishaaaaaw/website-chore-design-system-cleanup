@@ -12,7 +12,7 @@ export function MainHero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-[90px] pb-4 md:pt-[110px] md:pb-8">
       {/* Base gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-blue-50/50 to-white z-[-1]" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
 
       {/* Interactive Medical Particle Canvas */}
       <ParticleNetwork />
@@ -29,6 +29,20 @@ export function MainHero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center max-w-4xl mx-auto">
 
+          {/* Eyebrow — above the h1, not inside it */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.06 }}
+            className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8"
+          >
+            <span className="h-[2px] w-12 sm:w-20 bg-gradient-eyebrow-r rounded-full opacity-70" />
+            <span className="text-[11px] sm:text-[13px] font-semibold uppercase tracking-[0.15em] text-blue-600">
+              India&apos;s First · Zero Capex · Fully Managed
+            </span>
+            <span className="h-[2px] w-12 sm:w-20 bg-gradient-eyebrow-l rounded-full opacity-70" />
+          </motion.div>
+
           {/* ── H1 ── */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -36,15 +50,9 @@ export function MainHero() {
             transition={{ duration: 0.6, delay: 0.08 }}
             className="mb-5 md:mb-8"
           >
-            {/* Kicker with fading lines */}
-            <span className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-              <span className="h-[2px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-blue-500 rounded-full opacity-70" />
-              <span className="text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.15em] text-blue-600">
-                India&apos;s First · Zero Capex · Fully Managed
-              </span>
-              <span className="h-[2px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-blue-500 rounded-full opacity-70" />
-            </span>
-            <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-black leading-[1.1] tracking-tighter md:tracking-[-0.03em] bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600 bg-clip-text text-transparent mb-4 md:mb-6">
+            <span
+              className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-black leading-[1.1] tracking-tighter md:tracking-[-0.03em] bg-gradient-display bg-clip-text text-transparent mb-4 md:mb-6"
+            >
               Building Inhouse Pharmacies
             </span>
             <span className="block text-[1.5rem] sm:text-[2rem] md:text-[2.25rem] font-bold leading-[1.2] tracking-[-0.02em] text-slate-700">
@@ -71,7 +79,7 @@ export function MainHero() {
           >
             <Link
               href="/#contact"
-              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-md shadow-blue-600/15 hover:shadow-lg hover:shadow-blue-600/20 hover:-translate-y-0.5 transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-semibold rounded-2xl shadow-btn hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             >
               <Phone size={15} className="opacity-80" />
               Book a Demo

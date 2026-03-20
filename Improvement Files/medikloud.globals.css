@@ -311,7 +311,7 @@
   /* Primary — gradient on white/light sections */
   .btn-primary {
     @apply btn-lg text-white;
-    background-image: var(--gradient-action);
+    background: var(--gradient-action);
     box-shadow: var(--shadow-btn);
   }
   .btn-primary:hover { opacity: 0.92; }
@@ -341,7 +341,7 @@
   /* Dark section CTA — cyan→blue gradient */
   .btn-dark-cta {
     @apply btn-lg text-white font-bold;
-    background-image: var(--gradient-accent);
+    background: var(--gradient-accent);
     box-shadow: var(--shadow-glow);
   }
   .btn-dark-cta:hover { opacity: 0.92; }
@@ -349,7 +349,7 @@
   /* Nav CTA — smaller, same gradient */
   .btn-nav {
     @apply btn px-5 py-2 text-sm text-white;
-    background-image: var(--gradient-action);
+    background: var(--gradient-action);
   }
 
   /* ── CARDS ───────────────────────────────────────────────── */
@@ -368,7 +368,7 @@
   /* Tinted — brand gradient bg, indigo border */
   .card-tinted {
     @apply rounded-2xl p-6;
-    background-image: var(--gradient-tinted);
+    background: var(--gradient-tinted);
     border: 1px solid var(--indigo-200);
   }
 
@@ -462,11 +462,11 @@
   .shadow-float-brand { box-shadow: var(--shadow-float); }
 
   /* Gradient backgrounds as utilities */
-  .bg-gradient-action  { background-image: var(--gradient-action); }
-  .bg-gradient-display { background-image: var(--gradient-display); }
-  .bg-gradient-dark    { background-image: var(--gradient-dark); }
-  .bg-gradient-tinted  { background-image: var(--gradient-tinted); }
-  .bg-gradient-hero    { background-image: var(--gradient-hero); }
+  .bg-gradient-action  { background: var(--gradient-action); }
+  .bg-gradient-display { background: var(--gradient-display); }
+  .bg-gradient-dark    { background: var(--gradient-dark); }
+  .bg-gradient-tinted  { background: var(--gradient-tinted); }
+  .bg-gradient-hero    { background: var(--gradient-hero); }
 
   /* Prevent text selection on interactive UI elements */
   .no-select { user-select: none; -webkit-user-select: none; }
@@ -513,11 +513,12 @@
 @media (prefers-reduced-motion: reduce) {
   .blob-blue,
   .blob-indigo,
-  .blob-violet,
-  .animate-float-slow,
-  .animate-float-medium,
-  .animate-float-slower {
-    animation: none !important;
+  .blob-violet {
+    animation: none;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

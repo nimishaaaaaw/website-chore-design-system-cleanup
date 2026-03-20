@@ -26,11 +26,11 @@ export default function PageV2() {
         {/* 1. Hero */}
         <MainHero />
 
-        {/* 2. Problem */}
-        <ProblemSection />
-
-        {/* 3. Stats strip */}
+        {/* 2. Stats strip */}
         <Stats />
+
+        {/* 3. Problem */}
+        <ProblemSection />
 
         {/* 4. Combined Persona + ROI (Choose your Setup) */}
         <PersonaROISection />

@@ -6,12 +6,12 @@ import { PROBLEM_STATS as STATS } from './v2-data';
 
 export function ProblemSection() {
   return (
-    <section className="bg-white border-y border-slate-100 py-10 md:py-14 font-sans">
+    <section className="bg-white border-y border-slate-100 py-10 md:py-14">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header — one line */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-black text-slate-900 leading-tight">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
             Your hospital is losing{' '}
             <span className="text-blue-600">30–40%</span>{' '}
             of pharmacy revenue — silently.

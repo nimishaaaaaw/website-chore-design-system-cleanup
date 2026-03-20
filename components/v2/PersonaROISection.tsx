@@ -214,7 +214,7 @@ export function PersonaROISection() {
   }
 
   return (
-    <section id="roi-section" className="relative pt-6 pb-8 md:pt-8 md:pb-10 bg-[#fafafa] border-y border-slate-200 overflow-hidden">
+    <section id="roi-section" className="relative pt-6 pb-8 md:pt-8 md:pb-10 bg-slate-50 border-y border-slate-200 overflow-hidden">
       {/* Sophisticated background gradient mesh */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-[#fafafa] to-[#fafafa] pointer-events-none" />
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[100px] pointer-events-none opacity-50" />
@@ -224,10 +224,10 @@ export function PersonaROISection() {
 
         {/* ── HEADER ──────────────────────────────────── */}
         <div className="text-center mb-6">
-          <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.3em] text-blue-600 mb-2">
+          <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.3em] text-blue-600 mb-2">
             uncover hidden revenue streams and operational savings.
           </p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-[1.1]">
             Choose Your Setup
           </h2>
         </div>
@@ -273,11 +273,11 @@ export function PersonaROISection() {
                       </div>
 
                       <div className="flex-1">
-                        <p className={`text-[10px] font-bold uppercase tracking-widest leading-none mb-0.5 ${isActive ? activeTextClass : 'text-slate-400'
+                        <p className={`text-[10px] font-bold uppercase tracking-widest leading-tight mb-0.5 ${isActive ? activeTextClass : 'text-slate-400'
                           }`}>
                           {group.category}
                         </p>
-                        <h3 className={`text-xs font-bold leading-snug ${isActive ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'
+                        <h3 className={`text-sm font-semibold leading-snug ${isActive ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'
                           }`}>
                           {opt.label}
                         </h3>

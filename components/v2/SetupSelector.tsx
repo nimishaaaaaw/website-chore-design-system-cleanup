@@ -104,7 +104,7 @@ export function SetupSelector() {
         
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-6 md:mb-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
             Select Your Setup
           </h2>
           <p className="mt-3 text-sm md:text-base text-slate-600 font-medium">

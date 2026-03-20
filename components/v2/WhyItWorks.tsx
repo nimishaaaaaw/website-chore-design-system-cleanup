@@ -172,7 +172,7 @@ export function WhyItWorks() {
   return (
     <section 
       ref={containerRef} 
-      className="relative h-[400vh] bg-[#FAFAFC] pt-12 pb-12"
+      className="relative h-[400vh] bg-slate-50 pt-12 pb-12"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
@@ -184,13 +184,13 @@ export function WhyItWorks() {
           {/* Header Section: Center-aligned stacking with no wrapping */}
           <div className="flex flex-col items-center text-center gap-2 md:gap-3 relative z-20">
             <div className="space-y-1.5 flex flex-col items-center">
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-[1.1] whitespace-nowrap">
-                The advantage Apollo has. 
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight leading-[1.1] whitespace-nowrap">
+                The advantage Apollo has.{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 ml-2">
                   Now available to you.
                 </span>
               </h2>
-              <p className="text-slate-500 text-[10px] md:text-xs font-semibold leading-relaxed whitespace-nowrap">
+              <p className="text-slate-500 text-[10px] md:text-xs font-normal leading-relaxed">
                 Apollo wins because of scale, not luck. We give independent hospitals the exact same operating infrastructure.
               </p>
             </div>
@@ -243,7 +243,9 @@ export function WhyItWorks() {
                         <div className="flex-shrink-0 relative w-10 h-10 flex items-center justify-center">
                         {isActive && (
                           <motion.div 
-                            layoutId="iconHighlight"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
                             className="absolute inset-0 bg-blue-600 rounded-xl shadow-lg shadow-blue-600/20"
                             transition={springTransition}
                           />
@@ -254,7 +256,7 @@ export function WhyItWorks() {
                       </div>
 
                       <div className="flex flex-col pt-0.5">
-                        <h3 className={`text-base font-black tracking-tight leading-none transition-colors duration-500 mb-1.5 ${isActive ? 'text-slate-900' : 'text-slate-500'}`}>
+                        <h3 className={`text-sm font-semibold tracking-tight leading-none transition-colors duration-500 mb-1.5 ${isActive ? 'text-slate-900' : 'text-slate-500'}`}>
                           {item.title}
                         </h3>
                         <p className={`text-[10px] font-bold uppercase tracking-wider transition-colors duration-500 ${isActive ? 'text-blue-600' : 'text-slate-400'}`}>
@@ -316,16 +318,16 @@ export function WhyItWorks() {
                     <div className="lg:w-[30%] space-y-1">
                       <div className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Impact Profile</span>
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-500">Impact Profile</span>
                       </div>
-                      <h4 className="text-lg md:text-xl font-black text-white tracking-tighter leading-[1.1]">
+                      <h4 className="text-lg md:text-xl font-semibold text-white tracking-tight leading-[1.1]">
                         {item.metric}
                       </h4>
                     </div>
                     <div className="lg:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-0 border border-slate-800 rounded-2xl overflow-hidden bg-slate-800/50 backdrop-blur-sm">
                       <div className="p-2 md:p-3 border-b md:border-b-0 md:border-r border-slate-800 group">
                         <div className="flex items-center gap-2 mb-2 md:mb-3">
-                          <div className="p-1 px-2 rounded bg-slate-700/50 text-slate-400 text-[8px] md:text-[9px] font-black uppercase tracking-widest">Traditional</div>
+                          <div className="p-1 px-2 rounded bg-slate-700/50 text-slate-400 text-[8px] md:text-[9px] font-semibold uppercase tracking-widest">Traditional</div>
                         </div>
                         <p className="text-[11px] md:text-xs text-slate-400 font-medium leading-relaxed italic opacity-80">
                           "{item.traditional}"
@@ -333,9 +335,9 @@ export function WhyItWorks() {
                       </div>
                       <div className="p-2 md:p-3 bg-gradient-to-br from-blue-600/5 to-transparent relative group">
                         <div className="flex items-center gap-2 mb-2 md:mb-3">
-                          <div className="p-1 px-2 rounded bg-blue-600 text-white text-[8px] md:text-[9px] font-black uppercase tracking-widest shadow-lg shadow-blue-600/20">MediKloud</div>
+                          <div className="p-1 px-2 rounded bg-blue-600 text-white text-[8px] md:text-[9px] font-semibold uppercase tracking-widest shadow-lg shadow-blue-600/20">MediKloud</div>
                         </div>
-                        <p className="text-[11px] md:text-xs text-blue-50 font-semibold leading-relaxed relative z-10">
+                        <p className="text-[11px] md:text-xs text-blue-50 font-normal leading-relaxed relative z-10">
                           {item.medikloud}
                         </p>
                       </div>
@@ -361,9 +363,9 @@ export function WhyItWorks() {
                       <div className="lg:w-[30%] space-y-0.5">
                         <div className="flex items-center gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Impact Profile</span>
+                          <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-500">Impact Profile</span>
                         </div>
-                        <h4 className="text-base md:text-lg font-black text-white tracking-tighter leading-[1.1]">
+                        <h4 className="text-base md:text-lg font-semibold text-white tracking-tight leading-[1.1]">
                           {activeData.metric}
                         </h4>
                       </div>
@@ -374,7 +376,7 @@ export function WhyItWorks() {
                         {/* Traditional Pane */}
                         <div className="p-2 md:p-3 border-b md:border-b-0 md:border-r border-slate-800 group">
                           <div className="flex items-center gap-2 mb-2 md:mb-3">
-                            <div className="p-1 px-2 rounded bg-slate-700/50 text-slate-400 text-[8px] md:text-[9px] font-black uppercase tracking-widest">Traditional</div>
+                            <div className="p-1 px-2 rounded bg-slate-700/50 text-slate-400 text-[8px] md:text-[9px] font-bold uppercase tracking-widest">Traditional</div>
                           </div>
                           <p className="text-[11px] md:text-xs text-slate-400 font-medium leading-relaxed italic opacity-80">
                             "{activeData.traditional}"
@@ -387,9 +389,9 @@ export function WhyItWorks() {
                             <CheckCircle2 className="w-10 h-10 md:w-12 md:h-12 text-blue-500" />
                           </div>
                           <div className="flex items-center gap-2 mb-2 md:mb-3">
-                            <div className="p-1 px-2 rounded bg-blue-600 text-white text-[8px] md:text-[9px] font-black uppercase tracking-widest shadow-lg shadow-blue-600/20 animate-pulse">MediKloud</div>
+                            <div className="p-1 px-2 rounded bg-blue-600 text-white text-[8px] md:text-[9px] font-bold uppercase tracking-widest shadow-lg shadow-blue-600/20 animate-pulse">MediKloud</div>
                           </div>
-                          <p className="text-[11px] md:text-xs text-blue-50 font-semibold leading-relaxed relative z-10">
+                          <p className="text-[11px] md:text-xs text-blue-50 font-normal leading-relaxed relative z-10">
                             {activeData.medikloud}
                           </p>
                         </div>
