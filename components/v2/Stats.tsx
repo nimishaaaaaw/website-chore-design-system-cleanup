@@ -3,19 +3,7 @@
 import { useEffect, useState } from 'react'
 import { TrendingUp, Monitor, Bot, Truck } from 'lucide-react'
 
-const visionStats = [
-  { title: '20–30%', label: 'Increased Pharmacy Profits', icon: TrendingUp, color: 'from-green-500 to-teal-500' },
-  { title: 'Home Delivery', label: '& Automated Refills', icon: Truck, color: 'from-blue-500 to-cyan-500' },
-  { title: 'Free HMS', label: 'Zero-cost hospital software', icon: Monitor, color: 'from-purple-500 to-pink-500' },
-  { title: 'AI-Powered', label: 'Procurement, billing & inventory', icon: Bot, color: 'from-orange-500 to-red-500' },
-]
-
-const particlePositions = Array.from({ length: 20 }, (_, i) => ({
-  left: `${(i * 37) % 100}%`,
-  top: `${(i * 53) % 100}%`,
-  delay: `${(i % 6) * 0.35}s`,
-  duration: `${2 + (i % 4) * 0.5}s`,
-}))
+import { VISION_STATS as visionStats, STATS_PARTICLE_POSITIONS as particlePositions } from './v2-data'
 
 export function Stats() {
   const [visible, setVisible] = useState(false)

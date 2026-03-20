@@ -5,64 +5,7 @@ import { cn } from '@/lib/utils'
 import { Database, Zap, Truck, Smartphone, Hospital, Pill, BarChart3, Target, Globe, Rocket, Monitor, PieChart, Landmark, Link, Clock, Users } from 'lucide-react'
 import { getModernCardTheme } from './theme'
 
-const sidebarSections = [
-  {
-    id: 'clinics',
-    title: 'Internal Losses',
-    content: {
-      heading: 'Stop Losses Before They Happen',
-      description: '15–20% of pharmacy revenue disappears daily to billing gaps, pilferage, and stockouts — before a patient even walks out.',
-      items: [
-        { icon: Database, title: 'Auto Billing Match', description: 'Patients get accurate bills — no overcharges, no disputes' },
-        { icon: Pill, title: 'Stockout Prevention', description: "Doctors' prescriptions fulfilled completely, every time" },
-        { icon: Target, title: 'Expiry Tracking', description: 'Only fresh, safe medicines dispensed to every patient' },
-        { icon: BarChart3, title: 'Full Visibility', description: 'Hospital recovers 15–20% of revenue that was silently bleeding' },
-      ],
-    },
-  },
-  {
-    id: 'mid-hospitals',
-    title: 'Procurement Costs',
-    content: {
-      heading: 'Pay Less for Medicines — From Day One',
-      description: 'Independent hospitals negotiate alone and lose. MediKloud pools demand across its network to unlock pricing only large chains get.',
-      items: [
-        { icon: Globe, title: 'Network Pooling', description: 'Hospital unlocks bulk pricing without being a bulk buyer' },
-        { icon: Landmark, title: 'Institutional Pricing', description: 'Patients pay fair prices — not inflated retail margins' },
-        { icon: PieChart, title: 'Gross Margin Uplift', description: 'Hospital earns more without charging patients a rupee extra' },
-        { icon: Rocket, title: 'Improves With Scale', description: 'Every new partner hospital drives costs down for all' },
-      ],
-    },
-  },
-  {
-    id: 'large-networks',
-    title: 'Prescription Leakage',
-    content: {
-      heading: 'Recover Revenue Lost to Apollo & MedPlus',
-      description: "20–30% of your prescriptions are filled at retail chains — not by patient choice, but because your pharmacy couldn't fulfill in time.",
-      items: [
-        { icon: Link, title: 'Prescription Capture', description: 'Patients get all medicines in one visit — no second stop' },
-        { icon: Truck, title: '~10 Min Delivery', description: 'Medicines reach patients at home, no travel required' },
-        { icon: Hospital, title: 'Full Fulfillment', description: "Doctors' prescriptions dispensed exactly as written, every time" },
-        { icon: Monitor, title: 'Leakage Tracking', description: 'Hospital sees exactly where revenue is walking out the door' },
-      ],
-    },
-  },
-  {
-    id: 'government',
-    title: 'Chronic Refills',
-    content: {
-      heading: 'Turn Chronic Patients Into Recurring Revenue',
-      description: '60–70% of pharmacy revenue is chronic and repeat. Automated reminders bring every refill back to your pharmacy — not the chemist down the road.',
-      items: [
-        { icon: Users, title: 'Chronic Disease Focus', description: 'Patients on long-term care never miss a critical dose' },
-        { icon: Smartphone, title: 'WhatsApp & SMS Alerts', description: 'Reminders in Telugu, Hindi, and English — in their language' },
-        { icon: Zap, title: 'Auto Refill Engine', description: "Doctors' prescribed regimens followed without manual follow-up" },
-        { icon: Clock, title: 'Compounding Revenue', description: 'Hospital builds recurring revenue with every chronic patient added' },
-      ],
-    },
-  },
-]
+import { SOLUTIONS_SECTIONS as sidebarSections } from './v2-data'
 
 const StickySection = React.forwardRef<HTMLDivElement, { section: typeof sidebarSections[0]; isActive: boolean; instanceId: string }>(
   ({ section, isActive, instanceId }, ref) => {
@@ -173,7 +116,7 @@ export function Solutions() {
               {sidebarSections.map((section, index) => (
                 <button
                   key={section.id}
-                  className="group p-4 rounded-xl cursor-pointer py-2 text-left"
+                  className="group p-4 rounded-2xl cursor-pointer py-2 text-left"
                   onClick={() => handleClick(section.id)}
                   aria-controls={`section-${instanceId}-${section.id}`}
                   aria-current={activeSection === index ? 'true' : undefined}

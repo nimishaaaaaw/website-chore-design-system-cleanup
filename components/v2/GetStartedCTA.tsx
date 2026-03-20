@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
+import { v2VisualTokens } from './theme';
 import { StarsBackground } from '@/components/ui/stars-background';
 import { ShootingStars } from '@/components/ui/shooting-stars';
 
@@ -52,7 +53,7 @@ export function GetStartedCTA() {
         {visible && (
           <>
             <StarsBackground starDensity={0.00025} allStarsTwinkle={false} twinkleProbability={0.4} minTwinkleSpeed={2} maxTwinkleSpeed={4} className="pointer-events-none z-0 opacity-60" />
-            <ShootingStars minSpeed={8} maxSpeed={18} minDelay={2500} maxDelay={4500} starColor="#E5F6FF" trailColor="#89D2F6" starWidth={10} starHeight={1.25} className="pointer-events-none z-0 opacity-80" />
+            <ShootingStars minSpeed={8} maxSpeed={18} minDelay={2500} maxDelay={4500} starColor={v2VisualTokens.colors.starColor} trailColor={v2VisualTokens.colors.trailColor} starWidth={10} starHeight={1.25} className="pointer-events-none z-0 opacity-80" />
           </>
         )}
       </div>
@@ -86,7 +87,7 @@ export function GetStartedCTA() {
             <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
           </Link>
 
-          <div className="flex items-center gap-2 text-gray-300 font-medium text-sm backdrop-blur-sm px-4 py-3 rounded-xl bg-white/5 border border-white/10 whitespace-nowrap">
+          <div className="flex items-center gap-2 text-gray-300 font-medium text-sm backdrop-blur-sm px-4 py-3 rounded-2xl bg-white/5 border border-white/10 whitespace-nowrap">
             <svg className="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
             </svg>

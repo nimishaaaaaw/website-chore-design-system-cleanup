@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useRef } from 'react'
+import { v2VisualTokens } from './theme'
 
 interface Particle {
   x: number
@@ -233,9 +234,9 @@ export function ParticleNetwork() {
       // Draw Mouse Cursor Glow (Brighter, wider aura)
       if (mouse.x > 0 && mouse.y > 0 && mouse.x < w && mouse.y < h) {
         const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, MOUSE_RADIUS)
-        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.12)')
-        gradient.addColorStop(0.4, 'rgba(59, 130, 246, 0.04)')
-        gradient.addColorStop(1, 'rgba(59, 130, 246, 0)')
+        gradient.addColorStop(0, `${v2VisualTokens.colors.particleColor}1F`) // 0.12 opacity
+        gradient.addColorStop(0.4, `${v2VisualTokens.colors.particleColor}0F`) // 0.06 opacity
+        gradient.addColorStop(1, 'transparent')
         
         ctx.fillStyle = gradient
         ctx.beginPath()

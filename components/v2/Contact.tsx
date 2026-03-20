@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import { useEffect, useRef, useState } from 'react'
+import { v2VisualTokens } from './theme'
 import { CheckCircle, Zap, Shield, TrendingUp } from 'lucide-react'
 import { StarsBackground } from '@/components/ui/stars-background'
 import { ShootingStars } from '@/components/ui/shooting-stars'
@@ -44,12 +45,12 @@ export function Contact() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-cyan-900/30"></div>
         <div
           className="absolute inset-0 opacity-30 will-change-transform"
-          style={{ background: 'radial-gradient(circle at center, rgba(59, 130, 246, 0.25) 0%, transparent 50%)', transform: `translate3d(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px, 0)` }}
+          style={{ background: `radial-gradient(circle at center, ${v2VisualTokens.colors.backgroundBlue} 0%, transparent 50%)`, transform: `translate3d(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px, 0)` }}
         />
         {visible && (
           <>
             <StarsBackground starDensity={0.00025} allStarsTwinkle={false} twinkleProbability={0.4} minTwinkleSpeed={2} maxTwinkleSpeed={4} className="pointer-events-none z-0 opacity-60" />
-            <ShootingStars minSpeed={8} maxSpeed={18} minDelay={2500} maxDelay={4500} starColor="#E5F6FF" trailColor="#89D2F6" starWidth={10} starHeight={1.25} className="pointer-events-none z-0 opacity-80" />
+            <ShootingStars minSpeed={8} maxSpeed={18} minDelay={2500} maxDelay={4500} starColor={v2VisualTokens.colors.starColor} trailColor={v2VisualTokens.colors.trailColor} starWidth={10} starHeight={1.25} className="pointer-events-none z-0 opacity-80" />
           </>
         )}
       </div>
@@ -120,7 +121,7 @@ export function Contact() {
                     required={field.required}
                     autoComplete={field.name === 'name' ? 'name' : field.name === 'email' ? 'email' : field.name === 'phone' ? 'tel' : undefined}
                     inputMode={field.name === 'phone' ? 'tel' : undefined}
-                    className="w-full px-3.5 py-2 bg-white/10 border border-white/30 rounded-xl text-white text-sm leading-5 placeholder-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:bg-white/20 backdrop-blur-sm"
+                    className="w-full px-3.5 py-2 bg-white/10 border border-white/30 rounded-2xl text-white text-sm leading-5 placeholder-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:bg-white/20 backdrop-blur-sm"
                     placeholder={field.placeholder}
                   />
                 </div>
@@ -133,13 +134,13 @@ export function Contact() {
                   id="message"
                   name="message"
                   rows={3}
-                  className="w-full px-3.5 py-2 bg-white/10 border border-white/30 rounded-xl text-white text-sm leading-5 placeholder-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:bg-white/20 backdrop-blur-sm"
+                  className="w-full px-3.5 py-2 bg-white/10 border border-white/30 rounded-2xl text-white text-sm leading-5 placeholder-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 hover:bg-white/20 backdrop-blur-sm"
                   placeholder="How can we help you?"
                 />
               </div>
               <input type="hidden" name="_redirect" value="https://medikloud.com/thank-you" />
               <p className="text-green-400 text-sm md:text-base font-semibold leading-relaxed" aria-live="polite">{formSubmitted ? 'Thanks for submitting the form. We will get in touch with you shortly.' : ''}</p>
-              <button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3 rounded-xl text-base font-semibold hover:from-blue-500 hover:to-cyan-500 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 relative overflow-hidden group" style={{ animationDelay: '600ms' }}>
+              <button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3 rounded-2xl text-base font-semibold hover:from-blue-500 hover:to-cyan-500 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 relative overflow-hidden group" style={{ animationDelay: '600ms' }}>
                 <span className="relative z-10">Let's Talk</span>
                 <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
               </button>

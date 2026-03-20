@@ -20,29 +20,26 @@ export default function PageV2() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* V2 INDICATOR — remove before launch */}
-      <div className="fixed bottom-4 right-4 z-50 bg-blue-600 text-white text-[10px] font-black px-3 py-1.5 rounded-full shadow-lg uppercase tracking-widest pointer-events-none">
-        V2 Preview
-      </div>
+
 
       <main id="main">
         {/* 1. Hero */}
         <MainHero />
 
-        {/* 2. Stats strip */}
-        <Stats />
-
-        {/* 3. Problem */}
+        {/* 2. Problem */}
         <ProblemSection />
 
-        {/* 4. Combined Persona + ROI (replaces SetupSelector + ROICalculator) */}
+        {/* 3. Stats strip */}
+        <Stats />
+
+        {/* 4. Combined Persona + ROI (Choose your Setup) */}
         <PersonaROISection />
 
-        {/* 5. Social proof marquee */}
-        <MarqueeSection />
-
-        {/* 6. Why it works (summary) */}
+        {/* 5. Why it works (Dynamic Scroll Section) */}
         <WhyItWorks />
+
+        {/* 6. Social proof marquee */}
+        <MarqueeSection />
       </main>
 
       <GetStartedCTA />

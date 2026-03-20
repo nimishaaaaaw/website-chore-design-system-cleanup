@@ -2,11 +2,7 @@
 
 import React from 'react';
 
-const STATS = [
-  { label: 'Internal Bleed',        stat: '15–20%', note: 'Pilferage & missed billing' },
-  { label: 'Prescription Leakage',  stat: '20–30%', note: 'Fills at Apollo, MedPlus, 1mg' },
-  { label: 'No Pharmacy at All',    stat: '25%',    note: 'Every prescription lost to retail' },
-];
+import { PROBLEM_STATS as STATS } from './v2-data';
 
 export function ProblemSection() {
   return (
@@ -15,7 +11,6 @@ export function ProblemSection() {
 
         {/* Header — one line */}
         <div className="text-center mb-8">
-          <span className="text-[11px] font-bold uppercase tracking-widest text-blue-600 mb-3 block">The Problem</span>
           <h2 className="text-2xl md:text-3xl font-black text-slate-900 leading-tight">
             Your hospital is losing{' '}
             <span className="text-blue-600">30–40%</span>{' '}

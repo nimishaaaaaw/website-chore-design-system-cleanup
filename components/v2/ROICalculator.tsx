@@ -119,7 +119,7 @@ export function ROICalculator() {
         <div className="flex flex-col md:flex-row rounded-2xl border border-slate-200 shadow-xl overflow-hidden">
 
           {/* LEFT — INPUTS (40%) */}
-          <div className="w-full md:w-[40%] bg-slate-50 p-5 border-b md:border-b-0 md:border-r border-slate-200 flex flex-col" style={{ minHeight: 440 }}>
+          <div className="w-full md:w-[40%] bg-slate-50 p-5 border-b md:border-b-0 md:border-r border-slate-200 flex flex-col min-h-[440px]">
             <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">
               Your {isClinic ? 'clinic' : 'hospital'} today
             </p>
@@ -127,7 +127,7 @@ export function ROICalculator() {
             <div className="flex flex-col gap-4 flex-1">
 
               {/* Revenue — fixed height wrapper to prevent shift while allowing instant removal */}
-              <div style={{ minHeight: 44 }}>
+              <div className="min-h-[44px]">
                 {hasPharmacy && (
                   <>
                     <div className="flex justify-between mb-1">
@@ -169,7 +169,7 @@ export function ROICalculator() {
               </div>
 
               {/* Inventory section — fixed height wrapper to prevent shift while allowing instant removal */}
-              <div style={{ minHeight: 120 }}>
+              <div className="min-h-[120px]">
                 {hasPharmacy && (
                   <>
                     <div className="flex items-baseline justify-between mb-2">
@@ -216,7 +216,7 @@ export function ROICalculator() {
           </div>
 
           {/* RIGHT — OUTPUTS (60%) */}
-          <div className="w-full md:w-[60%] bg-white p-5 lg:p-8 flex flex-col justify-between" style={{ minHeight: 440 }}>
+          <div className="w-full md:w-[60%] bg-white p-5 lg:p-8 flex flex-col justify-between min-h-[440px]">
 
             {/* Big stat — compact, left-aligned professional style */}
             <div className="flex items-center justify-between px-4 py-3 rounded-xl border border-slate-100 bg-white mb-4 gap-4">

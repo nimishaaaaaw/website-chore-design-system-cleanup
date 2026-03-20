@@ -3,7 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Phone, ShieldCheck, Clock, TrendingUp, Wallet } from 'lucide-react'
+import { ArrowRight, Phone } from 'lucide-react'
+import { HERO_TRUST_BADGES } from './v2-data'
 
 import { ParticleNetwork } from './ParticleNetwork'
 
@@ -38,12 +39,12 @@ export function MainHero() {
             {/* Kicker with fading lines */}
             <span className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
               <span className="h-[2px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-blue-500 rounded-full opacity-70" />
-              <span className="text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.2em] text-blue-600">
+              <span className="text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.15em] text-blue-600">
                 India&apos;s First · Zero Capex · Fully Managed
               </span>
               <span className="h-[2px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-blue-500 rounded-full opacity-70" />
             </span>
-            <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-black leading-[1.1] tracking-[-0.03em] bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600 bg-clip-text text-transparent mb-4 md:mb-6">
+            <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-black leading-[1.1] tracking-tighter md:tracking-[-0.03em] bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600 bg-clip-text text-transparent mb-4 md:mb-6">
               Building Inhouse Pharmacies
             </span>
             <span className="block text-[1.5rem] sm:text-[2rem] md:text-[2.25rem] font-bold leading-[1.2] tracking-[-0.02em] text-slate-700">
@@ -70,7 +71,7 @@ export function MainHero() {
           >
             <Link
               href="/#contact"
-              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-md shadow-blue-600/15 hover:shadow-lg hover:shadow-blue-600/20 hover:-translate-y-0.5 transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-2xl shadow-md shadow-blue-600/15 hover:shadow-lg hover:shadow-blue-600/20 hover:-translate-y-0.5 transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             >
               <Phone size={15} className="opacity-80" />
               Book a Demo
@@ -78,7 +79,7 @@ export function MainHero() {
             </Link>
             <Link
               href="/#features"
-              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-white text-slate-600 font-semibold rounded-xl border border-slate-300 hover:border-blue-300 hover:text-blue-700 hover:shadow-sm transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-white text-slate-600 font-semibold rounded-2xl border border-slate-300 hover:border-blue-300 hover:text-blue-700 hover:shadow-sm transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             >
               See How It Works
               <ArrowRight size={14} className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
@@ -92,22 +93,14 @@ export function MainHero() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-3"
           >
-            <div className="flex items-center gap-2">
-              <Wallet size={14} className="text-emerald-500" />
-              <span className="text-[11px] md:text-[12px] font-semibold text-slate-400 tracking-wide">Zero Capex</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck size={14} className="text-emerald-500" />
-              <span className="text-[11px] md:text-[12px] font-semibold text-slate-400 tracking-wide">Zero Revenue Leakage</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock size={14} className="text-emerald-500" />
-              <span className="text-[11px] md:text-[12px] font-semibold text-slate-400 tracking-wide">Live in 15 Days</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <TrendingUp size={14} className="text-emerald-500" />
-              <span className="text-[11px] md:text-[12px] font-semibold text-slate-400 tracking-wide">Hassle-Free Pharmacy</span>
-            </div>
+            {HERO_TRUST_BADGES.map((badge, idx) => (
+              <div key={idx} className="flex items-center gap-2">
+                <badge.icon size={14} className="text-emerald-500" />
+                <span className="text-[11px] md:text-[12px] font-semibold text-slate-400 tracking-[0.1em] uppercase">
+                  {badge.label}
+                </span>
+              </div>
+            ))}
           </motion.div>
 
           {/* SEO hidden content */}

@@ -52,3 +52,16 @@ export const getModernCardTheme = (sectionId: string) => {
       }
   }
 }
+
+export const v2VisualTokens = {
+  colors: {
+    starColor: '#E5F6FF',
+    trailColor: '#89D2F6',
+    particleColor: '#3B82F6',
+    backgroundBlue: 'rgba(59, 130, 246, 0.25)',
+  },
+  animations: {
+    defaultDuration: '300ms',
+    slowDuration: '500ms',
+  }
+}

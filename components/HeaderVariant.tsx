@@ -59,7 +59,7 @@ export function HeaderVariant({ variant, title }: HeaderProps) {
             <div className="flex-shrink-0 w-48">
               <Link href="#">
                 <Image 
-                  src="/MK_Logo_WOB.webp" 
+                  src="/medikloud-logo-primary.webp" 
                   alt="MediKloud Logo" 
                   width={140} 
                   height={35} 

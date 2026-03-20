@@ -11,7 +11,7 @@ const Header = () => (
         <div className="flex items-center group cursor-pointer">
           <Link href="/">
             <Image
-              src="/MK_Logo_WOB.webp"
+              src="/medikloud-logo-primary.webp"
               alt="MediKloud Logo"
               width={140}
               height={35}

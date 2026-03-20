@@ -40,8 +40,8 @@ export function StackingCard({ card, index }: { card: Card; index: number }) {
     >
       <div className="w-full flex flex-col items-center px-4 sm:px-6 lg:px-8">
         <div
-          className={cn('relative z-10 w-full max-w-6xl rounded-2xl overflow-hidden bg-white transition-all duration-300')}
-          style={{ transform: `translateY(${index * 12}px)`, minHeight: '28rem', willChange: 'transform' }}
+          className={cn('relative z-10 w-full max-w-6xl rounded-2xl overflow-hidden bg-white transition-all duration-300 min-h-[28rem]')}
+          style={{ transform: `translateY(${index * 12}px)`, willChange: 'transform' }}
         >
           <div
             className={cn(

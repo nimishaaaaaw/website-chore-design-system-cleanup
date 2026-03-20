@@ -11,7 +11,7 @@ export function Footer() {
           <div className="lg:col-span-4 space-y-6">
             <Link href="/" className="inline-block transition-transform hover:scale-105 active:scale-95 duration-200">
               <Image 
-                src="/CG_MK_Logo_trimmed.png" 
+                src="/medikloud-logo-primary.webp" 
                 alt="MediKloud Logo" 
                 width={180} 
                 height={36} 

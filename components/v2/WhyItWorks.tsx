@@ -1,289 +1,410 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useMotionValueEvent, AnimatePresence, useSpring, useTransform } from 'framer-motion';
 import { 
-  TrendingUp, 
   Zap, 
-  Globe, 
-  RefreshCcw, 
-  ArrowDown, 
-  ArrowUp,
+  ShieldCheck, 
+  Network, 
+  Repeat, 
+  ArrowUpRight, 
+  ArrowDownRight,
+  Mouse,
   AlertCircle,
-  CheckCircle2,
-  LucideIcon
+  CheckCircle2
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { useEffect, useCallback, useRef } from 'react';
 
-interface Reason {
+interface TagItem {
+  label: string;
+  dir: 'up' | 'down';
+  color: string;
+}
+
+interface ContentItem {
+  id: number;
+  icon: React.ReactNode;
   title: string;
   subtitle: string;
   description: string;
-  tags: { label: string; dir: 'up' | 'down'; color: string }[];
-  icon: LucideIcon;
-  comparison: {
-    key: string;
-    without: string;
-    with: string;
-  };
+  tags: TagItem[];
+  metric: string;
+  traditional: string;
+  medikloud: string;
 }
 
-const reasons: Reason[] = [
+const CONTENT: ContentItem[] = [
   {
-    title: "30-40%",
-    subtitle: "Revenue recovered",
-    description: "From leakage you already have through automated tracking.",
+    id: 0,
+    icon: <Zap className="w-5 h-5" />,
+    title: "Day 1",
+    subtitle: "Operations infrastructure",
+    description: "Staff deployed, tech integrated, inventory live — before you've spent a single rupee.",
     tags: [
-      { label: "Leakage", dir: "down", color: "text-rose-600 bg-rose-50 border-rose-100" },
-      { label: "Margins", dir: "up", color: "text-emerald-600 bg-emerald-50 border-emerald-100" }
+      { label: "Capex risk", dir: "down", color: "text-blue-600 bg-blue-50 ring-1 ring-blue-500/10" }, 
+      { label: "Speed", dir: "up", color: "text-emerald-600 bg-emerald-50 ring-1 ring-emerald-500/10" }
     ],
-    icon: TrendingUp,
-    comparison: {
-      key: "30-40% avg. pharmacy revenue recovered",
-      without: "Losses go undetected until the audit. By then, it's gone.",
-      with: "Billing, inventory, and dispense are reconciled automatically — every day."
-    }
+    metric: "Go live in under 7 days",
+    traditional: "Setting up a compliant pharmacy takes months, lakhs in capital, and full management attention.",
+    medikloud: "We've already built the playbook. We deploy it into your hospital — you approve, we execute."
   },
   {
-    title: "Real-time",
-    subtitle: "Operational control",
-    description: "Stop losses before month-end with proactive inventory logic.",
+    id: 1,
+    icon: <ShieldCheck className="w-5 h-5" />,
+    title: "Zero",
+    subtitle: "Leakage tolerance",
+    description: "Every billing event, every dispense, and every inventory movement — reconciled daily.",
     tags: [
-      { label: "Stockouts", dir: "down", color: "text-rose-600 bg-rose-50 border-rose-100" },
-      { label: "Expiry", dir: "down", color: "text-rose-600 bg-rose-50 border-rose-100" }
+      { label: "Pilferage", dir: "down", color: "text-emerald-600 bg-emerald-50 ring-1 ring-emerald-500/10" }, 
+      { label: "Billing gaps", dir: "down", color: "text-emerald-600 bg-emerald-50 ring-1 ring-emerald-500/10" }
     ],
-    icon: Zap,
-    comparison: {
-      key: "Zero-latency inventory visibility",
-      without: "Managers rely on lagging reports, leading to stockouts.",
-      with: "Predictive alerts flag low stock and near-expiry items weeks in advance."
-    }
+    metric: "30-40% avg. revenue recovered",
+    traditional: "Losses surface at the month-end review. By the time you see the gap, the money is already gone.",
+    medikloud: "Billing, inventory, and dispense are cross-checked automatically. Discrepancies get caught the same day."
   },
   {
-    title: "Network",
-    subtitle: "Lower medicine costs",
-    description: "Prices no single hospital can get on their own.",
+    id: 2,
+    icon: <Network className="w-5 h-5" />,
+    title: "Chain",
+    subtitle: "Procurement pricing",
+    description: "We buy medicines at the scale of a massive network. Your hospital keeps the upgraded margin.",
     tags: [
-      { label: "COGS", dir: "down", color: "text-rose-600 bg-rose-50 border-rose-100" },
-      { label: "Gross margin", dir: "up", color: "text-emerald-600 bg-emerald-50 border-emerald-100" }
+      { label: "COGS", dir: "down", color: "text-blue-600 bg-blue-50 ring-1 ring-blue-500/10" }, 
+      { label: "Gross margin", dir: "up", color: "text-blue-600 bg-blue-50 ring-1 ring-blue-500/10" }
     ],
-    icon: Globe,
-    comparison: {
-      key: "15% average reduction in procurement spend",
-      without: "Individual hospitals lack bargaining power for market rates.",
-      with: "Access wholesale pricing tiers reserved for massive chains."
-    }
+    metric: "15% avg. boost in gross margins",
+    traditional: "You rely on standard distributor rates — the exact same price every independent hospital pays.",
+    medikloud: "MediKloud handles procurement for our entire network. You enjoy chain-level profitability without the purchasing hassle."
   },
   {
+    id: 3,
+    icon: <Repeat className="w-5 h-5" />,
     title: "Recurring",
-    subtitle: "Chronic refill revenue",
-    description: "One prescription → years of predictable returns.",
+    subtitle: "Revenue that compounds",
+    description: "A chronic patient who refills every month is worth 12x a standard one-time hospital visit.",
     tags: [
-      { label: "Retention", dir: "up", color: "text-emerald-600 bg-emerald-50 border-emerald-100" },
-      { label: "LTV", dir: "up", color: "text-emerald-600 bg-emerald-50 border-emerald-100" }
+      { label: "Retention", dir: "up", color: "text-purple-600 bg-purple-50 ring-1 ring-purple-500/10" }, 
+      { label: "Patient LTV", dir: "up", color: "text-purple-600 bg-purple-50 ring-1 ring-purple-500/10" }
     ],
-    icon: RefreshCcw,
-    comparison: {
-      key: "3x increase in patient lifetime value",
-      without: "Chronic patients drift away to local pharmacies for maintenance.",
-      with: "Automated refill reminders keep patients returning to your pharmacy."
-    }
+    metric: "3x increase in patient LTV",
+    traditional: "Chronic patients drift to the nearest retail chemist after discharge. You get absolutely nothing.",
+    medikloud: "Automated WhatsApp and SMS reminders bring them back to your pharmacy — month after month."
   }
 ];
 
-export function WhyItWorks() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState(0);
+// Refined spring physics
+const springTransition = { type: "spring", stiffness: 350, damping: 35 } as const;
+const contentSpring = { type: "spring", stiffness: 450, damping: 40 } as const;
 
-  // Scroll tracking logic
+const CardProgress = ({ progress, index, total }: { progress: any, index: number, total: number }) => {
+  const scaleX = useTransform(
+    progress,
+    [index / total, (index + 1) / total],
+    [0, 1],
+    { clamp: true }
+  );
+  
+  return (
+    <div className="absolute top-0 left-0 right-0 h-[3px] bg-slate-100/30 overflow-hidden">
+      <motion.div 
+        className="absolute inset-y-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-indigo-600 z-10 origin-left"
+        style={{ scaleX }}
+      />
+    </div>
+  );
+};
+
+export function WhyItWorks() {
+  const containerRef = useRef<HTMLElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start 80px", "end end"]
   });
 
-  // Map scroll (0 to 1) to activeTab (0 to 3)
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    // Divide 1 by the number of reasons (4)
-    const index = Math.min(
-      Math.floor(v * reasons.length),
-      reasons.length - 1
-    );
-    if (index !== activeTab) {
-      setActiveTab(index);
+  // Industry standard: Use a spring-smoothed value for general visual transitions (optional)
+  const smoothProgress = useSpring(scrollYProgress, { 
+    stiffness: 80, 
+    damping: 30,
+    restDelta: 0.001 
+  });
+
+  // Synchronize index switching with raw scroll position to eliminate activation delay
+  useMotionValueEvent(scrollYProgress, "change", (latest: number) => {
+    // Precise scroll mapping to prevent edge flickering
+    const index = Math.min(Math.floor(latest * CONTENT.length), CONTENT.length - 1);
+    if (index !== activeIndex) {
+      setActiveIndex(index);
     }
   });
 
+  const activeData = CONTENT[activeIndex];
+
+  // Function to smoothly scroll to the exact area that triggers a specific card
+  const scrollToCard = (index: number) => {
+    if (!containerRef.current) return;
+    
+    const container = containerRef.current;
+    // Calculate the total scrollable distance of the container
+    const scrollableDistance = container.clientHeight - window.innerHeight;
+    
+    // Calculate the progress threshold for the requested card. 
+    // We target the midpoint (0.5) of the index's range to ensure stable activation.
+    const targetProgress = (index + 0.5) / CONTENT.length;
+    
+    // Calculate the final Y pixel position on the page
+    const targetY = container.offsetTop + (scrollableDistance * targetProgress);
+
+    window.scrollTo({
+      top: targetY,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <div ref={containerRef} className="relative h-[400vh] w-full bg-white border-y border-slate-100">
-      <section className="sticky top-0 h-screen flex items-center overflow-hidden font-sans">
-        <div className="max-w-7xl mx-auto px-4 md:px-12 w-full">
-          <div className="max-w-6xl mx-auto space-y-6 md:space-y-8">
-            
-            {/* Header - Sleek & Compact */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div className="text-center md:text-left max-w-2xl">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-600 mb-2 block font-sans">
-                  Why MediKloud?
+    <section 
+      ref={containerRef} 
+      className="relative h-[400vh] bg-[#FAFAFC] pt-12 pb-12"
+    >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+
+      {/* Sticky Frame: High-Fidelity Balanced Offset (top-16) to clear site header (64px) */}
+      <div className="sticky top-16 h-[calc(100vh-64px)] flex flex-col justify-center overflow-hidden px-6 sm:px-12 md:px-16">
+        <div className="max-w-6xl mx-auto w-full flex flex-col gap-6 md:gap-10 relative z-10">
+          
+          {/* Header Section: Center-aligned stacking with no wrapping */}
+          <div className="flex flex-col items-center text-center gap-2 md:gap-3 relative z-20">
+            <div className="space-y-1.5 flex flex-col items-center">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-[1.1] whitespace-nowrap">
+                The advantage Apollo has. 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 ml-2">
+                  Now available to you.
                 </span>
-                <h2 className="text-2xl md:text-3xl lg:text-[34px] font-black tracking-tight text-slate-900 leading-tight mb-4">
-                  Built for hospitals that <span className="text-blue-600">want to stop losing</span>
-                </h2>
-                <p className="text-slate-500 text-sm md:text-md leading-relaxed font-medium max-w-xl">
-                  Every revenue stream you're missing has a specific cause. Here's how we close each one.
-                </p>
-              </div>
-              
-              <div className="hidden md:flex items-center gap-3 text-[10px] text-slate-400 font-bold uppercase tracking-widest bg-slate-50 px-4 py-2 rounded-full border border-slate-100 shadow-sm transition-all duration-300">
-                <div className="flex gap-1">
-                  {[0, 1, 2, 3].map((i) => (
-                    <div 
-                      key={i} 
-                      className={cn(
-                        "w-1.5 h-1.5 rounded-full transition-all duration-300",
-                        activeTab === i ? "bg-blue-600 scale-125" : "bg-slate-200"
-                      )} 
-                    />
-                  ))}
-                </div>
-                Keep scrolling to explore
-              </div>
+              </h2>
+              <p className="text-slate-500 text-[10px] md:text-xs font-semibold leading-relaxed whitespace-nowrap">
+                Apollo wins because of scale, not luck. We give independent hospitals the exact same operating infrastructure.
+              </p>
             </div>
 
-            {/* 4-Column Grid - Compact Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {reasons.map((item, idx) => (
-                <div 
-                  key={idx}
-                  onClick={() => {
-                    const rect = containerRef.current?.getBoundingClientRect();
-                    const top = window.pageYOffset + (rect?.top || 0);
-                    const height = containerRef.current?.scrollHeight || 0;
-                    const targetScroll = top + (idx / reasons.length) * height + 10;
-                    window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-                  }}
-                  className={cn(
-                    "relative p-4 md:p-5 rounded-2xl bg-white border transition-all duration-500 cursor-pointer flex flex-col h-full overflow-hidden group",
-                    activeTab === idx 
-                      ? 'border-blue-500 shadow-[0_8px_16px_-6px_rgba(59,130,246,0.1)]' 
-                      : 'border-slate-100 hover:border-blue-200'
-                  )}
+          </div>
+
+          {/* Top Interactive Group (Cards + Dashboard) with specialized narrow gap to visually link them */}
+          <div className="flex flex-col gap-1 md:gap-1.5 relative z-10">
+            {/* Premium Card Track */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 relative z-10">
+            {CONTENT.map((item, idx) => {
+              const isActive = activeIndex === idx;
+              if (isMobile && !isActive) return null;
+
+              return (
+                <motion.div 
+                  key={item.id}
+                  onClick={() => scrollToCard(idx)}
+                  className="relative group cursor-pointer"
                 >
-                  {/* Progress Line on active card */}
-                  {activeTab === idx && (
-                    <motion.div 
-                      layoutId="scrollProgress"
-                      className="absolute top-0 left-0 right-0 h-1 bg-blue-500"
+                  <motion.div
+                    animate={{
+                      opacity: isActive ? 1 : 0.5,
+                      scale: isActive ? 1 : 0.97,
+                      y: isActive ? 0 : 4,
+                      backgroundColor: isActive ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0.4)",
+                      borderColor: isActive ? "rgba(37, 99, 235, 0.3)" : "rgba(226, 232, 240, 0.5)",
+                      boxShadow: isActive ? "0 20px 40px -12px rgba(37, 99, 235, 0.15)" : "0 0px 0px 0px rgba(0, 0, 0, 0)",
+                    }}
+                    transition={springTransition}
+                    className={`
+                      relative p-6 md:p-7 rounded-3xl border h-full min-h-[220px] flex flex-col overflow-hidden backdrop-blur-md group-hover:bg-white/60
+                    `}
+                  >
+                    {/* Active Background Glow */}
+                    {isActive && (
+                      <>
+                        <motion.div 
+                          layoutId="cardGlow"
+                          className="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none" 
+                          transition={springTransition}
+                        />
+                        <CardProgress progress={scrollYProgress} index={idx} total={CONTENT.length} />
+                      </>
+                    )}
+
+                    <div className="flex flex-col h-full relative z-10 gap-5">
+                      {/* Unified Header: Icon + Titles aligned horizontally */}
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 relative w-10 h-10 flex items-center justify-center">
+                        {isActive && (
+                          <motion.div 
+                            layoutId="iconHighlight"
+                            className="absolute inset-0 bg-blue-600 rounded-xl shadow-lg shadow-blue-600/20"
+                            transition={springTransition}
+                          />
+                        )}
+                        <div className={`relative z-10 transition-colors duration-500 ${isActive ? 'text-white' : 'text-slate-400'}`}>
+                          {React.cloneElement(item.icon as React.ReactElement<{ className?: string }>, { className: "w-5 h-5" })}
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col pt-0.5">
+                        <h3 className={`text-base font-black tracking-tight leading-none transition-colors duration-500 mb-1.5 ${isActive ? 'text-slate-900' : 'text-slate-500'}`}>
+                          {item.title}
+                        </h3>
+                        <p className={`text-[10px] font-bold uppercase tracking-wider transition-colors duration-500 ${isActive ? 'text-blue-600' : 'text-slate-400'}`}>
+                          {item.subtitle}
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className={`text-[11px] md:text-xs leading-relaxed transition-colors duration-500 font-medium ${isActive ? 'text-slate-600' : 'text-slate-400'}`}>
+                      {item.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1 mt-auto pt-3 border-t border-slate-100/60">
+                        {item.tags.map((tag, tIdx) => (
+                          <span 
+                            key={tIdx} 
+                            className={`text-[9px] font-bold px-1.5 py-0.5 rounded-md flex items-center gap-1 transition-all duration-500 ${tag.color} ${isActive ? 'opacity-100' : 'opacity-40 grayscale'}`}
+                          >
+                            {tag.dir === 'up' ? <ArrowUpRight className="w-2.5 h-2.5 stroke-[3]" /> : <ArrowDownRight className="w-2.5 h-2.5 stroke-[3]" />}
+                            {tag.label}
+                          </span>
+                        ))}
+                    </div>
+                  </div>
+                  </motion.div>
+
+                  {/* Connector Arrow (Tab extension of the card) */}
+                  {isActive && !isMobile && (
+                    <motion.div
+                      layoutId="activeArrow"
+                      className="absolute -bottom-[8px] left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-r border-b z-20 shadow-[4px_4px_12px_rgba(37,99,235,0.12)]"
+                      style={{ 
+                        borderColor: 'rgba(37, 99, 235, 0.3)',
+                        rotate: 45
+                      }}
+                      initial={{ opacity: 0, y: -4, scale: 0.5, rotate: 45 }}
+                      animate={{ opacity: 1, y: 0, scale: 1, rotate: 45 }}
+                      transition={springTransition}
                     />
                   )}
+                </motion.div>
+              );
+            })}
+          </div>
 
-                  <div className="flex flex-col space-y-3 flex-1">
-                    <div className={cn(
-                      "w-9 h-9 flex items-center justify-center rounded-lg transition-all duration-500",
-                      activeTab === idx ? 'bg-blue-600 text-white shadow-md' : 'bg-blue-50/70 text-blue-600 group-hover:bg-blue-100'
-                    )}>
-                      <item.icon className="w-4 h-4" />
+          {/* Premium Unified Dashboard */}
+          <div className="relative mt-1 bg-slate-900 rounded-3xl shadow-2xl overflow-hidden border border-slate-800">
+            {/* Pulsing Grid Background for the Right Side */}
+            <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none opacity-20">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#2563eb10_0%,transparent_100%)] animate-pulse" />
+              <div className="absolute inset-0 bg-[linear-gradient(90deg,#80808010_1px,transparent_1px),linear-gradient(0deg,#80808010_1px,transparent_1px)] bg-[size:20px_20px]" />
+            </div>
+
+            <div className="grid">
+              {/* Invisible Sizers: Dynamically calculates the height of the tallest content item to ensure stable dashboard height */}
+              {CONTENT.map((item) => (
+                <div key={`sizer-${item.id}`} className="col-start-1 row-start-1 invisible p-1.5 md:p-2 lg:p-3 text-sm">
+                  <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-start min-h-[110px]">
+                    <div className="lg:w-[30%] space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Impact Profile</span>
+                      </div>
+                      <h4 className="text-lg md:text-xl font-black text-white tracking-tighter leading-[1.1]">
+                        {item.metric}
+                      </h4>
                     </div>
-
-                    <div>
-                      <h2 className={cn(
-                        "text-xl md:text-[22px] font-black tracking-tighter leading-none mb-1.5 transition-colors duration-500",
-                        activeTab === idx ? 'text-blue-700' : 'text-slate-900'
-                      )}>{item.title}</h2>
-                      <h3 className="font-bold text-slate-700 text-[13px] leading-tight opacity-80">{item.subtitle}</h3>
-                      <p className="hidden lg:block text-slate-500 text-[11px] mt-2.5 leading-relaxed font-medium">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-1 pt-1 mt-auto">
-                      {item.tags.map((tag, tIdx) => {
-                        const isPositive = tag.label === "Margins" || tag.label === "Gross margin" || tag.label === "Retention" || tag.label === "LTV";
-                        return (
-                          <span key={tIdx} className={cn(
-                            "px-1.5 py-0.5 rounded text-[8px] font-bold border flex items-center gap-1",
-                            isPositive 
-                              ? "text-emerald-600 bg-emerald-50/50 border-emerald-100" 
-                              : "text-blue-600 bg-blue-50/50 border-blue-100"
-                          )}>
-                            {tag.label} {tag.dir === 'up' ? <ArrowUp size={8} strokeWidth={3} /> : <ArrowDown size={8} strokeWidth={3} />}
-                          </span>
-                        );
-                      })}
+                    <div className="lg:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-0 border border-slate-800 rounded-2xl overflow-hidden bg-slate-800/50 backdrop-blur-sm">
+                      <div className="p-2 md:p-3 border-b md:border-b-0 md:border-r border-slate-800 group">
+                        <div className="flex items-center gap-2 mb-2 md:mb-3">
+                          <div className="p-1 px-2 rounded bg-slate-700/50 text-slate-400 text-[8px] md:text-[9px] font-black uppercase tracking-widest">Traditional</div>
+                        </div>
+                        <p className="text-[11px] md:text-xs text-slate-400 font-medium leading-relaxed italic opacity-80">
+                          "{item.traditional}"
+                        </p>
+                      </div>
+                      <div className="p-2 md:p-3 bg-gradient-to-br from-blue-600/5 to-transparent relative group">
+                        <div className="flex items-center gap-2 mb-2 md:mb-3">
+                          <div className="p-1 px-2 rounded bg-blue-600 text-white text-[8px] md:text-[9px] font-black uppercase tracking-widest shadow-lg shadow-blue-600/20">MediKloud</div>
+                        </div>
+                        <p className="text-[11px] md:text-xs text-blue-50 font-semibold leading-relaxed relative z-10">
+                          {item.medikloud}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               ))}
+
+              {/* Visible Interface */}
+              <div className="col-start-1 row-start-1 relative z-10 flex flex-col justify-center border border-transparent">
+                <AnimatePresence mode="popLayout">
+                  <motion.div
+                    key={activeIndex}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={contentSpring}
+                    className="p-1.5 md:p-2 lg:p-3"
+                  >
+                    <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center">
+                      
+                      {/* Metric Section */}
+                      <div className="lg:w-[30%] space-y-0.5">
+                        <div className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-400">Impact Profile</span>
+                        </div>
+                        <h4 className="text-base md:text-lg font-black text-white tracking-tighter leading-[1.1]">
+                          {activeData.metric}
+                        </h4>
+                      </div>
+
+                      {/* Split View Comparison */}
+                      <div className="lg:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-0 border border-slate-800 rounded-2xl overflow-hidden bg-slate-800/50 backdrop-blur-sm">
+                        
+                        {/* Traditional Pane */}
+                        <div className="p-2 md:p-3 border-b md:border-b-0 md:border-r border-slate-800 group">
+                          <div className="flex items-center gap-2 mb-2 md:mb-3">
+                            <div className="p-1 px-2 rounded bg-slate-700/50 text-slate-400 text-[8px] md:text-[9px] font-black uppercase tracking-widest">Traditional</div>
+                          </div>
+                          <p className="text-[11px] md:text-xs text-slate-400 font-medium leading-relaxed italic opacity-80">
+                            "{activeData.traditional}"
+                          </p>
+                        </div>
+
+                        {/* High-Growth Pane */}
+                        <div className="p-2 md:p-3 bg-gradient-to-br from-blue-600/5 to-transparent relative group">
+                          <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <CheckCircle2 className="w-10 h-10 md:w-12 md:h-12 text-blue-500" />
+                          </div>
+                          <div className="flex items-center gap-2 mb-2 md:mb-3">
+                            <div className="p-1 px-2 rounded bg-blue-600 text-white text-[8px] md:text-[9px] font-black uppercase tracking-widest shadow-lg shadow-blue-600/20 animate-pulse">MediKloud</div>
+                          </div>
+                          <p className="text-[11px] md:text-xs text-blue-50 font-semibold leading-relaxed relative z-10">
+                            {activeData.medikloud}
+                          </p>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
-
-            {/* Bottom Detail Section */}
-            <AnimatePresence mode="wait">
-              <motion.div 
-                key={activeTab}
-                initial={{ opacity: 0, y: 12, scale: 0.99 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -12, scale: 0.99 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="relative bg-white rounded-[1.5rem] p-6 md:p-8 border border-slate-200 shadow-sm overflow-hidden"
-              >
-                {/* Active Indicator Accent */}
-                <motion.div 
-                  layoutId="activeAccent"
-                  className="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-600"
-                />
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                  
-                  {/* Left: Dynamic Impact Title */}
-                  <div className="lg:col-span-5 space-y-2">
-                    <div className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                      <span className="text-[10px] font-black uppercase tracking-[0.25em] text-blue-600">Impact Analysis</span>
-                    </div>
-                    <div>
-                      <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-1">
-                        Impact of {reasons[activeTab].subtitle}
-                      </h3>
-                      <p className="text-xl md:text-2xl font-black text-slate-900 leading-tight">
-                        {reasons[activeTab].comparison.key}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Right: Comparative Logic */}
-                  <div className="lg:col-span-7 flex flex-col md:flex-row gap-4">
-                    {/* Traditional */}
-                    <div className="flex-1 bg-slate-50/50 rounded-xl p-4 border border-slate-100">
-                      <div className="flex items-center gap-1.5 mb-2 text-slate-400 font-bold text-[9px] uppercase tracking-widest">
-                        <AlertCircle size={12} className="opacity-70" />
-                        Traditional Setup
-                      </div>
-                      <p className="text-slate-500 text-[12px] leading-relaxed font-medium italic">
-                        {reasons[activeTab].comparison.without}
-                      </p>
-                    </div>
-
-                    {/* Medikloud */}
-                    <div className="flex-1 bg-blue-50/30 rounded-xl p-4 border border-blue-100">
-                      <div className="flex items-center gap-1.5 mb-2 text-blue-600 font-bold text-[9px] uppercase tracking-widest">
-                        <CheckCircle2 size={12} />
-                        With Medikloud
-                      </div>
-                      <p className="text-blue-800 text-[12px] leading-relaxed font-bold">
-                        {reasons[activeTab].comparison.with}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
+            </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
-
-
-
