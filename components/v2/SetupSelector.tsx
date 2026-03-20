@@ -188,7 +188,7 @@ export function SetupSelector() {
                           <div className="text-blue-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1">
                             {stat.label}
                           </div>
-                          <div className="text-3xl md:text-4xl font-black text-white tracking-tight mb-1">
+                          <div className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight pb-1 mb-1">
                             {stat.value}
                           </div>
                           <p className="text-slate-400 text-xs md:text-sm leading-relaxed max-w-[250px]">

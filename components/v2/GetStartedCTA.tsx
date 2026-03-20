@@ -66,7 +66,7 @@ export function GetStartedCTA() {
 
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight tracking-tight mx-auto">
           Your pharmacy revenue is waiting.<br className="hidden md:block" />{' '}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400 pb-2 overflow-visible">
             Let&apos;s recover it together.
           </span>
         </h2>

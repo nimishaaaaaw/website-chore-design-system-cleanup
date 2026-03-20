@@ -108,7 +108,7 @@ export function Solutions() {
         <div className="hidden lg:flex sticky top-16 h-[calc(100vh-4rem)] bg-white border-r flex border-transparent justify-start w-[20rem] md:w-[22rem] lg:w-[24rem] border-t-0 border-l-0 opacity-100 font-light flex-col items-stretch p-0 gap-0 mx-0 text-slate-400">
           <div className="flex h-full w-full flex-col px-6 py-6">
             <div className="sticky top-0 z-10 bg-white pt-2 pb-3">
-              <h2 className="text-2xl md:text-3xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 leading-tight">Why MediKloud</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 leading-tight pb-1 overflow-visible">Why MediKloud</h2>
               <p className="text-xs font-bold text-slate-700 leading-relaxed mb-0.5 uppercase tracking-wide">Why it works</p>
               <p className="text-xs text-slate-500 leading-relaxed">Closing revenue gaps for independent hospitals every day.</p>
             </div>
@@ -126,7 +126,7 @@ export function Solutions() {
                     className={cn(
                       'font-semibold text-2xl md:text-3xl whitespace-nowrap truncate leading-tight transition-all duration-300',
                       activeSection === index
-                        ? `bg-gradient-to-r ${getModernCardTheme(section.id).sidebarGradient} bg-clip-text text-transparent transform scale-105`
+                        ? `bg-gradient-to-r ${getModernCardTheme(section.id).sidebarGradient} bg-clip-text text-transparent transform scale-105 pb-1`
                         : 'text-slate-300 hover:text-slate-400'
                     )}
                   >
@@ -144,7 +144,7 @@ export function Solutions() {
 
           {/* Mobile and Tablet header and description */}
           <div className="lg:hidden px-4 pb-2 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 leading-tight">Why MediKloud</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 leading-tight pb-1 overflow-visible">Why MediKloud</h2>
             <p className="text-sm font-semibold text-slate-700 leading-relaxed mb-1">Why it works for your hospital</p>
             <p className="text-sm md:text-base text-slate-500 leading-relaxed">MediKloud closes the revenue gaps that independent hospitals and clinics lose money through — every single day.</p>
           </div>

@@ -23,7 +23,7 @@ export function ProblemSection() {
           {STATS.map(({ label, stat, note }) => (
             <div key={label} className="bg-white px-5 py-6 flex flex-col items-center text-center gap-1.5">
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{label}</span>
-              <span className="text-3xl md:text-4xl font-black text-blue-600 tabular-nums leading-none">{stat}</span>
+              <span className="text-3xl md:text-4xl font-bold text-blue-600 tabular-nums leading-tight pb-0.5">{stat}</span>
               <span className="text-[11px] text-slate-400">{note}</span>
             </div>
           ))}

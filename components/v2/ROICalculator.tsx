@@ -207,7 +207,7 @@ export function ROICalculator() {
                         onChange={(e) => setInvPct(parseInt(e.target.value))}
                         className="flex-1 h-1 bg-slate-100 rounded-full appearance-none cursor-pointer accent-blue-600 outline-none"
                       />
-                      <span className="text-[11px] font-black text-blue-600 w-7 text-right">{invPct}%</span>
+                      <span className="text-[11px] font-bold text-blue-600 w-7 text-right">{invPct}%</span>
                     </div>
                   </>
                 )}
@@ -234,9 +234,9 @@ export function ROICalculator() {
               </div>
               <div className="text-right shrink-0">
                 {hasPharmacy ? (
-                  <div className="text-4xl font-black text-blue-600 leading-none tabular-nums">{captureRatePct}%</div>
+                  <div className="text-4xl font-bold text-blue-600 leading-tight tabular-nums pb-1">{captureRatePct}%</div>
                 ) : (
-                  <div className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-teal-500 leading-none tabular-nums">{formatMoney(potentialRevenueL)}</div>
+                  <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-600 to-teal-500 leading-tight tabular-nums pb-1 overflow-visible">{formatMoney(potentialRevenueL)}</div>
                 )}
               </div>
             </div>
@@ -272,7 +272,7 @@ export function ROICalculator() {
                 <p className="text-[10px] text-blue-300 mt-0.5">with MediKloud</p>
               </div>
               <div className="flex items-baseline">
-                <span className="text-3xl lg:text-4xl font-black text-white leading-none tabular-nums">
+                <span className="text-3xl lg:text-4xl font-bold text-white leading-tight tabular-nums pb-0.5">
                   {annualFmt.value}
                 </span>
                 <span className="text-[11px] font-semibold text-blue-200 ml-1.5">{annualFmt.unit}</span>
