@@ -12,6 +12,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  *, *::before, *::after {
+    border-color: theme('colors.slate.200');
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════════
    CSS CUSTOM PROPERTIES — design tokens as variables
    Use these anywhere Tailwind utilities aren't available:

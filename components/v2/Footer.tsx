@@ -29,7 +29,7 @@ export function Footer() {
             <ul className="space-y-3">
               {['Managed Pharmacy', 'Virtual Pharmacy', 'Hospital Chains', 'ROI Calculator', 'Compare'].map((item) => (
                 <li key={item}>
-                  <Link href={`#${item.toLowerCase().replace(/ /g, '-')}`} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">
+                  <Link href={`#${item.toLowerCase().replace(/ /g, '-')}`} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
                     {item}
                   </Link>
                 </li>
@@ -43,14 +43,14 @@ export function Footer() {
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               <ul className="space-y-3">
                 {['Visakhapatnam', 'Hyderabad', 'Bengaluru', 'Chennai'].map((city) => (
-                  <li key={city} className="text-slate-600 text-sm font-medium hover:text-blue-600 cursor-default transition-colors">
+                  <li key={city} className="text-slate-600 text-sm font-normal hover:text-blue-600 cursor-default transition-colors">
                     {city}
                   </li>
                 ))}
               </ul>
               <ul className="space-y-3">
                 {['Mumbai', 'Delhi', 'Pune'].map((city) => (
-                  <li key={city} className="text-slate-600 text-sm font-medium hover:text-blue-600 cursor-default transition-colors">
+                  <li key={city} className="text-slate-600 text-sm font-normal hover:text-blue-600 cursor-default transition-colors">
                     {city}
                   </li>
                 ))}
@@ -64,13 +64,13 @@ export function Footer() {
             <ul className="space-y-3">
               {['About', 'Blogs', 'FAQ', 'Contact'].map((item) => (
                 <li key={item}>
-                  <Link href={`/${item.toLowerCase()}`} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">
+                  <Link href={`/${item.toLowerCase()}`} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
                     {item}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/security" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium">
+                <Link href="/security" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
                   Security
                 </Link>
               </li>
@@ -81,7 +81,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4 text-[13px] font-medium text-slate-500">
+          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4 text-xs font-normal text-slate-500">
             <span>© 2026 MediKloud</span>
             <span className="hidden md:inline text-slate-300">·</span>
             <span>Made with ❤️ in Vizag</span>
@@ -103,8 +103,8 @@ export function Footer() {
               </svg>
             </Link>
             <div className="w-px h-4 bg-slate-200 hidden md:block"></div>
-            <Link href="/privacy-policy" className="text-[13px] font-semibold text-slate-400 hover:text-slate-900 transition-colors">Privacy</Link>
-            <Link href="/terms-of-service" className="text-[13px] font-semibold text-slate-400 hover:text-slate-900 transition-colors">Terms</Link>
+            <Link href="/privacy-policy" className="text-u-xs font-semibold text-slate-400 hover:text-slate-900 transition-colors">Privacy</Link>
+            <Link href="/terms-of-service" className="text-u-xs font-semibold text-slate-400 hover:text-slate-900 transition-colors">Terms</Link>
           </div>
         </div>
 

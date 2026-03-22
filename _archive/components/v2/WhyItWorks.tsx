@@ -196,9 +196,9 @@ export function WhyItWorks() {
           {/* Header Section: Center-aligned stacking with no wrapping */}
           <div className="flex flex-col items-center text-center gap-2 md:gap-3 relative z-20">
             <div className="space-y-1.5 flex flex-col items-center">
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight leading-[1.1] whitespace-nowrap">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-slate-900 tracking-tight leading-[1.1]">
                 The advantage Apollo has.{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 ml-2">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 ml-2" style={{ color: '#4F46E5' }}>
                   Now available to you.
                 </span>
               </h2>

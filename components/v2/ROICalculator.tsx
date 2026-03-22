@@ -87,7 +87,7 @@ export function ROICalculator() {
           <h2 className="text-2xl md:text-3xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 leading-tight">
             Calculate Your Recoverable Revenue
           </h2>
-          <p className="text-slate-500 text-xs font-medium">See exactly how much revenue MediKloud can unlock or recover for you.</p>
+          <p className="text-slate-500 text-u-xs font-medium">See exactly how much revenue MediKloud can unlock or recover for you.</p>
         </div>
 
         {/* PERSONA SELECTOR */}
@@ -103,7 +103,7 @@ export function ROICalculator() {
               <button
                 key={p.k}
                 onClick={() => handlePersonaChange(p.k)}
-                className={`rounded-full px-3.5 py-1.5 text-[11px] md:text-xs transition-all focus:outline-none whitespace-nowrap border font-semibold ${
+                className={`rounded-full px-3.5 py-1.5 text-u-xs md:text-xs transition-all focus:outline-none whitespace-nowrap border font-semibold ${
                   isActive
                     ? 'border-blue-500 bg-blue-50 text-blue-700 shadow-[0_0_0_1px_rgba(59,130,246,0.3)]'
                     : 'border-slate-200 bg-white text-slate-500 hover:border-slate-300'
@@ -120,7 +120,7 @@ export function ROICalculator() {
 
           {/* LEFT — INPUTS (40%) */}
           <div className="w-full md:w-[40%] bg-slate-50 p-5 border-b md:border-b-0 md:border-r border-slate-200 flex flex-col min-h-[440px]">
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+            <p className="text-u-xs font-bold text-slate-400 uppercase tracking-u-widest mb-4">
               Your {isClinic ? 'clinic' : 'hospital'} today
             </p>
 
@@ -131,8 +131,8 @@ export function ROICalculator() {
                 {hasPharmacy && (
                   <>
                     <div className="flex justify-between mb-1">
-                      <label className="text-[12px] font-semibold text-slate-700">Monthly pharmacy revenue</label>
-                      <span className="text-[12px] font-bold text-blue-600">{formatMoney(effectiveMonthlyRevenue)}</span>
+                      <label className="text-xs font-semibold text-slate-700">Monthly pharmacy revenue</label>
+                      <span className="text-u-xs font-medium text-blue-600">{formatMoney(effectiveMonthlyRevenue)}</span>
                     </div>
                     <input type="range" min={0.5} max={maxRevenue} step={0.5} value={effectiveMonthlyRevenue}
                       onChange={(e) => setMonthlyRevenue(parseFloat(e.target.value))}
@@ -145,10 +145,10 @@ export function ROICalculator() {
               {/* Footfall */}
               <div>
                 <div className="flex justify-between mb-1">
-                  <label className="text-[12px] font-semibold text-slate-700">
+                  <label className="text-xs font-semibold text-slate-700">
                     {isClinic ? 'Average Daily Consultations' : 'Average Daily Footfall'}
                   </label>
-                  <span className="text-[12px] font-bold text-blue-600">{footfall}</span>
+                  <span className="text-u-xs font-medium text-blue-600">{footfall}</span>
                 </div>
                 <input type="range" min={isClinic ? 5 : 20} max={isClinic ? 200 : 600} step={isClinic ? 5 : 10}
                   value={footfall} onChange={(e) => setFootfall(parseInt(e.target.value))}
@@ -159,8 +159,8 @@ export function ROICalculator() {
               {/* AOV */}
               <div>
                 <div className="flex justify-between mb-1">
-                  <label className="text-[12px] font-semibold text-slate-700">Avg prescription value (AOV)</label>
-                  <span className="text-[12px] font-bold text-blue-600">₹{aov}</span>
+                  <label className="text-xs font-semibold text-slate-700">Avg prescription value (AOV)</label>
+                  <span className="text-u-xs font-medium text-blue-600">₹{aov}</span>
                 </div>
                 <input type="range" min={150} max={2000} step={50} value={aov}
                   onChange={(e) => setAov(parseInt(e.target.value))}
@@ -173,7 +173,7 @@ export function ROICalculator() {
                 {hasPharmacy && (
                   <>
                     <div className="flex items-baseline justify-between mb-2">
-                      <label className="text-[12px] font-semibold text-slate-700">How often do you track inventory?</label>
+                      <label className="text-xs font-semibold text-slate-700">How often do you track inventory?</label>
                     </div>
 
                     {/* Compact pills with clear situation options */}
@@ -188,7 +188,7 @@ export function ROICalculator() {
                           <button
                             key={tile.b}
                             onClick={() => setInvPct(tile.v)}
-                            className={`px-2.5 py-1 rounded-full text-[10px] font-bold transition-all border whitespace-nowrap ${
+                            className={`px-2.5 py-1 rounded-full text-u-xs font-bold transition-all border whitespace-nowrap ${
                               isActive
                                 ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
                                 : 'bg-white text-slate-500 border-slate-200 hover:border-blue-300 hover:text-blue-600'
@@ -202,12 +202,12 @@ export function ROICalculator() {
 
                     {/* Slider row — labelled clearly */}
                     <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-slate-100">
-                      <span className="text-[10px] font-semibold text-slate-400 whitespace-nowrap">Est. stock loss</span>
+                      <span className="text-u-xs font-semibold text-slate-400 whitespace-nowrap">Est. stock loss</span>
                       <input type="range" min={2} max={40} step={1} value={invPct}
                         onChange={(e) => setInvPct(parseInt(e.target.value))}
                         className="flex-1 h-1 bg-slate-100 rounded-full appearance-none cursor-pointer accent-blue-600 outline-none"
                       />
-                      <span className="text-[11px] font-bold text-blue-600 w-7 text-right">{invPct}%</span>
+                      <span className="text-u-xs font-medium text-blue-600 w-7 text-right">{invPct}%</span>
                     </div>
                   </>
                 )}
@@ -221,7 +221,7 @@ export function ROICalculator() {
             {/* Big stat — compact, left-aligned professional style */}
             <div className="flex items-center justify-between px-4 py-3 rounded-xl border border-slate-100 bg-white mb-4 gap-4">
               <div className="min-w-0">
-                <p className="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-0.5">
+                <p className="text-u-xs uppercase tracking-u-widest font-bold text-slate-400 mb-0.5">
                   {hasPharmacy ? 'Pharmacy revenue captured' : persona === 'ho' ? 'Monthly prescription demand' : 'Monthly prescription value'}
                 </p>
                 <p className="text-xs text-slate-500 leading-tight">
@@ -266,16 +266,16 @@ export function ROICalculator() {
             {/* Annual upside — blue accent, in sync with page theme */}
             <div className="rounded-xl bg-blue-600 px-5 py-3.5 flex justify-between items-center mb-3">
               <div>
-                <p className="text-[9px] uppercase tracking-widest font-bold text-blue-200">
+                <p className="text-u-xs uppercase tracking-u-widest font-bold text-blue-200">
                   {hasPharmacy || persona === 'ho' ? 'Annual Revenue Recovery' : 'Annual Earning Potential'}
                 </p>
-                <p className="text-[10px] text-blue-300 mt-0.5">with MediKloud</p>
+                <p className="text-u-xs text-blue-300 mt-0.5">with MediKloud</p>
               </div>
               <div className="flex items-baseline">
                 <span className="text-3xl lg:text-4xl font-bold text-white leading-tight tabular-nums pb-0.5">
                   {annualFmt.value}
                 </span>
-                <span className="text-[11px] font-semibold text-blue-200 ml-1.5">{annualFmt.unit}</span>
+                <span className="text-u-xs font-semibold text-blue-200 ml-1.5">{annualFmt.unit}</span>
               </div>
             </div>
 
@@ -295,12 +295,12 @@ export function ROICalculator() {
 function OutputLine({ dot, label, value }: { dot: 'blue' | 'teal' | 'indigo'; label: string; value: string }) {
   const dotColor = dot === 'blue' ? 'bg-blue-500 shadow-blue-500/40' : dot === 'teal' ? 'bg-teal-500 shadow-teal-500/40' : 'bg-indigo-500 shadow-indigo-500/40';
   return (
-    <div className="flex justify-between items-center text-[12px] md:text-[13px]">
+    <div className="flex justify-between items-center text-xs">
       <span className={`flex items-center text-slate-700 font-semibold`}>
         <span className={`w-1.5 h-1.5 rounded-full ${dotColor} shadow-sm mr-2.5 shrink-0`}></span>
         {label}
       </span>
-      <span className="font-bold text-slate-900 tabular-nums">{value} <span className="text-[10px] font-medium text-slate-400">/ mo</span></span>
+      <span className="font-bold text-slate-900 tabular-nums">{value} <span className="text-u-xs font-medium text-slate-400">/ mo</span></span>
     </div>
   );
 }

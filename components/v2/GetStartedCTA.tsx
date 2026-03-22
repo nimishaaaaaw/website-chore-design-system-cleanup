@@ -38,7 +38,7 @@ export function GetStartedCTA() {
   return (
     <section
       id="get-started-cta"
-      className="relative w-full py-12 md:py-16 flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-900"
+      className="relative w-full py-12 md:py-16 flex items-center justify-center overflow-hidden bg-gradient-dark"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
@@ -66,31 +66,41 @@ export function GetStartedCTA() {
 
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight tracking-tight mx-auto">
           Your pharmacy revenue is waiting.<br className="hidden md:block" />{' '}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400 pb-2 overflow-visible">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400 pb-2 overflow-visible" style={{ color: '#22d3ee' }}>
             Let&apos;s recover it together.
           </span>
         </h2>
 
-        <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed max-w-4xl mx-auto">
+        <p className="text-base md:text-lg text-slate-300 mb-6 leading-relaxed max-w-4xl mx-auto">
           Stop leaving money on the table. Book a free 30-minute call to discuss actionable ways to improve your pharmacy&apos;s efficiency and unlock hidden profit potential—zero commitment, total clarity.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/#contact"
-            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-accent text-white font-bold rounded-2xl shadow-2xl shadow-cyan-900/20 hover:scale-105 transition-all duration-300 overflow-hidden whitespace-nowrap"
-          >
-            <span className="relative z-10">Book Free Demo</span>
-            <svg className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-          </Link>
+        <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+            <Link
+              href="/#contact"
+              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-accent text-white font-semibold rounded-2xl shadow-2xl shadow-cyan-900/20 hover:scale-105 transition-all duration-300 overflow-hidden whitespace-nowrap w-full sm:w-auto justify-center"
+            >
+              <span className="relative z-10">Book Free Demo</span>
+              <svg className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+            </Link>
 
-          <div className="flex items-center gap-2 text-gray-300 font-medium text-sm backdrop-blur-sm px-4 py-3 rounded-2xl bg-white/5 border border-white/10 whitespace-nowrap">
-            <svg className="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-            </svg>
+            <Link
+              href="#roi-section"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/30 text-white font-semibold rounded-2xl hover:bg-white/10 transition-all duration-300 whitespace-nowrap w-full sm:w-auto justify-center"
+            >
+              <span>View ROI Calculator</span>
+              <svg className="w-4 h-4 text-white/40 group-hover:text-white transition-all transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-2 text-slate-400 font-medium text-[11px] uppercase tracking-[0.2em] opacity-80 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+            <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
             No commitment required
           </div>
         </div>

@@ -37,7 +37,7 @@ export function MainHero() {
             className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8"
           >
             <span className="h-[2px] w-12 sm:w-20 bg-gradient-eyebrow-r rounded-full opacity-70" />
-            <span className="text-[11px] sm:text-[13px] font-semibold uppercase tracking-[0.15em] text-blue-600">
+            <span className="text-u-xs sm:text-xs font-bold uppercase tracking-u-widest text-indigo-600/90 bg-indigo-50/50 px-4 py-1.5 rounded-full border border-indigo-100 shadow-sm">
               India&apos;s First · Zero Capex · Fully Managed
             </span>
             <span className="h-[2px] w-12 sm:w-20 bg-gradient-eyebrow-l rounded-full opacity-70" />
@@ -48,10 +48,11 @@ export function MainHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
-            className="mb-5 md:mb-8"
+            className="mb-5 md:mb-8 text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl"
           >
             <span
               className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.2] tracking-tight md:tracking-[-0.02em] bg-gradient-display bg-clip-text text-transparent pb-3 mb-2 md:mb-4"
+              style={{ color: '#4F46E5' }}
             >
               Building Inhouse Pharmacies
             </span>
@@ -65,7 +66,7 @@ export function MainHero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-[15px] md:text-base text-slate-500 max-w-xl mx-auto leading-[1.7] mb-8 md:mb-10"
+            className="text-base md:text-[17px] text-slate-500 max-w-xl mx-auto leading-[1.75] mb-8 md:mb-10"
           >
             Complete <strong className="text-slate-600 font-medium">hospital pharmacy management</strong> — <strong className="text-slate-600 font-medium">operations</strong>, stock control, <strong className="text-slate-600 font-medium">clinical pharmacy</strong>, and <strong className="text-slate-600 font-medium">virtual pharmacy</strong> fulfillment.
           </motion.p>
@@ -87,28 +88,41 @@ export function MainHero() {
             </Link>
             <Link
               href="/#features"
-              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-white text-slate-600 font-semibold rounded-2xl border border-slate-300 hover:border-blue-300 hover:text-blue-700 hover:shadow-sm transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-white text-slate-600 font-semibold rounded-2xl border-1.5 border-indigo-200 hover:border-indigo-400 hover:text-indigo-600 hover:shadow-sm transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 shadow-sm"
             >
               See How It Works
-              <ArrowRight size={14} className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+              <ArrowRight size={14} className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-indigo-400" />
             </Link>
           </motion.div>
 
-          {/* ── TRUST BADGES ── */}
+          {/* Social Proof Signal */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-3"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.55 }}
+            className="flex flex-col items-center justify-center gap-3 mb-12"
           >
-            {HERO_TRUST_BADGES.map((badge, idx) => (
-              <div key={idx} className="flex items-center gap-2">
-                <badge.icon size={14} className="text-emerald-500" />
-                <span className="text-[11px] md:text-[12px] font-semibold text-slate-400 tracking-[0.1em] uppercase">
-                  {badge.label}
-                </span>
+            <div className="flex items-center gap-1.5 px-4 py-2 bg-slate-50 border border-slate-100 rounded-full shadow-sm">
+              <div className="flex items-center gap-0.5 text-yellow-500">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <svg key={s} className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
               </div>
-            ))}
+              <span className="text-u-xs font-semibold text-slate-700">Rated 4.9/5 by 50+ hospital partners</span>
+            </div>
+            
+            <div className="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-3">
+              {HERO_TRUST_BADGES.map((badge, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-action" />
+                  <span className="text-u-xs font-semibold text-slate-400 tracking-u-widest uppercase">
+                    {badge.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           {/* SEO hidden content */}

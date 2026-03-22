@@ -185,7 +185,7 @@ export function SetupSelector() {
                     <div key={`right-${activeData.id}`} className="relative space-y-5 animate-in fade-in slide-in-from-right-8 duration-500 delay-100 fill-mode-both">
                       {activeData.stats.map((stat, idx) => (
                         <div key={idx} className="border-l-2 border-blue-500/30 pl-4 md:pl-5">
-                          <div className="text-blue-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1">
+                          <div className="text-blue-400 text-u-xs font-bold tracking-u-widest uppercase mb-1">
                             {stat.label}
                           </div>
                           <div className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight pb-1 mb-1">

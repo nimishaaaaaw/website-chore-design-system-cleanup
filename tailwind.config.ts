@@ -176,6 +176,17 @@ const config: Config = {
         'full': '9999px',  // badges, trust chips, avatar circles
       },
 
+      borderWidth: {
+        'DEFAULT': '1px',
+        '0': '0',
+        '2': '2px',
+        '3': '3px',
+        '4': '4px',
+        '6': '6px',
+        '8': '8px',
+        '1.5': '1.5px', // Premium standard
+      },
+
       // ─────────────────────────────────────────────────────────
       // BOX SHADOW
       // All shadows tinted with indigo-600 (#4F46E5) — not grey.

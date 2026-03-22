@@ -9,7 +9,9 @@ import { Header } from '@/components/Header'
 const Stats = dynamic(() => import('@/components/v2/Stats').then(m => ({ default: m.Stats })), { ssr: false })
 const ProblemSection = dynamic(() => import('@/components/v2/ProblemSection').then(m => ({ default: m.ProblemSection })))
 const PersonaROISection = dynamic(() => import('@/components/v2/PersonaROISection').then(m => ({ default: m.PersonaROISection })))
-const WhyItWorks = dynamic(() => import('@/components/v2/WhyItWorks').then(m => ({ default: m.WhyItWorks })))
+
+const AdvantageSection = dynamic(() => import('@/components/v2/AdvantageSection').then(m => ({ default: m.AdvantageSection })))
+
 const Footer = dynamic(() => import('@/components/v2/Footer').then(m => ({ default: m.Footer })))
 const GetStartedCTA = dynamic(() => import('@/components/v2/GetStartedCTA').then(m => ({ default: m.GetStartedCTA })))
 const MarqueeSection = dynamic(() => import('@/components/v2/MarqueeSection').then(m => ({ default: m.MarqueeSection })))
@@ -35,10 +37,14 @@ export default function PageV2() {
         {/* 4. Combined Persona + ROI (Choose your Setup) */}
         <PersonaROISection />
 
-        {/* 5. Why it works (Dynamic Scroll Section) */}
-        <WhyItWorks />
 
-        {/* 6. Social proof marquee */}
+
+        {/* 5.1 Revamped Advantage Section (New) */}
+        <AdvantageSection />
+
+
+
+        {/* 7. Social proof marquee */}
         <MarqueeSection />
       </main>
 

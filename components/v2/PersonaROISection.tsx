@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Building2, Stethoscope, Check, ChevronRight, PieChart, ArrowUp, Sparkles, Activity } from 'lucide-react';
+import { Building2, Stethoscope, Check, ArrowUp, Sparkles, Activity, PieChart, TrendingDown, PackageMinus, Repeat, Wallet, ArrowRight } from 'lucide-react';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type PersonaKey = 'hw' | 'ho' | 'cw' | 'co';
@@ -39,19 +39,13 @@ const SETUP_GROUPS = [
       {
         k: 'hw' as PersonaKey,
         label: 'Have a Pharmacy',
-        description: 'Running but leaking revenue',
-        pills: ['Stop prescription leakage', 'Automate inventory', 'Recover chronic refills'],
-        cta: 'See full solution',
-        href: '#hospital-with-pharmacy',
+        pills: ['Stop leakage', 'Automate inventory', 'Recover refills'],
         icon: Building2,
       },
       {
         k: 'ho' as PersonaKey,
         label: 'No Pharmacy Yet',
-        description: 'Zero capex, live in 7 days',
-        pills: ['Zero capex setup', 'Live in 7 days', 'Revenue share from day 1'],
-        cta: 'See setup process',
-        href: '#hospital-without-pharmacy',
+        pills: ['Zero capex', 'Live in 7 days', 'Revenue share from day 1'],
         icon: Building2,
       },
     ],
@@ -61,20 +55,14 @@ const SETUP_GROUPS = [
     options: [
       {
         k: 'cw' as PersonaKey,
-        label: 'Have a Dispensary',
-        description: 'Procure cheaper, bill smarter',
-        pills: ['Buy at network prices', 'Auto OPD sync', 'No stock wastage'],
-        cta: 'See full solution',
-        href: '#clinic-with-dispensary',
+        label: 'Have a Pharmacy',
+        pills: ['Network prices', 'Auto OPD sync', 'No stock wastage'],
         icon: Stethoscope,
       },
       {
         k: 'co' as PersonaKey,
-        label: 'No Dispensary',
-        description: 'Commission per prescription',
-        pills: ['Earn 10–17% per Rx', 'Zero operations', 'Automated refill engine'],
-        cta: 'See virtual pharmacy',
-        href: '#clinic-without-pharmacy',
+        label: 'No Pharmacy',
+        pills: ['Earn 10–17% per Rx', 'Zero operations', 'Refill engine'],
         icon: Stethoscope,
       },
     ],
@@ -88,83 +76,92 @@ const DEFAULTS: Record<PersonaKey, { footfall: number; aov: number; rev: number;
   co: { footfall: 30, aov: 400, rev: 12, invPct: 12 },
 };
 
-// ─── Animated Count-Up ────────────────────────────────────────────────────────
-function AnimatedNumber({ value, textClass = "text-white", subClass = "text-slate-400" }: { value: number, textClass?: string, subClass?: string }) {
-  const [display, setDisplay] = useState(value);
-  const rafRef = useRef<number | null>(null);
-  const fromRef = useRef(value);
-  const startRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    const from = fromRef.current;
-    if (Math.abs(from - value) < 0.01) return;
-    startRef.current = null;
-    const step = (ts: number) => {
-      if (!startRef.current) startRef.current = ts;
-      const p = Math.min((ts - startRef.current) / 600, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setDisplay(from + (value - from) * eased);
-      if (p < 1) rafRef.current = requestAnimationFrame(step);
-      else { setDisplay(value); fromRef.current = value; }
-    };
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    rafRef.current = requestAnimationFrame(step);
-    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
-  }, [value]);
-
-  const fmt = formatMoneyUnit(display);
-  return (
-    <div className="text-center flex flex-col items-center justify-center py-0 relative z-10">
-      <div className={`text-3xl md:text-4xl font-extrabold tabular-nums tracking-tight leading-none drop-shadow-sm flex items-baseline gap-1 ${textClass}`}>
-        {fmt.value}
-      </div>
-      <div className={`text-xs font-bold uppercase tracking-[0.2em] mt-3 ${subClass}`}>
-        {fmt.unit}
-      </div>
-    </div>
-  );
-}
-
-// ─── Slider ───────────────────────────────────────────────────────────────────
-function Slider({ label, value, displayValue, min, max, step, onChange, disabled }: {
-  label: string; value: number; displayValue: string; min: number; max: number; step: number;
-  onChange: (v: number) => void; disabled?: boolean;
+// ─── Premium Slider (value shown on moving thumb pill) ───────────────────────
+function SlimSlider({
+  label, value, displayValue, min, max, step, onChange, disabled, isHospital,
+  limitMarker, limitDisplayValue,
+}: {
+  label: string; value: number; displayValue: string; min: number; max: number;
+  step: number; onChange: (v: number) => void; disabled?: boolean; isHospital: boolean;
+  limitMarker?: number; limitDisplayValue?: string;
 }) {
+  const pct = max === min ? 0 : ((value - min) / (max - min)) * 100;
+  const THUMB_W = 52;
+  const trackWidth = `calc(${pct}% - ${pct} * ${THUMB_W}px / 100)`;
+  const thumbLeft  = `calc(${pct}% - ${pct} * ${THUMB_W}px / 100)`;
+
+  const isOverLimit = limitMarker !== undefined && value > limitMarker + 0.01;
+  const trackColor  = isHospital ? 'bg-indigo-600' : 'bg-emerald-600';
+  const thumbText   = isOverLimit ? 'text-amber-600' : (isHospital ? 'text-indigo-600' : 'text-emerald-600');
+  const thumbBorder = isOverLimit ? 'border-amber-300' : (isHospital ? 'border-indigo-200' : 'border-emerald-400');
+
   return (
-    <div className={`flex flex-col gap-1 ${disabled ? 'opacity-40 pointer-events-none grayscale' : ''}`}>
-      <div className="flex justify-between items-center h-5">
-        <span className="text-[13px] font-medium text-slate-500 leading-none">{label}</span>
-        <span className="text-[13px] font-bold text-slate-900 tabular-nums drop-shadow-sm">{displayValue}</span>
+    <div className={`flex flex-col gap-1.5 ${disabled ? 'opacity-40 pointer-events-none grayscale' : ''}`}>
+      <div className="flex justify-between items-center">
+        <span className="text-u-xs font-semibold text-slate-500 leading-none">{label}</span>
+        {limitMarker !== undefined && (
+          <span className={`text-u-xs font-bold uppercase tracking-u-widest leading-none ${
+            isOverLimit ? 'text-amber-500' : 'text-slate-400'
+          }`}>
+            {isOverLimit ? 'Capped at max' : 'Limit'}: {limitDisplayValue}
+          </span>
+        )}
       </div>
-      <div className="relative w-full h-1.5 rounded-full bg-slate-200 mt-0.5">
+      <div className="relative flex items-center w-full h-6">
+        <div className="absolute w-full h-1.5 bg-slate-200 rounded-full shadow-inner pointer-events-none" />
         <div
-          className="absolute top-0 left-0 h-full bg-blue-600 rounded-full transition-all duration-75"
-          style={{ width: `${((value - min) / (max - min)) * 100}%` }}
+          className={`absolute h-1.5 ${trackColor} rounded-full pointer-events-none transition-[width] duration-75 ease-out`}
+          style={{ width: trackWidth }}
         />
+        {/* Limit tick mark */}
+        {limitMarker !== undefined && max > min && (
+          <div
+            className={`absolute top-1/2 -translate-y-1/2 w-0.5 h-3 rounded-full z-10 pointer-events-none ${
+              isOverLimit ? 'bg-amber-400' : 'bg-slate-300'
+            }`}
+            style={{
+              left: `calc(${((limitMarker - min) / (max - min)) * 100}% - ${
+                ((limitMarker - min) / (max - min)) * 100
+              } * ${THUMB_W}px / 100 + ${THUMB_W / 2}px - 1px)`
+            }}
+          />
+        )}
         <input
           type="range" min={min} max={max} step={step} value={value}
           onChange={(e) => onChange(parseFloat(e.target.value))}
           disabled={disabled}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
         />
         <div
-          className="absolute top-1/2 -mt-2 -ml-2 w-4 h-4 bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] border border-slate-200 pointer-events-none transition-all duration-75"
-          style={{ left: `${((value - min) / (max - min)) * 100}%` }}
-        />
+          className={`absolute top-1/2 -translate-y-1/2 w-[52px] h-[22px] bg-white rounded-full border ${thumbBorder} shadow-[0_2px_6px_rgba(0,0,0,0.14)] pointer-events-none z-10 flex items-center justify-center`}
+          style={{ left: thumbLeft }}
+        >
+          <span className={`text-u-xs font-medium tabular-nums whitespace-nowrap ${thumbText}`}>
+            {displayValue}
+          </span>
+        </div>
       </div>
     </div>
   );
 }
 
-// ─── Metric Row ───────────────────────────────────────────────────────────────
-function MetricRow({ label, value, sub }: { label: string; value: string; sub?: string }) {
+// ─── Breakdown Row ────────────────────────────────────────────────────────────
+function BreakdownRow({ icon: Icon, colorClass, label, value }: { icon: any; colorClass: string; label: string; value: string }) {
+  const map: Record<string, string> = {
+    rose: 'bg-rose-50 text-rose-600',
+    amber: 'bg-amber-50 text-amber-600',
+    indigo: 'bg-indigo-50 text-indigo-600',
+    emerald: 'bg-emerald-50 text-emerald-600',
+  };
   return (
-    <div className="group flex justify-between items-end py-1 px-3 -mx-3 rounded-lg hover:bg-slate-50/80 transition-all duration-300 border-b border-slate-200/50 border-dashed last:border-transparent relative overflow-hidden">
-      <span className="text-[13px] font-medium text-slate-500 group-hover:text-slate-800 transition-colors relative z-10">{label}</span>
-      <div className="flex items-baseline gap-1.5 relative z-10">
-        <span className="text-sm font-bold text-slate-900 tabular-nums">{value}</span>
-        {sub && <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{sub}</span>}
+    <div className="flex items-center justify-between py-1.5 px-3 rounded-xl bg-slate-50 border border-slate-100">
+      <div className="flex items-center gap-2.5">
+        <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${map[colorClass] || map.indigo}`}>
+          <Icon size={13} strokeWidth={2.5} />
+        </div>
+        <span className="text-xs font-semibold text-slate-700">{label}</span>
       </div>
+      <span className="text-xs font-bold text-slate-900 tabular-nums">{value}<span className="text-u-xs text-slate-400 font-semibold ml-1">/mo</span></span>
     </div>
   );
 }
@@ -178,7 +175,7 @@ export function PersonaROISection() {
   const [invPct, setInvPct] = useState(12);
 
   const selectPersona = (k: PersonaKey) => {
-    if (selected === k) return; // Keep user in flow
+    if (selected === k) return;
     setSelected(k);
     const d = DEFAULTS[k];
     setFootfall(d.footfall); setAov(d.aov); setRev(d.rev); setInvPct(d.invPct);
@@ -186,6 +183,7 @@ export function PersonaROISection() {
 
   const hasPharmacy = selected === 'hw' || selected === 'cw';
   const isClinic = selected === 'cw' || selected === 'co';
+  const isHospital = selected === 'hw' || selected === 'ho';
 
   const potL = (footfall * aov * WORKING_DAYS) / 100000;
   const maxRev = Math.max(0.5, Math.floor(potL * 2) / 2);
@@ -193,6 +191,7 @@ export function PersonaROISection() {
   const leakage = potL - effRev;
   const invLoss = effRev * (invPct / 100);
   const refill = (footfall * (isClinic ? 0.28 : 0.30) * aov * (selected === 'co' ? 0.175 : 0.85) * WORKING_DAYS / 100000) * (isClinic ? 0.22 : 0.25);
+  const captureRatePct = potL > 0 ? Math.round(Math.min(effRev / potL, 1) * 100) : 0;
 
   let annual = 0;
   if (selected === 'hw') annual = (leakage + invLoss + refill) * 12;
@@ -200,13 +199,14 @@ export function PersonaROISection() {
   if (selected === 'cw') annual = (leakage + invLoss + refill) * 12;
   if (selected === 'co') annual = (potL * 0.175 + refill) * 12;
 
+  const annualFmt = formatMoneyUnit(annual);
+  const revSliderMax = Math.max(isHospital ? 150 : 50, Math.ceil(maxRev / 10) * 10);
+
   const getTileBand = (p: number) => p <= 8 ? 1 : p <= 16 ? 2 : 3;
-  const band = getTileBand(invPct);
+  const currentBand = getTileBand(invPct);
 
-  // Find selected option info
+  // Find selected setup for pills
   let selectedSetup: typeof SETUP_GROUPS[number]['options'][number] | null = null;
-  const isHospital = selected === 'hw' || selected === 'ho';
-
   for (const g of SETUP_GROUPS) {
     for (const opt of g.options) {
       if (opt.k === selected) { selectedSetup = opt; break; }
@@ -214,114 +214,101 @@ export function PersonaROISection() {
   }
 
   return (
-    <section id="roi-section" className="relative pt-6 pb-8 md:pt-8 md:pb-10 bg-slate-50 border-y border-slate-200 overflow-hidden">
-      {/* Sophisticated background gradient mesh */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white via-[#fafafa] to-[#fafafa] pointer-events-none" />
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[100px] pointer-events-none opacity-50" />
-      <div className="absolute top-40 left-1/4 w-[500px] h-[500px] bg-emerald-100/30 rounded-full blur-[100px] pointer-events-none opacity-50" />
+    <section id="roi-section" className="bg-section-alt py-12 md:py-16 relative overflow-hidden">
+      {/* Blobs */}
+      <div className="blob-layer">
+        <div className="blob-blue w-[500px] h-[500px] -top-32 right-0 opacity-30" />
+        <div className="blob-indigo w-[400px] h-[400px] bottom-0 -left-20 opacity-20" />
+      </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="container-page relative z-10">
 
-        {/* ── HEADER ──────────────────────────────────── */}
-        <div className="text-center mb-6">
-          <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.3em] text-blue-600 mb-2">
-            uncover hidden revenue streams and operational savings.
-          </p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight leading-[1.1]">
+        {/* ── HEADER ── — shrunken margins */}
+        <div className="text-center mb-2">
+          <div className="eyebrow-wrap">
+            <div className="eyebrow-line-r" />
+            <span className="eyebrow-text flex items-center gap-1.5">
+              <Sparkles size={12} className="text-indigo-600" />
+              Discover Hidden Revenue
+            </span>
+            <div className="eyebrow-line-l" />
+          </div>
+          <h2 className="text-h2 font-bold text-slate-900 tracking-tight pb-1">
             Choose Your Setup
           </h2>
         </div>
 
-        {/* ── SETUP SELECTOR — 4-card grid ─────────────── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mb-2 max-w-4xl mx-auto">
+        {/* ── CAPSULE SELECTOR ── */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 mb-3 max-w-4xl mx-auto">
           {SETUP_GROUPS.flatMap((group) =>
             group.options.map((opt) => {
               const isActive = selected === opt.k;
               const hasSelection = selected !== null;
-              const isHospital = group.category === 'Hospital';
+              const isHosp = group.category === 'Hospital';
               const Icon = opt.icon;
 
-              // Tailwind-safe dynamic classes
-              const activeRingClass = isHospital ? 'ring-blue-600' : 'ring-emerald-500';
-              const activeBgClass = isHospital ? 'bg-blue-50' : 'bg-emerald-50';
-              const activeTextClass = isHospital ? 'text-blue-600' : 'text-emerald-600';
-              const activeHighlightClass = isHospital ? 'bg-blue-600' : 'bg-emerald-500';
+              const activeCls = isHosp
+                ? 'border-indigo-600 bg-white shadow-[0_8px_20px_-6px_rgba(79,70,229,0.3)] ring-1 ring-inset ring-indigo-500'
+                : 'border-emerald-600 bg-white shadow-[0_8px_20px_-6px_rgba(5,150,105,0.3)] ring-1 ring-inset ring-emerald-400';
+              const inactiveCls = isHosp
+                ? 'border-indigo-100 bg-indigo-50/60 hover:border-indigo-300 hover:bg-indigo-50'
+                : 'border-emerald-100 bg-emerald-50/60 hover:border-emerald-400 hover:bg-emerald-50';
+              const iconActiveCls = isHosp ? 'bg-indigo-600 text-white' : 'bg-emerald-600 text-white'; // indigo-600 = #4F46E5, matches --indigo-600 token
+              const iconInactiveCls = isHosp ? 'bg-indigo-100 text-indigo-600' : 'bg-emerald-100 text-emerald-600';
+              const catCls = isActive
+                ? (isHosp ? 'text-indigo-600' : 'text-emerald-600')
+                : 'text-slate-400';
 
               return (
                 <button
                   key={opt.k}
                   onClick={() => selectPersona(opt.k)}
-                  className={`group relative text-left rounded-2xl transition-all duration-300 focus:outline-none flex flex-col z-10
-                    ${isActive
-                      ? `bg-white ring-2 ${activeRingClass} shadow-[0_8px_30px_rgb(0,0,0,0.08)] scale-[1.02] border-transparent`
-                      : hasSelection
-                        ? `bg-slate-50/50 border border-slate-200 opacity-60 hover:opacity-100 hover:bg-white hover:scale-[1.01]`
-                        : `bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md hover:scale-[1.01]`
-                    }`}
+                  className={`group relative text-left rounded-full border-2 transition-all duration-200 focus:outline-none flex items-center px-3 py-2 gap-2.5 cursor-pointer
+                    ${isActive ? activeCls : inactiveCls}
+                    ${hasSelection && !isActive ? 'opacity-75 hover:opacity-100' : ''}
+                    ${!isActive ? 'hover:-translate-y-0.5' : 'scale-[1.01]'}`}
                 >
-                  {/* Active highlight top bar */}
-                  {isActive && (
-                    <motion.div layoutId="activeHighlight" className={`absolute top-0 left-4 right-4 h-1 ${activeHighlightClass} rounded-b-md`} />
-                  )}
-
-                  <div className="p-3 flex items-center gap-3 relative mt-1">
-                    <div className={`p-1.5 rounded-xl transition-all duration-300 ${isActive
-                          ? `${activeBgClass} ${activeTextClass} shadow-sm ring-1 ring-black/5`
-                          : 'bg-slate-100 text-slate-500 group-hover:text-slate-700 group-hover:bg-slate-200/50'
-                        }`}>
-                        <Icon size={16} strokeWidth={2.5} />
+                  <div className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${isActive ? iconActiveCls : iconInactiveCls}`}>
+                    <Icon size={16} strokeWidth={2.5} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className={`text-u-xs font-medium uppercase tracking-u-widest whitespace-nowrap ${catCls}`}>{group.category}</p>
+                    <h3 className={`text-xs font-semibold leading-tight tracking-tight whitespace-nowrap ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>{opt.label}</h3>
+                  </div>
+                  <div className="shrink-0">
+                    {isActive ? (
+                      <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}
+                        className={`w-5 h-5 rounded-full flex items-center justify-center ${isHosp ? 'bg-indigo-600' : 'bg-emerald-600'}`}>
+                        <Check size={11} strokeWidth={3.5} className="text-white" />
+                      </motion.div>
+                    ) : (
+                      <div className="relative w-5 h-5">
+                        {!hasSelection && <span className={`absolute inset-0 rounded-full animate-ping opacity-40 ${isHosp ? 'bg-indigo-400' : 'bg-emerald-400'}`} />}
+                        <div className={`w-5 h-5 rounded-full border-2 ${isHosp ? 'border-indigo-300' : 'border-emerald-400'}`} />
                       </div>
-
-                      <div className="flex-1">
-                        <p className={`text-[10px] font-bold uppercase tracking-widest leading-tight mb-0.5 ${isActive ? activeTextClass : 'text-slate-400'
-                          }`}>
-                          {group.category}
-                        </p>
-                        <h3 className={`text-sm font-semibold leading-snug ${isActive ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'
-                          }`}>
-                          {opt.label}
-                        </h3>
-                      </div>
-
-                      <div className={`transition-all duration-300 ${isActive ? activeTextClass : 'text-slate-300 group-hover:text-slate-400'}`}>
-                        {isActive ? (
-                          <motion.div initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className={`${activeBgClass} rounded-full p-0.5`}>
-                            <Check size={16} strokeWidth={3.5} />
-                          </motion.div>
-                        ) : (
-                          <div className="bg-slate-100 rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <ChevronRight size={16} strokeWidth={2.5} className="group-hover:translate-x-0.5 transition-transform" />
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
+                    )}
+                  </div>
                 </button>
               );
             })
           )}
         </div>
 
-        {/* ── BENEFIT PILLS (on selection) ────────────── */}
-        <div className="min-h-[32px] mb-2 flex justify-center items-start w-full">
-          <AnimatePresence>
+        {/* ── BENEFIT PILLS ── — super compact mb */}
+        <div className="min-h-[36px] mb-1 flex justify-center items-start overflow-hidden text-center">
+          <AnimatePresence mode="wait">
             {selectedSetup && (
               <motion.div
-                initial={{ opacity: 0, y: -5, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -5, scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.2 }}
                 className="flex flex-wrap justify-center gap-2"
               >
                 {selectedSetup.pills.map((pill, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: i * 0.05 }}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/60 shadow-[0_2px_8px_rgb(0,0,0,0.02)] text-slate-700 text-xs font-semibold"
+                  <motion.span key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                    transition={{ delay: i * 0.06 }}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-card text-slate-600 text-xs font-semibold"
                   >
-                    <Check size={14} className="text-emerald-500" strokeWidth={3} />
+                    <Check size={12} className={isHospital ? "text-indigo-600" : "text-emerald-600"} strokeWidth={3} />
                     {pill}
                   </motion.span>
                 ))}
@@ -330,177 +317,180 @@ export function PersonaROISection() {
           </AnimatePresence>
         </div>
 
-        {/* ── MAIN CONTENT AREA (Calculator or Empty) ── */}
-        <div className="relative max-w-4xl mx-auto w-full grid grid-cols-1 grid-rows-1 min-h-[400px] md:min-h-[360px]">
+        {/* ── CALCULATOR / EMPTY STATE ── */}
+        <div className="relative max-w-4xl mx-auto grid grid-cols-1 grid-rows-1">
           <AnimatePresence>
             {selected ? (
               <motion.div
-                key="calculator"
-                id="roi-result-card"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 15 }}
-                transition={{ duration: 0.3 }}
-                className="col-start-1 row-start-1 w-full bg-white rounded-3xl border border-slate-200/80 shadow-[0_20px_60px_-15px_rgb(0,0,0,0.05)] overflow-hidden z-10"
+                key="calc"
+                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 16 }} transition={{ duration: 0.35, type: 'spring', bounce: 0.1 }}
+                className="col-start-1 row-start-1 grid grid-cols-1 md:grid-cols-2 rounded-2xl border border-slate-200 shadow-[var(--shadow-card-lg)] overflow-hidden bg-white z-10"
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-100">
-
-                  {/* LEFT — Inputs */}
-                  <div className="p-4 md:p-5 space-y-3 bg-[#fcfcfc]">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-bold text-slate-900">Variables</h3>
-                      <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2.5 py-1 rounded border border-blue-100/50 flex items-center gap-1.5 uppercase tracking-widest">
-                        <span className="relative flex h-1.5 w-1.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500"></span>
-                        </span>
-                        Live Math
-                      </span>
+                {/* LEFT — Inputs */}
+                <div className="bg-slate-50 p-4 border-b md:border-b-0 md:border-r border-slate-200 flex flex-col gap-3">
+                  <div className="flex items-center gap-2">
+                    <div className="p-1.5 bg-white rounded-lg shadow-sm border border-slate-100">
+                      <Activity size={13} className="text-slate-400" />
                     </div>
+                    <p className="text-u-xs font-bold text-slate-400 uppercase tracking-u-widest">
+                      Your {isClinic ? 'clinic' : 'hospital'} today
+                    </p>
+                  </div>
 
-                    <div className="space-y-1.5">
-                      <Slider
-                        label="Monthly pharmacy revenue"
-                        displayValue={hasPharmacy ? formatMoney(effRev) : "₹0 (N/A)"}
-                        value={hasPharmacy ? effRev : 0}
-                        min={0} max={maxRev} step={0.5}
-                        onChange={setRev}
-                        disabled={!hasPharmacy}
-                      />
-                      <Slider
-                        label={isClinic ? "Daily consultations" : "Daily patient footfall"}
-                        displayValue={String(footfall)}
-                        value={footfall}
-                        min={isClinic ? 5 : 20} max={isClinic ? 200 : 600} step={5}
-                        onChange={setFootfall}
-                      />
-                      <Slider
-                        label="Avg prescription value"
-                        displayValue={`₹${aov}`}
-                        value={aov} min={150} max={2500} step={50}
-                        onChange={setAov}
-                      />
+                  <SlimSlider
+                    label={isClinic ? 'Daily Consultations' : 'Daily Footfall'}
+                    value={footfall} displayValue={String(footfall)}
+                    min={isClinic ? 5 : 20} max={isClinic ? 200 : 600} step={isClinic ? 5 : 10}
+                    onChange={setFootfall} isHospital={isHospital}
+                  />
+                  <SlimSlider
+                    label="Avg Prescription Value (AOV)"
+                    value={aov} displayValue={`₹${aov}`}
+                    min={150} max={2000} step={50}
+                    onChange={setAov} isHospital={isHospital}
+                  />
+                  <SlimSlider
+                    label="Monthly Pharmacy Revenue"
+                    value={hasPharmacy ? rev : 0} displayValue={hasPharmacy ? formatMoney(rev) : '₹0'}
+                    min={0} max={revSliderMax} step={0.5}
+                    onChange={setRev} disabled={!hasPharmacy} isHospital={isHospital}
+                    limitMarker={maxRev} limitDisplayValue={formatMoney(maxRev)}
+                  />
 
-                      {/* Inventory Leakage Slider + Toggles */}
-                      <div className={`transition-all duration-300 pt-2 ${!hasPharmacy ? 'opacity-40 grayscale pointer-events-none' : ''}`}>
-                        <Slider
-                          label="Inventory Leakage"
-                          displayValue={`${hasPharmacy ? invPct : 0}%`}
-                          value={hasPharmacy ? invPct : 0}
-                          min={0} max={30} step={1}
-                          onChange={setInvPct}
-                          disabled={!hasPharmacy}
+                  {/* Inventory block — super compact */}
+                  <div className={`bg-white rounded-xl border border-slate-200 p-2.5 relative transition-all duration-200 ${!hasPharmacy ? 'opacity-40 grayscale' : ''}`}>
+                    {!hasPharmacy && (
+                      <div className="absolute inset-0 z-10 flex items-center justify-center rounded-xl bg-white/50 backdrop-blur-[1px]">
+                        <span className="text-u-xs font-bold uppercase tracking-u-widest text-slate-400 bg-white border border-slate-200 px-2.5 py-1 rounded-full shadow-sm">
+                          Requires Pharmacy
+                        </span>
+                      </div>
+                    )}
+                    <p className="text-xs font-semibold text-slate-600 mb-2">How often do you track inventory?</p>
+                    <div className="flex bg-slate-100 p-0.5 rounded-lg mb-3 shadow-inner">
+                      {([{ b: 1, v: 5, l: 'Daily' }, { b: 2, v: 12, l: 'Often' }, { b: 3, v: 20, l: 'Rarely' }] as const).map((tile) => {
+                        const tileActive = currentBand === tile.b && hasPharmacy;
+                        return (
+                          <button key={tile.b} onClick={() => setInvPct(tile.v)} disabled={!hasPharmacy}
+                            className={`flex-1 py-1 text-xs font-semibold rounded-md transition-all duration-150 ${tileActive ? 'bg-white text-slate-800 shadow-sm border border-slate-200' : 'text-slate-500 hover:text-slate-700'}`}>
+                            {tile.l}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <SlimSlider
+                      label="Est. inventory loss" value={hasPharmacy ? invPct : 0}
+                      displayValue={`${hasPharmacy ? invPct : 0}%`}
+                      min={0} max={40} step={1} onChange={setInvPct} disabled={!hasPharmacy} isHospital={isHospital}
+                    />
+                  </div>
+                </div>
+
+                {/* RIGHT — Results */}
+                <div className="bg-white p-4 flex flex-col gap-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+                      <PieChart size={15} className={isHospital ? 'text-indigo-600' : 'text-emerald-600'} />
+                      Revenue Analysis
+                    </h3>
+                    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-600 text-u-xs font-bold uppercase tracking-u-widest">
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-600"></span>
+                      </span>
+                      Live ROI
+                    </div>
+                  </div>
+
+                  {/* Capture rate strip — compacted padding */}
+                  <div className="flex items-center justify-between bg-slate-50 rounded-xl border border-slate-100 px-4 py-2">
+                    <div>
+                      <p className="text-u-xs font-bold uppercase tracking-u-widest text-slate-400 mb-0.5">
+                        {hasPharmacy ? 'Pharmacy Capture' : 'Fill Rate'}
+                      </p>
+                      <div className="min-h-[32px]">
+                        <p className="text-u-xs text-slate-500 font-medium mt-0.5 max-w-[160px] leading-snug">
+                          {hasPharmacy ? 'Rest lost to retail chains.' : '100% lost to external pharmacies.'}
+                        </p>
+                      </div>
+                    </div>
+                    {/* Tiny donut */}
+                    <div className="relative w-14 h-14 flex-shrink-0">
+                      <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+                        <path className="text-slate-200" strokeWidth="4" stroke="currentColor" fill="none" strokeLinecap="round"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <motion.path
+                          className={isHospital ? 'text-indigo-600' : 'text-emerald-600'}
+                          strokeWidth="4" strokeLinecap="round" stroke="currentColor" fill="none"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          initial={{ strokeDasharray: '0, 100' }}
+                          animate={{ strokeDasharray: `${hasPharmacy ? captureRatePct : 0}, 100` }}
+                          transition={{ duration: 0.8, ease: 'easeOut' }}
                         />
-                        <div className="flex gap-2 mt-2">
-                          {([
-                            { b: 1, v: 5, l: '5% (Strict)' },
-                            { b: 2, v: 12, l: '12% (Avg)' },
-                            { b: 3, v: 22, l: '22% (Loose)' },
-                          ] as const).map((tile) => {
-                            const active = hasPharmacy && invPct === tile.v;
-                            return (
-                              <button
-                                key={tile.b}
-                                onClick={() => setInvPct(tile.v)}
-                                disabled={!hasPharmacy}
-                                className={`flex-1 py-1.5 px-2 rounded-lg text-[11px] font-bold border transition-all duration-200 ${active
-                                    ? 'bg-slate-800 text-white border-slate-800 shadow-md ring-2 ring-slate-800 ring-offset-1'
-                                    : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300 hover:text-slate-700 hover:bg-slate-50'
-                                  }`}
-                              >
-                                {tile.l}
-                              </button>
-                            );
-                          })}
-                        </div>
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-xs font-bold text-slate-800 tabular-nums">{hasPharmacy ? captureRatePct : 0}%</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* RIGHT — Results */}
-                  <div className="p-4 md:p-5 flex flex-col justify-between bg-white relative overflow-hidden">
-                    {/* Subtle top-right decorative blur inside card */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2" />
-
-                    <div className="relative z-10 flex-1 flex flex-col">
-                      <div className="flex items-center gap-2.5 mb-0 px-1">
-                        <div className={`p-1.5 rounded-lg ${isHospital ? 'bg-blue-50 text-blue-600' : 'bg-emerald-50 text-emerald-600'}`}>
-                          <PieChart size={18} strokeWidth={2.5} />
-                        </div>
-                        <h3 className="text-base font-bold text-slate-900">Value Breakdown</h3>
-                      </div>
-
-                      <div className="space-y-0.5 mb-2 flex-1">
-                        <AnimatePresence mode="wait">
-                          <motion.div
-                            key={selected}
-                            initial={{ opacity: 0, x: 10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -10 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            {selected === 'hw' && (<>
-                              <MetricRow label="Prescription leakage" value={formatMoney(leakage)} sub="/ mo" />
-                              <MetricRow label="Inventory loss" value={formatMoney(invLoss)} sub="/ mo" />
-                              <MetricRow label="Chronic refill gap" value={formatMoney(refill)} sub="/ mo" />
-                            </>)}
-                            {selected === 'ho' && (<>
-                              <MetricRow label="Monthly Rx demand" value={formatMoney(potL)} sub="/ mo" />
-                              <MetricRow label="Estimated capture" value={formatMoney(potL * 0.82)} sub="/ mo" />
-                              <MetricRow label="Chronic refill gap" value={formatMoney(refill)} sub="/ mo" />
-                            </>)}
-                            {selected === 'cw' && (<>
-                              <MetricRow label="Prescription leakage" value={formatMoney(leakage)} sub="/ mo" />
-                              <MetricRow label="Inventory loss" value={formatMoney(invLoss)} sub="/ mo" />
-                              <MetricRow label="Chronic refill gap" value={formatMoney(refill)} sub="/ mo" />
-                            </>)}
-                            {selected === 'co' && (<>
-                              <MetricRow label="Monthly Rx demand" value={formatMoney(potL)} sub="/ mo" />
-                              <MetricRow label="Commission potential" value={formatMoney(potL * 0.175)} sub="/ mo" />
-                              <MetricRow label="Chronic refill gap" value={formatMoney(refill)} sub="/ mo" />
-                            </>)}
-                          </motion.div>
-                        </AnimatePresence>
-                      </div>
-
-                      <div className={`relative rounded-2xl py-3 px-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] overflow-hidden border ${isHospital ? 'bg-blue-50/40 border-blue-100/60' : 'bg-emerald-50/40 border-emerald-100/60'}`}>
-                        {/* Premium light gradient background layer */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent pointer-events-none" />
-
-                        <div className="relative z-10 flex flex-col items-center">
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="relative flex h-1.5 w-1.5">
-                              <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isHospital ? 'bg-blue-400' : 'bg-emerald-400'}`}></span>
-                              <span className={`relative inline-flex rounded-full h-1.5 w-1.5 ${isHospital ? 'bg-blue-500' : 'bg-emerald-500'}`}></span>
-                            </span>
-                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500 text-center">
-                              Total Annual Upside
-                            </p>
-                          </div>
-                          <AnimatedNumber
-                            value={annual}
-                            textClass={isHospital ? 'text-blue-950' : 'text-emerald-950'}
-                            subClass={isHospital ? 'text-blue-600/70' : 'text-emerald-600/70'}
-                          />
-                        </div>
-                      </div>
+                  {/* Value breakdown — shrunken container */}
+                  <div className="flex flex-col gap-1.5">
+                    <p className="text-u-xs font-bold uppercase tracking-u-widest text-slate-400">Value Unlocked by MediKloud</p>
+                    <div className="h-[134px] flex flex-col gap-1 overflow-hidden">
+                      {selected === 'hw' && (
+                        <motion.div key="hw" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col gap-1.5">
+                          <BreakdownRow icon={TrendingDown} colorClass="rose" label="Prescription Leakage" value={formatMoney(leakage)} />
+                          <BreakdownRow icon={PackageMinus} colorClass="amber" label="Inventory Loss" value={formatMoney(invLoss)} />
+                          <BreakdownRow icon={Repeat} colorClass="indigo" label="Chronic Refills Gap" value={formatMoney(refill)} />
+                        </motion.div>
+                      )}
+                      {selected === 'ho' && (
+                        <motion.div key="ho" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col gap-1.5">
+                          <BreakdownRow icon={Wallet} colorClass="emerald" label="Prescription Capture" value={formatMoney(potL * 0.82)} />
+                          <BreakdownRow icon={Repeat} colorClass="indigo" label="Chronic Refills Gap" value={formatMoney(refill)} />
+                        </motion.div>
+                      )}
+                      {selected === 'cw' && (
+                        <motion.div key="cw" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col gap-1.5">
+                          <BreakdownRow icon={TrendingDown} colorClass="rose" label="Prescription Leakage" value={formatMoney(leakage)} />
+                          <BreakdownRow icon={PackageMinus} colorClass="amber" label="Inventory Loss" value={formatMoney(invLoss)} />
+                          <BreakdownRow icon={Repeat} colorClass="emerald" label="Chronic Refills Gap" value={formatMoney(refill)} />
+                        </motion.div>
+                      )}
+                      {selected === 'co' && (
+                        <motion.div key="co" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col gap-1.5">
+                          <BreakdownRow icon={PieChart} colorClass="emerald" label="Commission (~17.5%)" value={formatMoney(potL * 0.175)} />
+                          <BreakdownRow icon={Repeat} colorClass="emerald" label="Chronic Refills Gap" value={formatMoney(refill)} />
+                        </motion.div>
+                      )}
                     </div>
+                  </div>
 
-                    <div className="mt-4 flex flex-col sm:flex-row gap-2 relative z-10">
+                  {/* Annual hero box — compacted padding */}
+                  <div className="rounded-2xl bg-gradient-dark p-3 px-4 relative overflow-hidden shadow-[var(--shadow-float)]">
+                    <div className={`absolute -right-12 -top-12 w-48 h-48 opacity-40 blur-[50px] rounded-full pointer-events-none ${isHospital ? 'bg-indigo-600' : 'bg-emerald-600'}`} />
+                    <div className="relative z-10 flex items-end justify-between gap-4">
+                      <div>
+                        <p className="text-u-xs font-bold uppercase tracking-u-widest text-slate-400 mb-1.5 flex items-center gap-1">
+                          <Sparkles size={10} className={isHospital ? 'text-indigo-600' : 'text-emerald-600'} />
+                          Total Annual Upside
+                        </p>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-2xl font-bold text-white tracking-tighter tabular-nums">{annualFmt.value}</span>
+                          <span className="text-xs font-semibold text-slate-400">{annualFmt.unit}</span>
+                        </div>
+                      </div>
                       <button
                         onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                        className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold py-3 px-4 rounded-xl transition-all shadow-[0_4px_14px_0_rgb(37,99,235,0.39)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:-translate-y-0.5 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                        className={`h-9 px-4 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 whitespace-nowrap ${
+                          isHospital ? 'bg-indigo-600 hover:bg-indigo-500 text-white' : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                        }`}
                       >
-                        Request Report
+                        Get ROI Audit
+                        <ArrowRight size={13} strokeWidth={3} />
                       </button>
-                      {selectedSetup && (
-                        <a
-                          href={selectedSetup.href}
-                          className="flex-1 flex items-center justify-center text-center bg-white text-xs font-bold text-slate-700 hover:text-slate-900 hover:bg-slate-50 transition-all py-3 px-4 rounded-xl border border-slate-200 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_14px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 focus:ring-2 focus:ring-slate-200 focus:outline-none"
-                        >
-                          View Setup
-                        </a>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -510,25 +500,64 @@ export function PersonaROISection() {
                 key="empty"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-                className="col-start-1 row-start-1 w-full h-full text-center p-4 rounded-3xl border-2 border-dashed border-slate-200 bg-white/50 backdrop-blur-sm flex flex-col items-center justify-center z-0"
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.3 }}
+                className="col-start-1 row-start-1 w-full h-auto md:h-[420px] min-h-[380px] rounded-[2.5rem] border-2 border-dashed border-slate-200 bg-slate-50 relative overflow-hidden flex items-center justify-center z-0"
               >
-                <div className="flex flex-col items-center gap-4 max-w-sm">
-                  <motion.div
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="p-4 bg-blue-50/80 border border-blue-100 rounded-2xl text-blue-500 shadow-sm relative"
-                  >
-                    <ArrowUp size={24} strokeWidth={2.5} />
-                    {/* Decorative pings */}
-                    <div className="absolute top-0 right-0 -mt-1 -mr-1 w-2 h-2 bg-blue-400 rounded-full animate-ping" />
-                  </motion.div>
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">Awaiting configuration</h3>
-                    <p className="text-sm text-slate-500 leading-relaxed font-medium">
-                      Select your facility type from the cards above to instantly generate your custom revenue projection.
+                {/* 1. Ghost / Skeleton UI Background to build anticipation */}
+                <div className="absolute inset-0 p-6 flex flex-col md:flex-row gap-8 opacity-[0.16] pointer-events-none blur-[4px] select-none">
+                  {/* Left Ghost Sliders */}
+                  <div className="w-full md:w-[45%] flex flex-col gap-6">
+                    <div className="h-4 w-1/3 bg-slate-300 rounded-full mb-2 animate-pulse"></div>
+                    <div className="space-y-3">
+                      <div className="h-2.5 w-1/2 bg-slate-300 rounded-full"/>
+                      <div className="h-6 w-full bg-slate-300 rounded-full bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200 bg-[length:200%_100%] animate-shimmer"/>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="h-2.5 w-2/3 bg-slate-300 rounded-full"/>
+                      <div className="h-6 w-full bg-slate-300 rounded-full bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200 bg-[length:200%_100%] animate-shimmer"/>
+                    </div>
+                    <div className="h-28 w-full bg-slate-200 rounded-2xl mt-2"/>
+                  </div>
+                  {/* Right Ghost Dashboard */}
+                  <div className="w-full md:w-[55%] flex flex-col gap-5">
+                    <div className="h-6 w-1/4 bg-slate-300 rounded-full mb-1"></div>
+                    <div className="h-24 w-full bg-slate-200 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200"/>
+                    <div className="space-y-3 mt-1">
+                      <div className="h-12 w-full bg-slate-200 rounded-xl bg-gradient-to-r from-slate-100 via-slate-200 to-slate-100 bg-[length:200%_100%] animate-shimmer"/>
+                      <div className="h-12 w-full bg-slate-200 rounded-xl bg-gradient-to-r from-slate-100 via-slate-200 to-slate-100 bg-[length:200%_100%] animate-shimmer"/>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. Central Hook / CTA Card */}
+                <div className="relative z-10 flex flex-col items-center max-w-[340px] text-center p-8 bg-white/70 backdrop-blur-xl border border-indigo-100 rounded-[2.5rem] shadow-[0_20px_50px_-15px_rgba(79,70,229,0.12)] m-4">
+                  {/* Icon Graphic */}
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 bg-indigo-200 rounded-full animate-ping opacity-40 scale-[1.3]" />
+                    <motion.div
+                      animate={{ y: [0, -5, 0], rotate: [2, -2, 2] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-600/20 relative z-10"
+                    >
+                      <Wallet size={28} className="text-white" strokeWidth={2} />
+                    </motion.div>
+                  </div>
+                  
+                  {/* Copy */}
+                  <div className="flex flex-col items-center gap-1.5 mb-6">
+                    <p className="text-u-xs text-indigo-600 font-bold uppercase tracking-u-widest bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
+                      To check
                     </p>
+                    <h3 className="text-xl font-bold text-slate-900 tracking-tight leading-tight max-w-[260px]">
+                      How much revenue is walking out your doors?
+                    </h3>
+                  </div>
+
+                  {/* Directional Action */}
+                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-slate-500 font-semibold text-xs shadow-sm">
+                    <ArrowUp size={14} className="text-indigo-600 animate-bounce" strokeWidth={3} />
+                    Select your facility type above
                   </div>
                 </div>
               </motion.div>
@@ -540,4 +569,3 @@ export function PersonaROISection() {
     </section>
   );
 }
-

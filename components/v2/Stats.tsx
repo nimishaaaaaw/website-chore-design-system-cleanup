@@ -46,7 +46,7 @@ export function Stats() {
                   <div className="text-lg md:text-xl font-bold text-white group-hover:text-yellow-200 transition-all duration-500 leading-tight">
                     {stat.title}
                   </div>
-                  <div className="text-blue-100 text-xs md:text-sm mt-1 group-hover:text-white transition-colors duration-300">{stat.label}</div>
+                  <div className="text-blue-200 text-xs md:text-sm mt-1 group-hover:text-white transition-colors duration-300">{stat.label}</div>
                 </div>
               </div>
               <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
