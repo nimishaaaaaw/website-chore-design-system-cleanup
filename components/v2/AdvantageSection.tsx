@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence, useSpring, useInView } from 'framer-motion';
 import { 
   Zap, 
@@ -103,8 +103,17 @@ const ADVANTAGES: AdvantageItem[] = [
   }
 ];
 
-function UnifiedAdvantageCard({ item, index }: { item: AdvantageItem; index: number }) {
+function UnifiedAdvantageCard({ item, index, onInView }: { item: AdvantageItem; index: number; onInView: (index: number) => void }) {
   const cardRef = useRef(null);
+  const isInView = useInView(cardRef, { 
+    margin: "-40% 0px -40% 0px" // Trigger when card is in the central 20% of the viewport
+  });
+
+  useEffect(() => {
+    if (isInView) {
+      onInView(index);
+    }
+  }, [isInView, index, onInView]);
   
   // High-fidelity scroll tracking for each individual card
   const { scrollYProgress } = useScroll({
@@ -374,8 +383,54 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
   );
 }
 
+function AdvantageStepIndicator({ activeIndex, total }: { activeIndex: number; total: number }) {
+  const themeColors = [
+    '#2563eb', // blue-600
+    '#059669', // emerald-600
+    '#4f46e5', // indigo-600
+    '#7c3aed', // violet-600
+  ];
+  
+  return (
+    <div className="flex flex-col items-center gap-10 relative py-6">
+      {/* Background track */}
+      <div className="absolute top-6 bottom-6 w-[1.5px] bg-slate-200" />
+      
+      {/* Active progress track */}
+      <motion.div 
+        className="absolute top-6 w-[1.5px] z-10" 
+        style={{ backgroundColor: themeColors[activeIndex] }}
+        animate={{ 
+          height: `${(activeIndex / (total - 1)) * 100}%` 
+        }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      />
+
+      {Array.from({ length: total }).map((_, i) => (
+        <div key={i} className="relative z-20 flex items-center justify-center">
+          <motion.div
+            animate={{
+              scale: activeIndex === i ? 1.4 : 1,
+              backgroundColor: activeIndex === i ? themeColors[i] : "#cbd5e1",
+              border: activeIndex === i ? "2px solid white" : "2px solid transparent"
+            }}
+            className="w-3 h-3 rounded-full cursor-pointer transition-colors duration-500 shadow-sm"
+          />
+          
+          {/* Label removed based on user feedback */}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function AdvantageSection() {
   const containerRef = useRef<HTMLElement>(null);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+
+  const handleInView = useCallback((index: number) => {
+    setActiveCardIndex(index);
+  }, []);
 
   return (
     <section 
@@ -393,15 +448,19 @@ export function AdvantageSection() {
           
           {/* Left Column - Header (Sticky on desktop) */}
           <div className="lg:w-[40%] text-center lg:text-left">
-            <div className="lg:sticky lg:top-32 space-y-8 lg:space-y-16 pb-12 lg:pb-0">
+            <div className="lg:sticky lg:top-32 space-y-4 lg:space-y-6 pb-12 lg:pb-0">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-blue-600 text-white text-u-xs font-bold uppercase tracking-u-widest shadow-card-md"
+                className="eyebrow-wrap justify-center lg:justify-start !mb-0"
               >
-                <TrendingUp className="w-2.5 h-2.5" />
-                The Advantage
+                <div className="eyebrow-line-r" />
+                <span className="eyebrow-text flex items-center gap-2 bg-indigo-50/50 px-4 py-1.5 rounded-full border border-indigo-100 shadow-sm">
+                  <TrendingUp size={14} className="text-indigo-600" />
+                  The Advantage
+                </span>
+                <div className="eyebrow-line-l" />
               </motion.div>
               
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tighter">
@@ -423,9 +482,21 @@ export function AdvantageSection() {
           {/* Right Column - Scrolling Flow / Accordion */}
           <div className="lg:w-[60%] w-full">
             {/* Desktop View (Sticky Scroll) */}
-            <div className="hidden lg:block space-y-20 pb-24">
+            <div className="hidden lg:block space-y-20 pb-24 relative">
+              {/* Floating Vertical Progress - Anchored to the right of the cards */}
+              <div className="absolute -right-8 xl:-right-16 top-0 bottom-24 pointer-events-none z-50">
+                <div className="sticky top-[45vh]">
+                   <AdvantageStepIndicator activeIndex={activeCardIndex} total={ADVANTAGES.length} />
+                </div>
+              </div>
+
               {ADVANTAGES.map((advantage, index) => (
-                <UnifiedAdvantageCard key={advantage.id} item={advantage} index={index} />
+                <UnifiedAdvantageCard 
+                  key={advantage.id} 
+                  item={advantage} 
+                  index={index} 
+                  onInView={handleInView}
+                />
               ))}
             </div>
 
