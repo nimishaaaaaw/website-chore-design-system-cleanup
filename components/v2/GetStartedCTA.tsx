@@ -65,14 +65,14 @@ export function GetStartedCTA() {
         </div>
 
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tighter mx-auto">
-          Your pharmacy revenue is waiting.<br className="hidden md:block" />{' '}
+          Stop the pharmacy leaks.<br className="hidden md:block" />{' '}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400 pb-2 overflow-visible" style={{ color: '#22d3ee' }}>
-            Let&apos;s recover it together.
+            Start growing.
           </span>
         </h2>
 
         <p className="text-base md:text-lg text-slate-300 mb-6 leading-relaxed max-w-4xl mx-auto">
-          Stop leaving money on the table. Book a free 30-minute call to discuss actionable ways to improve your pharmacy&apos;s efficiency and unlock hidden profit potential—zero commitment, total clarity.
+          You focus on patients. We handle the staff, stock, and stress—zero capital risk. Book a 15-minute chat to see your pharmacy&apos;s true potential.
         </p>
 
         <div className="flex flex-col items-center gap-8">
@@ -81,28 +81,14 @@ export function GetStartedCTA() {
               href="/#contact"
               className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-accent text-white font-bold rounded-2xl shadow-2xl shadow-cyan-900/20 hover:scale-105 transition-all duration-300 overflow-hidden whitespace-nowrap w-full sm:w-auto justify-center"
             >
-              <span className="relative z-10">Book Free Demo</span>
+              <span className="relative z-10">Book a 15-Minute Chat</span>
               <svg className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
             </Link>
-
-            <Link
-              href="#roi-section"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300 whitespace-nowrap w-full sm:w-auto justify-center"
-            >
-              <span>View ROI Calculator</span>
-              <svg className="w-4 h-4 text-white/40 group-hover:text-white transition-all transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
-            </Link>
           </div>
 
-          <div className="flex items-center gap-2 text-slate-400 font-bold text-[11px] uppercase tracking-[0.2em] opacity-80 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-            <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            No commitment required
-          </div>
         </div>
       </div>
     </section>

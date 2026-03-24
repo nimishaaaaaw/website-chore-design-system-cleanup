@@ -465,7 +465,7 @@ export function AdvantageSection() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tighter">
                 The advantage <br />
                 <span className="text-indigo-600">Apollo</span> has. <br />
-                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-violet-600 italic px-1 pb-1" style={{ color: '#4F46E5' }}>
+                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-violet-600 italic px-1 pb-1 pr-2" style={{ color: '#4F46E5' }}>
                   Available to you.
                 </span>
               </h2>

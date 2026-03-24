@@ -72,7 +72,7 @@ export function ProblemSection() {
           You generate<br />
           100%<br />
           of the Rx value.<br />
-          <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent drop-shadow-sm">
+          <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent drop-shadow-sm pr-2">
             But capture <span className="whitespace-nowrap">&lt; 50%.</span>
           </span>
         </motion.h2>

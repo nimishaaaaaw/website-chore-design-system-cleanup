@@ -235,7 +235,7 @@ export function PersonaROISection() {
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tighter pb-1 leading-[1.1]">
             Choose Your{' '}
-            <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent drop-shadow-sm">
+            <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent drop-shadow-sm pr-2">
               Setup
             </span>
           </h2>
@@ -258,9 +258,7 @@ export function PersonaROISection() {
                 : 'border-blue-100 bg-blue-50/60 hover:border-blue-400 hover:bg-blue-50';
               const iconActiveCls = isHosp ? 'bg-indigo-600 text-white' : 'bg-blue-600 text-white'; // indigo-600 = #4F46E5, matches --indigo-600 token
               const iconInactiveCls = isHosp ? 'bg-indigo-100 text-indigo-600' : 'bg-blue-100 text-blue-600';
-              const catCls = isActive
-                ? (isHosp ? 'text-indigo-600' : 'text-blue-600')
-                : 'text-slate-400';
+              const catCls = isHosp ? 'text-indigo-600' : 'text-blue-600';
 
               return (
                 <button
@@ -275,7 +273,7 @@ export function PersonaROISection() {
                     <Icon size={16} strokeWidth={2.5} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ${catCls}`}>{group.category}</p>
+                    <p className={`text-[10px] font-black uppercase tracking-widest whitespace-nowrap ${catCls}`}>{group.category}</p>
                     <h3 className={`text-sm font-bold leading-tight tracking-tight whitespace-nowrap ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>{opt.label}</h3>
                   </div>
                   <div className="shrink-0">
