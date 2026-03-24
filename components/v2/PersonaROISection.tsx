@@ -34,23 +34,6 @@ function formatMoney(v: number): string {
 // ─── Persona Config ──────────────────────────────────────────────────────────
 const SETUP_GROUPS = [
   {
-    category: 'Hospital',
-    options: [
-      {
-        k: 'hw' as PersonaKey,
-        label: 'Have a Pharmacy',
-        pills: ['Stop leakage', 'Automate inventory', 'Recover refills'],
-        icon: Building2,
-      },
-      {
-        k: 'ho' as PersonaKey,
-        label: 'No Pharmacy Yet',
-        pills: ['Zero capex', 'Live in 7 days', 'Revenue share from day 1'],
-        icon: Building2,
-      },
-    ],
-  },
-  {
     category: 'Clinic',
     options: [
       {
@@ -64,6 +47,23 @@ const SETUP_GROUPS = [
         label: 'No Pharmacy',
         pills: ['Earn 10–17% per Rx', 'Zero operations', 'Refill engine'],
         icon: Stethoscope,
+      },
+    ],
+  },
+  {
+    category: 'Hospital',
+    options: [
+      {
+        k: 'hw' as PersonaKey,
+        label: 'Have a Pharmacy',
+        pills: ['Stop leakage', 'Automate inventory', 'Recover refills'],
+        icon: Building2,
+      },
+      {
+        k: 'ho' as PersonaKey,
+        label: 'No Pharmacy Yet',
+        pills: ['Zero capex', 'Live in 7 days', 'Revenue share from day 1'],
+        icon: Building2,
       },
     ],
   },
@@ -91,16 +91,16 @@ function SlimSlider({
   const thumbLeft  = `calc(${pct}% - ${pct} * ${THUMB_W}px / 100)`;
 
   const isOverLimit = limitMarker !== undefined && value > limitMarker + 0.01;
-  const trackColor  = isHospital ? 'bg-indigo-600' : 'bg-emerald-600';
-  const thumbText   = isOverLimit ? 'text-amber-600' : (isHospital ? 'text-indigo-600' : 'text-emerald-600');
-  const thumbBorder = isOverLimit ? 'border-amber-300' : (isHospital ? 'border-indigo-200' : 'border-emerald-400');
+  const trackColor  = isHospital ? 'bg-indigo-600' : 'bg-blue-600';
+  const thumbText   = isOverLimit ? 'text-amber-600' : (isHospital ? 'text-indigo-600' : 'text-blue-600');
+  const thumbBorder = isOverLimit ? 'border-amber-300' : (isHospital ? 'border-indigo-200' : 'border-blue-400');
 
   return (
     <div className={`flex flex-col gap-1.5 ${disabled ? 'opacity-40 pointer-events-none grayscale' : ''}`}>
       <div className="flex justify-between items-center">
-        <span className="text-u-xs font-semibold text-slate-500 leading-none">{label}</span>
+        <span className="text-xs font-bold text-slate-700 leading-none">{label}</span>
         {limitMarker !== undefined && (
-          <span className={`text-u-xs font-bold uppercase tracking-u-widest leading-none ${
+          <span className={`text-[10px] font-bold uppercase tracking-widest leading-none ${
             isOverLimit ? 'text-amber-500' : 'text-slate-400'
           }`}>
             {isOverLimit ? 'Capped at max' : 'Limit'}: {limitDisplayValue}
@@ -136,7 +136,7 @@ function SlimSlider({
           className={`absolute top-1/2 -translate-y-1/2 w-[52px] h-[22px] bg-white rounded-full border ${thumbBorder} shadow-[0_2px_6px_rgba(0,0,0,0.14)] pointer-events-none z-10 flex items-center justify-center`}
           style={{ left: thumbLeft }}
         >
-          <span className={`text-u-xs font-medium tabular-nums whitespace-nowrap ${thumbText}`}>
+          <span className={`text-xs font-bold tabular-nums whitespace-nowrap ${thumbText}`}>
             {displayValue}
           </span>
         </div>
@@ -151,7 +151,7 @@ function BreakdownRow({ icon: Icon, colorClass, label, value }: { icon: any; col
     rose: 'bg-rose-50 text-rose-600',
     amber: 'bg-amber-50 text-amber-600',
     indigo: 'bg-indigo-50 text-indigo-600',
-    emerald: 'bg-emerald-50 text-emerald-600',
+    blue: 'bg-blue-50 text-blue-600',
   };
   return (
     <div className="flex items-center justify-between py-1.5 px-3 rounded-xl bg-slate-50 border border-slate-100">
@@ -233,8 +233,11 @@ export function PersonaROISection() {
             </span>
             <div className="eyebrow-line-l" />
           </div>
-          <h2 className="text-h2 font-bold text-slate-900 tracking-tight pb-1">
-            Choose Your Setup
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tighter pb-1 leading-[1.1]">
+            Choose Your{' '}
+            <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent drop-shadow-sm">
+              Setup
+            </span>
           </h2>
         </div>
 
@@ -249,14 +252,14 @@ export function PersonaROISection() {
 
               const activeCls = isHosp
                 ? 'border-indigo-600 bg-white shadow-[0_8px_20px_-6px_rgba(79,70,229,0.3)] ring-1 ring-inset ring-indigo-500'
-                : 'border-emerald-600 bg-white shadow-[0_8px_20px_-6px_rgba(5,150,105,0.3)] ring-1 ring-inset ring-emerald-400';
+                : 'border-blue-600 bg-white shadow-[0_8px_20px_-6px_rgba(37,99,235,0.3)] ring-1 ring-inset ring-blue-400';
               const inactiveCls = isHosp
                 ? 'border-indigo-100 bg-indigo-50/60 hover:border-indigo-300 hover:bg-indigo-50'
-                : 'border-emerald-100 bg-emerald-50/60 hover:border-emerald-400 hover:bg-emerald-50';
-              const iconActiveCls = isHosp ? 'bg-indigo-600 text-white' : 'bg-emerald-600 text-white'; // indigo-600 = #4F46E5, matches --indigo-600 token
-              const iconInactiveCls = isHosp ? 'bg-indigo-100 text-indigo-600' : 'bg-emerald-100 text-emerald-600';
+                : 'border-blue-100 bg-blue-50/60 hover:border-blue-400 hover:bg-blue-50';
+              const iconActiveCls = isHosp ? 'bg-indigo-600 text-white' : 'bg-blue-600 text-white'; // indigo-600 = #4F46E5, matches --indigo-600 token
+              const iconInactiveCls = isHosp ? 'bg-indigo-100 text-indigo-600' : 'bg-blue-100 text-blue-600';
               const catCls = isActive
-                ? (isHosp ? 'text-indigo-600' : 'text-emerald-600')
+                ? (isHosp ? 'text-indigo-600' : 'text-blue-600')
                 : 'text-slate-400';
 
               return (
@@ -272,19 +275,19 @@ export function PersonaROISection() {
                     <Icon size={16} strokeWidth={2.5} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-u-xs font-medium uppercase tracking-u-widest whitespace-nowrap ${catCls}`}>{group.category}</p>
-                    <h3 className={`text-xs font-semibold leading-tight tracking-tight whitespace-nowrap ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>{opt.label}</h3>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ${catCls}`}>{group.category}</p>
+                    <h3 className={`text-sm font-bold leading-tight tracking-tight whitespace-nowrap ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>{opt.label}</h3>
                   </div>
                   <div className="shrink-0">
                     {isActive ? (
                       <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}
-                        className={`w-5 h-5 rounded-full flex items-center justify-center ${isHosp ? 'bg-indigo-600' : 'bg-emerald-600'}`}>
+                        className={`w-5 h-5 rounded-full flex items-center justify-center ${isHosp ? 'bg-indigo-600' : 'bg-blue-600'}`}>
                         <Check size={11} strokeWidth={3.5} className="text-white" />
                       </motion.div>
                     ) : (
                       <div className="relative w-5 h-5">
-                        {!hasSelection && <span className={`absolute inset-0 rounded-full animate-ping opacity-40 ${isHosp ? 'bg-indigo-400' : 'bg-emerald-400'}`} />}
-                        <div className={`w-5 h-5 rounded-full border-2 ${isHosp ? 'border-indigo-300' : 'border-emerald-400'}`} />
+                        {!hasSelection && <span className={`absolute inset-0 rounded-full animate-ping opacity-40 ${isHosp ? 'bg-indigo-400' : 'bg-blue-400'}`} />}
+                        <div className={`w-5 h-5 rounded-full border-2 ${isHosp ? 'border-indigo-300' : 'border-blue-400'}`} />
                       </div>
                     )}
                   </div>
@@ -308,7 +311,7 @@ export function PersonaROISection() {
                     transition={{ delay: i * 0.06 }}
                     className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-card text-slate-600 text-xs font-semibold"
                   >
-                    <Check size={12} className={isHospital ? "text-indigo-600" : "text-emerald-600"} strokeWidth={3} />
+                    <Check size={12} className={isHospital ? "text-indigo-600" : "text-blue-600"} strokeWidth={3} />
                     {pill}
                   </motion.span>
                 ))}
@@ -333,7 +336,7 @@ export function PersonaROISection() {
                     <div className="p-1.5 bg-white rounded-lg shadow-sm border border-slate-100">
                       <Activity size={13} className="text-slate-400" />
                     </div>
-                    <p className="text-u-xs font-bold text-slate-400 uppercase tracking-u-widest">
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                       Your {isClinic ? 'clinic' : 'hospital'} today
                     </p>
                   </div>
@@ -367,13 +370,13 @@ export function PersonaROISection() {
                         </span>
                       </div>
                     )}
-                    <p className="text-xs font-semibold text-slate-600 mb-2">How often do you track inventory?</p>
+                    <p className="text-xs sm:text-sm font-bold text-slate-800 mb-2">How often do you track inventory?</p>
                     <div className="flex bg-slate-100 p-0.5 rounded-lg mb-3 shadow-inner">
                       {([{ b: 1, v: 5, l: 'Daily' }, { b: 2, v: 12, l: 'Often' }, { b: 3, v: 20, l: 'Rarely' }] as const).map((tile) => {
                         const tileActive = currentBand === tile.b && hasPharmacy;
                         return (
                           <button key={tile.b} onClick={() => setInvPct(tile.v)} disabled={!hasPharmacy}
-                            className={`flex-1 py-1 text-xs font-semibold rounded-md transition-all duration-150 ${tileActive ? 'bg-white text-slate-800 shadow-sm border border-slate-200' : 'text-slate-500 hover:text-slate-700'}`}>
+                            className={`flex-1 py-1 text-xs font-bold rounded-md transition-all duration-150 ${tileActive ? 'bg-white text-slate-900 shadow-[0_1px_3px_rgba(0,0,0,0.1)] border border-slate-200' : 'text-slate-500 hover:text-slate-700'}`}>
                             {tile.l}
                           </button>
                         );
@@ -391,13 +394,13 @@ export function PersonaROISection() {
                 <div className="bg-white p-4 flex flex-col gap-3">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-semibold text-slate-900 flex items-center gap-2">
-                      <PieChart size={15} className={isHospital ? 'text-indigo-600' : 'text-emerald-600'} />
+                      <PieChart size={15} className={isHospital ? 'text-indigo-600' : 'text-blue-600'} />
                       Revenue Analysis
                     </h3>
-                    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-600 text-u-xs font-bold uppercase tracking-u-widest">
+                    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-u-xs font-bold uppercase tracking-u-widest">
                       <span className="relative flex h-1.5 w-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-600"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-600"></span>
                       </span>
                       Live ROI
                     </div>
@@ -421,7 +424,7 @@ export function PersonaROISection() {
                         <path className="text-slate-200" strokeWidth="4" stroke="currentColor" fill="none" strokeLinecap="round"
                           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                         <motion.path
-                          className={isHospital ? 'text-indigo-600' : 'text-emerald-600'}
+                          className={isHospital ? 'text-indigo-600' : 'text-blue-600'}
                           strokeWidth="4" strokeLinecap="round" stroke="currentColor" fill="none"
                           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                           initial={{ strokeDasharray: '0, 100' }}
@@ -448,7 +451,7 @@ export function PersonaROISection() {
                       )}
                       {selected === 'ho' && (
                         <motion.div key="ho" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col gap-1.5">
-                          <BreakdownRow icon={Wallet} colorClass="emerald" label="Prescription Capture" value={formatMoney(potL * 0.82)} />
+                          <BreakdownRow icon={Wallet} colorClass="blue" label="Prescription Capture" value={formatMoney(potL * 0.82)} />
                           <BreakdownRow icon={Repeat} colorClass="indigo" label="Chronic Refills Gap" value={formatMoney(refill)} />
                         </motion.div>
                       )}
@@ -456,13 +459,13 @@ export function PersonaROISection() {
                         <motion.div key="cw" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col gap-1.5">
                           <BreakdownRow icon={TrendingDown} colorClass="rose" label="Prescription Leakage" value={formatMoney(leakage)} />
                           <BreakdownRow icon={PackageMinus} colorClass="amber" label="Inventory Loss" value={formatMoney(invLoss)} />
-                          <BreakdownRow icon={Repeat} colorClass="emerald" label="Chronic Refills Gap" value={formatMoney(refill)} />
+                          <BreakdownRow icon={Repeat} colorClass="blue" label="Chronic Refills Gap" value={formatMoney(refill)} />
                         </motion.div>
                       )}
                       {selected === 'co' && (
                         <motion.div key="co" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col gap-1.5">
-                          <BreakdownRow icon={PieChart} colorClass="emerald" label="Commission (~17.5%)" value={formatMoney(potL * 0.175)} />
-                          <BreakdownRow icon={Repeat} colorClass="emerald" label="Chronic Refills Gap" value={formatMoney(refill)} />
+                          <BreakdownRow icon={PieChart} colorClass="blue" label="Commission (~17.5%)" value={formatMoney(potL * 0.175)} />
+                          <BreakdownRow icon={Repeat} colorClass="blue" label="Chronic Refills Gap" value={formatMoney(refill)} />
                         </motion.div>
                       )}
                     </div>
@@ -470,11 +473,11 @@ export function PersonaROISection() {
 
                   {/* Annual hero box — compacted padding */}
                   <div className="rounded-2xl bg-gradient-dark p-3 px-4 relative overflow-hidden shadow-[var(--shadow-float)]">
-                    <div className={`absolute -right-12 -top-12 w-48 h-48 opacity-40 blur-[50px] rounded-full pointer-events-none ${isHospital ? 'bg-indigo-600' : 'bg-emerald-600'}`} />
+                    <div className={`absolute -right-12 -top-12 w-48 h-48 opacity-40 blur-[50px] rounded-full pointer-events-none ${isHospital ? 'bg-indigo-600' : 'bg-blue-600'}`} />
                     <div className="relative z-10 flex items-end justify-between gap-4">
                       <div>
                         <p className="text-u-xs font-bold uppercase tracking-u-widest text-slate-400 mb-1.5 flex items-center gap-1">
-                          <Sparkles size={10} className={isHospital ? 'text-indigo-600' : 'text-emerald-600'} />
+                          <Sparkles size={10} className={isHospital ? 'text-indigo-600' : 'text-blue-600'} />
                           Total Annual Upside
                         </p>
                         <div className="flex items-baseline gap-1">
@@ -485,7 +488,7 @@ export function PersonaROISection() {
                       <button
                         onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                         className={`h-9 px-4 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 whitespace-nowrap ${
-                          isHospital ? 'bg-indigo-600 hover:bg-indigo-500 text-white' : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+                          isHospital ? 'bg-indigo-600 hover:bg-indigo-500 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'
                         }`}
                       >
                         Get ROI Audit
@@ -546,10 +549,10 @@ export function PersonaROISection() {
                   
                   {/* Copy */}
                   <div className="flex flex-col items-center gap-1.5 mb-6">
-                    <p className="text-u-xs text-indigo-600 font-bold uppercase tracking-u-widest bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
+                    <p className="text-[10px] text-indigo-600 font-bold uppercase tracking-widest bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
                       To check
                     </p>
-                    <h3 className="text-xl font-bold text-slate-900 tracking-tight leading-tight max-w-[260px]">
+                    <h3 className="text-2xl font-bold text-slate-900 tracking-tight leading-tight max-w-[260px]">
                       How much revenue is walking out your doors?
                     </h3>
                   </div>

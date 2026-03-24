@@ -64,7 +64,7 @@ export function GetStartedCTA() {
           Get Started
         </div>
 
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight tracking-tight mx-auto">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tighter mx-auto">
           Your pharmacy revenue is waiting.<br className="hidden md:block" />{' '}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400 pb-2 overflow-visible" style={{ color: '#22d3ee' }}>
             Let&apos;s recover it together.
@@ -79,7 +79,7 @@ export function GetStartedCTA() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
             <Link
               href="/#contact"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-accent text-white font-semibold rounded-2xl shadow-2xl shadow-cyan-900/20 hover:scale-105 transition-all duration-300 overflow-hidden whitespace-nowrap w-full sm:w-auto justify-center"
+              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-accent text-white font-bold rounded-2xl shadow-2xl shadow-cyan-900/20 hover:scale-105 transition-all duration-300 overflow-hidden whitespace-nowrap w-full sm:w-auto justify-center"
             >
               <span className="relative z-10">Book Free Demo</span>
               <svg className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -90,7 +90,7 @@ export function GetStartedCTA() {
 
             <Link
               href="#roi-section"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/30 text-white font-semibold rounded-2xl hover:bg-white/10 transition-all duration-300 whitespace-nowrap w-full sm:w-auto justify-center"
+              className="group inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300 whitespace-nowrap w-full sm:w-auto justify-center"
             >
               <span>View ROI Calculator</span>
               <svg className="w-4 h-4 text-white/40 group-hover:text-white transition-all transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -99,7 +99,7 @@ export function GetStartedCTA() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-2 text-slate-400 font-medium text-[11px] uppercase tracking-[0.2em] opacity-80 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+          <div className="flex items-center gap-2 text-slate-400 font-bold text-[11px] uppercase tracking-[0.2em] opacity-80 bg-white/5 px-4 py-2 rounded-full border border-white/10">
             <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
             No commitment required
           </div>

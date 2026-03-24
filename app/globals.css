@@ -186,12 +186,12 @@
     color: var(--text-body);
     line-height: 1.7;
   }
-  a {
+  a:where(:not([class*="text-"])) {
     color: var(--text-accent);
     text-decoration: none;
     transition: color 200ms ease;
   }
-  a:hover {
+  a:where(:not([class*="text-"])):hover {
     color: var(--gradient-blue-dk, #1D4ED8);
   }
 

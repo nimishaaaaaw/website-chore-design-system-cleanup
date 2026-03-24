@@ -160,9 +160,9 @@ export function Header() {
           <div className="hidden md:flex items-center w-48 justify-end">
             <Link
               href="/#contact"
-              className="group inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white font-semibold rounded-xl shadow-btn hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300 no-underline"
+              className="group inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white font-bold rounded-xl shadow-btn hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300 no-underline"
             >
-              Talk to us
+              Book a Demo
             </Link>
           </div>
 

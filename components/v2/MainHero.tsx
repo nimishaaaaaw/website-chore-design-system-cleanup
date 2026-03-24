@@ -80,18 +80,11 @@ export function MainHero() {
           >
             <Link
               href="/#contact"
-              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-semibold rounded-2xl shadow-btn hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-bold rounded-2xl shadow-btn hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             >
               <Phone size={15} className="opacity-80" />
               Book a Demo
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-            <Link
-              href="/#features"
-              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-white text-slate-600 font-semibold rounded-2xl border-1.5 border-indigo-200 hover:border-indigo-400 hover:text-indigo-600 hover:shadow-sm transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 shadow-sm"
-            >
-              See How It Works
-              <ArrowRight size={14} className="opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-indigo-400" />
             </Link>
           </motion.div>
 
@@ -110,14 +103,14 @@ export function MainHero() {
                   </svg>
                 ))}
               </div>
-              <span className="text-u-xs font-semibold text-slate-700">Rated 4.9/5 by 50+ hospital partners</span>
+              <span className="text-[11px] font-bold text-slate-700">Rated 4.9/5 by 50+ hospital partners</span>
             </div>
             
             <div className="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-3">
               {HERO_TRUST_BADGES.map((badge, idx) => (
                 <div key={idx} className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-gradient-action" />
-                  <span className="text-u-xs font-semibold text-slate-400 tracking-u-widest uppercase">
+                  <span className="text-[10px] font-bold text-slate-400 tracking-widest uppercase">
                     {badge.label}
                   </span>
                 </div>

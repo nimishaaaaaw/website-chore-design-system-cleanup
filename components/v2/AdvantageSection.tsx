@@ -189,7 +189,7 @@ function UnifiedAdvantageCard({ item, index, onInView }: { item: AdvantageItem; 
               
               <div className="space-y-1">
                  <div className="flex items-center gap-2">
-                   <span className={cn("text-u-xs font-semibold uppercase tracking-u-widest", themeColors.split(' ')[2])}>
+                   <span className={cn("text-[10px] md:text-xs font-bold uppercase tracking-widest", themeColors.split(' ')[2])}>
                      {item.subtitle}
                    </span>
                    <span className="w-1.5 h-1.5 rounded-full bg-slate-200" />
@@ -197,7 +197,7 @@ function UnifiedAdvantageCard({ item, index, onInView }: { item: AdvantageItem; 
                      0{index + 1}
                    </span>
                  </div>
-                 <h3 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight leading-tight">
+                 <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tighter leading-tight">
                    {item.title}
                  </h3>
                  <p className="text-slate-500 text-sm md:text-base font-medium max-w-sm leading-relaxed pt-1">
@@ -207,9 +207,8 @@ function UnifiedAdvantageCard({ item, index, onInView }: { item: AdvantageItem; 
             </div>
 
             <div className="hidden lg:flex flex-col items-end text-right">
-                <span className="text-u-xs font-bold text-slate-400 uppercase tracking-u-widest mb-1">Impact Profile</span>
                 <div className={cn(
-                  "px-4 py-1.5 rounded-xl border text-sm font-semibold tracking-tight flex items-center gap-1.5 shadow-sm",
+                  "px-4 py-1.5 rounded-xl border text-sm font-semibold tracking-tight flex items-center gap-1.5 shadow-sm whitespace-nowrap",
                   themeColors.split(' ')[3],
                   themeColors.split(' ')[4],
                   themeColors.split(' ')[2]
@@ -230,7 +229,7 @@ function UnifiedAdvantageCard({ item, index, onInView }: { item: AdvantageItem; 
                 </div>
                 <AlertCircle className="w-3.5 h-3.5 text-slate-300 group-hover:text-amber-500 transition-colors" />
               </div>
-              <p className="text-sm md:text-base text-slate-600 font-medium leading-[1.6] italic pr-4">
+              <p className="text-[15px] text-slate-600 font-medium leading-[1.6] italic pr-4">
                 "{item.traditional}"
               </p>
             </div>
@@ -250,7 +249,7 @@ function UnifiedAdvantageCard({ item, index, onInView }: { item: AdvantageItem; 
                 <CheckCircle2 className="w-3.5 h-3.5 text-white animate-pulse" />
               </div>
               
-              <p className="text-sm md:text-base text-white font-bold leading-[1.6] relative z-10 pr-6">
+              <p className="text-[15px] text-white/95 font-medium leading-[1.6] relative z-10 pr-6">
                 {item.medikloud}
               </p>
 
@@ -343,7 +342,7 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
                       <div className="text-u-xs font-bold text-slate-400 uppercase tracking-u-widest mb-2 flex items-center gap-1.5">
                         <AlertCircle size={10} /> Traditional
                       </div>
-                      <p className="text-sm text-slate-500 italic leading-relaxed">"{item.traditional}"</p>
+                      <p className="text-[15px] text-slate-500 font-medium italic leading-relaxed">"{item.traditional}"</p>
                     </div>
                     <div className={cn(
                       "p-4 rounded-2xl text-white shadow-md relative overflow-hidden",
@@ -355,7 +354,7 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
                       <div className="text-u-xs font-bold text-white/70 uppercase tracking-u-widest mb-2 flex items-center gap-1.5 relative z-10">
                         <CheckCircle2 size={10} /> MediKloud
                       </div>
-                      <p className="text-sm font-bold leading-relaxed relative z-10">{item.medikloud}</p>
+                      <p className="text-[15px] font-medium text-white/95 leading-relaxed relative z-10">{item.medikloud}</p>
                       <Zap className="absolute top-1 right-1 w-12 h-12 text-white/10" />
                     </div>
                   </div>
@@ -463,7 +462,7 @@ export function AdvantageSection() {
                 <div className="eyebrow-line-l" />
               </motion.div>
               
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tighter">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tighter">
                 The advantage <br />
                 <span className="text-indigo-600">Apollo</span> has. <br />
                 <span className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-violet-600 italic px-1 pb-1" style={{ color: '#4F46E5' }}>
