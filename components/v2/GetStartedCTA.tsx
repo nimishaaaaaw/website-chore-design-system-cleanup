@@ -72,7 +72,7 @@ export function GetStartedCTA() {
         </h2>
 
         <p className="text-base md:text-lg text-slate-300 mb-6 leading-relaxed max-w-4xl mx-auto">
-          You focus on patients. We handle the staff, stock, and stress—zero capital risk. Book a 15-minute chat to see your pharmacy&apos;s true potential.
+          You focus on patients. We handle the staff, stock, and stress—zero capital risk. Book a Demo to see your pharmacy&apos;s true potential.
         </p>
 
         <div className="flex flex-col items-center gap-8">
@@ -81,7 +81,7 @@ export function GetStartedCTA() {
               href="/#contact"
               className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-accent text-white font-bold rounded-2xl shadow-2xl shadow-cyan-900/20 hover:scale-105 transition-all duration-300 overflow-hidden whitespace-nowrap w-full sm:w-auto justify-center"
             >
-              <span className="relative z-10">Book a 15-Minute Chat</span>
+              <span className="relative z-10">Book a Demo</span>
               <svg className="w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>

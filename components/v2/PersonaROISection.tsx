@@ -98,9 +98,9 @@ function SlimSlider({
   return (
     <div className={`flex flex-col gap-1.5 ${disabled ? 'opacity-40 pointer-events-none grayscale' : ''}`}>
       <div className="flex justify-between items-center">
-        <span className="text-xs font-bold text-slate-700 leading-none">{label}</span>
+        <span className="text-xs font-semibold text-slate-700">{label}</span>
         {limitMarker !== undefined && (
-          <span className={`text-[10px] font-bold uppercase tracking-widest leading-none ${
+          <span className={`text-[10px] font-bold uppercase tracking-widest ${
             isOverLimit ? 'text-amber-500' : 'text-slate-400'
           }`}>
             {isOverLimit ? 'Capped at max' : 'Limit'}: {limitDisplayValue}
@@ -136,7 +136,7 @@ function SlimSlider({
           className={`absolute top-1/2 -translate-y-1/2 w-[52px] h-[22px] bg-white rounded-full border ${thumbBorder} shadow-[0_2px_6px_rgba(0,0,0,0.14)] pointer-events-none z-10 flex items-center justify-center`}
           style={{ left: thumbLeft }}
         >
-          <span className={`text-xs font-bold tabular-nums whitespace-nowrap ${thumbText}`}>
+          <span className={`text-[11px] font-medium tabular-nums whitespace-nowrap ${thumbText}`}>
             {displayValue}
           </span>
         </div>
@@ -233,7 +233,7 @@ export function PersonaROISection() {
             </span>
             <div className="eyebrow-line-l" />
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tighter pb-1 leading-[1.1]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 pb-1 leading-[1.1]">
             Choose Your{' '}
             <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent drop-shadow-sm pr-2">
               Setup
@@ -273,8 +273,8 @@ export function PersonaROISection() {
                     <Icon size={16} strokeWidth={2.5} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-[10px] font-black uppercase tracking-widest whitespace-nowrap ${catCls}`}>{group.category}</p>
-                    <h3 className={`text-sm font-bold leading-tight tracking-tight whitespace-nowrap ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>{opt.label}</h3>
+                    <p className={`text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ${catCls}`}>{group.category}</p>
+                    <h3 className={`text-sm font-semibold leading-tight tracking-tight whitespace-nowrap ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>{opt.label}</h3>
                   </div>
                   <div className="shrink-0">
                     {isActive ? (
@@ -368,7 +368,7 @@ export function PersonaROISection() {
                         </span>
                       </div>
                     )}
-                    <p className="text-xs sm:text-sm font-bold text-slate-800 mb-2">How often do you track inventory?</p>
+                    <p className="text-xs sm:text-sm font-semibold text-slate-800 mb-2">How often do you track inventory?</p>
                     <div className="flex bg-slate-100 p-0.5 rounded-lg mb-3 shadow-inner">
                       {([{ b: 1, v: 5, l: 'Daily' }, { b: 2, v: 12, l: 'Often' }, { b: 3, v: 20, l: 'Rarely' }] as const).map((tile) => {
                         const tileActive = currentBand === tile.b && hasPharmacy;
@@ -479,7 +479,7 @@ export function PersonaROISection() {
                           Total Annual Upside
                         </p>
                         <div className="flex items-baseline gap-1">
-                          <span className="text-2xl font-bold text-white tracking-tighter tabular-nums">{annualFmt.value}</span>
+                          <span className="text-2xl font-bold text-white tracking-tight tabular-nums">{annualFmt.value}</span>
                           <span className="text-xs font-semibold text-slate-400">{annualFmt.unit}</span>
                         </div>
                       </div>
