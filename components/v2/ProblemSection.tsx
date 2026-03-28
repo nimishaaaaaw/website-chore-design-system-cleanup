@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { 
   TrendingDown, 
   Activity, 
@@ -42,49 +41,32 @@ export function ProblemSection() {
       {/* Ambient Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a08_1px,transparent_1px),linear-gradient(to_bottom,#0f172a08_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none" />
       
-      {/* Subtle glowing orbs */}
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-indigo-100/40 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-rose-100/40 rounded-full blur-[100px] pointer-events-none" />
+      {/* Subtle glowing orbs — reduced blur for performance */}
+      <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-indigo-100/30 rounded-full blur-[60px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] bg-rose-100/30 rounded-full blur-[60px] pointer-events-none" />
 
       {/* --- LEFT COLUMN: Typography & Story --- */}
       <div className="w-full lg:w-5/12 h-full flex flex-col justify-center px-6 sm:px-12 lg:pl-16 xl:pl-24 z-10 shrink-0 py-12 lg:py-0">
         
         {/* Eyebrow Pill */}
-        <motion.div 
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 w-fit mb-4 sm:mb-6 shadow-sm"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 w-fit mb-4 sm:mb-6 shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
           <span className="text-[10px] font-bold tracking-widest text-indigo-700 uppercase">
             The Revenue Funnel
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-4"
-        >
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1] mb-4">
           You generate<br />
           100%<br />
           of the Rx value.<br />
           <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent drop-shadow-sm pr-2">
             But capture <span className="whitespace-nowrap">&lt; 50%.</span>
           </span>
-        </motion.h2>
+        </h2>
 
         {/* Insight Card */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="relative card max-w-sm mt-3 lg:mt-6 overflow-hidden !rounded-xl"
-        >
+        <div className="relative card max-w-sm mt-3 lg:mt-6 overflow-hidden !rounded-xl">
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-600 rounded-l-xl" />
           <p className="text-sm text-slate-600 leading-relaxed pl-2">
             Apollo & MedPlus win with standardised ops and tech-controlled inventory.
@@ -92,7 +74,7 @@ export function ProblemSection() {
               MediKloud closes that gap. <ArrowRight className="w-4 h-4" />
             </strong>
           </p>
-        </motion.div>
+        </div>
 
       </div>
 
@@ -100,19 +82,13 @@ export function ProblemSection() {
       <div className="w-full lg:w-7/12 h-full flex items-center justify-center perspective-container z-10 p-2 sm:p-8 shrink-0 py-8 lg:py-0">
         
         {/* 3D Rotated Container (Isometric Tilt) - Adjusted for subtleness */}
-        <motion.div 
-          initial={{ opacity: 0, rotateX: 6, rotateY: -10 }}
-          whileInView={{ opacity: 1, rotateX: 4, rotateY: -8 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="relative w-full max-w-[500px] transform-3d hover:rotate-x-[2deg] hover:-rotate-y-[4deg] transition-transform duration-1000 ease-out scale-90 sm:scale-100"
-        >
+        <div className="relative w-full max-w-[500px] scale-90 sm:scale-100">
           
           {/* Optional 3D Backplate */}
-          <div className="absolute inset-[-20px] border border-indigo-200/50 rounded-3xl bg-white/40 shadow-glow backdrop-blur-sm transform-3d translate-z-[-20px]" />
+          <div className="absolute inset-[-20px] border border-indigo-200/50 rounded-3xl bg-white/60 shadow-sm" />
           
           {/* 1. TOP NODE: 100% Generated */}
-          <div className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 sm:py-3 sm:px-4 flex justify-between items-center relative z-30 shadow-card-lg transform-3d translate-z-[40px] backdrop-blur-md">
+          <div className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 sm:py-3 sm:px-4 flex justify-between items-center relative z-30 shadow-card-lg">
             <div>
               <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-indigo-600 mb-0.5">Doctor Writes</p>
               <p className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">100% Rx Value</p>
@@ -123,7 +99,7 @@ export function ProblemSection() {
           </div>
 
           {/* 2. THE PIPELINE SYSTEM */}
-          <div className="flex flex-col gap-0.5 sm:gap-1.5 relative z-20 transform-3d translate-z-[10px] my-1.5">
+          <div className="flex flex-col gap-0.5 sm:gap-1.5 relative z-20 my-1.5">
              
             {/* ROW 1: Ops Loss */}
             <div className="flex w-full items-stretch">
@@ -138,7 +114,7 @@ export function ProblemSection() {
                 </div>
               </div>
               {/* Card */}
-              <div className="flex-1 transform-3d translate-z-[30px] relative z-20">
+              <div className="flex-1 relative z-20">
                 <div className="bg-white border border-slate-200 py-1.5 sm:py-2 px-3 sm:px-4 rounded-xl flex items-center gap-3 sm:gap-4 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_25px_rgba(0,0,0,0.1)] transition-all hover:border-indigo-300 group">
                   <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <AlertOctagon className="w-4 h-4 text-indigo-500" />
@@ -164,7 +140,7 @@ export function ProblemSection() {
                   <div className="absolute top-0 bottom-0 w-4 bg-indigo-600 shadow-[0_0_10px_rgba(79,70,229,0.5)] rounded-full animate-leak-2" />
                 </div>
               </div>
-              <div className="flex-1 transform-3d translate-z-[30px] relative z-20">
+              <div className="flex-1 relative z-20">
                 <div className="bg-white border border-slate-200 py-1.5 sm:py-2 px-3 sm:px-4 rounded-xl flex items-center gap-3 sm:gap-4 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_25px_rgba(0,0,0,0.1)] transition-all hover:border-indigo-300 group">
                   <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <TrendingDown className="w-4 h-4 text-indigo-500" />
@@ -190,7 +166,7 @@ export function ProblemSection() {
                    <div className="absolute top-0 bottom-0 w-4 bg-indigo-600 shadow-[0_0_10px_rgba(79,70,229,0.5)] rounded-full animate-leak-3" />
                 </div>
               </div>
-              <div className="flex-1 transform-3d translate-z-[30px] relative z-20">
+              <div className="flex-1 relative z-20">
                 <div className="bg-white border border-slate-200 py-1.5 sm:py-2 px-3 sm:px-4 rounded-xl flex items-center gap-3 sm:gap-4 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_25px_rgba(0,0,0,0.1)] transition-all hover:border-indigo-300 group">
                   <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <Activity className="w-4 h-4 text-indigo-500" />
@@ -219,7 +195,7 @@ export function ProblemSection() {
           </div>
 
           {/* 3. BOTTOM NODE: < 50% Captured */}
-          <div className="w-[95%] ml-auto bg-gradient-to-br from-indigo-600 to-violet-600 border border-indigo-800 rounded-xl py-2 px-3 sm:py-3 sm:px-4 flex justify-between items-center relative z-30 shadow-[0_15px_30px_rgba(79,70,229,0.3)] transform-3d translate-z-[40px] drop-shadow-xl">
+          <div className="w-[95%] ml-auto bg-gradient-to-br from-indigo-600 to-violet-600 border border-indigo-800 rounded-xl py-2 px-3 sm:py-3 sm:px-4 flex justify-between items-center relative z-30 shadow-[0_15px_30px_rgba(79,70,229,0.3)]">
             <div>
               <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-indigo-100/90 mb-0.5">Hospital Captures</p>
               <p className="text-xl sm:text-2xl font-black text-white tracking-tight">&lt; 50% Final Value</p>
@@ -229,7 +205,7 @@ export function ProblemSection() {
             </div>
           </div>
 
-        </motion.div>
+        </div>
       </div>
 
     </section>

@@ -25,7 +25,7 @@ export function Stats() {
     <section id="stats" className="py-8 md:py-10 bg-gradient-to-r from-blue-700 via-cyan-700 to-teal-700 relative overflow-hidden will-change-transform">
       <div className="absolute inset-0 bg-black/10" />
       <div className="absolute inset-0 overflow-hidden">
-        {particlePositions.map((p, i) => (
+        {visible && particlePositions.map((p, i) => (
           <div
             key={i}
             className="absolute w-2 h-2 bg-white/20 rounded-full animate-ping"

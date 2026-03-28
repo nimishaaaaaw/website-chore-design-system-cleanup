@@ -27,10 +27,15 @@ export function Footer() {
           <div className="lg:col-span-2 space-y-5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Solutions</h3>
             <ul className="space-y-3">
-              {['Managed Pharmacy', 'Virtual Pharmacy', 'Hospital Chains', 'ROI Calculator', 'Compare'].map((item) => (
-                <li key={item}>
-                  <Link href={`#${item.toLowerCase().replace(/ /g, '-')}`} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
-                    {item}
+              {[
+                { name: 'Managed Pharmacy', href: '/products/managed-pharmacy' },
+                { name: 'Virtual Pharmacy', href: '/products/virtual-pharmacy' },
+                { name: 'Hospital Management', href: '/products/hospital-management-system' },
+                { name: 'Refill Engine', href: '/products/refill-engine' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -62,7 +67,7 @@ export function Footer() {
           <div className="lg:col-span-3 space-y-5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Company</h3>
             <ul className="space-y-3">
-              {['About', 'Blogs', 'FAQ', 'Contact'].map((item) => (
+              {['About', 'Blogs', 'FAQ'].map((item) => (
                 <li key={item}>
                   <Link href={`/${item.toLowerCase()}`} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
                     {item}

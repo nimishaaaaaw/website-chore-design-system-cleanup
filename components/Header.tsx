@@ -5,6 +5,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useContactModal } from '@/hooks/use-contact-modal'
 
 const MobileMenu = dynamic(() => import('@/components/MobileMenu'), { ssr: false })
 const SolutionsMegaMenu = dynamic(() => import('@/components/SolutionsMegaMenu'), { ssr: false })
@@ -13,9 +14,10 @@ const ProductsMegaMenu = dynamic(() => import('@/components/ProductsMegaMenu'), 
 export function Header() {
   const [showSolutions, setShowSolutions] = useState(false)
   const [showProducts, setShowProducts] = useState(false)
+  const { openModal } = useContactModal()
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/75 backdrop-blur-md border-b border-white/20 shadow-sm transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 border-b border-slate-100 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -37,7 +39,7 @@ export function Header() {
           <nav className="hidden md:flex flex-1 justify-center items-center gap-8">
             {/* Solutions Trigger */}
             <div 
-              className="relative py-4"
+              className="relative h-full flex items-center"
               onMouseEnter={() => setShowSolutions(true)}
               onMouseLeave={() => setShowSolutions(false)}
             >
@@ -64,17 +66,29 @@ export function Header() {
               {/* Solutions Mega Menu */}
               <AnimatePresence>
                 {showSolutions && (
-                  <div className="absolute top-full left-0 z-40 hidden md:block pt-2">
+                  <div className="absolute top-full left-0 z-40 hidden md:block pt-3">
+                    {/* Bridge for hover persistence */}
                     <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
-                    <div className="ml-6 w-3 h-3 bg-white rotate-45 border-l border-t border-slate-200 shadow-[-1px_-1px_3px_rgba(0,0,0,0.02)] z-10 translate-y-[7px]" />
+                    
                     <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 5, scale: 0.98 }}
-                      transition={{ duration: 0.15, ease: "easeOut" }}
-                      className="relative shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-2xl overflow-hidden ring-1 ring-slate-900/5"
+                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                      transition={{ 
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 24,
+                        opacity: { duration: 0.15 }
+                      }}
+                      style={{ originY: 0 }}
+                      className="relative bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-2xl ring-1 ring-slate-900/5"
                     >
-                      <SolutionsMegaMenu />
+                      {/* Integrated Arrow - perfectly positioned below the blue line */}
+                      <div className="absolute -top-1.5 left-6 w-3 h-3 bg-white rotate-45 border-l border-t border-slate-200 z-10" />
+                      
+                      <div className="relative rounded-2xl overflow-hidden">
+                        <SolutionsMegaMenu />
+                      </div>
                     </motion.div>
                   </div>
                 )}
@@ -83,7 +97,7 @@ export function Header() {
 
             {/* Products Trigger */}
             <div 
-              className="relative py-4"
+              className="relative h-full flex items-center"
               onMouseEnter={() => setShowProducts(true)}
               onMouseLeave={() => setShowProducts(false)}
             >
@@ -110,17 +124,29 @@ export function Header() {
               {/* Products Mega Menu */}
               <AnimatePresence>
                 {showProducts && (
-                  <div className="absolute top-full left-0 z-40 hidden md:block pt-2">
+                  <div className="absolute top-full left-0 z-40 hidden md:block pt-3">
+                    {/* Bridge for hover persistence */}
                     <div className="absolute -top-4 left-0 right-0 h-4 bg-transparent" />
-                    <div className="ml-6 w-3 h-3 bg-white rotate-45 border-l border-t border-slate-200 shadow-[-1px_-1px_3px_rgba(0,0,0,0.02)] z-10 translate-y-[7px]" />
+                    
                     <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 5, scale: 0.98 }}
-                      transition={{ duration: 0.15, ease: "easeOut" }}
-                      className="relative shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-2xl overflow-hidden ring-1 ring-slate-900/5"
+                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                      transition={{ 
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 24,
+                        opacity: { duration: 0.15 }
+                      }}
+                      style={{ originY: 0 }}
+                      className="relative bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-2xl ring-1 ring-slate-900/5"
                     >
-                      <ProductsMegaMenu />
+                      {/* Integrated Arrow - perfectly positioned below the blue line */}
+                      <div className="absolute -top-1.5 left-6 w-3 h-3 bg-white rotate-45 border-l border-t border-slate-200 z-10" />
+                      
+                      <div className="relative rounded-2xl overflow-hidden">
+                        <ProductsMegaMenu />
+                      </div>
                     </motion.div>
                   </div>
                 )}
@@ -128,7 +154,7 @@ export function Header() {
             </div>
 
             <Link
-              href="/#compare"
+              href="/compare"
               className="group inline-flex items-center px-3 py-2 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
             >
               <span className="relative text-slate-700 group-hover:text-indigo-600 font-normal transition-colors duration-300">
@@ -146,7 +172,7 @@ export function Header() {
               </span>
             </Link>
             <Link
-              href="/#about-us"
+              href="/about"
               className="group inline-flex items-center px-3 py-2 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
             >
               <span className="relative text-slate-700 group-hover:text-indigo-600 font-normal transition-colors duration-300">
@@ -158,12 +184,12 @@ export function Header() {
           
           {/* CTA Button */}
           <div className="hidden md:flex items-center w-48 justify-end">
-            <Link
-              href="/#contact"
+            <button
+              onClick={openModal}
               className="group inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white font-bold rounded-xl shadow-btn hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300 no-underline"
             >
               Book a Demo
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu */}

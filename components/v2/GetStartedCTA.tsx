@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
+import { useContactModal } from '@/hooks/use-contact-modal';
 import { v2VisualTokens } from './theme';
 import { StarsBackground } from '@/components/ui/stars-background';
 import { ShootingStars } from '@/components/ui/shooting-stars';
@@ -9,6 +10,7 @@ export function GetStartedCTA() {
   const [visible, setVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const rafRef = useRef<number | null>(null);
+  const { openModal } = useContactModal();
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -77,8 +79,8 @@ export function GetStartedCTA() {
 
         <div className="flex flex-col items-center gap-8">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-            <Link
-              href="/#contact"
+            <button
+              onClick={openModal}
               className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-accent text-white font-bold rounded-2xl shadow-2xl shadow-cyan-900/20 hover:scale-105 transition-all duration-300 overflow-hidden whitespace-nowrap w-full sm:w-auto justify-center"
             >
               <span className="relative z-10">Book a Demo</span>
@@ -86,7 +88,7 @@ export function GetStartedCTA() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-            </Link>
+            </button>
           </div>
 
         </div>

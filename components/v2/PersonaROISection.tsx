@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Building2, Stethoscope, Check, ArrowUp, Sparkles, Activity, PieChart, TrendingDown, PackageMinus, Repeat, Wallet, ArrowRight } from 'lucide-react';
+import { useContactModal } from '@/hooks/use-contact-modal';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type PersonaKey = 'hw' | 'ho' | 'cw' | 'co';
@@ -173,6 +174,7 @@ export function PersonaROISection() {
   const [aov, setAov] = useState(900);
   const [rev, setRev] = useState(12);
   const [invPct, setInvPct] = useState(12);
+  const { openModal } = useContactModal();
 
   const selectPersona = (k: PersonaKey) => {
     if (selected === k) return;
@@ -362,7 +364,7 @@ export function PersonaROISection() {
                   {/* Inventory block — super compact */}
                   <div className={`bg-white rounded-xl border border-slate-200 p-2.5 relative transition-all duration-200 ${!hasPharmacy ? 'opacity-40 grayscale' : ''}`}>
                     {!hasPharmacy && (
-                      <div className="absolute inset-0 z-10 flex items-center justify-center rounded-xl bg-white/50 backdrop-blur-[1px]">
+                      <div className="absolute inset-0 z-10 flex items-center justify-center rounded-xl bg-white/70">
                         <span className="text-u-xs font-bold uppercase tracking-u-widest text-slate-400 bg-white border border-slate-200 px-2.5 py-1 rounded-full shadow-sm">
                           Requires Pharmacy
                         </span>
@@ -484,7 +486,7 @@ export function PersonaROISection() {
                         </div>
                       </div>
                       <button
-                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        onClick={openModal}
                         className={`h-9 px-4 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 whitespace-nowrap ${
                           isHospital ? 'bg-indigo-600 hover:bg-indigo-500 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'
                         }`}
@@ -532,33 +534,36 @@ export function PersonaROISection() {
                 </div>
 
                 {/* 2. Central Hook / CTA Card */}
-                <div className="relative z-10 flex flex-col items-center max-w-[340px] text-center p-8 bg-white/70 backdrop-blur-xl border border-indigo-100 rounded-[2.5rem] shadow-[0_20px_50px_-15px_rgba(79,70,229,0.12)] m-4">
+                <div className="relative z-10 flex flex-col items-center max-w-[340px] text-center p-8 bg-white border border-slate-200 rounded-[2.5rem] shadow-[0_20px_50px_-15px_rgba(79,70,229,0.12)] m-4">
+                  {/* Subtle ambient glow behind icon */}
+                  <div className="absolute top-12 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
+                  
+                  {/* Directional Action at Top */}
+                  <div className="relative z-20 flex items-center gap-2 px-4 py-2 bg-slate-50/80 backdrop-blur-sm border border-slate-200/60 rounded-xl text-slate-500 font-medium text-xs shadow-sm w-full justify-center mb-6">
+                    <ArrowUp size={14} className="text-indigo-600 animate-bounce" strokeWidth={2.5} />
+                    Select your facility type above
+                  </div>
+
                   {/* Icon Graphic */}
                   <div className="relative mb-6">
-                    <div className="absolute inset-0 bg-indigo-200 rounded-full animate-ping opacity-40 scale-[1.3]" />
+                    <div className="absolute inset-0 bg-indigo-100 rounded-full animate-ping opacity-50 scale-[1.2]" />
                     <motion.div
-                      animate={{ y: [0, -5, 0], rotate: [2, -2, 2] }}
+                      animate={{ y: [0, -4, 0] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                      className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-600/20 relative z-10"
+                      className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-teal-500 rounded-2xl flex items-center justify-center shadow-lg shadow-indigo-600/20 relative z-10 border border-white/20"
                     >
-                      <Wallet size={28} className="text-white" strokeWidth={2} />
+                      <Wallet size={26} className="text-white" strokeWidth={2} />
                     </motion.div>
                   </div>
                   
                   {/* Copy */}
-                  <div className="flex flex-col items-center gap-1.5 mb-6">
-                    <p className="text-[10px] text-indigo-600 font-bold uppercase tracking-widest bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
+                  <div className="flex flex-col items-center gap-1.5 relative z-20">
+                    <p className="text-[10px] text-indigo-600 font-bold uppercase tracking-widest bg-indigo-50/80 px-3 py-1 rounded-full border border-indigo-100 backdrop-blur-sm">
                       To check
                     </p>
-                    <h3 className="text-2xl font-bold text-slate-900 tracking-tight leading-tight max-w-[260px]">
+                    <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 leading-tight max-w-[260px]">
                       How much revenue is walking out your doors?
                     </h3>
-                  </div>
-
-                  {/* Directional Action */}
-                  <div className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-100 text-slate-500 font-semibold text-xs shadow-sm">
-                    <ArrowUp size={14} className="text-indigo-600 animate-bounce" strokeWidth={3} />
-                    Select your facility type above
                   </div>
                 </div>
               </motion.div>

@@ -242,20 +242,17 @@
   .blob-blue {
     @apply absolute rounded-full;
     background: var(--blob-blue);
-    filter: blur(80px);
-    animation: float-slow 8s ease-in-out infinite;
+    filter: blur(60px);
   }
   .blob-indigo {
     @apply absolute rounded-full;
     background: var(--blob-indigo);
-    filter: blur(90px);
-    animation: float-slower 10s ease-in-out infinite;
+    filter: blur(60px);
   }
   .blob-violet {
     @apply absolute rounded-full;
     background: var(--blob-violet);
-    filter: blur(60px);
-    animation: float-medium 6s ease-in-out infinite;
+    filter: blur(50px);
   }
 
   /* ── EYEBROW PATTERN ─────────────────────────────────────── */

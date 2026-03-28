@@ -85,6 +85,7 @@ export const viewport = {
 
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { WebVitals } from '@/app/web-vitals'
+import { ClientProviders } from '@/components/ClientProviders'
 
 export default async function RootLayout({
   children,
@@ -93,11 +94,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" />
-      </head>
+      <head />
       <body className={poppins.className} suppressHydrationWarning>
         <a
           href="#main"
@@ -141,7 +138,9 @@ export default async function RootLayout({
         </Script>
 
         <ScrollIndicator />
-        {children}
+        <ClientProviders>
+          {children}
+        </ClientProviders>
         <WebVitals />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ''} />
       </body>

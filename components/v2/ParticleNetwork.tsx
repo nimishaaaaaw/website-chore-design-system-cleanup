@@ -30,8 +30,8 @@ export function ParticleNetwork() {
 
     let animationFrameId: number
     let particles: Particle[] = []
-    const PARTICLE_COUNT = 45 // Reduced count for cleaner feel
-    const CONNECT_DIST = 110 // Added back short connecting lines
+    const PARTICLE_COUNT = 30
+    const CONNECT_DIST = 90
     const MOUSE_RADIUS = 280
 
     // Store mouse coordinates
@@ -112,7 +112,7 @@ export function ParticleNetwork() {
       ctx.clearRect(0, 0, w, h)
 
       // 1. Draw Network Connections FIRST (so they sit behind particles)
-      ctx.lineWidth = 1.2
+      ctx.lineWidth = 1
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const pA = particles[i]
@@ -198,13 +198,8 @@ export function ParticleNetwork() {
 
         const finalOpacity = Math.min(1, p.baseOpacity + hoverOpacityBoost)
         
-        // Solid, punchy colors
         ctx.fillStyle = `rgba(${p.color}, ${finalOpacity})`
         ctx.strokeStyle = `rgba(${p.color}, ${finalOpacity})`
-        
-        // Add subtle glow
-        ctx.shadowBlur = 10
-        ctx.shadowColor = `rgba(${p.color}, ${finalOpacity * 0.5})`
 
         if (p.type === 'cross') {
           // Sharp medical cross ✚

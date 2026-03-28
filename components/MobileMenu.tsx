@@ -4,11 +4,13 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { useContactModal } from '@/hooks/use-contact-modal'
 
 export default function MobileMenu() {
 	const [open, setOpen] = useState(false)
 	const [showSolutions, setShowSolutions] = useState(false)
 	const [showProducts, setShowProducts] = useState(false)
+	const { openModal } = useContactModal()
 
 	return (
 		<Sheet open={open} onOpenChange={setOpen}>
@@ -49,15 +51,15 @@ export default function MobileMenu() {
 									<div className="space-y-2">
 										<p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Hospital</p>
 										<div className="pl-2 space-y-2">
-											<Link href="/solutions/hospital/with-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>With in-house pharmacy</Link>
-											<Link href="/solutions/hospital/without-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Without in-house pharmacy</Link>
+											<Link href="/solutions/hospital-with-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>With in-house pharmacy</Link>
+											<Link href="/solutions/hospital-without-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Without in-house pharmacy</Link>
 										</div>
 									</div>
 									<div className="space-y-2">
 										<p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Clinic</p>
 										<div className="pl-2 space-y-2">
-											<Link href="/solutions/clinic/with-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>With in-house pharmacy</Link>
-											<Link href="/solutions/clinic/without-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Without in-house pharmacy</Link>
+											<Link href="/solutions/clinic-with-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>With in-house pharmacy</Link>
+											<Link href="/solutions/clinic-without-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Without in-house pharmacy</Link>
 										</div>
 									</div>
 								</motion.div>
@@ -89,7 +91,7 @@ export default function MobileMenu() {
 								>
 									<Link href="/products/managed-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Managed Pharmacy</Link>
 									<Link href="/products/virtual-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Virtual Pharmacy</Link>
-									<Link href="/products/hms" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Free HMS</Link>
+									<Link href="/products/hospital-management-system" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Hospital Management System</Link>
 									<Link href="/products/refill-engine" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Refill Engine</Link>
 								</motion.div>
 							)}
@@ -97,7 +99,7 @@ export default function MobileMenu() {
 					</div>
 
 					<Link
-						href="/#compare"
+						href="/compare"
 						className="group relative block text-blue-600 hover:text-blue-800 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
 						onClick={() => setOpen(false)}
 					>
@@ -119,7 +121,7 @@ export default function MobileMenu() {
 					</Link>
 					
 					<Link
-						href="/#about-us"
+						href="/about"
 						className="group relative block text-blue-600 hover:text-blue-800 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
 						onClick={() => setOpen(false)}
 					>
@@ -129,13 +131,15 @@ export default function MobileMenu() {
 						</span>
 					</Link>
 
-					<Link
-						href="/#contact"
+					<button
+						onClick={() => {
+							setOpen(false)
+							openModal()
+						}}
 						className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-2xl shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
-						onClick={() => setOpen(false)}
 					>
 						Talk to us
-					</Link>
+					</button>
 				</nav>
 			</SheetContent>
 		</Sheet>

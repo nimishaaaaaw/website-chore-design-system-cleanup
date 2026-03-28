@@ -5,10 +5,12 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Phone } from 'lucide-react'
 import { HERO_TRUST_BADGES } from './v2-data'
+import { useContactModal } from '@/hooks/use-contact-modal'
 
 import { ParticleNetwork } from './ParticleNetwork'
 
 export function MainHero() {
+  const { openModal } = useContactModal()
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-[90px] pb-4 md:pt-[110px] md:pb-8">
       {/* Base gradient */}
@@ -17,10 +19,9 @@ export function MainHero() {
       {/* Interactive Medical Particle Canvas */}
       <ParticleNetwork />
 
-      {/* Ambient glow orbs */}
-      <div className="absolute top-[10%] left-[15%] w-72 h-72 bg-blue-100/30 rounded-full blur-[80px] animate-float-slow" aria-hidden="true" />
-      <div className="absolute bottom-[20%] right-[10%] w-80 h-80 bg-indigo-100/20 rounded-full blur-[90px] animate-float-slower" aria-hidden="true" />
-      <div className="absolute top-[45%] right-[30%] w-48 h-48 bg-violet-100/25 rounded-full blur-[60px] animate-float-medium" aria-hidden="true" />
+      {/* Ambient glow orbs — simplified for performance */}
+      <div className="absolute top-[10%] left-[15%] w-60 h-60 bg-blue-100/25 rounded-full blur-[60px]" aria-hidden="true" />
+      <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-indigo-100/20 rounded-full blur-[60px]" aria-hidden="true" />
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-[2]" aria-hidden="true" />
@@ -78,14 +79,14 @@ export function MainHero() {
             transition={{ duration: 0.4, delay: 0.45 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-10 md:mb-12"
           >
-            <Link
-              href="/#contact"
+            <button
+              onClick={openModal}
               className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-bold rounded-2xl shadow-btn hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             >
               <Phone size={15} className="opacity-80" />
               Book a Demo
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-            </Link>
+            </button>
           </motion.div>
 
           {/* Social Proof Signal */}
