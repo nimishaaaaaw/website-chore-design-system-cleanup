@@ -1,38 +1,75 @@
 "use client"
 
-import LandingPageTemplate from '@/components/v2/LandingPageTemplate'
-import { Settings, ShieldCheck, BadgePercent, Clock } from 'lucide-react'
+import { Header } from '@/components/Header'
+import { BackToTop } from '@/components/BackToTop'
+import { MPHero } from '@/components/products/managed-pharmacy/MPHero'
+import { MPProblemGrid } from '@/components/products/managed-pharmacy/MPProblemGrid'
+import { MPWhatWeAre } from '@/components/products/managed-pharmacy/MPWhatWeAre'
+import { MPScenarios } from '@/components/products/managed-pharmacy/MPScenarios'
+import { MPPatientExperience } from '@/components/products/managed-pharmacy/MPPatientExperience'
+import { MPGapCalculator } from '@/components/products/managed-pharmacy/MPGapCalculator'
+import { MPWhatWeInvest } from '@/components/products/managed-pharmacy/MPWhatWeInvest'
+import { MPRevenueShare } from '@/components/products/managed-pharmacy/MPRevenueShare'
+import { MPTimeline } from '@/components/products/managed-pharmacy/MPTimeline'
+import { MPDailyOps } from '@/components/products/managed-pharmacy/MPDailyOps'
+import { MPGuarantee } from '@/components/products/managed-pharmacy/MPGuarantee'
+import { MPFAQ } from '@/components/products/managed-pharmacy/MPFAQ'
+import { MPFinalCTA } from '@/components/products/managed-pharmacy/MPFinalCTA'
+import dynamic from 'next/dynamic'
 
-export default function ManagedPharmacy() {
+const Footer = dynamic(
+  () => import('@/components/v2/Footer').then(m => ({ default: m.Footer })),
+  { loading: () => <div className="w-full py-12 bg-white border-t border-slate-100" /> }
+)
+
+export default function ManagedPharmacyPage() {
   return (
-    <LandingPageTemplate
-      category="Product · Managed Pharmacy"
-      title="Total pharmacy"
-      subtitle="takeover for hospitals."
-      description="We take over your pharmacy operations end-to-end—from staffing and procurement to billing and inventory. We transform your pharmacy into a high-margin, leak-proof asset."
-      accentColor="blue"
-      benefits={[
-        { 
-          title: "Operations Takeover", 
-          desc: "Complete management of staffing, shifts, and inventory procurement.",
-          icon: Settings
-        },
-        { 
-          title: "Leakage Control", 
-          desc: "Real-time auditing and pilferage guards ensure every pill is accounted for.",
-          icon: ShieldCheck
-        },
-        { 
-          title: "Revenue Share", 
-          desc: "Our model is performance-based. We only grow when you grow.",
-          icon: BadgePercent
-        },
-        { 
-          title: "Transition Plan", 
-          desc: "Full operational transition in under 30 days with zero downtime.",
-          icon: Clock
-        }
-      ]}
-    />
+    <div className="min-h-screen bg-white">
+      <Header />
+
+      <main id="main">
+        {/* 1. Hero — above fold */}
+        <MPHero />
+
+        {/* 2. The Problem — custom dark section */}
+        <MPProblemGrid />
+
+        {/* 2. What MediKloud actually is — operator vs vendor vs HMS */}
+        <MPWhatWeAre />
+
+        {/* 3. Scenario A/B — interactive toggle */}
+        <MPScenarios />
+
+        {/* 4. Patient experience — emotional hook before financials */}
+        <MPPatientExperience />
+
+        {/* 5. Gap calculator — dark section, vendor hospitals */}
+        <MPGapCalculator />
+
+        {/* 6. What MediKloud invests */}
+        <MPWhatWeInvest />
+
+        {/* 7. Revenue share formula + specialty earnings */}
+        <MPRevenueShare />
+
+        {/* 8. 6-week go-live timeline */}
+        <MPTimeline />
+
+        {/* 9. Daily operations grid */}
+        <MPDailyOps />
+
+        {/* 10. Income guarantee for Scenario B */}
+        <MPGuarantee />
+
+        {/* 11. FAQ */}
+        <MPFAQ />
+
+        {/* 12. Final CTA */}
+        <MPFinalCTA />
+      </main>
+
+      <Footer />
+      <BackToTop />
+    </div>
   )
 }
