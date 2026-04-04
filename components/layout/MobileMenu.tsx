@@ -100,27 +100,7 @@ export default function MobileMenu() {
 
 
 
-					<Link
-						href="/blogs"
-						className="group relative block text-blue-600 hover:text-blue-800 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
-						onClick={() => setOpen(false)}
-					>
-						<span className="relative">
-							Blogs
-							<span className="pointer-events-none absolute left-0 -bottom-1 h-[2px] w-full bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-						</span>
-					</Link>
-					
-					<Link
-						href="/about"
-						className="group relative block text-blue-600 hover:text-blue-800 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
-						onClick={() => setOpen(false)}
-					>
-						<span className="relative">
-							About Us
-							<span className="pointer-events-none absolute left-0 -bottom-1 h-[2px] w-full bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-						</span>
-					</Link>
+
 
 					<button
 						onClick={() => {

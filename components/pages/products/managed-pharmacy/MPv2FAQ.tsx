@@ -48,41 +48,23 @@ const faqs = [
 ];
 
 export function MPv2FAQ() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <div className="relative py-16 lg:py-32 z-10 max-w-4xl mx-auto">
+    <section className="relative bg-section-alt section-py border-t border-slate-100 overflow-hidden">
+      <div className="container-page relative z-10">
+        <div className="max-w-4xl mx-auto">
       {/* Header */}
       <div className="text-center mb-16">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-200 bg-indigo-50 text-brand-indigo-600 text-[10px] font-mono tracking-[0.3em] uppercase mb-8 shadow-sm"
-        >
-          <HelpCircle size={14} />
-          FREQUENTLY ASKED QUESTIONS
-        </motion.div>
-        
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-h2 md:text-display-sm font-bold text-slate-900 leading-tight tracking-tight mb-6"
+          className="text-section text-center md:text-5xl leading-tight tracking-tight mb-6"
         >
-          Clear answers for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">hospital owners.</span>
+          Frequently Asked Questions
         </motion.h2>
-        
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-body-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto"
-        >
-          Transitioning your pharmacy is a major operational decision. Here are the precise answers to the most common legal, financial, and HR questions we receive.
-        </motion.p>
       </div>
 
       {/* FAQ List */}
@@ -91,12 +73,8 @@ export function MPv2FAQ() {
           const isActive = activeIndex === idx;
           
           return (
-            <motion.div 
+            <div 
               key={idx}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: idx * 0.05 + 0.2 }}
               className={`border rounded-[1.5rem] overflow-hidden transition-all duration-300 group ${
                 isActive 
                   ? 'bg-white border-indigo-200 shadow-card-md' 
@@ -132,10 +110,12 @@ export function MPv2FAQ() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </div>
           );
         })}
       </div>
-    </div>
+        </div>
+      </div>
+    </section>
   );
 }

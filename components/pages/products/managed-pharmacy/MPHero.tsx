@@ -37,8 +37,10 @@ export function MPHero() {
       <ParticleNetwork />
 
       {/* Ambient glow orbs */}
-      <div className="absolute top-[10%] left-[10%] w-72 h-72 bg-blue-200/20 rounded-full blur-[80px]" aria-hidden="true" />
-      <div className="absolute bottom-[10%] right-[10%] w-80 h-80 bg-indigo-200/20 rounded-full blur-[80px]" aria-hidden="true" />
+      <div className="blob-layer">
+        <div className="blob-blue w-[28rem] h-[28rem] top-[10%] left-[10%]" />
+        <div className="blob-indigo w-[32rem] h-[32rem] bottom-[10%] right-[10%]" />
+      </div>
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-[2]" aria-hidden="true" />
@@ -56,9 +58,9 @@ export function MPHero() {
               transition={{ duration: 0.6, delay: 0.06 }}
               className="mb-5"
             >
-              <span className="inline-block text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-indigo-700 bg-indigo-100/80 px-4 py-1.5 rounded-full border border-indigo-200/60 shadow-sm backdrop-blur-sm">
-                Zero Capex · Fully Managed
-              </span>
+              <div className="eyebrow-wrap justify-start">
+                <span className="eyebrow-text text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200/60">Zero Capex · Fully Managed</span>
+              </div>
             </motion.div>
 
             {/* ── H1 ── */}
@@ -66,36 +68,41 @@ export function MPHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="mb-5 lg:mb-6 text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl"
+              className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold text-slate-900 leading-[1.15] tracking-tight mb-4 md:mb-6 max-w-[95%]"
             >
-              <span className="block font-bold leading-[1.1] tracking-tight md:tracking-[-0.02em] text-slate-900 pb-1 drop-shadow-sm">
-                 We set up & completely operate
-              </span>
-              <span
-                className="block font-black leading-[1.1] tracking-tight md:tracking-[-0.02em] bg-gradient-display bg-clip-text text-transparent pb-1 drop-shadow-sm"
-                style={{ color: '#4F46E5', filter: 'drop-shadow(0px 2px 4px rgba(79, 70, 229, 0.1))' }}
+              We Set Up & Completely Operate{' '}
+              <span 
+                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 pb-2" 
+                style={{ color: '#4F46E5' }}
               >
-                tech-driven pharmacies
-              </span>
-              <span className="block text-h3 sm:text-h2 font-bold leading-[1.3] tracking-[-0.01em] text-slate-500 mt-2.5 md:mt-3 max-w-xl">
-                for independent hospitals &amp; clinics.
+                Tech-Driven Pharmacies
               </span>
             </motion.h1>
+
+            {/* ── Subtitle ── */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="text-xl sm:text-2xl text-slate-500 font-medium mb-8 max-w-2xl leading-relaxed"
+            >
+              for Independent Hospitals & Clinics.
+            </motion.p>
 
             {/* ── CTAs ── */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.45 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-5"
             >
               <button
                 onClick={openModal}
-                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gradient-action text-white font-bold rounded-xl shadow-btn hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 w-full sm:w-auto"
+                className="btn-primary w-full sm:w-auto"
               >
                 <Phone size={15} className="opacity-80" />
                 Partner With Us
-                <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
           </div>
@@ -124,7 +131,7 @@ export function MPHero() {
                       <div className="bg-blue-100/80 p-1.5 rounded-lg border border-blue-200/50">
                         <ShieldCheck size={16} className="text-blue-600" />
                       </div>
-                      <span className="text-sm font-extrabold text-slate-800 tracking-tight">We Bring</span>
+                      <span className="text-[12px] sm:text-[13px] font-bold text-slate-900 uppercase tracking-widest mt-0.5">We Bring</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-2.5">
@@ -143,7 +150,7 @@ export function MPHero() {
                           >
                             <item.icon size={14} strokeWidth={2.5} />
                           </motion.div>
-                          <span className="text-[12px] font-bold text-slate-700 relative z-10">{item.label}</span>
+                          <span className="text-[12px] sm:text-[13px] font-semibold text-slate-700 relative z-10">{item.label}</span>
                           
                           {/* Animated scanline effect inside pill */}
                           <motion.div
@@ -180,10 +187,10 @@ export function MPHero() {
                   {/* BOTTOM: Output Success (You Secure) */}
                   <div className="relative mt-2">
                     <div className="flex items-center gap-2 mb-3.5">
-                      <div className="bg-emerald-100/80 p-1.5 rounded-lg border border-emerald-200/50">
-                        <CheckCircle2 size={16} className="text-emerald-600" />
+                      <div className="bg-indigo-100/80 p-1.5 rounded-lg border border-indigo-200/50">
+                        <CheckCircle2 size={16} className="text-indigo-600" />
                       </div>
-                      <span className="text-sm font-extrabold text-slate-800 tracking-tight">Clinics &amp; Hospitals Gain</span>
+                      <span className="text-[12px] sm:text-[13px] font-bold text-slate-900 uppercase tracking-widest mt-0.5">Clinics &amp; Hospitals Gain</span>
                     </div>
 
                     <div className="flex flex-wrap gap-2">
@@ -193,18 +200,18 @@ export function MPHero() {
                           initial={{ opacity: 0, scale: 0.95 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 0.8 + (i * 0.1), type: 'spring' }}
-                          className="relative flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50/80 border border-emerald-200/50 shadow-sm overflow-hidden"
+                          className="relative flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-50/80 border border-indigo-200/50 shadow-sm overflow-hidden"
                         >
-                          <div className="text-emerald-600 relative z-10">
+                          <div className="text-indigo-600 relative z-10">
                             <item.icon size={14} strokeWidth={2.5} />
                           </div>
-                          <span className="text-[12px] font-bold text-slate-800 relative z-10">{item.label}</span>
+                          <span className="text-[12px] sm:text-[13px] font-semibold text-slate-800 relative z-10">{item.label}</span>
                           
                           {/* Subdued ping animation on outputs */}
                           <motion.div
                              animate={{ opacity: [0, 0.5, 0] }}
                              transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                             className="absolute inset-0 bg-gradient-to-r from-emerald-400/0 via-emerald-200/40 to-emerald-400/0 pointer-events-none"
+                             className="absolute inset-0 bg-gradient-to-r from-indigo-400/0 via-indigo-200/40 to-indigo-400/0 pointer-events-none"
                           />
                         </motion.div>
                       ))}

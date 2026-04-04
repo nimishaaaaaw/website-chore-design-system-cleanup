@@ -9,26 +9,28 @@ import {
   Building2,
   ArrowUpRight
 } from 'lucide-react';
+import { useContactModal } from '@/hooks/use-contact-modal';
 
 export function MPv2PersonaCTA() {
   const [activePersona, setActivePersona] = useState(0);
+  const { openModal } = useContactModal();
   
   const personas = [
     {
-      title: "I operate my own pharmacy.",
+      title: "I run my own pharmacy.",
       role: "Independent Setup",
       icon: <Store size={24} />,
-      bgLight: "bg-rose-50",
-      borderLight: "border-rose-200",
-      textGlow: "text-rose-600",
-      accentBg: "bg-rose-500",
-      gradient: "from-rose-500 to-rose-600",
+      bgLight: "bg-indigo-50",
+      borderLight: "border-indigo-200",
+      textGlow: "text-indigo-600",
+      accentBg: "bg-indigo-500",
+      gradient: "from-indigo-500 to-indigo-600",
       problem: "You carry all the capital risk, shoulder the hiring headaches, and bleed margin through dead stock, theft, and manual billing errors.",
       solution: "Let us take 100% of the operational load while you secure chain-level retail profit margins.",
       buttonText: "VIEW DIY TRANSITION PLAN"
     },
     {
-      title: "My pharmacy is run by a vendor.",
+      title: "My pharmacy is vendor-run.",
       role: "Vendor Managed",
       icon: <Handshake size={24} />,
       bgLight: "bg-blue-50",
@@ -41,7 +43,7 @@ export function MPv2PersonaCTA() {
       buttonText: "COMPARE RENT VS. REVENUE"
     },
     {
-      title: "I am launching a new clinic.",
+      title: "I am building a new clinic.",
       role: "New Launch",
       icon: <Building2 size={24} />,
       bgLight: "bg-emerald-50",
@@ -56,28 +58,19 @@ export function MPv2PersonaCTA() {
   ];
 
   return (
-    <div className="relative pt-32 mt-10 border-t border-slate-200 pb-32 z-10 max-w-7xl mx-auto">
+    <section className="relative bg-section-surface section-py border-t border-slate-100 overflow-hidden">
+      <div className="container-page relative z-10">
       
       {/* Header */}
-      <div className="text-center max-w-4xl mx-auto mb-16 px-4">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-rose-200 bg-rose-50 text-rose-600 text-[10px] font-mono tracking-[0.3em] uppercase mb-8 shadow-sm"
-        >
-          <ArrowUpRight size={14} className="animate-pulse" />
-          Your Next Moves
-        </motion.div>
-        
+      <div className="text-center max-w-4xl mx-auto mb-10 px-4">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-h2 md:text-h1 font-bold text-slate-900 leading-tight tracking-tight mb-6"
+          className="text-section leading-tight md:text-5xl tracking-tight mb-6"
         >
-          Ready to secure <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-orange-600">chain-level retail margins?</span>
+          Secure <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600" style={{ color: '#4F46E5' }}>chain-level retail margins.</span>
         </motion.h2>
         
         <motion.p 
@@ -85,15 +78,15 @@ export function MPv2PersonaCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-body-lg text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto"
+          className="text-body-lg text-slate-500 font-medium leading-relaxed max-w-xl mx-auto"
         >
-          Select your current operational setup below to unlock your custom transition plan and see exactly how MediKloud transforms your bottom line.
+          Select your setup below to unlock your custom plan, or <button onClick={openModal} className="text-indigo-600 font-bold hover:underline">talk to our experts today</button> to see exactly how we transform your bottom line.
         </motion.p>
       </div>
 
       {/* Interactive Persona Dashboard */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8">
 
             {/* Left Column: Selectors */}
             <div className="lg:col-span-5 flex flex-col gap-4">
@@ -103,9 +96,9 @@ export function MPv2PersonaCTA() {
                         <button
                           key={i}
                           onClick={() => setActivePersona(i)}
-                          className={`relative w-full text-left p-5 md:p-6 rounded-[2rem] border transition-all duration-300 group overflow-hidden ${
+                          className={`relative w-full text-left p-5 rounded-[1.5rem] border transition-all duration-300 group overflow-hidden flex flex-col justify-center ${
                             isActive 
-                              ? `bg-white ${p.borderLight} shadow-card-md` 
+                              ? `bg-white ${p.borderLight} shadow-card-md scale-[1.02]` 
                               : 'bg-slate-50 border-slate-200 hover:bg-white hover:border-slate-300'
                           }`}
                         >
@@ -124,11 +117,11 @@ export function MPv2PersonaCTA() {
                                    {p.icon}
                                </div>
                                <div>
-                                   <span className={`text-[10px] font-mono uppercase tracking-widest mb-1 block transition-colors duration-300 ${isActive ? p.textGlow : 'text-slate-500'}`}>
+                                   <span className={`text-[10px] md:text-[11px] font-bold uppercase tracking-widest mb-1 block transition-colors duration-300 ${isActive ? p.textGlow : 'text-slate-400'}`}>
                                      {p.role}
                                    </span>
-                                   <h3 className={`text-h4 md:text-h3 font-bold transition-colors duration-300 ${isActive ? 'text-slate-900' : 'text-slate-500 group-hover:text-slate-700'}`}>
-                                     "{p.title}"
+                                   <h3 className={`text-base md:text-lg font-bold leading-snug transition-colors duration-300 ${isActive ? 'text-slate-900' : 'text-slate-500 group-hover:text-slate-700'}`}>
+                                     {p.title}
                                    </h3>
                                </div>
                            </div>
@@ -138,14 +131,14 @@ export function MPv2PersonaCTA() {
             </div>
 
             {/* Right Column: Active Content Panel */}
-            <div className="lg:col-span-7 relative rounded-[2.5rem] bg-white border border-slate-200 overflow-hidden flex flex-col shadow-card-lg min-h-[420px]">
+            <div className="lg:col-span-7 relative rounded-[2.5rem] bg-white border border-slate-200 overflow-hidden flex flex-col shadow-card-lg min-h-[360px]">
                 {/* Top Colored Bar */}
                 <div className={`h-2 w-full ${personas[activePersona].accentBg} transition-colors duration-500`} />
 
                 {/* Ambient Background Glow */}
                 <div className={`absolute top-0 right-0 w-[500px] h-[500px] blur-[120px] opacity-[0.03] pointer-events-none transition-colors duration-700 ${personas[activePersona].accentBg}`} />
 
-                <div className="p-8 md:p-12 flex-1 relative z-10 flex flex-col justify-center">
+                <div className="p-6 md:p-10 flex-1 relative z-10 flex flex-col justify-center">
                    <AnimatePresence mode="wait">
                       <motion.div
                          key={activePersona}
@@ -156,15 +149,15 @@ export function MPv2PersonaCTA() {
                          className="flex flex-col h-full"
                       >
                          <div className="mb-6 flex items-center gap-3">
-                             <div className={`p-2 rounded-xl ${personas[activePersona].bgLight} ${personas[activePersona].borderLight} border ${personas[activePersona].textGlow}`}>
+                             <div className={`p-2.5 rounded-xl ${personas[activePersona].bgLight} ${personas[activePersona].borderLight} border ${personas[activePersona].textGlow}`}>
                                 {personas[activePersona].icon}
                              </div>
-                             <span className={`text-xs font-mono uppercase tracking-widest ${personas[activePersona].textGlow}`}>
+                             <span className={`text-[11px] md:text-xs font-bold uppercase tracking-widest ${personas[activePersona].textGlow}`}>
                                 {personas[activePersona].role}
                              </span>
                          </div>
 
-                         <h3 className="text-h2 md:text-h1 font-bold text-slate-900 leading-tight mb-8">
+                         <h3 className="text-2xl md:text-3xl lg:text-4xl xl:text-[2.5rem] font-bold text-slate-900 leading-tight tracking-tight mb-8 sm:whitespace-nowrap md:whitespace-normal xl:whitespace-nowrap">
                             {personas[activePersona].title}
                          </h3>
 
@@ -173,7 +166,7 @@ export function MPv2PersonaCTA() {
                              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200">
                                  <div className="flex items-center gap-2 mb-3">
                                      <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-                                     <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Current Reality</span>
+                                     <span className="text-[10px] md:text-[11px] font-bold text-slate-500 uppercase tracking-widest">Current Reality</span>
                                  </div>
                                  <p className="text-slate-600 font-medium leading-relaxed text-sm md:text-base">
                                      {personas[activePersona].problem}
@@ -184,7 +177,7 @@ export function MPv2PersonaCTA() {
                              <div className={`p-5 rounded-2xl border bg-white ${personas[activePersona].borderLight}`}>
                                  <div className="flex items-center gap-2 mb-3">
                                      <div className={`w-1.5 h-1.5 rounded-full ${personas[activePersona].accentBg} animate-pulse`} />
-                                     <span className={`text-[10px] font-mono uppercase tracking-widest ${personas[activePersona].textGlow}`}>MediKloud Impact</span>
+                                     <span className={`text-[10px] md:text-[11px] font-bold uppercase tracking-widest ${personas[activePersona].textGlow}`}>MediKloud Impact</span>
                                  </div>
                                  <p className="text-slate-900 font-bold leading-relaxed text-sm md:text-base">
                                      {personas[activePersona].solution}
@@ -193,8 +186,11 @@ export function MPv2PersonaCTA() {
                          </div>
 
                          {/* CTA Button */}
-                         <button className={`w-full py-4 px-6 rounded-2xl text-white font-bold tracking-tight bg-gradient-to-r ${personas[activePersona].gradient} flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-btn group`}>
-                             {personas[activePersona].buttonText} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                         <button 
+                             onClick={openModal}
+                             className={`w-full py-4 px-6 rounded-2xl text-white font-bold tracking-tight bg-gradient-action flex items-center justify-center gap-3 shadow-btn group transition-all text-base hover:shadow-lg hover:-translate-y-0.5`}
+                         >
+                             {personas[activePersona].buttonText} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                          </button>
                       </motion.div>
                    </AnimatePresence>
@@ -203,6 +199,7 @@ export function MPv2PersonaCTA() {
 
          </div>
       </div>
-    </div>
+      </div>
+    </section>
   );
 }

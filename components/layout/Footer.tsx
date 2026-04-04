@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           
           {/* Brand Column */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-5 space-y-6">
             <Link href="/" className="inline-block transition-transform hover:scale-105 active:scale-95 duration-200">
               <Image 
                 src="/medikloud-logo-primary.webp" 
@@ -24,7 +24,7 @@ export function Footer() {
           </div>
 
           {/* Solutions Column */}
-          <div className="lg:col-span-2 space-y-5">
+          <div className="lg:col-span-3 space-y-5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Solutions</h3>
             <ul className="space-y-3">
               {[
@@ -43,7 +43,7 @@ export function Footer() {
           </div>
 
           {/* Locations Column */}
-          <div className="lg:col-span-3 space-y-5">
+          <div className="lg:col-span-4 space-y-5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Locations</h3>
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               <ul className="space-y-3">
@@ -63,24 +63,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Company Column */}
-          <div className="lg:col-span-3 space-y-5">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Company</h3>
-            <ul className="space-y-3">
-              {['About', 'Blogs'].map((item) => (
-                <li key={item}>
-                  <Link href={`/${item.toLowerCase()}`} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
-                    {item}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/security" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
-                  Security
-                </Link>
-              </li>
-            </ul>
-          </div>
+
 
         </div>
 

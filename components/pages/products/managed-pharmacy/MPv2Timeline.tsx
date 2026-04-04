@@ -19,6 +19,58 @@ export function MPv2Timeline() {
     offset: ["start center", "end center"]
   });
   const processLineHeight = useTransform(processScrollProgress, [0, 1], ["0%", "100%"]);
+  const colorRange = ["#f43f5e", "#f59e0b", "#3b82f6", "#4f46e5"]; // Rose, Amber, Blue, Indigo
+  const processLineColor = useTransform(
+    processScrollProgress,
+    [0, 0.33, 0.66, 1],
+    colorRange
+  );
+
+  const StepCard = ({ step, isEven, index, colorRange }: any) => (
+    <motion.div 
+      initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ margin: "-15% 0px", once: true }}
+      transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+      className={`bg-white border border-slate-200 p-8 rounded-3xl hover:border-slate-300 transition-all shadow-card hover:shadow-card-md group text-left`}
+    >
+      <div className={`flex flex-col items-start mb-6 space-y-2`}>
+        <span className="text-[10px] font-mono text-slate-500 tracking-widest uppercase bg-slate-50 px-3 py-1 rounded-full border border-slate-200 w-fit">{step.step}</span>
+        <h3 className="text-h3 font-bold text-slate-900 mt-3">{step.title}</h3>
+        <span className={`text-sm font-medium italic opacity-80`} style={{ color: colorRange[index] }}>{step.highlight}</span>
+      </div>
+      
+      <div className={`flex flex-col gap-3 items-start`}>
+        {step.points.map((point: string, i: number) => (
+          <div key={i} className={`flex items-start gap-3`}>
+            <div className={`mt-1 shrink-0 opacity-70`} style={{ color: colorRange[index] }}>
+              <CheckCircle2 size={16} />
+            </div>
+            <p className="text-slate-600 font-medium text-base text-left">{point}</p>
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+
+  const StepNode = ({ step, index, colorRange }: any) => (
+    <motion.div 
+      initial={{ scale: 0.8, opacity: 0.5 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      whileHover={{ scale: 1.15, transition: { duration: 0.2 } }}
+      viewport={{ margin: "-20% 0px", once: false }}
+      className={`w-14 h-14 rounded-full p-0.5 shadow-card transition-colors duration-500 cursor-pointer z-30`}
+      style={{ 
+        background: `linear-gradient(135deg, ${colorRange[index]}, ${colorRange[index]}dd)`
+      }}
+    >
+      <div className="w-full h-full bg-white rounded-full flex items-center justify-center">
+         <div style={{ color: colorRange[index] }}>
+           {step.icon}
+         </div>
+      </div>
+    </motion.div>
+  );
 
   const processSteps = [
     {
@@ -31,34 +83,17 @@ export function MPv2Timeline() {
         "Present a transparent cash-loss report."
       ],
       icon: <Search size={20} />,
-      color: "from-slate-600 to-slate-800",
-      iconColor: "text-slate-400"
     },
     {
-      step: "Day 05",
-      title: "Formulary Consultation",
-      highlight: "You define the medicine; we stock it.",
+      step: "Day 05–10",
+      title: "Medicine Choice & Partnership",
+      highlight: "The right stock. The right profit.",
       points: [
-        "Collaborate directly with your doctors.",
-        "Map opening inventory to exact prescribing habits.",
-        "Ensure a flawless, target 100% fill rate on Day 1."
-      ],
-      icon: <FileText size={20} />,
-      color: "from-blue-500 to-indigo-600",
-      iconColor: "text-blue-400"
-    },
-    {
-      step: "Day 10",
-      title: "Partnership & Terms",
-      highlight: "We lock in your financials.",
-      points: [
-        "Replace fixed vendor rents, or operational losses, with scalable upside.",
-        "Agree on a transparent retail revenue share.",
-        "Sign a risk-free commercial partnership."
+        "We talk to your doctors to choose the right medicines for your patients.",
+        "We make sure your pharmacy is 100% stocked from day one.",
+        "We agree on a fair way to share the new profits with you."
       ],
       icon: <Handshake size={20} />,
-      color: "from-emerald-400 to-teal-600",
-      iconColor: "text-emerald-400"
     },
     {
       step: "Day 15-28",
@@ -70,8 +105,6 @@ export function MPv2Timeline() {
         "Execute final physical swap overnight (Zero downtime)."
       ],
       icon: <Rocket size={20} />,
-      color: "from-orange-400 to-rose-500",
-      iconColor: "text-orange-400"
     },
     {
       step: "Day 30",
@@ -83,13 +116,12 @@ export function MPv2Timeline() {
         "Automated WhatsApp refills capture chronic patients."
       ],
       icon: <TrendingUp size={20} />,
-      color: "from-rose-500 to-purple-600",
-      iconColor: "text-rose-400"
     }
   ];
 
   return (
-    <div className="relative pt-32 mt-20 border-t border-slate-200 pb-32 z-10 max-w-7xl mx-auto">
+    <section className="relative bg-section-alt section-py border-t border-slate-100 overflow-hidden">
+      <div className="container-page relative z-10">
       
       {/* Header */}
       <div className="text-center max-w-4xl mx-auto mb-24 px-4">
@@ -97,7 +129,7 @@ export function MPv2Timeline() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-[10px] font-mono tracking-[0.3em] uppercase mb-8"
+          className="badge badge-brand mb-8 px-4 py-2 text-[10px] uppercase tracking-widest gap-2"
         >
           <RefreshCcw size={14} />
           How It Works
@@ -108,9 +140,9 @@ export function MPv2Timeline() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-h2 md:text-h1 font-bold text-slate-900 leading-tight tracking-tight mb-6"
+          className="text-section leading-[1.1] md:text-5xl md:leading-[1.1] tracking-tight mb-6"
         >
-          From operational chaos to a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">fully managed engine</span> in 30 days.
+          From messy operations to a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 px-1">high-profit pharmacy</span> in 30 days.
         </motion.h2>
         
         <motion.p 
@@ -120,84 +152,61 @@ export function MPv2Timeline() {
           transition={{ delay: 0.2 }}
           className="text-body-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed"
         >
-          We do not disrupt your clinic. We execute a rigorous, 5-step operational takeover that respects your clinical authority and locks in your new profit structure without a single day of downtime.
+          Zero downtime. Zero disruption. We handle the entire transition in 4 simple steps while you focus on your patients.
         </motion.p>
       </div>
 
       {/* Vertical Timeline Container */}
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-8" ref={processRef}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-8">
+        <div className="relative w-full" ref={processRef}>
         
         {/* The Central Background Line */}
-        <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-1 bg-slate-200 -translate-x-1/2 rounded-full" />
+        <div className="absolute left-8 -ml-0.5 md:left-1/2 md:-ml-0.5 top-4 bottom-4 w-1 bg-slate-200 rounded-full" />
         
         {/* The Scroll-Driven Active Line */}
         <motion.div 
-          style={{ height: processLineHeight }}
-          className="absolute left-8 md:left-1/2 top-4 w-1 bg-gradient-to-b from-blue-500 via-indigo-500 to-rose-500 -translate-x-1/2 rounded-full origin-top z-0" 
+          style={{ height: processLineHeight, backgroundColor: processLineColor }}
+          className="absolute left-8 -ml-0.5 md:left-1/2 md:-ml-0.5 top-4 w-1 rounded-full origin-top z-0 shadow-[0_0_15px_rgba(0,0,0,0.1)]" 
         />
 
         {/* The Steps */}
-        <div className="space-y-16 md:space-y-24 relative z-10 pt-10">
+        <div className="space-y-12 md:space-y-16 relative z-10 pt-10 w-full">
           {processSteps.map((step, index) => {
             const isEven = index % 2 !== 0; // 0-indexed, so index 1 is Step 2
             
             return (
-              <div key={step.step} className="flex flex-col md:flex-row items-center justify-between w-full relative">
-                
-                {/* Left Side Content (Empty for Even steps on Desktop) */}
-                <div className={`w-full md:w-5/12 ${isEven ? 'md:order-3 md:pl-16' : 'md:order-1 md:pr-16 md:text-right'} pl-20 md:pl-0 order-2 mt-4 md:mt-0`}>
-                  <motion.div 
-                    initial={{ opacity: 0, x: isEven ? 50 : -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ margin: "-15% 0px", once: true }}
-                    transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
-                    className={`bg-white border border-slate-200 p-8 rounded-3xl hover:border-slate-300 transition-all shadow-card hover:shadow-card-md group`}
-                  >
-                    <div className={`flex flex-col ${isEven ? 'md:items-start' : 'md:items-end'} mb-6 space-y-2`}>
-                      <span className="text-[10px] font-mono text-slate-500 tracking-widest uppercase bg-slate-50 px-3 py-1 rounded-full border border-slate-200 w-fit">{step.step}</span>
-                      <h3 className="text-h3 font-bold text-slate-900 mt-3">{step.title}</h3>
-                      <span className={`text-sm font-medium ${step.iconColor.replace('400', '600')} italic`}>{step.highlight}</span>
-                    </div>
-                    
-                    <div className={`flex flex-col gap-3 ${isEven ? 'md:items-start' : 'md:items-end'}`}>
-                      {step.points.map((point, i) => (
-                        <div key={i} className={`flex items-start gap-3 ${isEven ? 'flex-row' : 'flex-row md:flex-row-reverse'}`}>
-                          <div className={`mt-1 shrink-0 ${step.iconColor.replace('400', '500')}`}>
-                            <CheckCircle2 size={16} />
-                          </div>
-                          <p className="text-slate-600 font-medium text-base">{point}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
+              <div key={step.step} className="relative z-20">
+                {/* Desktop Grid Layout */}
+                <div className="hidden md:grid grid-cols-[1fr_120px_1fr] items-center w-full">
+                  {/* Left Column */}
+                  <div className={`${isEven ? 'order-3 pl-12' : 'order-1 pr-12 text-right'}`}>
+                    <StepCard step={step} isEven={isEven} index={index} colorRange={colorRange} />
+                  </div>
+
+                  {/* Middle Column (Node) */}
+                  <div className="order-2 flex justify-center relative z-20">
+                    <StepNode step={step} index={index} colorRange={colorRange} />
+                  </div>
+
+                  {/* Right Column (Spacer) */}
+                  <div className={`${isEven ? 'order-1' : 'order-3'}`} />
                 </div>
 
-                {/* Central Node */}
-                <div className="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center order-1 md:order-2">
-                  <motion.div 
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ margin: "-20% 0px", once: true }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
-                    className={`w-14 h-14 rounded-full bg-gradient-to-br ${step.color} p-0.5 shadow-card`}
-                  >
-                    <div className="w-full h-full bg-white rounded-full flex items-center justify-center">
-                       <div className={`${step.iconColor.replace('400', '500')}`}>
-                         {step.icon}
-                       </div>
-                    </div>
-                  </motion.div>
+                {/* Mobile Layout (Existing) */}
+                <div className="md:hidden flex flex-col items-start pl-20 relative">
+                  <div className="absolute left-8 -ml-7 top-0">
+                    <StepNode step={step} index={index} colorRange={colorRange} />
+                  </div>
+                  <StepCard step={step} isEven={isEven} index={index} colorRange={colorRange} />
                 </div>
-
-                {/* Right Side Content (Empty for Odd steps on Desktop) */}
-                <div className={`w-full md:w-5/12 hidden md:block ${isEven ? 'order-1' : 'order-3'}`} />
-                
               </div>
             );
           })}
         </div>
         
       </div>
-    </div>
+      </div>
+      </div>
+    </section>
   );
 }

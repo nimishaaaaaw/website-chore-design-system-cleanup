@@ -1,26 +1,37 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { 
-  ArrowRight, 
-  ShieldCheck, 
-  Clock, 
-  Activity, 
-  ClipboardList, 
-  Package, 
-  Truck, 
-  Zap, 
+import {
+  ArrowRight,
+  ShieldCheck,
+  Clock,
+  Activity,
+  ClipboardList,
+  Package,
+  Truck,
+  Zap,
   CheckCircle2, 
-  Stethoscope 
+  Stethoscope,
+  Phone,
+  FileText,
+  MapPin
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useContactModal } from '@/hooks/use-contact-modal';
+import { ParticleNetwork } from '@/components/shared/ParticleNetwork';
 
 const VPHero = () => {
   const [timer, setTimer] = useState("03:42");
+  const { openModal } = useContactModal();
 
+  // New State for the Live Automation Engine
+  const [activeStage, setActiveStage] = useState(0);
+  const [orderId, setOrderId] = useState(8429);
+
+  // Timer for the 10-minute countdown (existing)
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimer(prev => {
+      setTimer((prev: string) => {
         const [m, s] = prev.split(':').map(Number);
         if (s === 0 && m === 0) return "00:00";
         if (s === 0) return `${String(m - 1).padStart(2, '0')}:59`;
@@ -30,187 +41,339 @@ const VPHero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Timer for the Automation Engine progression
+  useEffect(() => {
+    const stageInterval = setInterval(() => {
+      setActiveStage((prev: number) => {
+        const next = (prev + 1) % 4;
+        if (next === 0) setOrderId((id) => id + 1); // Increment order ID on cycle restart
+        return next;
+      });
+    }, 4000); // 4 seconds per stage
+    return () => clearInterval(stageInterval);
+  }, []);
+
+  const stages = [
+    {
+      id: 0,
+      title: "Prescribed via MediKloud HMS",
+      desc: "Doctor's Rx is auto-received by our Dark Store",
+      icon: FileText,
+      iconBg: "bg-blue-100/80",
+      iconColor: "text-blue-600",
+      barColor: "bg-blue-500",
+      metrics: "Transfer Time: < 1s",
+    },
+    {
+      id: 1,
+      title: "Packed & Verified",
+      desc: "AI & Pharmacist safety check in under 2 mins",
+      icon: ShieldCheck,
+      iconBg: "bg-indigo-100/80",
+      iconColor: "text-indigo-600",
+      barColor: "bg-indigo-500",
+      metrics: "Processing Time: 1m 45s",
+    },
+    {
+      id: 2,
+      title: "Rider Dispatched",
+      desc: "Medicines picked up and en route to clinic",
+      icon: Truck,
+      iconBg: "bg-purple-100/80",
+      iconColor: "text-purple-600",
+      barColor: "bg-purple-500",
+      metrics: "Status: On the way",
+    },
+    {
+      id: 3,
+      title: "Delivered at Clinic Door",
+      desc: "Handed directly to patient within 10 minutes",
+      icon: CheckCircle2,
+      iconBg: "bg-amber-100/80",
+      iconColor: "text-amber-600",
+      barColor: "bg-amber-500",
+      metrics: "Total Time: 9m 12s",
+    }
+  ];
+
   return (
-    <main className="relative pt-32 pb-20 lg:pt-48 lg:pb-40 overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1000px] -z-10 opacity-40 pointer-events-none">
-        <div className="absolute top-[0%] left-[5%] w-[600px] h-[600px] bg-blue-100/60 rounded-full blur-[120px]" />
-        <div className="absolute top-[20%] right-[5%] w-[500px] h-[500px] bg-indigo-50/80 rounded-full blur-[100px]" />
+    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-center overflow-hidden pt-[70px] pb-12 md:pt-[90px] md:pb-20">
+      {/* Base gradient and atmosphere bits matched to MPHero */}
+      <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
+
+      {/* Interactive Medical Particle Canvas */}
+      <ParticleNetwork />
+
+      <div className="blob-layer">
+        <div className="blob-blue w-[28rem] h-[28rem] top-[5%] left-[5%]" />
+        <div className="blob-indigo w-[32rem] h-[32rem] bottom-[10%] right-[5%]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-16 items-start lg:items-center">
-          
-          <motion.div 
+      {/* Bottom fade matched to MPHero */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-[2]" aria-hidden="true" />
+
+      <div className="container-page relative z-10 w-full">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          {/* ── LEFT COLUMN (TEXT & CTAs) ── */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 space-y-10 text-center lg:text-left"
+            className="lg:col-span-7 space-y-8 text-center lg:text-left lg:-translate-y-12"
           >
-            <div className="inline-flex items-center space-x-2 bg-white border border-blue-100 px-4 py-2 rounded-full shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+            {/* Eyebrow pattern aligned with MPHero */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="eyebrow-wrap lg:justify-start"
+            >
+              <span className="eyebrow-text text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200/60">
+                Zero Setup Cost · Seamless Integration
               </span>
-              <span className="text-blue-700 text-xs font-bold uppercase tracking-wider">Virtual Pharmacy Infrastructure</span>
-            </div>
+            </motion.div>
 
-            <div className="space-y-4">
-              <h1 className="font-extrabold text-slate-900 tracking-tight leading-[1.05]">
-                <span className="text-5xl md:text-6xl lg:text-7xl block">
-                  The <span className="text-blue-600">10-Minute</span> <br className="hidden md:block" /> Digital Pharmacy
+            <div className="space-y-6">
+              {/* Layer 1 & 2: Condensed into H1 for Homepage Parity */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="mb-6 md:mb-8 text-center lg:text-left"
+              >
+                {/* Line 1: Intro */}
+                <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.05] tracking-tight md:tracking-[-0.02em] text-slate-900 pb-2">
+                  The 10-Minute
                 </span>
-                <span className="text-2xl md:text-3xl lg:text-4xl text-slate-400 font-bold block mt-4 lg:mt-2">
-                  for Independent Clinics.
+
+                {/* Line 2: Brand/Product */}
+                <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.05] tracking-tight md:tracking-[-0.02em] bg-gradient-display bg-clip-text text-transparent pb-4 mb-2">
+                  Digital Pharmacy
                 </span>
-              </h1>
-              
-              <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium pt-2">
-                MediKloud provides the tech, inventory, and logistics to fulfill your prescriptions at the clinic doorstep in 10 minutes. We turn digital prescriptions into physical deliveries—no in-house pharmacy required.
-              </p>
+
+                {/* Line 3: Target Audience - Subtitle style */}
+                <span className="block text-[1.4rem] sm:text-[1.8rem] md:text-[2rem] lg:text-[2.2rem] font-bold leading-[1.2] tracking-[-0.02em] text-slate-700/90">
+                  for independent clinics
+                </span>
+              </motion.h1>
+
+              {/* Layer 3: Body / Description - Shortened */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-body-lg text-slate-500 font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              >
+                Deliver medicines in 10 minutes. We handle the tech, inventory, and logistics—you focus on care. Zero setup, zero overhead.
+              </motion.p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-5">
-              <button className="group w-full sm:w-auto bg-slate-900 hover:bg-blue-600 text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all shadow-xl shadow-slate-200 flex items-center justify-center">
-                Start Free Trial
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5 pt-2"
+            >
+              <button
+                onClick={openModal}
+                className="btn-primary w-full sm:w-auto shadow-btn"
+              >
+                <Phone size={15} className="opacity-80" />
+                Partner With Us
+                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="w-full sm:w-auto bg-white border border-slate-200 hover:border-blue-200 hover:bg-blue-50/30 text-slate-700 px-10 py-5 rounded-2xl text-lg font-bold transition-all flex items-center justify-center shadow-sm">
-                Watch Demo
-              </button>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-x-8 gap-y-4 pt-4 opacity-70">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.45 }}
+              className="flex flex-wrap justify-center lg:justify-start items-center gap-x-8 gap-y-4 pt-4"
+            >
               {[
-                { icon: ShieldCheck, text: "HIPAA Compliant" },
-                { icon: Clock, text: "10 Min Fulfill" },
+                { icon: ShieldCheck, text: "100% Secure" },
+                { icon: Clock, text: "Happy Patients" },
                 { icon: Activity, text: "Real-time Tracking" }
               ].map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="flex items-center space-x-2">
-                    <Icon className="text-blue-600 w-5 h-5" />
-                    <span className="text-sm font-bold text-slate-700">{item.text}</span>
+                  <div key={idx} className="flex items-center space-x-2 text-slate-600">
+                    <Icon className="text-blue-500 w-4 h-4" />
+                    <span className="text-xs font-semibold tracking-wide uppercase">{item.text}</span>
                   </div>
                 );
               })}
-            </div>
+            </motion.div>
           </motion.div>
 
+          {/* ── RIGHT COLUMN (LIVE AUTOMATION ENGINE) ── */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, scale: 0.95, x: 20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="lg:col-span-5 relative lg:pl-4"
           >
-            <div className="relative z-10">
-              <div className="bg-white rounded-[2.5rem] shadow-[0_40px_100px_-12px_rgba(15,23,42,0.15)] border border-slate-100 overflow-hidden">
-                <div className="bg-slate-900 px-6 py-4 flex items-center justify-between">
-                  <div className="flex space-x-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                  </div>
-                  <span className="text-[9px] font-black text-slate-500 tracking-[0.2em] uppercase">MediKloud HMS Interface</span>
+            {/* Background Glow for Panel */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-200/40 via-indigo-200/20 to-purple-200/40 rounded-[3rem] transform rotate-3 scale-105 blur-xl -z-10" />
+
+            {/* Main Glass Panel */}
+            <div className="relative z-10 bg-white/70 backdrop-blur-2xl border border-white shadow-[0_30px_80px_-20px_rgba(30,58,138,0.15)] rounded-[2.5rem] p-6 lg:p-8 ring-1 ring-slate-900/5 overflow-hidden">
+              
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                    Live Order #{orderId}
+                  </h3>
+                  <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mt-1">Virtual Pharmacy Engine</p>
                 </div>
-
-                <div className="p-6 space-y-6">
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        <ClipboardList className="text-blue-600 w-4 h-4" />
-                        <h4 className="text-sm font-bold text-slate-800 tracking-tight">E-Prescription #842</h4>
-                      </div>
-                      <span className="text-[9px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded-full uppercase">Optimistic Dispatch</span>
-                    </div>
-                    <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100 flex items-center justify-between">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-sm">
-                          <Package size={14} className="text-blue-600" />
-                        </div>
-                        <div className="h-2 w-24 bg-slate-200 rounded animate-pulse" />
-                      </div>
-                      <div className="h-2 w-8 bg-blue-200 rounded" />
-                    </div>
-                  </div>
-
-                  <div className="p-5 rounded-[2rem] bg-blue-600 text-white relative overflow-hidden group">
-                    <div className="flex items-center justify-between mb-5 relative z-10">
-                      <div className="flex items-center space-x-3">
-                        <div className="bg-white/20 backdrop-blur-md p-2 rounded-xl">
-                          <Truck className="text-white w-5 h-5" />
-                        </div>
-                        <div>
-                          <p className="text-[10px] font-bold text-blue-100 uppercase opacity-80">Rider In Transit</p>
-                          <p className="text-xs font-bold">Dark Hub → Clinic</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-2xl font-black tabular-nums">{timer}</p>
-                        <p className="text-[9px] font-bold text-blue-100 uppercase tracking-tighter">to doorstep</p>
-                      </div>
-                    </div>
-                    <div className="relative h-2 bg-white/20 rounded-full overflow-hidden">
-                      <motion.div 
-                        initial={{ width: "0%" }}
-                        animate={{ width: "82%" }}
-                        transition={{ duration: 2, delay: 0.5 }}
-                        className="absolute left-0 top-0 h-full bg-white rounded-full" 
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                      <Zap className="text-amber-500 w-4 h-4 mb-2" />
-                      <p className="text-lg font-black text-slate-900">9.4 min</p>
-                      <p className="text-[9px] font-bold text-slate-400 uppercase">Avg Response</p>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                      <Activity className="text-blue-500 w-4 h-4 mb-2" />
-                      <p className="text-lg font-black text-slate-900">17.5%</p>
-                      <p className="text-[9px] font-bold text-slate-400 uppercase">Clinic Fee</p>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2 bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 shadow-sm">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-[10px] font-bold tracking-widest uppercase">Processing</span>
                 </div>
               </div>
 
-              <div className="absolute -top-4 -right-6 bg-white p-3 rounded-2xl shadow-xl border border-slate-100 animate-bounce-slow hidden md:block">
-                <div className="flex items-center space-x-2">
-                  <div className="bg-green-100 p-1.5 rounded-lg">
-                    <CheckCircle2 className="text-green-600 w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-bold text-slate-800 pr-2">Drug Inspector Compliance</span>
+              {/* The Pipeline */}
+              <div className="relative">
+                {/* Connecting Line Background */}
+                <div className="absolute left-[1.35rem] top-6 bottom-6 w-[2px] bg-slate-200 rounded-full" />
+                
+                {/* Active Progress Line */}
+                <div className="absolute left-[1.35rem] top-6 bottom-6 w-[2px] overflow-hidden rounded-full flex flex-col justify-start">
+                  <motion.div 
+                    className="w-full bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-500"
+                    animate={{ height: `${((activeStage + 1) / 4) * 100}%` }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                  />
                 </div>
-              </div>
 
-              <div className="absolute -bottom-4 -left-6 bg-white p-3 rounded-2xl shadow-xl border border-slate-100 animate-bounce-slow delay-700 hidden md:block">
-                <div className="flex items-center space-x-2">
-                  <div className="bg-slate-100 p-1.5 rounded-lg">
-                    <Stethoscope className="text-blue-600 w-4 h-4" />
-                  </div>
-                  <span className="text-[11px] font-bold text-slate-800 pr-2">Pharmacist Verified</span>
+                {/* Pipeline Nodes */}
+                <div className="space-y-4">
+                  {stages.map((stage, idx) => {
+                    const isActive = activeStage === idx;
+                    const isPast = activeStage > idx;
+
+                    return (
+                      <div key={stage.id} className="relative pl-12">
+                        {/* Node Indicator */}
+                        <div 
+                          className={`absolute left-[1.05rem] top-5 w-3 h-3 rounded-full border-2 border-white shadow-sm z-10 transition-colors duration-500 
+                          ${isActive ? 'bg-blue-500 ring-4 ring-blue-500/20' : isPast ? 'bg-slate-800' : 'bg-slate-300'}`} 
+                        />
+
+                        {/* Stage Card */}
+                        <motion.div
+                          layout
+                          className={`p-4 rounded-2xl transition-all duration-500 ${
+                            isActive 
+                              ? 'bg-white shadow-xl shadow-blue-900/5 border border-blue-100 ring-1 ring-black/5 scale-[1.02]' 
+                              : isPast
+                                ? 'bg-white/40 border border-transparent opacity-80'
+                                : 'bg-transparent border border-transparent opacity-40 grayscale-[50%]'
+                          }`}
+                        >
+                          <div className="flex items-center gap-4">
+                            <div className={`p-2.5 rounded-xl transition-colors ${isActive || isPast ? stage.iconBg : 'bg-slate-100'}`}>
+                              <stage.icon className={`w-5 h-5 ${isActive || isPast ? stage.iconColor : 'text-slate-400'}`} />
+                            </div>
+                            <div>
+                              <h4 className={`font-bold transition-colors ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>
+                                {stage.title}
+                              </h4>
+                              <p className="text-xs font-medium text-slate-500 mt-0.5">{stage.desc}</p>
+                            </div>
+                          </div>
+
+                          {/* Expanded Content for Active Stage */}
+                          <AnimatePresence>
+                            {isActive && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
+                                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                    {stage.metrics}
+                                  </span>
+                                  <div className="w-24 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                    <motion.div
+                                      initial={{ width: "0%" }}
+                                      animate={{ width: "100%" }}
+                                      transition={{ duration: 4, ease: "linear" }}
+                                      className={`h-full ${stage.barColor}`}
+                                    />
+                                  </div>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </motion.div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
-            
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] -z-20 opacity-30 pointer-events-none bg-radial-gradient from-blue-200/50 to-transparent blur-[120px]" />
+
+            {/* Floating Decorative Badge 1 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="absolute -right-12 md:-right-24 -top-6 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl shadow-blue-900/10 border border-white z-20 flex items-center gap-3 animate-bounce-slow"
+            >
+              <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 border border-blue-100">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-xl bg-blue-400 opacity-30"></span>
+                <MapPin className="relative h-5 w-5 text-blue-600" />
+              </div>
+              <div className="pr-2">
+                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Live Routing</p>
+                <p className="text-sm font-black text-slate-800">1.2 km away</p>
+              </div>
+            </motion.div>
+
+            {/* Floating Decorative Badge 2 */}
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2 }}
+              className="absolute -left-12 md:-left-24 -bottom-10 bg-slate-900/95 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl shadow-slate-900/20 border border-slate-800 z-20 flex items-center gap-3 animate-bounce-slow delay-700"
+            >
+              <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
+                <Activity className="w-5 h-5" />
+              </div>
+              <div className="pr-4">
+                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Network Status</p>
+                <p className="text-sm font-bold text-white">Optimal (99.9%)</p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes bounce-slow {
           0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
+          50% { transform: translateY(-12px); }
         }
         .animate-bounce-slow {
-          animation: bounce-slow 4s ease-in-out infinite;
+          animation: bounce-slow 5s ease-in-out infinite;
+        }
+        .delay-700 {
+          animation-delay: 700ms;
         }
         .bg-radial-gradient {
-          background: radial-gradient(circle, var(--tw-gradient-from) 0%, transparent 70%);
+          background: radial-gradient(circle, #bfdbfe 0%, transparent 60%);
         }
       `}} />
-    </main>
+    </section>
   );
 };
 
