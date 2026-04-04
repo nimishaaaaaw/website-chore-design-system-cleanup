@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import LandingPageTemplate from '@/components/v2/LandingPageTemplate'
+import LandingPageTemplate from '@/components/shared/LandingPageTemplate'
 import { Info, Target, Users, Globe, Building2, ShieldCheck, HeartPulse, Building } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'

@@ -35,3 +35,4 @@ next-env.d.ts
 # Vibe Annotations Local Server
 .vibe-local/
 .vibe-isolated-server/
+\n# temporary files\ntmp/

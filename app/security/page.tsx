@@ -1,6 +1,6 @@
 "use client"
 
-import LandingPageTemplate from '@/components/v2/LandingPageTemplate'
+import LandingPageTemplate from '@/components/shared/LandingPageTemplate'
 import { ShieldCheck, Lock, Eye, CheckCircle } from 'lucide-react'
 
 export default function SecurityPage() {

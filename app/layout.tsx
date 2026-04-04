@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import { Poppins } from 'next/font/google'
 import './globals.css'
-import { ScrollIndicator } from '@/components/scroll-indicator'
+import { ScrollIndicator } from '@/components/layout/scroll-indicator'
 
 const poppins = Poppins({
   weight: ['400', '600', '700', '900'],
@@ -85,7 +85,7 @@ export const viewport = {
 
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { WebVitals } from '@/app/web-vitals'
-import { ClientProviders } from '@/components/ClientProviders'
+import { ClientProviders } from '@/components/shared/ClientProviders'
 
 export default async function RootLayout({
   children,

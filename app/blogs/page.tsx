@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { getAllPosts } from '@/lib/api'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/home/Footer'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
 import { draftMode } from 'next/headers'
 
 export const revalidate = 3600 // Revalidate every hour

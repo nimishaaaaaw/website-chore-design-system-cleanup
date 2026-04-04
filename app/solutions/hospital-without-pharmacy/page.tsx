@@ -1,38 +1,71 @@
 "use client"
 
-import LandingPageTemplate from '@/components/v2/LandingPageTemplate'
-import { Zap, Wallet, HeartPulse, Cpu } from 'lucide-react'
+import React from 'react';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { BackToTop } from '@/components/layout/BackToTop';
+import { useContactModal } from '@/hooks/use-contact-modal';
 
-export default function HospitalWithoutPharmacy() {
+// Component imports
+import { HospitalWithoutPharmacyHero } from '@/components/pages/solutions/hospital-without-pharmacy/HospitalWithoutPharmacyHero';
+import { HospitalWithoutPharmacyReality } from '@/components/pages/solutions/hospital-without-pharmacy/HospitalWithoutPharmacyReality';
+import { HospitalWithoutPharmacyShift } from '@/components/pages/solutions/hospital-without-pharmacy/HospitalWithoutPharmacyShift';
+import { HospitalWithoutPharmacySolutions } from '@/components/pages/solutions/hospital-without-pharmacy/HospitalWithoutPharmacySolutions';
+import { HospitalWithoutPharmacyBenefits } from '@/components/pages/solutions/hospital-without-pharmacy/HospitalWithoutPharmacyBenefits';
+import { HospitalWithoutPharmacyEmotionalClose } from '@/components/pages/solutions/hospital-without-pharmacy/HospitalWithoutPharmacyEmotionalClose';
+import { HospitalWithoutPharmacyCTA } from '@/components/pages/solutions/hospital-without-pharmacy/HospitalWithoutPharmacyCTA';
+
+export default function HospitalWithoutPharmacyPage() {
+  const { openModal } = useContactModal();
+
+  const handleBookDemo = () => {
+    openModal();
+  };
+
+  const handleSeeHowItWorks = () => {
+    // Scroll to solutions section or open modal
+    const element = document.getElementById('how-it-works');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      openModal();
+    }
+  };
+
   return (
-    <LandingPageTemplate
-      category="Hospital · Without Pharmacy"
-      title="Zero-capex pharmacy"
-      subtitle="setup for hospitals."
-      description="Patients walking out is lost revenue. We setup and run a zero-cost pharmacy in your facility, providing a better patient journey and new revenue streams."
-      accentColor="indigo"
-      benefits={[
-        { 
-          title: "Zero-Capex Setup", 
-          desc: "MediKloud builds, stocks, and staffs the pharmacy at no cost to you.",
-          icon: Zap
-        },
-        { 
-          title: "Revenue from Day 1", 
-          desc: "Get a transparent share of every prescription fulfilled in your facility.",
-          icon: Wallet
-        },
-        { 
-          title: "Better Patient Journey", 
-          desc: "Provide clinical care and medications under one roof.",
-          icon: HeartPulse
-        },
-        { 
-          title: "Total Integration", 
-          desc: "Our systems sync with your HIS for seamless prescription flow.",
-          icon: Cpu
-        }
-      ]}
-    />
-  )
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-teal-100 selection:text-teal-900">
+      <Header />
+      
+      <main id="main">
+        {/* Hero Section */}
+        <HospitalWithoutPharmacyHero />
+
+        {/* Reality Section - The Leakage Problem */}
+        <HospitalWithoutPharmacyReality />
+
+        {/* Shift Section - The Strategic Opportunity */}
+        <HospitalWithoutPharmacyShift />
+
+        {/* Solutions Section - The 3-Step Engine */}
+        <section id="how-it-works">
+          <HospitalWithoutPharmacySolutions />
+        </section>
+
+        {/* Benefits Section - Key Value Propositions */}
+        <HospitalWithoutPharmacyBenefits />
+
+        {/* Emotional Close - The Vision */}
+        <HospitalWithoutPharmacyEmotionalClose />
+
+        {/* Final CTA Section */}
+        <HospitalWithoutPharmacyCTA 
+          onBookDemo={handleBookDemo}
+          onSeeHowItWorks={handleSeeHowItWorks}
+        />
+      </main>
+
+      <Footer />
+      <BackToTop />
+    </div>
+  );
 }

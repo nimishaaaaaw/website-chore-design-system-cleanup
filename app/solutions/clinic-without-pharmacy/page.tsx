@@ -1,38 +1,68 @@
 "use client"
 
-import LandingPageTemplate from '@/components/v2/LandingPageTemplate'
-import { Package, Truck, Smile, LayoutGrid } from 'lucide-react'
+import React from 'react';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { BackToTop } from '@/components/layout/BackToTop';
+import { useContactModal } from '@/hooks/use-contact-modal';
 
-export default function ClinicWithoutPharmacy() {
+// Component imports
+import { ClinicHero } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicHero';
+import { ClinicHiddenLoss } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicHiddenLoss';
+import { ClinicInsightShift } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicInsightShift';
+import { ClinicHowItWorks } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicHowItWorks';
+import { ClinicWhatChanges } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicWhatChanges';
+import { ClinicEmotionalClose } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicEmotionalClose';
+import { ClinicCTA } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicCTA';
+
+export default function ClinicWithoutPharmacyPage() {
+  const { openModal } = useContactModal();
+
+  const handleBookDemo = () => {
+    openModal();
+  };
+
+  const handleSeeHowItWorks = () => {
+    const element = document.getElementById('how-it-works');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      openModal();
+    }
+  };
+
   return (
-    <LandingPageTemplate
-      category="Clinic · Without Pharmacy"
-      title="Grow your clinic's"
-      subtitle="bottom line."
-      description="Increase clinic EBITDA by 15-20% by adding a pharmacy. Zero setup cost for our compact, high-efficiency pharmacy pods designed for clinics."
-      accentColor="indigo"
-      benefits={[
-        { 
-          title: "Pharmacy Pods", 
-          desc: "Compact, modular setups designed for specialized outpatient clinics.",
-          icon: LayoutGrid
-        },
-        { 
-          title: "Turnkey Operations", 
-          desc: "Licensing, staffing, and stocking completely handled by MediKloud.",
-          icon: Package
-        },
-        { 
-          title: "Profit Uplift", 
-          desc: "Grow revenue without increasing your patient volume.",
-          icon: Smile
-        },
-        { 
-          title: "Digital Workflow", 
-          desc: "E-prescriptions sent directly to dispensing for 0-min wait time.",
-          icon: Truck
-        }
-      ]}
-    />
-  )
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
+      <Header />
+      
+      <main id="main">
+        {/* Section 1 - Hero */}
+        <ClinicHero />
+
+        {/* Section 2 - The Hidden Loss */}
+        <ClinicHiddenLoss />
+
+        {/* Section 3 - The Insight Shift */}
+        <ClinicInsightShift />
+
+        {/* Section 4 - How MediKloud Works */}
+        <ClinicHowItWorks />
+
+        {/* Section 5 - What Changes for Your Clinic */}
+        <ClinicWhatChanges />
+
+        {/* Section 6 - Emotional Close */}
+        <ClinicEmotionalClose />
+
+        {/* Section 7 - Final CTA Section */}
+        <ClinicCTA 
+          onBookDemo={handleBookDemo}
+          onSeeHowItWorks={handleSeeHowItWorks}
+        />
+      </main>
+
+      <Footer />
+      <BackToTop />
+    </div>
+  );
 }

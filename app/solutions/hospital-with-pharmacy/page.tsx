@@ -1,38 +1,66 @@
 "use client"
 
-import LandingPageTemplate from '@/components/v2/LandingPageTemplate'
-import { Building2, ShieldAlert, BarChart3, Users } from 'lucide-react'
+import React from 'react';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { BackToTop } from '@/components/layout/BackToTop';
+import { useContactModal } from '@/hooks/use-contact-modal';
 
-export default function HospitalWithPharmacy() {
+// Component imports
+import { HospitalPharmacyHero } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyHero';
+import { HospitalPharmacyPain } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyPain';
+import { HospitalPharmacyApproach } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyApproach';
+import { HospitalPharmacyProducts } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyProducts';
+import { HospitalPharmacyOutcomes } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyOutcomes';
+import { HospitalPharmacyCTA } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyCTA';
+
+export default function HospitalPharmacyPage() {
+  const { openModal } = useContactModal();
+
+  const handleBookDemo = () => {
+    openModal();
+  };
+
+  const handleContactSales = () => {
+    openModal();
+  };
+
+  const handleViewDemo = () => {
+    openModal();
+  };
+
   return (
-    <LandingPageTemplate
-      category="Hospital · With Pharmacy"
-      title="Stop revenue leaks in your"
-      subtitle="existing pharmacy."
-      description="Fixing 30–40% revenue leakage caused by pilferage and billing mismatches. MediKloud takes over full operations—staff, procurement, and tech."
-      accentColor="blue"
-      benefits={[
-        { 
-          title: "Full operations takeover", 
-          desc: "We manage your existing staff and procurement end-to-end.",
-          icon: Building2
-        },
-        { 
-          title: "Stop internal leakage", 
-          desc: "Real-time billing control and inventory audits eliminate pilferage.",
-          icon: ShieldAlert
-        },
-        { 
-          title: "Revenue Optimization", 
-          desc: "Improve your margins by up to 15% with AI-driven procurement.",
-          icon: BarChart3
-        },
-        { 
-          title: "Staff Management", 
-          desc: "We provide highly trained pharmacists and operational managers.",
-          icon: Users
-        }
-      ]}
-    />
-  )
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      <Header />
+      
+      <main id="main">
+        {/* Hero Section */}
+        <HospitalPharmacyHero 
+          onBookDemo={handleBookDemo} 
+          onViewDemo={handleViewDemo} 
+        />
+
+        {/* Pain Section - The Real Problem */}
+        <HospitalPharmacyPain />
+
+        {/* Approach Section - The MediKloud Approach (Bento Grid) */}
+        <HospitalPharmacyApproach />
+
+        {/* Product Section - The System Overview */}
+        <HospitalPharmacyProducts />
+
+        {/* Outcomes Section - Before/After Comparison */}
+        <HospitalPharmacyOutcomes />
+
+        {/* Final CTA Section */}
+        <HospitalPharmacyCTA 
+          onBookDemo={handleBookDemo} 
+          onContactSales={handleContactSales} 
+        />
+      </main>
+
+      <Footer />
+      <BackToTop />
+    </div>
+  );
 }

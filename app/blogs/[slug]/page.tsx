@@ -6,9 +6,9 @@ export const revalidate = 3600 // Revalidate every hour
 
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { BlogPostUI } from '@/components/blog/BlogPostUI'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/home/Footer'
+import { BlogPostUI } from '@/components/pages/blog/BlogPostUI'
+import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
 
 // Move data fetching to a separate server component or method if needed, 
 // but for this file structure we keep the server logic at the top level 

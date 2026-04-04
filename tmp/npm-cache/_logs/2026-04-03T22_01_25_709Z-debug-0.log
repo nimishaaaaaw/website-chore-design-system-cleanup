@@ -1,0 +1,14 @@
+0 verbose cli /Users/yeswanth/.nvm/versions/node/v22.12.0/bin/node /opt/homebrew/bin/npm
+1 info using npm@11.9.0
+2 info using node@v22.12.0
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/yeswanth/Documents/Medikloud_Tech/Website/Website_Part2/.npmrc
+5 silly config load:file:/Users/yeswanth/.npmrc
+6 silly config load:file:/opt/homebrew/etc/npmrc
+7 verbose title npm i baseline-browser-mapping@latest
+8 verbose argv "i" "baseline-browser-mapping@latest" "--save-dev" "--cache" "./tmp/npm-cache"
+9 verbose logfile logs-max:10 dir:/Users/yeswanth/Documents/Medikloud_Tech/Website/Website_Part2/tmp/npm-cache/_logs/2026-04-03T22_01_25_709Z-
+10 verbose logfile /Users/yeswanth/Documents/Medikloud_Tech/Website/Website_Part2/tmp/npm-cache/_logs/2026-04-03T22_01_25_709Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+13 http fetch GET 200 https://registry.npmjs.org/npm 515ms

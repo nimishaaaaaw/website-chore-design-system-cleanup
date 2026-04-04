@@ -1,54 +1,56 @@
 "use client"
 
 import dynamic from 'next/dynamic'
-import { BackToTop } from '@/components/BackToTop'
-const Stats = dynamic(() => import('@/components/home/Stats').then(m => ({ default: m.Stats })), { ssr: false })
-const SetupSelector = dynamic(() => import('@/components/home/SetupSelector').then(m => ({ default: m.SetupSelector })))
-const ProblemSection = dynamic(() => import('@/components/home/ProblemSection').then(m => ({ default: m.ProblemSection })))
-const ROICalculator = dynamic(() => import('@/components/home/ROICalculator').then(m => ({ default: m.ROICalculator })))
-const PersonaROISection = dynamic(() => import('@/components/home/PersonaROISection').then(m => ({ default: m.PersonaROISection })))
-const Solutions = dynamic(() => import('@/components/home/Solutions').then(m => ({ default: m.Solutions })))
-const Contact = dynamic(() => import('@/components/home/Contact').then(m => ({ default: m.Contact })))
-const Footer = dynamic(() => import('@/components/home/Footer').then(m => ({ default: m.Footer })))
-const GetStartedCTA = dynamic(() => import('@/components/home/GetStartedCTA').then(m => ({ default: m.GetStartedCTA })))
-// const MobileMenu = dynamic(() => import('@/components/MobileMenu'), { ssr: false })
-const MarqueeSection = dynamic(() => import('@/components/home/MarqueeSection').then(m => ({ default: m.MarqueeSection })))
-import { Header } from '@/components/Header'
-import { MainHero } from '@/components/home/MainHero'
+import { BackToTop } from '@/components/layout/BackToTop'
+import { Header } from '@/components/layout/Header'
 
+// ── Regular imports for above-the-fold + lightweight sections ──────────────────
+// These render immediately — no blank flash while JS chunk downloads.
+import { MainHero } from '@/components/pages/home/MainHero'
+import { Stats } from '@/components/pages/home/Stats'
+import { ProblemSection } from '@/components/pages/home/ProblemSection'
+import { PersonaROISection } from '@/components/pages/home/persona-roi'
+import { AdvantageSection } from '@/components/pages/home/AdvantageSection'
+import { MarqueeSection } from '@/components/pages/home/MarqueeSection'
 
-export default function Page() {
+// ── Dynamic imports only for heavy below-fold sections with loading skeletons ──
+const GetStartedCTA = dynamic(
+  () => import('@/components/pages/home/GetStartedCTA').then(m => ({ default: m.GetStartedCTA })),
+  { loading: () => <div className="w-full py-16 bg-slate-900" /> }
+)
+const Footer = dynamic(
+  () => import('@/components/layout/Footer').then(m => ({ default: m.Footer })),
+  { loading: () => <div className="w-full py-12 bg-slate-900" /> }
+)
 
+export default function PageV2() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
 
       <main id="main">
+        {/* 1. Hero */}
         <MainHero />
 
+        {/* 2. Stats strip */}
         <Stats />
 
+        {/* 3. Problem */}
         <ProblemSection />
 
-        <SetupSelector />
-
-        <ROICalculator />
-
+        {/* 4. Combined Persona + ROI (Choose your Setup) */}
         <PersonaROISection />
 
-        {/* Marquee Section */}
+        {/* 5. Advantage Section */}
+        <AdvantageSection />
+
+        {/* 6. Social proof marquee */}
         <MarqueeSection />
-
-        {/* Solutions Section */}
-        <Solutions />
-
-        {/* Contact Section */}
-        <Contact />
       </main>
+
       <GetStartedCTA />
       <Footer />
       <BackToTop />
     </div>
   )
 }
-

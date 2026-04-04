@@ -46,20 +46,20 @@ const config: Config = {
       // xs       → eyebrow labels, trust chips, captions
       // ─────────────────────────────────────────────────────────
       fontSize: {
-        'xs':      ['11px', { lineHeight: '16px',  letterSpacing: '0.01em' }],
-        'sm':      ['12px', { lineHeight: '18px',  letterSpacing: '0' }],
-        'base':    ['15px', { lineHeight: '24px',  letterSpacing: '0' }],
-        'body-lg': ['17px', { lineHeight: '28px',  letterSpacing: '0' }],
-        'h4':      ['16px', { lineHeight: '24px',  letterSpacing: '0' }],
-        'h3':      ['19px', { lineHeight: '28px',  letterSpacing: '-0.01em' }],
-        'h2':      ['28px', { lineHeight: '36px',  letterSpacing: '-0.02em' }],
-        'h1':      ['40px', { lineHeight: '48px',  letterSpacing: '-0.025em' }],
-        'display': ['60px', { lineHeight: '66px',  letterSpacing: '-0.03em' }],
+        'xs': ['11px', { lineHeight: '16px', letterSpacing: '0.01em' }],
+        'sm': ['12px', { lineHeight: '18px', letterSpacing: '0' }],
+        'base': ['15px', { lineHeight: '24px', letterSpacing: '0' }],
+        'body-lg': ['17px', { lineHeight: '28px', letterSpacing: '0' }],
+        'h4': ['16px', { lineHeight: '24px', letterSpacing: '0' }],
+        'h3': ['19px', { lineHeight: '28px', letterSpacing: '-0.01em' }],
+        'h2': ['28px', { lineHeight: '36px', letterSpacing: '-0.02em' }],
+        'h1': ['40px', { lineHeight: '48px', letterSpacing: '-0.025em' }],
+        'display': ['60px', { lineHeight: '66px', letterSpacing: '-0.03em' }],
         // Responsive display (fluid, set via responsive modifiers on className)
-        'display-sm':  ['32px', { lineHeight: '36px',  letterSpacing: '-0.025em' }],
-        'display-md':  ['44px', { lineHeight: '50px',  letterSpacing: '-0.028em' }],
-        'display-lg':  ['52px', { lineHeight: '58px',  letterSpacing: '-0.03em' }],
-        'display-xl':  ['60px', { lineHeight: '66px',  letterSpacing: '-0.03em' }],
+        'display-sm': ['32px', { lineHeight: '36px', letterSpacing: '-0.025em' }],
+        'display-md': ['44px', { lineHeight: '50px', letterSpacing: '-0.028em' }],
+        'display-lg': ['52px', { lineHeight: '58px', letterSpacing: '-0.03em' }],
+        'display-xl': ['60px', { lineHeight: '66px', letterSpacing: '-0.03em' }],
       },
 
       // ─────────────────────────────────────────────────────────
@@ -85,14 +85,14 @@ const config: Config = {
         // draws from this ramp.
         brand: {
           // Tints — backgrounds, badge fills, card surfaces
-          50:  '#EFF6FF',  // section tint bg (blue-50)
+          50: '#EFF6FF',  // section tint bg (blue-50)
           100: '#DBEAFE',  // blob-blue colour (blue-100)
           // Indigo tints
-          'indigo-50':  '#EEF2FF',  // indigo tinted bg
+          'indigo-50': '#EEF2FF',  // indigo tinted bg
           'indigo-100': '#E0E7FF',  // indigo badge fill, card tint
           'indigo-200': '#C7D2FE',  // indigo border, input focus ring
           // Violet tints
-          'violet-50':  '#F5F3FF',  // violet tinted bg
+          'violet-50': '#F5F3FF',  // violet tinted bg
           'violet-100': '#EDE9FE',  // blob-violet colour (violet-100)
 
           // Active colours — the gradient ramp itself
@@ -119,7 +119,7 @@ const config: Config = {
         // Slate has a cool blue undertone that harmonises with
         // the brand gradient. Gray does not.
         slate: {
-          50:  '#F8FAFC',  // surface-alt (alternating section bg)
+          50: '#F8FAFC',  // surface-alt (alternating section bg)
           100: '#F1F5F9',  // subtle dividers
           200: '#E2E8F0',  // default card border
           300: '#CBD5E1',  // secondary button border, disabled
@@ -136,27 +136,27 @@ const config: Config = {
         // Never use emerald decoratively. Never use red for branding.
         success: {
           DEFAULT: '#059669',  // emerald-600 — savings, live, positive
-          light:   '#D1FAE5',  // emerald-100
-          dark:    '#065F46',  // emerald-900
-          text:    '#065F46',
+          light: '#D1FAE5',  // emerald-100
+          dark: '#065F46',  // emerald-900
+          text: '#065F46',
         },
         danger: {
           DEFAULT: '#E11D48',  // rose-600 — revenue loss, leakage
-          light:   '#FFE4E6',  // rose-100
-          dark:    '#9F1239',  // rose-900
-          text:    '#9F1239',
+          light: '#FFE4E6',  // rose-100
+          dark: '#9F1239',  // rose-900
+          text: '#9F1239',
         },
         warning: {
           DEFAULT: '#D97706',  // amber-600 — risk, caution
-          light:   '#FEF3C7',  // amber-100
-          dark:    '#92400E',  // amber-900
-          text:    '#92400E',
+          light: '#FEF3C7',  // amber-100
+          dark: '#92400E',  // amber-900
+          text: '#92400E',
         },
         metric: {
           DEFAULT: '#7C3AED',  // violet-600 — LTV, retention, AI metrics
-          light:   '#EDE9FE',  // violet-100
-          dark:    '#4C1D95',  // violet-900
-          text:    '#4C1D95',
+          light: '#EDE9FE',  // violet-100
+          dark: '#4C1D95',  // violet-900
+          text: '#4C1D95',
         },
       },
 
@@ -167,12 +167,12 @@ const config: Config = {
       // Pills use rounded-full.
       // ─────────────────────────────────────────────────────────
       borderRadius: {
-        'sm':   '4px',     // chips, tags, tiny elements
-        'md':   '8px',     // inputs, small inline components
-        'lg':   '12px',    // nav CTA, inner components
-        'xl':   '16px',    // buttons, standard cards ← PRIMARY
-        '2xl':  '20px',    // large cards, setup cards
-        '3xl':  '24px',    // hero cards, featured panels
+        'sm': '4px',     // chips, tags, tiny elements
+        'md': '8px',     // inputs, small inline components
+        'lg': '12px',    // nav CTA, inner components
+        'xl': '16px',    // buttons, standard cards ← PRIMARY
+        '2xl': '20px',    // large cards, setup cards
+        '3xl': '24px',    // hero cards, featured panels
         'full': '9999px',  // badges, trust chips, avatar circles
       },
 
@@ -183,18 +183,18 @@ const config: Config = {
       // ─────────────────────────────────────────────────────────
       boxShadow: {
         // Resting state — barely visible, always on
-        'card':    '0 1px 3px 0 rgba(15,23,42,0.06), 0 1px 2px -1px rgba(15,23,42,0.04)',
+        'card': '0 1px 3px 0 rgba(15,23,42,0.06), 0 1px 2px -1px rgba(15,23,42,0.04)',
         // Hover / elevated
         'card-md': '0 4px 20px -4px rgba(79,70,229,0.12)',
         // Featured / selected card
         'card-lg': '0 8px 32px -8px rgba(79,70,229,0.20)',
         // Primary CTA button
-        'btn':     '0 4px 14px -2px rgba(79,70,229,0.35)',
+        'btn': '0 4px 14px -2px rgba(79,70,229,0.35)',
         // Floating UI (modals, dropdowns)
-        'float':   '0 8px 32px -4px rgba(79,70,229,0.18), 0 2px 8px -2px rgba(15,23,42,0.08)',
+        'float': '0 8px 32px -4px rgba(79,70,229,0.18), 0 2px 8px -2px rgba(15,23,42,0.08)',
         // Blue-tinted (for cards on dark bg)
-        'glow':    '0 0 40px -8px rgba(79,70,229,0.40)',
-        'none':    'none',
+        'glow': '0 0 40px -8px rgba(79,70,229,0.40)',
+        'none': 'none',
       },
 
       // ─────────────────────────────────────────────────────────
@@ -202,33 +202,33 @@ const config: Config = {
       // Sections use section-sm (mobile) / section (desktop)
       // ─────────────────────────────────────────────────────────
       spacing: {
-        '0':   '0px',
-        '1':   '4px',
-        '2':   '8px',
-        '3':   '12px',
-        '4':   '16px',
-        '5':   '20px',
-        '6':   '24px',
-        '7':   '28px',
-        '8':   '32px',
-        '9':   '36px',
-        '10':  '40px',
-        '11':  '44px',
-        '12':  '48px',
-        '14':  '56px',
-        '16':  '64px',
-        '18':  '72px',
-        '20':  '80px',
-        '24':  '96px',
-        '28':  '112px',
-        '32':  '128px',
-        '36':  '144px',
-        '40':  '160px',
+        '0': '0px',
+        '1': '4px',
+        '2': '8px',
+        '3': '12px',
+        '4': '16px',
+        '5': '20px',
+        '6': '24px',
+        '7': '28px',
+        '8': '32px',
+        '9': '36px',
+        '10': '40px',
+        '11': '44px',
+        '12': '48px',
+        '14': '56px',
+        '16': '64px',
+        '18': '72px',
+        '20': '80px',
+        '24': '96px',
+        '28': '112px',
+        '32': '128px',
+        '36': '144px',
+        '40': '160px',
         // Section padding tokens
-        'section-xs':  '32px',   // tight sections (marquee, badges)
-        'section-sm':  '48px',   // mobile section padding
-        'section':     '80px',   // desktop standard
-        'section-lg':  '112px',  // hero, CTA
+        'section-xs': '32px',   // tight sections (marquee, badges)
+        'section-sm': '48px',   // mobile section padding
+        'section': '80px',   // desktop standard
+        'section-lg': '112px',  // hero, CTA
       },
 
       // ─────────────────────────────────────────────────────────
@@ -236,8 +236,8 @@ const config: Config = {
       // ─────────────────────────────────────────────────────────
       maxWidth: {
         'container': '1280px',  // outer page wrapper
-        'content':   '768px',   // prose / text blocks
-        'narrow':    '560px',   // hero subtext, focused content
+        'content': '768px',   // prose / text blocks
+        'narrow': '560px',   // hero subtext, focused content
       },
 
       // ─────────────────────────────────────────────────────────
@@ -293,46 +293,46 @@ const config: Config = {
       keyframes: {
         'float-slow': {
           '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-          '33%':      { transform: 'translate(20px, -15px) scale(1.05)' },
-          '66%':      { transform: 'translate(-10px, 10px) scale(0.97)' },
+          '33%': { transform: 'translate(20px, -15px) scale(1.05)' },
+          '66%': { transform: 'translate(-10px, 10px) scale(0.97)' },
         },
         'float-medium': {
           '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-          '40%':      { transform: 'translate(-18px, 12px) scale(1.04)' },
-          '70%':      { transform: 'translate(12px, -8px) scale(0.98)' },
+          '40%': { transform: 'translate(-18px, 12px) scale(1.04)' },
+          '70%': { transform: 'translate(12px, -8px) scale(0.98)' },
         },
         'float-slower': {
           '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-          '25%':      { transform: 'translate(14px, 18px) scale(0.96)' },
-          '75%':      { transform: 'translate(-20px, -12px) scale(1.03)' },
+          '25%': { transform: 'translate(14px, 18px) scale(0.96)' },
+          '75%': { transform: 'translate(-20px, -12px) scale(1.03)' },
         },
         'fade-in-up': {
-          '0%':   { opacity: '0', transform: 'translateY(16px)' },
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         'fade-in': {
-          '0%':   { opacity: '0' },
+          '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
         'slide-in-right': {
-          '0%':   { opacity: '0', transform: 'translateX(20px)' },
+          '0%': { opacity: '0', transform: 'translateX(20px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
         'marquee': {
-          '0%':   { transform: 'translateX(0)' },
+          '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         },
       },
 
       animation: {
-        'float-slow':     'float-slow 8s ease-in-out infinite',
-        'float-medium':   'float-medium 6s ease-in-out infinite',
-        'float-slower':   'float-slower 10s ease-in-out infinite',
-        'fade-in-up':     'fade-in-up 0.5s ease-out forwards',
-        'fade-in':        'fade-in 0.4s ease-out forwards',
+        'float-slow': 'float-slow 8s ease-in-out infinite',
+        'float-medium': 'float-medium 6s ease-in-out infinite',
+        'float-slower': 'float-slower 10s ease-in-out infinite',
+        'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+        'fade-in': 'fade-in 0.4s ease-out forwards',
         'slide-in-right': 'slide-in-right 0.4s ease-out forwards',
-        'marquee':        'marquee 30s linear infinite',
-        'marquee-slow':   'marquee 50s linear infinite',
+        'marquee': 'marquee 30s linear infinite',
+        'marquee-slow': 'marquee 50s linear infinite',
       },
 
       // ─────────────────────────────────────────────────────────

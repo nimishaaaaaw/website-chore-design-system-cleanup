@@ -1,38 +1,34 @@
-"use client"
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { VPHero } from '@/components/pages/products/virtual-pharmacy/VPHero';
+import { VPInfrastructure } from '@/components/pages/products/virtual-pharmacy/VPInfrastructure';
+import { VPProblem } from '@/components/pages/products/virtual-pharmacy/VPProblem';
+import { VPSolution } from '@/components/pages/products/virtual-pharmacy/VPSolution';
+import { VPComparison } from '@/components/pages/products/virtual-pharmacy/VPComparison';
+import { VPImplementation } from '@/components/pages/products/virtual-pharmacy/VPImplementation';
+import { VPFAQ } from '@/components/pages/products/virtual-pharmacy/VPFAQ';
+import { VPCTA } from '@/components/pages/products/virtual-pharmacy/VPCTA';
 
-import LandingPageTemplate from '@/components/v2/LandingPageTemplate'
-import { Truck, MapPin, BadgePercent, MessageSquare } from 'lucide-react'
+export const metadata = {
+  title: 'Virtual Pharmacy | MediKloud',
+  description: 'The 10-Minute Digital Pharmacy for Independent Clinics. MediKloud provides the tech, inventory, and logistics to fulfill your prescriptions at the clinic doorstep in 10 minutes.',
+};
 
-export default function VirtualPharmacy() {
+export default function VirtualPharmacyPage() {
   return (
-    <LandingPageTemplate
-      category="Product · Virtual Pharmacy"
-      title="A full pharmacy for clinics"
-      subtitle="— without building one."
-      description="MediKloud's hub-and-spoke network fulfills prescriptions from the nearest hub to the patient in ~10 minutes. Zero license, zero inventory, and zero space required."
-      accentColor="indigo"
-      benefits={[
-        { 
-          title: "Hub Fulfillment", 
-          desc: "Digital prescriptions sent automatically to our nearest city hub.",
-          icon: Truck
-        },
-        { 
-          title: "Coverage Network", 
-          desc: "Available across major hubs with ~10-15 minute delivery times.",
-          icon: MapPin
-        },
-        { 
-          title: "15-20% Revenue Share", 
-          desc: "Earn commission on every prescription fulfilled by our hub.",
-          icon: BadgePercent
-        },
-        { 
-          title: "Patient Experience", 
-          desc: "Real-time WhatsApp tracking and easy medicine reordering.",
-          icon: MessageSquare
-        }
-      ]}
-    />
-  )
+    <div className="min-h-screen bg-[#FDFDFF] font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-700">
+      <Header />
+      <main id="main">
+        <VPHero />
+        <VPInfrastructure />
+        <VPProblem />
+        <VPSolution />
+        <VPComparison />
+        <VPImplementation />
+        <VPFAQ />
+        <VPCTA />
+      </main>
+      <Footer />
+    </div>
+  );
 }
