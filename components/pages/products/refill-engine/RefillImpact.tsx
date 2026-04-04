@@ -53,29 +53,31 @@ export function RefillImpact() {
   }
 
   return (
-    <section id="impact" className="py-24 lg:py-40 bg-slate-50 relative overflow-hidden">
-      {/* Background patterns */}
-      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#2563eb_0.5px,transparent_0.5px)] [background-size:24px_24px] pointer-events-none" />
+    <section id="impact" className="bg-white border-y border-slate-100 section-py relative overflow-hidden">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:24px_24px] z-0" aria-hidden="true" />
       
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center max-w-4xl mx-auto mb-20">
+      <div className="container-page relative z-10">
+        <div className="text-center max-w-4xl mx-auto mb-20 md:mb-24">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 bg-white border border-slate-200 px-3 py-1.5 rounded-full mb-6 shadow-sm"
+            className="eyebrow-wrap mb-8"
           >
-            <Sparkles className="w-4 h-4 text-blue-600" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">The Modern Standard</span>
+            <span className="h-[1.5px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-blue-500 rounded-full opacity-60" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-blue-600">The Modern Standard</span>
+            <span className="h-[1.5px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-blue-500 rounded-full opacity-60" />
           </motion.div>
           
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl lg:text-6xl font-[900] text-slate-900 leading-[1.1] mb-8 tracking-tight"
+            className="text-section md:text-5xl lg:text-6xl text-balance mb-8"
           >
-            Why Delivering from <br/>Your Hospital Matters.
+            Why Delivering from <br className="hidden md:block"/>
+            <span className="text-blue-600 font-black">Your Hospital Matters.</span>
           </motion.h2>
           
           <motion.p 
@@ -83,9 +85,9 @@ export function RefillImpact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-slate-500 font-medium leading-relaxed"
+            className="text-body-lg md:text-xl text-slate-500 font-medium max-w-5xl mx-auto leading-relaxed text-balance"
           >
-            When your hospital handles the delivery, the quality of care never stops. <br className="hidden md:block" /> 
+            When your hospital handles the delivery, the quality of care never stops. 
             It’s better for your patients, easier for their families, and more reliable for your doctors.
           </motion.p>
         </div>
@@ -95,24 +97,37 @@ export function RefillImpact() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
         >
-          {impactBenefits.map((benefit) => (
+          {impactBenefits.map((benefit, index) => (
             <motion.div 
               key={benefit.id} 
               variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 relative group"
+              whileHover={{ y: -8 }}
+              className="bg-white p-7 lg:p-9 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-card-md hover:border-blue-100 transition-all duration-300 relative group overflow-hidden"
             >
-              <div className="relative mb-8">
-                 <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-sm group-hover:shadow-blue-200">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-full blur-3xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative mb-10 flex justify-between items-center">
+                 <div className={`w-12 h-12 ${
+                   index === 0 ? 'bg-blue-50 text-blue-600 border-blue-100' :
+                   index === 1 ? 'bg-indigo-50 text-indigo-600 border-indigo-100' :
+                   index === 2 ? 'bg-rose-50 text-rose-600 border-rose-100' :
+                   'bg-amber-50 text-amber-600 border-amber-100'
+                 } rounded-xl flex items-center justify-center border shadow-sm group-hover:scale-110 transition-transform duration-500`}>
                    {benefit.icon}
                  </div>
-                 <span className="absolute -top-2 -right-2 text-[10px] font-black text-slate-300 group-hover:text-blue-200 transition-colors">{benefit.id}</span>
+                 <div className="text-[10px] font-black text-slate-200 group-hover:text-blue-100 bg-slate-50 px-2 py-1 rounded-lg transition-colors border border-slate-100">
+                    {benefit.id}
+                 </div>
               </div>
               
-              <h3 className="text-lg font-black text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors uppercase tracking-tight">{benefit.title}</h3>
-              <p className="text-sm text-slate-500 font-medium leading-relaxed">{benefit.desc}</p>
+              <h3 className="text-h3 font-bold text-slate-800 mb-3 tracking-tight group-hover:text-blue-600 transition-colors leading-tight">
+                {benefit.title}
+              </h3>
+              <p className="text-body text-slate-600 font-medium leading-relaxed">
+                {benefit.desc}
+              </p>
             </motion.div>
           ))}
         </motion.div>

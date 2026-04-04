@@ -161,10 +161,14 @@ export const HMSSecurity = () => {
           className="mt-20 w-full relative z-10"
         >
           <div className="bg-gradient-to-r from-blue-900/50 via-slate-800/80 to-teal-900/50 border border-slate-700/80 rounded-[2rem] p-8 lg:p-12 flex flex-col items-center justify-center text-center shadow-glow backdrop-blur-xl group">
-            <h3 className="text-h2 md:text-h1 font-bold text-white tracking-tight leading-tight">
-              Absolute peace of mind.<br className="md:hidden" /> 
-              <span className="font-black bg-gradient-display bg-clip-text text-transparent">Absolute data integrity.</span>
-            </h3>
+            <div className="flex flex-col items-center gap-4">
+              <h3 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] font-bold text-white tracking-tight leading-tight">
+                Absolute peace of mind.
+              </h3>
+              <h3 className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] font-black bg-gradient-display bg-clip-text text-transparent">
+                Absolute data integrity.
+              </h3>
+            </div>
           </div>
         </motion.div>
 

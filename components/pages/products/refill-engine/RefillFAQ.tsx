@@ -59,92 +59,70 @@ export function RefillFAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 lg:py-40 bg-slate-50 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center mb-20">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center space-x-2 bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full mb-6 shadow-sm"
-          >
-            <MessageCircle className="w-4 h-4 text-blue-600" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700">Support Center</span>
-          </motion.div>
-          
+    <section id="faq" className="relative py-section-sm md:py-section bg-white border-t border-slate-100 overflow-hidden">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:24px_24px] z-0" aria-hidden="true" />
+      
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl lg:text-6xl font-[900] text-slate-900 leading-[1.1] mb-8 tracking-tight"
+            transition={{ duration: 0.6 }}
+            className="text-h1 md:text-5xl font-bold tracking-tight text-slate-900"
           >
-            Your Medicine Delivery <br/>Questions. Answered.
+            Frequently Asked Questions
           </motion.h2>
         </div>
 
         <div className="space-y-4">
-          {faqItems.map((faq, index) => (
-            <motion.div 
-              key={index} 
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className={`bg-white rounded-[2rem] border transition-all duration-300 overflow-hidden ${openFaq === index ? 'border-blue-600 shadow-xl shadow-blue-50' : 'border-slate-100 hover:border-slate-300'}`}
-            >
-              <button 
-                onClick={() => toggleFaq(index)}
-                className="w-full px-8 py-7 flex items-center justify-between text-left group"
+          {faqItems.map((faq, idx) => {
+            const isActive = openFaq === idx;
+            
+            return (
+              <div 
+                key={idx}
+                className={`border rounded-[1.5rem] overflow-hidden transition-all duration-300 group ${
+                  isActive 
+                    ? 'bg-white border-blue-200 shadow-card-md' 
+                    : 'bg-white/50 border-slate-200 hover:border-slate-300 hover:bg-white'
+                }`}
               >
-                <span className={`text-lg font-bold tracking-tight pr-4 transition-colors uppercase ${openFaq === index ? 'text-blue-600' : 'text-slate-900'}`}>
-                  {faq.q}
-                </span>
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all ${openFaq === index ? 'bg-blue-600 border-blue-600 text-white' : 'bg-slate-50 border-slate-200 text-slate-500'}`}>
-                  {openFaq === index ? <Minus size={16} /> : <Plus size={16} />}
-                </div>
-              </button>
-              
-              <AnimatePresence>
-                {openFaq === index && (
-                  <motion.div 
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <div className="px-8 pb-8">
-                      <p className="text-slate-500 font-medium leading-relaxed text-lg border-t border-slate-50 pt-6">
-                        {faq.a}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                <button 
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none group gap-6"
+                >
+                  <span className={`text-base md:text-h4 font-bold transition-colors ${isActive ? 'text-blue-600' : 'text-slate-900 group-hover:text-blue-600'}`}>
+                    {faq.q}
+                  </span>
+                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isActive ? 'bg-blue-100 text-blue-600' : 'bg-slate-100 text-slate-500 group-hover:bg-blue-50 group-hover:text-blue-600'}`}>
+                    {isActive ? <Minus size={18} strokeWidth={2.5} /> : <Plus size={18} strokeWidth={2.5} />}
+                  </div>
+                </button>
+                
+                <AnimatePresence initial={false}>
+                  {isActive && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div className="px-6 md:px-8 pb-6 md:pb-8 pt-0">
+                        <div className="h-px w-full bg-slate-100 mb-6" />
+                        <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed">
+                          {faq.a}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
 
-        {/* FAQ Footer CTA */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-16 p-8 bg-white rounded-[2.5rem] border border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-[0_10px_40px_rgba(0,0,0,0.03)]"
-        >
-           <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600">
-                 <Phone className="w-6 h-6" />
-              </div>
-              <div>
-                 <p className="text-sm font-black text-slate-900 uppercase tracking-tight">Have a different question?</p>
-                 <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">Talk to our team in real-time</p>
-              </div>
-           </div>
-           <button className="bg-slate-900 text-white px-8 py-4 rounded-2xl font-black text-sm hover:bg-blue-600 transition-all shadow-lg active:scale-95 whitespace-nowrap uppercase tracking-widest">
-              Contact Support
-           </button>
-        </motion.div>
       </div>
     </section>
   )

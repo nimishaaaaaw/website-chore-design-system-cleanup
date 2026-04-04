@@ -16,10 +16,10 @@ export const HMSEaseOfUse = () => {
   return (
     <section className="relative py-section-sm md:py-section bg-white overflow-hidden">
       <div className="max-w-container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
           
           {/* Left Column: Mobile UI Visual Mockup */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -102,20 +102,11 @@ export const HMSEaseOfUse = () => {
                 </div>
               </div>
               
-              {/* Floating Badge */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-32 -left-10 bg-white px-5 py-3 rounded-xl shadow-float border border-slate-100 flex items-center gap-3"
-              >
-                <span className="flex h-2.5 w-2.5 rounded-full bg-blue-500 animate-pulse"></span>
-                <span className="text-xs font-black text-slate-900 uppercase tracking-widest">1-Tap Flow</span>
-              </motion.div>
             </motion.div>
           </div>
 
           {/* Right Column: Copy & Bullet Points */}
-          <div className="w-full lg:w-1/2">
+          <div className="lg:col-span-7">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -134,7 +125,7 @@ export const HMSEaseOfUse = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-body-lg text-slate-600 leading-relaxed mb-10 max-w-narrow"
             >
-              If you can use a smartphone, you can use MediKloud. We've eliminated the steep learning curve of traditional healthcare software with a clean, clinical interface that requires <strong className="text-slate-900 font-bold uppercase tracking-tight">Zero Training.</strong>
+              If you can use a smartphone, you can use MediKloud HMS. We've eliminated the steep learning curve of traditional healthcare software with a clean, clinical interface that requires <strong className="text-slate-900 font-bold uppercase tracking-tight">Zero Training.</strong>
             </motion.p>
 
             <div className="space-y-8 mb-12">
@@ -196,8 +187,8 @@ export const HMSEaseOfUse = () => {
           </div>
           
           <div className="relative z-10 flex flex-col items-center">
-            <div className="w-12 h-1.5 bg-gradient-action rounded-full mb-8"></div>
-            <h3 className="text-h2 md:text-h1 font-bold text-white max-w-3xl mx-auto leading-tight">
+            <div className="w-12 h-1.5 bg-blue-500 rounded-full mb-8"></div>
+            <h3 className="text-[2rem] sm:text-[2.5rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold text-white max-w-4xl mx-auto leading-[1.1] tracking-tight">
               <span className="font-black bg-gradient-display bg-clip-text text-transparent">Spend your time on the patient,</span><br className="hidden md:block" />
               not the platform.
             </h3>

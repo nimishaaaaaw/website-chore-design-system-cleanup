@@ -143,31 +143,6 @@ export const HMSModules = () => {
 
         </div>
 
-        {/* Additional Operational Power Footer */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-5xl mx-auto mt-20 pt-10 border-t border-slate-200"
-        >
-          <h4 className="text-center text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-8">
-            Additional Operational Power
-          </h4>
-          <div className="flex flex-wrap justify-center gap-4">
-            {['IPD & Ward Management', 'OT Scheduling', 'Inventory & HR', 'AI Voice Scribe'].map((item, idx) => (
-              <div 
-                key={idx} 
-                className="flex items-center gap-3 px-6 py-3 bg-white border border-slate-200 rounded-full shadow-card hover:border-brand-indigo-200 hover:shadow-card-md transition-all cursor-default group"
-              >
-                <div className="bg-blue-50 p-1 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                  <Plus className="w-3.5 h-3.5 text-blue-500 group-hover:text-white" />
-                </div>
-                <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">{item}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
       </div>
     </section>

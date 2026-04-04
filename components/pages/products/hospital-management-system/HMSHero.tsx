@@ -10,264 +10,250 @@ import {
   Clock, 
   Activity,
   Calendar,
-  Users
+  Users,
+  Phone,
+  BarChart3,
+  Stethoscope
 } from 'lucide-react';
 import { useContactModal } from '@/hooks/use-contact-modal';
+import { ParticleNetwork } from '@/components/shared/ParticleNetwork';
 
 export const HMSHero = () => {
   const { openModal } = useContactModal();
 
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-center overflow-hidden pt-[100px] pb-12 lg:pt-[120px] lg:pb-20">
-      {/* Background Decorative Elements */}
+    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-center overflow-hidden pt-[70px] pb-12 md:pt-[90px] md:pb-20">
+      {/* Base gradient and atmosphere */}
       <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
       
-      {/* Animated Blobs */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-        <div className="absolute top-[10%] left-[15%] w-72 h-72 bg-blue-100/30 rounded-full blur-[80px] animate-float-slow" />
-        <div className="absolute bottom-[20%] right-[10%] w-80 h-80 bg-brand-indigo-100/20 rounded-full blur-[90px] animate-float-slower" />
-        <div className="absolute top-[45%] right-[30%] w-48 h-48 bg-brand-violet-100/25 rounded-full blur-[60px] animate-float-medium" />
+      {/* Interactive Medical Particle Canvas */}
+      <ParticleNetwork />
+
+      {/* Ambient glow orbs using standard classes */}
+      <div className="blob-layer">
+        <div className="blob-blue w-[28rem] h-[28rem] top-[5%] left-[5%]" />
+        <div className="blob-indigo w-[32rem] h-[32rem] bottom-[10%] right-[10%]" />
       </div>
 
-      {/* Fade overlay */}
+      {/* Bottom fade matched to product pages */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-[2]" aria-hidden="true" />
 
       {/* Main Content */}
-      <div className="max-w-container mx-auto px-6 relative z-10 w-full">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Copy & CTA */}
-          <div className="w-full lg:w-1/2 flex flex-col items-start text-left">
-            
-            {/* Sub-Headline Badge */}
-            <motion.div 
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.6 }}
-               className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-100 mb-8 shadow-sm backdrop-blur-sm"
+          {/* ── LEFT COLUMN (TEXT & CTAs) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-7 space-y-8 text-center lg:text-left lg:-translate-y-12"
+          >
+            {/* Eyebrow pattern aligned with product pages */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="eyebrow-wrap lg:justify-start"
             >
-              <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
-              <span className="text-xs font-bold text-blue-800 tracking-widest uppercase">
-                The Intelligent Control Layer for Modern Healthcare
+              <span className="eyebrow-text text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200/60">
+                100% Secure · Zero Training · High-Volume OPD
               </span>
             </motion.div>
 
-            {/* Main Headlines */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl font-black leading-[1.1] tracking-tight mb-6"
-            >
-              Hospital Management Software, <br />
-              <span className="bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>Finally Simple.</span>
-            </motion.h1>
-
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-h2 font-bold text-slate-700 leading-tight mb-6"
-            >
-              For Independent Clinics and Hospitals.
-            </motion.h2>
-
-            {/* Body Copy */}
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-body-lg text-slate-600 leading-relaxed mb-10 max-w-narrow"
-            >
-              No setup headaches. No clunky screens. Just smooth OPD and EMR workflows from day one.
-            </motion.p>
-
-            {/* Value Pillars */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mb-12"
-            >
-              <div className="flex items-start gap-3">
-                <div className="mt-1 bg-green-100 p-1.5 rounded-lg">
-                  <Clock className="w-4 h-4 text-green-600" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900 text-sm">Zero Training</h4>
-                  <p className="text-xs text-slate-500 font-medium">Staff are live in under 2 hours.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="mt-1 bg-amber-100 p-1.5 rounded-lg">
-                  <Zap className="w-4 h-4 text-amber-600" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900 text-sm">High-Volume OPD</h4>
-                  <p className="text-xs text-slate-500 font-medium">Fast, no lag, no crashes.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 sm:col-span-2">
-                <div className="mt-1 bg-blue-100 p-1.5 rounded-lg">
-                  <ShieldCheck className="w-4 h-4 text-blue-600" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900 text-sm">ABDM-Ready</h4>
-                  <p className="text-xs text-slate-500 font-medium">Compliant and secure by default.</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* CTA Section */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-5 w-full"
-            >
-              <button 
-                onClick={openModal}
-                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-gradient-action rounded-xl overflow-hidden shadow-btn hover:shadow-lg hover:-translate-y-0.5 transition-all w-full sm:w-auto"
+            <div className="space-y-6">
+              {/* Gold standard H1 structure */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="mb-6 md:mb-8 text-center lg:text-left"
               >
-                <span>Get a Free Demo</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {/* Line 1: Intro */}
+                <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.05] tracking-tight md:tracking-[-0.02em] text-slate-900 pb-2">
+                  Hospital Management,
+                </span>
+
+                {/* Line 2: Brand/Product Gradient */}
+                <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.05] tracking-tight md:tracking-[-0.02em] bg-gradient-display bg-clip-text text-transparent pb-4 mb-2">
+                  Finally Simple
+                </span>
+
+                {/* Line 3: Target Audience */}
+                <span className="block text-[1.4rem] sm:text-[1.8rem] md:text-[2rem] lg:text-[2.2rem] font-bold leading-[1.2] tracking-[-0.02em] text-slate-700/90">
+                  for independent hospitals & clinics
+                </span>
+              </motion.h1>
+
+              {/* Body Copy */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-xl sm:text-2xl text-slate-500 font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              >
+                No setup headaches. No clunky screens. Just smooth OPD and EMR workflows from day one.
+              </motion.p>
+            </div>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5 pt-2"
+            >
+              <button
+                onClick={openModal}
+                className="btn-primary w-full sm:w-auto shadow-btn"
+              >
+                <Phone size={15} className="opacity-80" />
+                Book a Free Demo
+                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
-              
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-3">
-                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" className="w-10 h-10 rounded-full border-2 border-white bg-slate-200" />
-                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka" alt="User" className="w-10 h-10 rounded-full border-2 border-white bg-green-200" />
-                  <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Rohan" alt="User" className="w-10 h-10 rounded-full border-2 border-white bg-blue-200" />
-                </div>
-                <p className="text-xs font-semibold text-slate-500 max-w-[180px] leading-snug">
-                  <span className="font-bold text-slate-900">Join 500+</span> clinical leaders scaling their practice.
-                </p>
-              </div>
             </motion.div>
 
-          </div>
-
-          {/* Right Column: Abstract UI Dashboard Visual */}
-          <div className="w-full lg:w-1/2 relative lg:h-[600px] flex items-center justify-center">
-            {/* Decorative background shape */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-teal-50 rounded-full blur-3xl opacity-50" />
-            
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative w-full max-w-lg"
+            {/* Trust Markers */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.45 }}
+              className="flex flex-wrap justify-center lg:justify-start items-center gap-x-8 gap-y-4 pt-4"
             >
+              {[
+                { icon: ShieldCheck, text: "100% Secure" },
+                { icon: Zap, text: "Zero Setup Cost" },
+                { icon: Clock, text: "Live in 24 Hours" }
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="flex items-center space-x-2 text-slate-600">
+                    <Icon className="text-blue-500 w-4 h-4" />
+                    <span className="text-[10px] font-bold tracking-widest uppercase">{item.text}</span>
+                  </div>
+                );
+              })}
+            </motion.div>
+          </motion.div>
+
+          {/* ── RIGHT COLUMN (POLISHED DASHBOARD VISUAL) ── */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, x: 20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="lg:col-span-5 relative lg:pl-4 mt-12 lg:mt-0"
+          >
+            {/* Premium Background Glow */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-200/40 via-indigo-200/20 to-purple-200/40 rounded-[3rem] transform rotate-3 scale-105 blur-xl -z-10" />
+
+            {/* Main Glass Panel Dashboard */}
+            <div className="relative z-10 bg-white/80 backdrop-blur-2xl border border-white/80 shadow-[0_30px_80px_-20px_rgba(30,58,138,0.15)] rounded-[2.5rem] p-6 lg:p-8 ring-1 ring-slate-900/5 overflow-hidden">
               
-              {/* Main Dashboard Window */}
-              <div className="relative z-10 bg-white border border-slate-200 rounded-[2rem] shadow-float overflow-hidden transform transition-transform hover:-translate-y-2 duration-500">
-                {/* Window Header */}
-                <div className="bg-slate-50 border-b border-slate-100 px-5 pt-4 pb-3 flex items-center gap-2">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-amber-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  <div className="mx-auto bg-white border border-slate-200 rounded-lg px-4 py-1.5 flex items-center gap-2 shadow-sm">
-                    <ShieldCheck className="w-3.5 h-3.5 text-success" />
-                    <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">ABDM Secure Connection</span>
-                  </div>
+              {/* Dashboard Layout Simulation */}
+              <div className="relative">
+                {/* Header Mockup */}
+                <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100/60">
+                   <div className="flex items-center gap-3">
+                     <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-600/20">
+                       <BarChart3 size={20} />
+                     </div>
+                     <div>
+                       <h4 className="text-sm font-black text-slate-900 tracking-tight leading-none mb-1">Clinic Central</h4>
+                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Real-time Control</p>
+                     </div>
+                   </div>
+                   <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2">
+                     <span className="relative flex h-2 w-2">
+                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                       <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                     </span>
+                     <span className="text-[10px] font-bold tracking-widest uppercase">System Live</span>
+                   </div>
                 </div>
 
-                {/* Dashboard Body */}
-                <div className="p-6">
-                  {/* Stats Row */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-blue-50 rounded-2xl p-4 border border-blue-100/50">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Users className="w-4 h-4 text-blue-600" />
-                        <span className="text-[10px] font-bold text-blue-900 uppercase tracking-widest">Today's OPD</span>
+                {/* Content Area */}
+                <div className="space-y-6">
+                  {/* Stats Cards */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Today's OPD</p>
+                      <div className="flex items-end gap-2">
+                        <span className="text-2xl font-black text-slate-900 tracking-tighter">142</span>
+                        <span className="text-[10px] font-bold text-emerald-500 mb-1">+12%</span>
                       </div>
-                      <span className="text-2xl font-black text-slate-900 tracking-tight">142</span>
                     </div>
-                    <div className="bg-emerald-50 rounded-2xl p-4 border border-emerald-100/50">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Activity className="w-4 h-4 text-emerald-600" />
-                        <span className="text-[10px] font-bold text-emerald-900 uppercase tracking-widest">Avg Wait</span>
+                    <div className="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Avg Wait</p>
+                      <div className="flex items-end gap-1">
+                        <span className="text-2xl font-black text-slate-900 tracking-tighter">12</span>
+                        <span className="text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-widest">min</span>
                       </div>
-                      <span className="text-2xl font-black text-slate-900 tracking-tight">12<span className="text-xs text-slate-500 font-bold ml-1 uppercase">min</span></span>
                     </div>
                   </div>
 
-                  {/* Patient List Mockup */}
+                  {/* Quick Actions / Queue */}
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                      <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Current Queue</h3>
-                      <button className="text-[10px] text-blue-600 font-bold uppercase tracking-widest hover:text-blue-700">View All</button>
-                    </div>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center justify-between">
+                      Recent Activity <span>View All</span>
+                    </p>
                     {[
-                      { name: "Aarav Sharma", id: "PT-8472", time: "10:15 AM", status: "Consultation" },
-                      { name: "Priya Patel", id: "PT-8473", time: "10:30 AM", status: "Waiting" },
-                      { name: "Rahul Verma", id: "PT-8474", time: "10:45 AM", status: "Vitals Done" }
-                    ].map((patient, i) => (
-                      <motion.div 
-                        key={i}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 + i * 0.1 }}
-                        className="flex items-center justify-between p-3.5 rounded-xl border border-slate-100 hover:bg-slate-50 hover:border-slate-200 transition-all cursor-default"
-                      >
+                      { name: "Aarav S.", id: "PT-8472", status: "Consultation", color: "text-blue-500", bg: "bg-blue-50" },
+                      { name: "Priya P.", id: "PT-8473", status: "Completed", color: "text-emerald-500", bg: "bg-emerald-50" },
+                      { name: "Rahul V.", id: "PT-8474", status: "Billing", color: "text-amber-500", bg: "bg-amber-50" }
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center justify-between p-3 rounded-xl bg-white/50 border border-slate-100/80">
                         <div className="flex items-center gap-3">
-                          <div className="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-600 border border-slate-200 shadow-sm">
-                            {patient.name.charAt(0)}
+                          <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-400">
+                            {item.name.charAt(0)}
                           </div>
                           <div>
-                            <p className="text-sm font-bold text-slate-900 leading-none mb-1">{patient.name}</p>
-                            <p className="text-[10px] text-slate-500 font-bold tracking-wider">{patient.id}</p>
+                            <p className="text-xs font-bold text-slate-900 leading-none mb-1">{item.name}</p>
+                            <p className="text-[9px] font-bold text-slate-400 tracking-wider font-mono">{item.id}</p>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <p className="text-[11px] font-black text-slate-900">{patient.time}</p>
-                          <p className={`text-[10px] font-bold uppercase tracking-wider ${i === 0 ? 'text-success' : 'text-warning'}`}>
-                            {patient.status}
-                          </p>
+                        <div className={`px-2 py-1 rounded-md ${item.bg} ${item.color} text-[9px] font-bold uppercase tracking-widest`}>
+                          {item.status}
                         </div>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Floating Element 1: EMR Card */}
-              <motion.div 
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-8 -left-8 z-20 bg-white p-4 rounded-xl shadow-float border border-slate-100"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center border border-blue-100">
-                    <Calendar className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Deployment</p>
-                    <p className="text-sm font-black text-slate-900">&lt; 24 Hours</p>
-                  </div>
-                  <CheckCircle2 className="w-5 h-5 text-success ml-2" />
-                </div>
-              </motion.div>
-
-              {/* Floating Element 2: Zero Fees */}
-              <motion.div 
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-12 -right-8 z-20 bg-slate-900 p-4 rounded-xl shadow-glow border border-slate-800"
-              >
-                <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-amber-400" />
-                  <p className="text-xs font-bold text-white uppercase tracking-widest">0 Setup Fees</p>
-                </div>
-              </motion.div>
-
+            {/* Floating Decorative Badge 1 */}
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -right-8 md:-right-16 top-10 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl shadow-blue-900/10 border border-white z-20 flex items-center gap-3"
+            >
+              <div className="p-2.5 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600">
+                <Stethoscope size={18} />
+              </div>
+              <div className="pr-2">
+                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">EMR Status</p>
+                <p className="text-xs font-black text-slate-800">100% Automated</p>
+              </div>
             </motion.div>
-          </div>
 
+            {/* Floating Decorative Badge 2 */}
+            <motion.div 
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -left-8 md:-left-16 bottom-12 bg-slate-900/95 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl shadow-slate-900/20 border border-slate-800 z-20 flex items-center gap-3"
+            >
+               <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
+                <ShieldCheck size={18} />
+              </div>
+              <div className="pr-4">
+                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Trust</p>
+                <p className="text-xs font-bold text-white uppercase tracking-widest leading-none">100% Secure</p>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
+
