@@ -2,50 +2,34 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Activity, HeartPulse, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, Activity, HeartPulse, ShieldCheck, Sparkles, MessageCircle } from 'lucide-react';
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
-};
-
-interface HospitalWithoutPharmacyCTAProps {
+interface ClinicWithPharmacyCTAProps {
   onBookDemo?: () => void;
   onTalkToExpert?: () => void;
 }
-export const HospitalWithoutPharmacyCTA = ({ onBookDemo, onTalkToExpert }: HospitalWithoutPharmacyCTAProps) => {
+
+export const ClinicWithPharmacyCTA = ({ onBookDemo, onTalkToExpert }: ClinicWithPharmacyCTAProps) => {
   return (
     <section className="section-py bg-slate-950 relative overflow-hidden">
-      {/* Background Atmosphere */}
+      {/* Background Atmosphere & Grid */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-indigo-950/50" />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute h-full w-full bg-slate-950" />
         <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-indigo-600/10 rounded-full blur-[100px] -mr-48 -mt-48 animate-pulse" />
         <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-600/10 rounded-full blur-[80px] -ml-24 -mb-24 animate-float-slow" />
         
         {/* Floating Sparkles cluster */}
         <motion.div 
-          animate={{ 
-            y: [0, -20, 0],
-            opacity: [0.3, 0.6, 0.3]
-          }}
+          animate={{ y: [0, -20, 0], opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/4 left-1/4"
         >
           <Sparkles className="w-8 h-8 text-cyan-500/20" />
         </motion.div>
         <motion.div 
-          animate={{ 
-            y: [0, 20, 0],
-            opacity: [0.2, 0.5, 0.2]
-          }}
+          animate={{ y: [0, 20, 0], opacity: [0.2, 0.5, 0.2] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           className="absolute bottom-1/4 right-1/4"
         >
@@ -63,7 +47,7 @@ export const HospitalWithoutPharmacyCTA = ({ onBookDemo, onTalkToExpert }: Hospi
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-blue-100/90 text-xs font-bold backdrop-blur-md shadow-2xl tracking-wide no-select"
           >
             <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-            Zero pharmacy startup cost. Instant revenue capture.
+            Zero management load. 100% revenue capture.
           </motion.div>
 
           <div className="space-y-6">
@@ -75,7 +59,7 @@ export const HospitalWithoutPharmacyCTA = ({ onBookDemo, onTalkToExpert }: Hospi
             >
               Start capturing the <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
-                value you're creating.
+                clinical value you're creating.
               </span>
             </motion.h2>
 
@@ -85,7 +69,7 @@ export const HospitalWithoutPharmacyCTA = ({ onBookDemo, onTalkToExpert }: Hospi
               viewport={{ once: true }}
               className="text-body-lg md:text-xl text-blue-100/60 max-w-2xl mx-auto font-medium leading-relaxed"
             >
-              Transform your daily clinical prescriptions into an automated revenue engine. No inventory, no staffing, no real estate required.
+              Transform your daily consultation flow into an automated revenue engine. Focus on your patients while we manage the pharmacy operations.
             </motion.p>
           </div>
 
@@ -93,7 +77,7 @@ export const HospitalWithoutPharmacyCTA = ({ onBookDemo, onTalkToExpert }: Hospi
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto pt-6 px-4 sm:px-0">
             {[
               { icon: Activity, title: "Revenue recovery", subtitle: "from day one", color: "text-cyan-400", glow: "group-hover:shadow-cyan-500/20" },
-              { icon: HeartPulse, title: "Seamless patient", subtitle: "lifecycle", color: "text-blue-400", glow: "group-hover:shadow-blue-500/20" },
+              { icon: HeartPulse, title: "Seamless patient", subtitle: "compliance", color: "text-blue-400", glow: "group-hover:shadow-blue-500/20" },
               { icon: ShieldCheck, title: "Hands-off", subtitle: "operations", color: "text-indigo-400", glow: "group-hover:shadow-indigo-500/20" }
             ].map((item, i) => (
               <div key={i} className={`bg-white/[0.03] border border-white/10 p-8 rounded-3xl backdrop-blur-md group hover:bg-white/[0.07] hover:border-white/20 transition-all duration-500 text-left relative overflow-hidden shadow-2xl ${item.glow}`}>
@@ -119,14 +103,15 @@ export const HospitalWithoutPharmacyCTA = ({ onBookDemo, onTalkToExpert }: Hospi
               onClick={onBookDemo}
               className="btn-dark-cta min-w-[280px] group shadow-2xl shadow-cyan-500/30 active:scale-[0.98] transition-all"
             >
-              Launch your pharmacy layer
+              Launch your clinic engine
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </button>
             <button 
               onClick={onTalkToExpert}
-              className="px-8 py-3.5 text-white/70 hover:text-white font-bold text-[15px] transition-all rounded-xl border border-white/10 hover:bg-white/5 active:scale-[0.98]"
+              className="px-8 py-3.5 text-white/70 hover:text-white font-bold text-[15px] transition-all rounded-xl border border-white/10 hover:bg-white/5 active:scale-[0.98] flex items-center gap-2"
             >
-              Talk to our hospital experts
+              <MessageCircle className="w-4 h-4" />
+              Talk to our clinic experts
             </button>
           </motion.div>
         </div>
@@ -134,4 +119,3 @@ export const HospitalWithoutPharmacyCTA = ({ onBookDemo, onTalkToExpert }: Hospi
     </section>
   );
 };
-

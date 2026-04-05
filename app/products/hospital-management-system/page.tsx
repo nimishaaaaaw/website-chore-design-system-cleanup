@@ -37,11 +37,10 @@ export default function HMSPage() {
           <HMSModules />
           <HMSSecurity />
           <HMSComparison />
+          
+          <HMSCTA />
           <HMSFAQ />
         </div>
-
-        {/* Final CTA */}
-        <HMSCTA />
       </main>
       <Footer />
     </div>

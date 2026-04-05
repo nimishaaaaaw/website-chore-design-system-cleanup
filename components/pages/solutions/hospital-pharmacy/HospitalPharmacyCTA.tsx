@@ -2,70 +2,99 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Activity, HeartPulse, TrendingDown } from 'lucide-react';
-import { Badge, fadeUp, staggerContainer } from './HospitalPharmacyShared';
+import { ArrowRight, Activity, HeartPulse, ShieldCheck, Sparkles } from 'lucide-react';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
+};
+
+const staggerContainerLocal = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
 
 export const HospitalPharmacyCTA = ({ onBookDemo, onContactSales }: { onBookDemo?: () => void, onContactSales?: () => void }) => {
   return (
-    <div className="bg-slate-50 border-t border-slate-200 py-24 md:py-32 px-6">
-      <motion.div 
-        initial="hidden" 
-        whileInView="visible" 
-        viewport={{ once: true, margin: "-100px" }} 
-        variants={fadeUp}
-        className="max-w-4xl mx-auto bg-white rounded-[2.5rem] shadow-2xl p-8 md:p-16 text-center border border-slate-100"
-      >
-        <Badge color="green">Your Legacy</Badge>
-        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
-          You built the hospital.<br/>
-          You earned the patient’s trust.
-        </h2>
-        <p className="text-xl text-slate-500 mb-12">
-          Why should someone else earn from it?
-        </p>
+    <section className="section-py bg-slate-950 relative overflow-hidden">
+      {/* Background Atmosphere */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-indigo-950/50" />
+        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-indigo-600/10 rounded-full blur-[100px] -mr-48 -mt-48" />
+        <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-600/10 rounded-full blur-[80px] -ml-24 -mb-24" />
+      </div>
 
-        <div className="grid sm:grid-cols-3 gap-6 mb-16 text-left">
-          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-            <Activity className="w-6 h-6 text-blue-600 mb-4" />
-            <p className="font-bold text-slate-900">Your prescriptions <br/><span className="text-blue-600">stay with you.</span></p>
+      <div className="container-page relative z-10">
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-blue-100/90 text-xs font-bold backdrop-blur-md shadow-2xl tracking-wide"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            Your hospital's next growth lever
+          </motion.div>
+
+          <div className="space-y-6">
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight tracking-tight px-4"
+            >
+              Take back control of <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
+                your pharmacy's value
+              </span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-body-lg md:text-xl text-blue-100/60 max-w-2xl mx-auto font-medium"
+            >
+              This isn't a software upgrade. It's a fundamental shift in how your hospital captures revenue and retains patients.
+            </motion.p>
           </div>
-          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-            <HeartPulse className="w-6 h-6 text-teal-600 mb-4" />
-            <p className="font-bold text-slate-900">Your patients <br/><span className="text-teal-600">stay with you.</span></p>
+
+          {/* Proof Grid */}
+          <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto pt-4">
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm group hover:bg-white/10 transition-colors">
+              <Activity className="w-6 h-6 text-cyan-400 mb-4" />
+              <p className="font-bold text-white text-sm">Your prescriptions <br/><span className="text-slate-400">stay with you.</span></p>
+            </div>
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm group hover:bg-white/10 transition-colors">
+              <HeartPulse className="w-6 h-6 text-blue-400 mb-4" />
+              <p className="font-bold text-white text-sm">Your patients <br/><span className="text-slate-400">stay with you.</span></p>
+            </div>
+            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm group hover:bg-white/10 transition-colors">
+              <ShieldCheck className="w-6 h-6 text-indigo-400 mb-4" />
+              <p className="font-bold text-white text-sm">Your revenue <br/><span className="text-slate-400">stays with you.</span></p>
+            </div>
           </div>
-          <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-            <TrendingDown className="w-6 h-6 text-indigo-600 mb-4 rotate-180" />
-            <p className="font-bold text-slate-900">Your revenue <br/><span className="text-indigo-600">stays with you.</span></p>
-          </div>
-        </div>
 
-        <div className="border-t border-slate-100 pt-16">
-          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-slate-900">
-            This isn’t a software upgrade.<br/>
-            <span className="text-slate-500">It’s taking back control of your own value.</span>
-          </h3>
-
-          <p className="text-lg font-medium text-slate-900 mb-8">
-            See how your pharmacy should actually run. Once you see it working, you won’t go back.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center pt-8"
+          >
             <button 
               onClick={onBookDemo}
-              className="w-full sm:w-auto bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2"
+              className="btn-dark-cta min-w-[240px] group shadow-2xl shadow-cyan-500/20"
             >
-              Book a walkthrough <ArrowRight className="w-5 h-5" />
+              See the system in action
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </button>
-            <button 
-              onClick={onContactSales}
-              className="w-full sm:w-auto bg-white text-slate-900 border-2 border-slate-200 px-8 py-4 rounded-full font-bold hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
-            >
-              Talk to our team
-            </button>
-          </div>
-          <p className="mt-6 text-sm text-slate-500 font-medium">Or ask to visit a live partner hospital.</p>
+          </motion.div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 };

@@ -29,9 +29,9 @@ export const ClinicHero = () => {
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-section-hero">
       {/* Abstract Background Blobs */}
       <div className="blob-layer">
-        <div className="blob-blue w-[500px] h-[500px] -top-24 -left-24 animate-float-slow" />
-        <div className="blob-indigo w-[400px] h-[400px] top-1/4 -right-24 animate-float-medium" />
-        <div className="blob-violet w-[300px] h-[300px] bottom-0 left-1/3 animate-float-slower" />
+        <div className="blob-blue w-[28rem] h-[28rem] -top-24 -left-24 animate-float-slow" />
+        <div className="blob-indigo w-[32rem] h-[32rem] top-1/4 -right-24 animate-float-medium" />
+        <div className="blob-violet w-[30rem] h-[30rem] bottom-0 left-1/3 animate-float-slower" />
       </div>
 
       <div className="relative container-page text-center">
@@ -45,22 +45,23 @@ export const ClinicHero = () => {
           {/* Eyebrow */}
           <motion.div variants={fadeInUp} className="eyebrow-wrap">
             <span className="eyebrow-line-l"></span>
-            <span className="eyebrow-text">For Independent Clinic Owners</span>
+            <span className="eyebrow-text">For independent clinic owners</span>
             <span className="eyebrow-line-r"></span>
           </motion.div>
 
           {/* Headline */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             <motion.h1 
               variants={fadeInUp} 
-              className="display-headline text-5xl md:text-7xl max-w-4xl mx-auto"
-              style={{ color: '#4F46E5' }} // Fallback
+              className="text-display-xl font-black leading-[1.1] tracking-tighter max-w-4xl mx-auto"
             >
-              You Write the Prescription. <br className="hidden md:block" />
-              Someone Else Makes the Money.
+              <span style={{ color: '#0F172A' }} className="inline-block">You write the prescription.</span> <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600 inline-block overflow-visible" style={{ color: '#1D4ED8' }}>
+                Someone else makes the money.
+              </span>
             </motion.h1>
             
-            <motion.p variants={fadeInUp} className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 leading-relaxed">
+            <motion.p variants={fadeInUp} className="max-w-2xl mx-auto text-body-lg text-slate-600 leading-relaxed font-medium">
               Every patient you treat walks out with a prescription — and walks straight into a pharmacy you don’t control.
             </motion.p>
           </div>
@@ -87,9 +88,9 @@ export const ClinicHero = () => {
               <motion.div 
                 key={i} 
                 variants={fadeInUp} 
-                className="card border-rose-100 hover:border-rose-200 group"
+                className="card border-slate-200 hover:border-indigo-100 group hover:shadow-card-md transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center mb-5 transition-transform group-hover:scale-110">
+                <div className="w-12 h-12 rounded-xl bg-slate-50 text-indigo-600 flex items-center justify-center mb-5 transition-transform group-hover:scale-110 shadow-sm border border-slate-100">
                   <item.icon className="w-6 h-6" />
                 </div>
                 <p className="font-semibold text-slate-800 text-left leading-snug">{item.text}</p>
@@ -98,28 +99,33 @@ export const ClinicHero = () => {
           </motion.div>
 
           {/* Trust Value Box */}
-          <motion.div variants={fadeInUp} className="pt-8">
-            <div className="inline-block p-[1px] rounded-[24px] bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-500 shadow-xl shadow-indigo-500/10">
-              <div className="bg-white rounded-[23px] p-8 md:p-10 text-left max-w-4xl mx-auto flex flex-col md:flex-row gap-10 items-center">
-                <div className="flex-1 space-y-4">
-                  <h3 className="text-2xl font-bold text-slate-900">
-                    MediKloud changes that.
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    We turn your clinic into a pharmacy — <span className="font-bold text-indigo-600">without setting one up.</span>
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {["No Inventory", "No Pharmacist", "No License", "No Headaches"].map((badge, idx) => (
-                      <span key={idx} className="badge badge-brand">{badge}</span>
-                    ))}
-                  </div>
+          <motion.div variants={fadeInUp} className="pt-8 px-4 sm:px-0">
+            <div className="card-glass p-8 md:p-12 text-left max-w-4xl mx-auto flex flex-col md:flex-row gap-10 items-center border border-indigo-100/50">
+              <div className="flex-1 space-y-5">
+                <h3 className="text-h2 font-bold text-slate-900 tracking-tight">
+                  MediKloud changes that.
+                </h3>
+                <p className="text-slate-600 text-body-lg leading-relaxed font-medium">
+                  We turn your clinic into a pharmacy — <span className="text-indigo-600 font-bold">without setting one up.</span>
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    { label: "No inventory", icon: AlertCircle },
+                    { label: "No pharmacist", icon: AlertCircle },
+                    { label: "No license", icon: AlertCircle },
+                    { label: "No headaches", icon: AlertCircle }
+                  ].map((badge, idx) => (
+                    <span key={idx} className="badge badge-brand shadow-sm">
+                      {badge.label}
+                    </span>
+                  ))}
                 </div>
-                <div className="w-full md:w-auto flex-shrink-0">
-                  <button className="btn-primary w-full md:w-auto group">
-                    Start Earning from Day 1
-                    <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
-                  </button>
-                </div>
+              </div>
+              <div className="w-full md:w-auto flex-shrink-0">
+                <button className="btn-primary w-full md:w-auto group shadow-btn">
+                  Start earning from day 1
+                  <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                </button>
               </div>
             </div>
           </motion.div>
@@ -128,3 +134,4 @@ export const ClinicHero = () => {
     </section>
   );
 };
+

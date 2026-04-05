@@ -1,6 +1,7 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { VPHero } from '@/components/pages/products/virtual-pharmacy/VPHero';
+import { VPNerveCenter } from '@/components/pages/products/virtual-pharmacy/VPNerveCenter';
 import { VPProblem } from '@/components/pages/products/virtual-pharmacy/VPProblem';
 import { VPSolution } from '@/components/pages/products/virtual-pharmacy/VPSolution';
 import { VPComparison } from '@/components/pages/products/virtual-pharmacy/VPComparison';
@@ -18,6 +19,7 @@ export default function VirtualPharmacyPage() {
       <Header />
       <main id="main">
         <VPHero />
+        <VPNerveCenter />
         <VPProblem />
         <VPSolution />
         <VPComparison />

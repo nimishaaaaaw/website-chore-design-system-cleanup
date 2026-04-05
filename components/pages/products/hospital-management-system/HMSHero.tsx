@@ -105,7 +105,7 @@ export const HMSHero = () => {
             >
               <button
                 onClick={openModal}
-                className="btn-primary w-full sm:w-auto shadow-btn"
+                className="btn-primary w-full sm:w-auto shadow-btn text-lg"
               >
                 <Phone size={15} className="opacity-80" />
                 Book a Free Demo

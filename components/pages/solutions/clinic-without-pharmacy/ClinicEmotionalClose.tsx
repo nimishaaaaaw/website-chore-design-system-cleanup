@@ -19,7 +19,7 @@ const staggerContainer = {
 
 export const ClinicEmotionalClose = () => {
   return (
-    <section className="section-py bg-section-alt relative overflow-hidden">
+    <section className="section-py bg-section-alt relative overflow-hidden border-t border-slate-100">
       <div className="container-page">
         <motion.div
           initial="hidden"
@@ -31,16 +31,16 @@ export const ClinicEmotionalClose = () => {
           {/* Section Indicator */}
           <motion.div variants={fadeInUp} className="flex justify-center flex-col items-center">
              <div className="w-16 h-[2px] bg-indigo-500/30 rounded-full mb-8" />
-             <HeartPulse className="w-10 h-10 text-rose-500" />
+             <HeartPulse className="w-12 h-12 text-indigo-600" />
           </motion.div>
 
           <motion.h3 
             variants={fadeInUp} 
-            className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-tight tracking-tight px-4"
+            className="text-h2 font-black text-slate-900 leading-tight tracking-tight px-4"
           >
-            Your Job Isn’t Just to Prescribe. <br />
+            Your job isn’t just to prescribe. <br />
             <span className="text-indigo-600">
-               It’s to Ensure the Patient Gets Better.
+               It’s to ensure the patient gets better.
             </span>
           </motion.h3>
 
@@ -48,10 +48,10 @@ export const ClinicEmotionalClose = () => {
             variants={fadeInUp} 
             className="space-y-6 max-w-2xl mx-auto border-l-4 border-indigo-500 pl-8 text-left"
           >
-            <p className="text-xl md:text-2xl font-medium text-slate-700 leading-relaxed">
+            <p className="text-body-lg md:text-xl font-medium text-slate-700 leading-relaxed">
               But that only happens if the patient actually gets the medicine — on time, without friction, and exactly as prescribed.
             </p>
-            <p className="text-lg text-slate-500">
+            <p className="text-base text-slate-500 font-medium leading-relaxed">
               Right now, that part is out of your control.
             </p>
           </motion.div>
@@ -60,10 +60,10 @@ export const ClinicEmotionalClose = () => {
             variants={fadeInUp} 
             className="pt-12 space-y-6"
           >
-             <p className="text-2xl font-bold text-slate-900">
+             <p className="text-2xl font-bold text-slate-900 tracking-tight">
                MediKloud brings it back — <span className="underline decoration-indigo-500 underline-offset-8">seamlessly</span>.
              </p>
-             <p className="text-lg text-slate-600 max-w-xl mx-auto">
+             <p className="text-body-lg text-slate-600 max-w-xl mx-auto font-medium leading-relaxed">
                So every prescription you write doesn’t just end on paper — it completes the loop.
              </p>
           </motion.div>
@@ -72,3 +72,4 @@ export const ClinicEmotionalClose = () => {
     </section>
   );
 };
+

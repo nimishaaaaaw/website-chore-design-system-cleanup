@@ -2,39 +2,54 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HeartPulse } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
+};
 
 export const HospitalWithoutPharmacyEmotionalClose = () => {
   return (
-    <section className="py-32 bg-slate-900 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-teal-900/40" />
-      
-      <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
+    <section className="section-py bg-slate-50 border-t border-slate-100">
+      <div className="container-page">
+        <motion.div 
+          initial="hidden" 
+          whileInView="visible" 
+          viewport={{ once: true }} 
+          variants={fadeInUp} 
+          className="max-w-4xl mx-auto"
         >
-          <HeartPulse className="w-16 h-16 text-teal-400 mx-auto mb-8 opacity-80" />
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            Your Hospital Shouldn’t Stop at Diagnosis
-          </h2>
-          <div className="space-y-6 text-xl text-slate-300">
-            <p>Right now, the patient journey breaks the moment they leave your consultation room.</p>
-            <p className="text-2xl font-medium text-white">
-              With MediKloud, that journey stays within your ecosystem — <br/>
-              <span className="text-teal-400">from prescription to fulfillment to refill.</span>
-            </p>
-          </div>
+          <div className="relative p-10 md:p-16 rounded-[3rem] bg-slate-900 overflow-hidden group shadow-2xl">
+            {/* Background Atmosphere */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/20 rounded-full blur-[100px] -mr-32 -mt-32" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] -ml-24 -mb-24" />
+            </div>
 
-          <div className="mt-16 p-8 md:p-12 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
-            <h3 className="text-2xl md:text-3xl font-bold text-white leading-relaxed">
-              "Because great care isn’t just about what you prescribe. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-400">
-                It’s about whether the patient actually receives it.
-              </span>"
-            </h3>
+            <div className="relative z-10 text-center space-y-8">
+              <div className="flex items-center justify-center gap-3">
+                <span className="h-px w-12 bg-white/20" />
+                <span className="text-indigo-400 font-semibold tracking-widest uppercase text-xs">The vision</span>
+                <span className="h-px w-12 bg-white/20" />
+              </div>
+              
+              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight px-4">
+                Your hospital is a hub of healing.<br/>
+                <span className="text-slate-400">Our job is to make the fulfillment silent.</span>
+              </h2>
+              
+              <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-medium">
+                MediKloud removes the friction of "where do I buy this?" so your team can focus exclusively on "how do I treat this?".
+              </p>
+              
+              <div className="pt-4">
+                <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/5 border border-white/10 text-white/90 text-sm font-bold backdrop-blur-md shadow-2xl tracking-wide group-hover:bg-white/10 transition-all duration-300">
+                  <Sparkles className="w-4 h-4 text-cyan-400" />
+                  Building the integrated future of hospital operations
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

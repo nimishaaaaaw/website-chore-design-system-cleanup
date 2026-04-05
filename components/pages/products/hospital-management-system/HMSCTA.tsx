@@ -34,7 +34,7 @@ export const HMSCTA = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4">
             <button 
               onClick={openModal}
-              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-black uppercase tracking-widest text-white bg-blue-600 rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(59,130,246,0.5)] hover:shadow-[0_25px_60px_-12px_rgba(59,130,246,0.6)] hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95"
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-blue-600 rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(59,130,246,0.5)] hover:shadow-[0_25px_60px_-12px_rgba(59,130,246,0.6)] hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95"
             >
               <span>Book a Free Demo</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -2,59 +2,123 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TrendingDown, ArrowRight } from 'lucide-react';
-import { fadeUp, staggerContainer } from './HospitalPharmacyShared';
+import { 
+  ArrowRight, 
+  TrendingDown, 
+  Zap, 
+  ShieldCheck, 
+  MapPin, 
+  Clock,
+  Sparkles
+} from 'lucide-react';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
+};
+
+const staggerContainerLocal = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
 
 export const HospitalPharmacyHero = ({ onBookDemo, onViewDemo }: { onBookDemo?: () => void, onViewDemo?: () => void }) => {
   return (
-    <main className="pt-32 lg:pt-48 pb-20 px-6 lg:px-12 max-w-7xl mx-auto flex flex-col items-center text-center">
-      <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl">
-        <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-8">
-          Your hospital already has a pharmacy.<br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">
-            But is it actually working for you?
-          </span>
-        </motion.h1>
-        
-        <motion.div variants={fadeUp} className="text-lg md:text-xl text-slate-600 mb-12 max-w-2xl mx-auto space-y-4">
-          <p>Every day, your doctors create value — diagnosing patients, writing prescriptions, building trust.</p>
-          <p className="font-semibold text-slate-900">And then… That value leaks.</p>
-        </motion.div>
+    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-section-hero">
+      {/* Abstract Background Blobs */}
+      <div className="blob-layer">
+        <div className="blob-blue w-[28rem] h-[28rem] -top-24 -left-24 animate-float-slow" />
+        <div className="blob-indigo w-[32rem] h-[32rem] top-1/4 -right-24 animate-float-medium" />
+        <div className="blob-violet w-[30rem] h-[30rem] bottom-0 left-1/3 animate-float-slower" />
+      </div>
 
-        {/* Value Leakage Grid */}
-        <motion.div variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 text-left">
-          {[
-            "Medicines go unbilled",
-            "Patients walk out to nearby pharmacies",
-            "Chronic patients never return",
-            "Staff errors quietly eat into margins",
-            "You spend hours managing it"
-          ].map((text, i) => (
-            <motion.div key={i} variants={fadeUp} className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-3">
-              <TrendingDown className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-              <span className="text-slate-700 text-sm font-medium">{text}</span>
-            </motion.div>
-          ))}
-        </motion.div>
+      <div className="relative container-page text-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainerLocal}
+          className="space-y-10"
+        >
+          {/* Eyebrow */}
+          <motion.div variants={fadeInUp} className="eyebrow-wrap">
+            <span className="eyebrow-line-l"></span>
+            <span className="eyebrow-text">For multi-specialty hospitals</span>
+            <span className="eyebrow-line-r"></span>
+          </motion.div>
 
-        <motion.div variants={fadeUp} className="max-w-2xl mx-auto bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-2xl overflow-hidden relative text-left sm:text-center">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600/20 to-teal-500/20 pointer-events-none" />
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 relative z-10">
-            The pharmacy exists. The system doesn’t.
-          </h2>
-          <p className="text-slate-300 text-lg mb-8 relative z-10">
-            MediKloud turns your existing pharmacy into a revenue engine. Not by adding more work. But by taking over the complexity completely.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-            <button 
-              onClick={onBookDemo}
-              className="w-full sm:w-auto bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 transition-colors flex items-center justify-center gap-2"
+          {/* Headline */}
+          <div className="space-y-6">
+            <motion.h1 
+              variants={fadeInUp} 
+              className="text-display-xl font-black leading-[1.1] tracking-tighter max-w-5xl mx-auto"
             >
-              See How It Works <ArrowRight className="w-5 h-5" />
-            </button>
+              <span style={{ color: '#0F172A' }} className="inline-block">Your hospital already has a pharmacy.</span> <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600 inline-block overflow-visible" style={{ color: '#1D4ED8' }}>
+                But is it actually working for you?
+              </span>
+            </motion.h1>
+            
+            <motion.p variants={fadeInUp} className="max-w-2xl mx-auto text-body-lg text-slate-600 leading-relaxed font-medium">
+              Every day, your doctors create value — diagnosing patients, writing prescriptions, building trust. And then… that value leaks through your own pharmacy.
+            </motion.p>
           </div>
+
+          {/* Value Leakage Grid */}
+          <motion.div variants={staggerContainerLocal} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto pt-4">
+            {[
+              { icon: Zap, text: "Medicines go unbilled" },
+              { icon: MapPin, text: "Patients walk out to retail stores" },
+              { icon: Clock, text: "Chronic patients never return" },
+              { icon: ShieldCheck, text: "Staff errors eat into margins" },
+              { icon: TrendingDown, text: "Hours lost in manual management" }
+            ].map((item, i) => (
+              <motion.div 
+                key={i} 
+                variants={fadeInUp} 
+                className="card p-5 border-slate-200/60 hover:border-indigo-200 group hover:shadow-card-lg transition-all duration-500 bg-white/70 backdrop-blur-md flex flex-col items-start text-left min-h-[140px]"
+              >
+                <div className="w-10 h-10 rounded-xl bg-slate-50 text-indigo-600 flex items-center justify-center mb-4 shadow-sm border border-slate-100 group-hover:scale-110 group-hover:bg-indigo-50 transition-all duration-300">
+                  <item.icon className="w-5 h-5" />
+                </div>
+                <p className="text-[13px] font-bold text-slate-900 leading-snug">{item.text}</p>
+                <div className="mt-auto pt-3">
+                  <div className="h-1 w-8 rounded-full bg-slate-100 group-hover:bg-indigo-500 group-hover:w-12 transition-all duration-500" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Positioning Box */}
+          <motion.div variants={fadeInUp} className="pt-8 px-4 sm:px-0">
+            <div className="card-glass p-8 md:p-12 text-left max-w-4xl mx-auto flex flex-col md:flex-row gap-10 items-center border border-indigo-100/50">
+              <div className="flex-1 space-y-5">
+                <h3 className="text-h2 font-bold text-slate-900 tracking-tight">
+                  The pharmacy exists. The system doesn't.
+                </h3>
+                <p className="text-slate-600 text-body-lg leading-relaxed font-medium">
+                  MediKloud turns your existing pharmacy into a revenue engine without adding more work. <span className="text-indigo-600 font-bold">We handle the complexity completely.</span>
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <span className="badge badge-brand shadow-sm">Revenue recovery</span>
+                  <span className="badge badge-indigo shadow-sm">Zero leakage</span>
+                  <span className="badge badge-slate shadow-sm">Automated operations</span>
+                </div>
+              </div>
+              <div className="w-full md:w-auto flex-shrink-0">
+                <button onClick={onBookDemo} className="btn-primary w-full md:w-auto group shadow-btn">
+                  See how it works
+                  <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    </main>
+      </div>
+    </section>
   );
 };
+

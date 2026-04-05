@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Smartphone, Truck, Sparkles, Activity } from 'lucide-react';
+import { Smartphone, Database, RefreshCw, Zap, Sparkles, Activity } from 'lucide-react';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -17,11 +17,13 @@ const staggerContainerLocal = {
   }
 };
 
-export const HospitalWithoutPharmacySolutions = () => {
+export const ClinicWithPharmacySolutions = () => {
   return (
     <section className="section-py bg-slate-950 relative overflow-hidden">
-      {/* Dark Atmosphere Blobs */}
-      <div className="blob-layer pointer-events-none overflow-hidden">
+      {/* Dark Atmosphere Blobs & Grid */}
+      <div className="blob-layer pointer-events-none">
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80rem] h-[80rem] bg-indigo-600/[0.05] rounded-full blur-[140px] animate-pulse" />
         <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-blue-600/[0.08] rounded-full blur-[120px] -mr-32 -mt-32 animate-float-slow" />
         <div className="absolute bottom-0 left-0 w-[50rem] h-[50rem] bg-cyan-600/[0.06] rounded-full blur-[140px] -ml-40 -mb-40 animate-float-medium" />
@@ -33,18 +35,18 @@ export const HospitalWithoutPharmacySolutions = () => {
           whileInView="visible" 
           viewport={{ once: true }} 
           variants={fadeInUp} 
-          className="max-w-3xl mb-20 space-y-5"
+          className="max-w-3xl mb-20 space-y-6"
         >
           <div className="eyebrow-wrap justify-start">
             <span className="eyebrow-line-l bg-cyan-500/30" />
-            <span className="eyebrow-text text-cyan-400">The fulfillment engine</span>
+            <span className="eyebrow-text text-cyan-400 uppercase tracking-tighter">The clinic ecosystem</span>
           </div>
           <h2 className="text-h2 font-black tracking-tight text-white leading-[1.1] md:text-5xl">
-            A 3-step system to <br className="hidden md:block" />
-            <span className="text-slate-500">capture every prescription.</span>
+            Everything works together. <br className="hidden md:block" />
+            <span className="text-slate-500">Not in silos.</span>
           </h2>
           <p className="text-body-lg text-slate-400 font-medium max-w-2xl">
-            We bridge the gap between your consultation room and the patient's home, ensuring clinical value translates into hospital revenue.
+            We don’t just “support” your pharmacy. We integrate it into your clinical workflow, ensuring zero leakage and automated growth.
           </p>
         </motion.div>
 
@@ -61,31 +63,31 @@ export const HospitalWithoutPharmacySolutions = () => {
           >
             {[
               {
-                step: "Step 01",
+                step: "Phase 01",
+                icon: Database,
+                title: "Unified HMS foundation",
+                desc: "Integrated prescription flow ensures every clinical order is instantly synced to the pharmacy queue.",
+                result: "100% Prescription Capture"
+              },
+              {
+                step: "Phase 02",
                 icon: Smartphone,
-                title: "Digital prescription sync",
-                desc: "As soon as your doctor saves the prescription, it's instantly synced to our fulfillment layer.",
-                result: "Zero patient effort to find medicines."
+                title: "Managed ops engine",
+                desc: "We take over pharmacy operations—staffing, inventory, and procurement are handled by MediKloud experts.",
+                result: "Zero Operational Load"
               },
               {
-                step: "Step 02",
-                icon: Truck,
-                title: "Rapid fulfillment network",
-                desc: "Our cloud pharmacy network prioritizes your hospital's orders for same-day delivery.",
-                result: "Medicines reach before the patient gets home."
-              },
-              {
-                step: "Step 03",
-                icon: Activity,
-                title: "Integrated revenue flow",
-                desc: "Every order triggers an automated billing cycle where your hospital captures its revenue share.",
-                result: "Continuous revenue without inventory risk."
+                step: "Phase 03",
+                icon: RefreshCw,
+                title: "Automated refill engine",
+                desc: "The system predicts patient medication cycles and triggers home delivery orders automatically.",
+                result: "Endless Revenue Cycles"
               }
             ].map((item, i) => (
               <motion.div 
                 key={i} 
                 variants={fadeInUp} 
-                className="bg-white/[0.03] border border-white/10 p-8 lg:p-10 rounded-[2.5rem] hover:bg-white/[0.05] hover:border-cyan-500/40 transition-all duration-500 group flex flex-col h-full backdrop-blur-xl relative shadow-2xl hover:shadow-cyan-500/10"
+                className="bg-white/[0.03] border border-white/10 p-8 lg:p-10 rounded-[2.5rem] hover:bg-white/[0.06] hover:border-cyan-500/40 transition-all duration-500 group flex flex-col h-full backdrop-blur-xl relative shadow-2xl hover:shadow-cyan-500/10"
               >
                 {/* Floating Sparkles cluster */}
                 <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-x-2 group-hover:translate-x-0">
@@ -119,4 +121,3 @@ export const HospitalWithoutPharmacySolutions = () => {
     </section>
   );
 };
-

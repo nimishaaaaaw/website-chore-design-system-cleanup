@@ -22,14 +22,8 @@ export default function HospitalWithoutPharmacyPage() {
     openModal();
   };
 
-  const handleSeeHowItWorks = () => {
-    // Scroll to solutions section or open modal
-    const element = document.getElementById('how-it-works');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      openModal();
-    }
+  const handleTalkToExpert = () => {
+    openModal();
   };
 
   return (
@@ -38,7 +32,10 @@ export default function HospitalWithoutPharmacyPage() {
       
       <main id="main">
         {/* Hero Section */}
-        <HospitalWithoutPharmacyHero />
+        <HospitalWithoutPharmacyHero 
+          onBookDemo={handleBookDemo} 
+          onTalkToExpert={handleTalkToExpert}
+        />
 
         {/* Reality Section - The Leakage Problem */}
         <HospitalWithoutPharmacyReality />
@@ -60,7 +57,7 @@ export default function HospitalWithoutPharmacyPage() {
         {/* Final CTA Section */}
         <HospitalWithoutPharmacyCTA 
           onBookDemo={handleBookDemo}
-          onSeeHowItWorks={handleSeeHowItWorks}
+          onTalkToExpert={handleTalkToExpert}
         />
       </main>
 
