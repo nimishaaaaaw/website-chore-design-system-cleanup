@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Phone } from 'lucide-react'
+import { ArrowRight, Phone, ChevronRight } from 'lucide-react'
 import { HERO_TRUST_BADGES } from '@/components/pages/home/HomeData'
 import { useContactModal } from '@/hooks/use-contact-modal'
 
@@ -28,20 +28,18 @@ export function MainHero() {
 
       {/* === CONTENT === */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="text-center max-w-[1000px] mx-auto">
 
           {/* Eyebrow — above the h1, not inside it */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.06 }}
-            className="flex items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8"
+            className="eyebrow-wrap justify-center"
           >
-            <span className="h-[2px] w-12 sm:w-20 bg-gradient-eyebrow-r rounded-full opacity-70" />
-            <span className="text-u-xs sm:text-xs font-bold uppercase tracking-u-widest text-indigo-600/90 bg-indigo-50/50 px-4 py-1.5 rounded-full border border-indigo-100 shadow-sm">
-              India&apos;s First · AI-First · Fully Managed
-            </span>
-            <span className="h-[2px] w-12 sm:w-20 bg-gradient-eyebrow-l rounded-full opacity-70" />
+            <span className="eyebrow-line-l" />
+            <span className="eyebrow-text">India's First · AI-Driven · Fully Managed</span>
+            <span className="eyebrow-line-r" />
           </motion.div>
 
           {/* ── H1 ── */}
@@ -55,10 +53,10 @@ export function MainHero() {
               className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.2] tracking-tight md:tracking-[-0.02em] bg-gradient-display bg-clip-text text-transparent pb-3 mb-2 md:mb-4"
               style={{ color: '#4F46E5' }}
             >
-              Building Inhouse Pharmacies
+              Building In-House Pharmacies
             </span>
             <span className="block text-[1.5rem] sm:text-[2rem] md:text-[2.25rem] font-bold leading-[1.2] tracking-[-0.02em] text-slate-700">
-              for Independent Hospitals &amp; Clinics
+              for Independent Hospitals & Clinics
             </span>
           </motion.h1>
 
@@ -67,9 +65,9 @@ export function MainHero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="text-base md:text-[17px] text-slate-500 max-w-xl mx-auto leading-[1.75] mb-8 md:mb-10"
+            className="hero-subtitle max-w-[800px] mx-auto mb-8 md:mb-10"
           >
-            Complete <strong className="text-slate-600 font-medium">hospital pharmacy management</strong> — <strong className="text-slate-600 font-medium">operations</strong>, stock control, <strong className="text-slate-600 font-medium">clinical pharmacy</strong>, and <strong className="text-slate-600 font-medium">virtual pharmacy</strong> fulfillment.
+            Complete <strong className="text-slate-600 font-medium">hospital pharmacy management</strong> — from digital tools and end-to-end operations to tech-led inventory control, trained staff, and doorstep delivery.
           </motion.p>
 
           {/* ── CTAs ── */}
@@ -81,11 +79,10 @@ export function MainHero() {
           >
             <button
               onClick={openModal}
-              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-bold rounded-2xl shadow-btn hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-[15px] no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px]"
             >
-              <Phone size={15} className="opacity-80" />
-              Book a Demo
-              <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+              Book A Free Demo
+              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>
 
@@ -97,15 +94,18 @@ export function MainHero() {
             className="flex flex-col items-center justify-center gap-3 mb-12"
           >
 
-            <div className="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-3">
-              {HERO_TRUST_BADGES.map((badge, idx) => (
-                <div key={idx} className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-action" />
-                  <span className="text-[10px] font-bold text-slate-400 tracking-widest uppercase">
-                    {badge.label}
-                  </span>
-                </div>
-              ))}
+            <div className="flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 gap-y-4">
+              {HERO_TRUST_BADGES.map((badge, idx) => {
+                const Icon = badge.icon;
+                return (
+                  <div key={idx} className="flex items-center gap-2.5">
+                    <Icon size={16} className="text-blue-500" />
+                    <span className="text-xs font-semibold text-slate-600 tracking-wide uppercase">
+                      {badge.label}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </motion.div>
 

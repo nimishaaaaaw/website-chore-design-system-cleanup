@@ -1,55 +1,32 @@
-'use client';
+"use client"
 
 import React, { useState, useEffect } from 'react';
-import {
-  ArrowRight,
-  ShieldCheck,
-  Clock,
-  Activity,
-  ClipboardList,
-  Package,
-  Truck,
-  Zap,
-  CheckCircle2, 
-  Stethoscope,
-  Phone,
-  FileText,
-  MapPin
-} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  ChevronRight, 
+  FileText, 
+  ShieldCheck, 
+  Truck, 
+  CheckCircle2 
+} from 'lucide-react';
+import { HERO_TRUST_BADGES } from '@/components/pages/home/HomeData';
 import { useContactModal } from '@/hooks/use-contact-modal';
 import { ParticleNetwork } from '@/components/shared/ParticleNetwork';
 
-const VPHero = () => {
-  const [timer, setTimer] = useState("03:42");
+export const VPHero = () => {
   const { openModal } = useContactModal();
-
-  // New State for the Live Automation Engine
   const [activeStage, setActiveStage] = useState(0);
   const [orderId, setOrderId] = useState(8429);
-
-  // Timer for the 10-minute countdown (existing)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimer((prev: string) => {
-        const [m, s] = prev.split(':').map(Number);
-        if (s === 0 && m === 0) return "00:00";
-        if (s === 0) return `${String(m - 1).padStart(2, '0')}:59`;
-        return `${String(m).padStart(2, '0')}:${String(s - 1).padStart(2, '0')}`;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   // Timer for the Automation Engine progression
   useEffect(() => {
     const stageInterval = setInterval(() => {
       setActiveStage((prev: number) => {
         const next = (prev + 1) % 4;
-        if (next === 0) setOrderId((id) => id + 1); // Increment order ID on cycle restart
+        if (next === 0) setOrderId((id) => id + 1); 
         return next;
       });
-    }, 4000); // 4 seconds per stage
+    }, 4000); 
     return () => clearInterval(stageInterval);
   }, []);
 
@@ -97,136 +74,79 @@ const VPHero = () => {
   ];
 
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-center overflow-hidden pt-[70px] pb-12 md:pt-[90px] md:pb-20">
-      {/* Base gradient and atmosphere bits matched to MPHero */}
+    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-start overflow-hidden pt-[75px] pb-12 md:pt-[110px] md:pb-20">
       <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
-
-      {/* Interactive Medical Particle Canvas */}
-      <ParticleNetwork />
-
-      <div className="blob-layer">
-        <div className="blob-blue w-[28rem] h-[28rem] top-[5%] left-[5%]" />
-        <div className="blob-indigo w-[32rem] h-[32rem] bottom-[10%] right-[5%]" />
-      </div>
-
-      {/* Bottom fade matched to MPHero */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-[2]" aria-hidden="true" />
+      <ParticleNetwork showParticles={false} />
+      <div className="absolute top-[10%] left-[15%] w-60 h-60 bg-blue-100/25 rounded-full blur-[60px]" aria-hidden="true" />
+      <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-indigo-100/20 rounded-full blur-[60px]" aria-hidden="true" />
 
       <div className="container-page relative z-10 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-
-          {/* ── LEFT COLUMN (TEXT & CTAs) ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-7 space-y-8 text-center lg:text-left lg:-translate-y-12"
-          >
-            {/* Eyebrow pattern aligned with MPHero */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.05 }}
-              className="eyebrow-wrap lg:justify-start"
-            >
-              <span className="eyebrow-text text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200/60">
-                Zero Setup Cost · Seamless Integration
-              </span>
+        {/* STANDARDIZED 12-COLUMN GRID */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          
+          {/* STANDARDIZED LEFT COLUMN */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="lg:col-span-7 space-y-8 text-center lg:text-left">
+            
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start">
+              <span className="eyebrow-line-l"></span>
+              <span className="eyebrow-text">Zero Space Needed · Instant Fulfillment · High Retention</span>
+              <span className="eyebrow-line-r"></span>
             </motion.div>
-
+            
             <div className="space-y-6">
-              {/* Layer 1 & 2: Condensed into H1 for Homepage Parity */}
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="mb-6 md:mb-8 text-center lg:text-left"
-              >
-                {/* Line 1: Intro */}
-                <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.05] tracking-tight md:tracking-[-0.02em] text-slate-900 pb-2">
-                  The 10-Minute
+              {/* STANDARDIZED 3-LINE HEADLINE */}
+              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="mb-6 md:mb-8 text-center lg:text-left text-balance">
+                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight text-slate-900 pb-1">
+                  Launch Your Own
                 </span>
-
-                {/* Line 2: Brand/Product */}
-                <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.05] tracking-tight md:tracking-[-0.02em] bg-gradient-display bg-clip-text text-transparent pb-4 mb-2">
-                  Digital Pharmacy
+                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight bg-gradient-display bg-clip-text text-transparent pb-3 mb-1" style={{ color: '#4F46E5' }}>
+                  10-Minute Digital Pharmacy.
                 </span>
-
-                {/* Line 3: Target Audience - Subtitle style */}
-                <span className="block text-[1.4rem] sm:text-[1.8rem] md:text-[2rem] lg:text-[2.2rem] font-bold leading-[1.2] tracking-[-0.02em] text-slate-700/90">
-                  for independent clinics
+                <span className="block text-[1.25rem] sm:text-[1.5rem] md:text-[1.75rem] lg:text-[1.875rem] font-semibold leading-[1.2] tracking-tight text-slate-700/90">
+                  Without Physical Setup.
                 </span>
               </motion.h1>
-
-              {/* Layer 3: Body / Description - Shortened */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-body-lg text-slate-500 font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed"
-              >
-                Deliver medicines in 10 minutes. We handle the tech, inventory, and logistics—you focus on care. Zero setup, zero overhead.
+              
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-xl mx-auto lg:mx-0">
+                Offer a complete pharmacy experience without renting space or buying stock. Prescribe via our app, and we will deliver the medicine to your clinic instantly.
               </motion.p>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5 pt-2"
-            >
-              <button
-                onClick={openModal}
-                className="btn-primary w-full sm:w-auto shadow-btn"
-              >
-                <Phone size={15} className="opacity-80" />
-                Partner With Us
-                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.45 }}
-              className="flex flex-wrap justify-center lg:justify-start items-center gap-x-8 gap-y-4 pt-4"
-            >
-              {[
-                { icon: ShieldCheck, text: "100% Secure" },
-                { icon: Clock, text: "Happy Patients" },
-                { icon: Activity, text: "Real-time Tracking" }
-              ].map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div key={idx} className="flex items-center space-x-2 text-slate-600">
-                    <Icon className="text-blue-500 w-4 h-4" />
-                    <span className="text-xs font-semibold tracking-wide uppercase">{item.text}</span>
-                  </div>
-                );
-              })}
+            {/* STANDARDIZED CTA & BADGE SPACING */}
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
+                <button onClick={openModal} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
+                  Partner With Us <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
+                {HERO_TRUST_BADGES.map((badge, idx) => {
+                  const Icon = badge.icon;
+                  return (
+                    <div key={idx} className="flex items-center gap-2.5">
+                      <Icon size={16} className="text-blue-500" />
+                      <span className="text-xs font-semibold text-slate-600 tracking-wide uppercase">{badge.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.div>
           </motion.div>
 
-          {/* ── RIGHT COLUMN (LIVE AUTOMATION ENGINE) ── */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="lg:col-span-5 relative lg:pl-4"
-          >
-            {/* Background Glow for Panel */}
+          {/* STANDARDIZED RIGHT COLUMN (PREMIUM GLASS WRAPPER + LIVE PIPELINE) */}
+          <motion.div initial={{ opacity: 0, scale: 0.95, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }} className="lg:col-span-5 relative lg:pl-4 mt-12 lg:mt-0 self-center">
+            
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-200/40 via-indigo-200/20 to-purple-200/40 rounded-[3rem] transform rotate-3 scale-105 blur-xl -z-10" />
-
-            {/* Main Glass Panel */}
-            <div className="relative z-10 bg-white/70 backdrop-blur-2xl border border-white shadow-[0_30px_80px_-20px_rgba(30,58,138,0.15)] rounded-[2.5rem] p-6 lg:p-8 ring-1 ring-slate-900/5 overflow-hidden">
+            
+            <div className="relative z-10 bg-white/80 backdrop-blur-2xl border border-white/80 shadow-card-lg rounded-[2.5rem] p-6 lg:p-8 ring-1 ring-slate-900/5 overflow-hidden flex flex-col">
               
               {/* Header */}
-              <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100/60 no-select">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                  <h3 className="text-sm font-black text-slate-900 tracking-tight flex items-center gap-2">
                     Live Order #{orderId}
                   </h3>
-                  <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mt-1">Virtual Pharmacy Engine</p>
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Virtual Pharmacy Engine</p>
                 </div>
                 <div className="flex items-center gap-2 bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 shadow-sm">
                   <span className="relative flex h-2 w-2">
@@ -238,7 +158,7 @@ const VPHero = () => {
               </div>
 
               {/* The Pipeline */}
-              <div className="relative">
+              <div className="relative no-select">
                 {/* Connecting Line Background */}
                 <div className="absolute left-[1.35rem] top-6 bottom-6 w-[2px] bg-slate-200 rounded-full" />
                 
@@ -270,21 +190,21 @@ const VPHero = () => {
                           layout
                           className={`p-4 rounded-2xl transition-all duration-500 ${
                             isActive 
-                              ? 'bg-white shadow-xl shadow-blue-900/5 border border-blue-100 ring-1 ring-black/5 scale-[1.02]' 
+                              ? 'bg-white shadow-card-brand border border-indigo-100 scale-[1.02]' 
                               : isPast
                                 ? 'bg-white/40 border border-transparent opacity-80'
                                 : 'bg-transparent border border-transparent opacity-40 grayscale-[50%]'
                           }`}
                         >
                           <div className="flex items-center gap-4">
-                            <div className={`p-2.5 rounded-xl transition-colors ${isActive || isPast ? stage.iconBg : 'bg-slate-100'}`}>
-                              <stage.icon className={`w-5 h-5 ${isActive || isPast ? stage.iconColor : 'text-slate-400'}`} />
+                            <div className={`p-2 rounded-xl transition-colors ${isActive || isPast ? stage.iconBg : 'bg-slate-100'}`}>
+                              <stage.icon className={`w-4 h-4 ${isActive || isPast ? stage.iconColor : 'text-slate-400'}`} />
                             </div>
                             <div>
-                              <h4 className={`font-bold transition-colors ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>
+                              <h4 className={`text-sm font-bold transition-colors ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>
                                 {stage.title}
                               </h4>
-                              <p className="text-xs font-medium text-slate-500 mt-0.5">{stage.desc}</p>
+                              <p className="text-[10px] font-bold text-slate-500 mt-0.5 tracking-tight">{stage.desc}</p>
                             </div>
                           </div>
 
@@ -298,7 +218,7 @@ const VPHero = () => {
                                 className="overflow-hidden"
                               >
                                 <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
-                                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
                                     {stage.metrics}
                                   </span>
                                   <div className="w-24 h-1.5 bg-slate-100 rounded-full overflow-hidden">
@@ -306,7 +226,7 @@ const VPHero = () => {
                                       initial={{ width: "0%" }}
                                       animate={{ width: "100%" }}
                                       transition={{ duration: 4, ease: "linear" }}
-                                      className={`h-full ${stage.barColor}`}
+                                      className={`h-full ${stage.barColor} shadow-glow`}
                                     />
                                   </div>
                                 </div>
@@ -321,60 +241,9 @@ const VPHero = () => {
               </div>
             </div>
 
-            {/* Floating Decorative Badge 1 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 }}
-              className="absolute -right-12 md:-right-24 -top-6 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl shadow-blue-900/10 border border-white z-20 flex items-center gap-3 animate-bounce-slow"
-            >
-              <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 border border-blue-100">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-xl bg-blue-400 opacity-30"></span>
-                <MapPin className="relative h-5 w-5 text-blue-600" />
-              </div>
-              <div className="pr-2">
-                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Live Routing</p>
-                <p className="text-sm font-black text-slate-800">1.2 km away</p>
-              </div>
-            </motion.div>
-
-            {/* Floating Decorative Badge 2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2 }}
-              className="absolute -left-12 md:-left-24 -bottom-10 bg-slate-900/95 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl shadow-slate-900/20 border border-slate-800 z-20 flex items-center gap-3 animate-bounce-slow delay-700"
-            >
-              <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
-                <Activity className="w-5 h-5" />
-              </div>
-              <div className="pr-4">
-                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Network Status</p>
-                <p className="text-sm font-bold text-white">Optimal (99.9%)</p>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>
-
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-12px); }
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 5s ease-in-out infinite;
-        }
-        .delay-700 {
-          animation-delay: 700ms;
-        }
-        .bg-radial-gradient {
-          background: radial-gradient(circle, #bfdbfe 0%, transparent 60%);
-        }
-      `}} />
     </section>
   );
 };
-
-export { VPHero };

@@ -1,139 +1,228 @@
 "use client"
+
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Activity } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  ChevronRight, 
+  Building2, 
+  Smartphone, 
+  Zap, 
+  ShieldCheck, 
+  TrendingUp, 
+  Activity, 
+  LayoutGrid,
+  ArrowUpRight,
+  Target,
+  ClipboardList,
+  Package,
+  FileText,
+  Wallet
+} from 'lucide-react';
+import { HERO_TRUST_BADGES } from '@/components/pages/home/HomeData';
+import { ParticleNetwork } from '@/components/shared/ParticleNetwork';
 
-const fadeInUp: any = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-};
+interface HospitalPharmacyHeroProps {
+  onBookDemo: () => void;
+  onViewDemo?: () => void;
+}
 
-const staggerContainerLocal: any = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
-};
-
-export const HospitalPharmacyHero = ({ onBookDemo, onViewDemo }: { onBookDemo: () => void, onViewDemo?: () => void }) => {
+export const HospitalPharmacyHero = ({ onBookDemo }: HospitalPharmacyHeroProps) => {
   return (
-    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 px-6 overflow-hidden bg-white">
-      <div className="blob-layer pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-100/40 blur-[120px] animate-float-slow opacity-60"></div>
-        <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-100/40 blur-[100px] animate-pulse opacity-50"></div>
-      </div>
+    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-start overflow-hidden pt-[75px] pb-12 md:pt-[110px] md:pb-20">
+      <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
+      <ParticleNetwork showParticles={false} />
+      <div className="absolute top-[10%] left-[15%] w-60 h-60 bg-blue-100/25 rounded-full blur-[60px]" aria-hidden="true" />
+      <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-indigo-100/20 rounded-full blur-[60px]" aria-hidden="true" />
 
-      <div className="container-page relative z-10">
-        <motion.div 
-          initial="hidden" animate="visible" variants={staggerContainerLocal}
-          className="max-w-6xl mx-auto"
-        >
-          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-start justify-start gap-3 mb-8">
-            <span className="eyebrow-text text-blue-600">For Clinics & Hospitals with a Pharmacy</span>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-[1.2fr,0.8fr] gap-16 lg:gap-24 items-center">
-            <div className="space-y-10">
-              <motion.h1 
-                variants={fadeInUp}
-                className="mb-5 md:mb-8 text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl"
-              >
-                <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.2] tracking-tight md:tracking-[-0.02em] text-slate-900 pb-3 mb-2 md:mb-4">
-                  Why are patients buying outside
+      <div className="container-page relative z-10 w-full">
+        {/* STANDARDIZED 12-COLUMN GRID */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          
+          {/* STANDARDIZED LEFT COLUMN */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="lg:col-span-7 space-y-8 text-center lg:text-left">
+            
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start">
+              <span className="eyebrow-line-l"></span>
+              <span className="eyebrow-text">Stop Leakage · AI Inventory · Fully Managed</span>
+              <span className="eyebrow-line-r"></span>
+            </motion.div>
+            
+            <div className="space-y-6">
+              {/* STANDARDIZED 3-LINE HEADLINE */}
+              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="mb-6 md:mb-8 text-center lg:text-left text-balance">
+                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight text-slate-900 pb-1">
+                  Upgrade Your Pharmacy.
                 </span>
-                <span className="block text-[1.5rem] sm:text-[2rem] md:text-[2.25rem] font-bold leading-[1.2] tracking-[-0.02em] text-indigo-600">
-                  when you have a pharmacy in-house?
+                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight bg-gradient-display bg-clip-text text-transparent pb-3 mb-1" style={{ color: '#4F46E5' }}>
+                  Capture Every Prescription.
+                </span>
+                <span className="block text-[1.25rem] sm:text-[1.5rem] md:text-[1.75rem] lg:text-[1.875rem] font-semibold leading-[1.2] tracking-tight text-slate-700/90">
+                  Retain Every Patient.
                 </span>
               </motion.h1>
-
-              <motion.p 
-                variants={fadeInUp}
-                className="text-body-lg text-slate-600 max-w-xl font-medium leading-relaxed"
-              >
-                Every day, patients take your prescriptions to local chemists or online delivery apps. You lose the revenue, and you lose control of their care. Let's secure their continuous care—and your clinic's growth.
+              
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-xl mx-auto lg:mx-0">
+                Don't let patients leave due to stockouts or long waits. We upgrade your pharmacy with chain-level tech, eliminate dead stock, and guarantee 100% medicine availability.
               </motion.p>
-
-              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-                <button 
-                  onClick={onBookDemo}
-                  className="btn-primary min-w-[240px] group shadow-xl shadow-blue-500/20 active:scale-[0.98] transition-all"
-                >
-                  Book a Free Audit
-                  <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                </button>
-                <button 
-                  onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="flex items-center gap-2 text-slate-600 hover:text-blue-600 font-bold transition-all group px-4 py-2"
-                >
-                  See how it works
-                </button>
-              </motion.div>
             </div>
 
-            {/* Visual Side - Clean, Professional Audit Card */}
-            <motion.div variants={fadeInUp} className="relative mt-8 lg:mt-0">
-              <div className="relative max-w-[420px] mx-auto lg:ml-auto">
-                <div className="bg-white p-8 rounded-[2rem] shadow-2xl shadow-indigo-600/10 border border-slate-100 relative z-20">
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center border border-slate-100">
-                        <Activity className="w-5 h-5 text-slate-600" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Typical Clinic</p>
-                        <p className="text-sm font-bold text-slate-900">Pharmacy Performance</p>
-                      </div>
+            {/* STANDARDIZED CTA & BADGE SPACING */}
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
+                <button onClick={onBookDemo} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
+                  Partner With Us <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
+                {HERO_TRUST_BADGES.map((badge, idx) => {
+                  const Icon = badge.icon;
+                  return (
+                    <div key={idx} className="flex items-center gap-2.5">
+                      <Icon size={16} className="text-blue-500" />
+                      <span className="text-xs font-semibold text-slate-600 tracking-wide uppercase">{badge.label}</span>
                     </div>
-                  </div>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <div className="flex justify-between text-sm mb-2 font-medium">
-                        <span className="text-slate-500">Prescriptions Written</span>
-                        <span className="text-slate-900">100%</span>
-                      </div>
-                      <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                        <div className="w-full h-full bg-slate-300 rounded-full"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-sm mb-2 font-medium">
-                        <span className="text-slate-500">Filled In-House</span>
-                        <span className="text-rose-500 font-bold">~ 40%</span>
-                      </div>
-                      <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden relative">
-                        <div className="w-[40%] h-full bg-rose-400 rounded-full"></div>
-                        <motion.div 
-                          initial={{ x: "-100%" }} animate={{ x: "250%" }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                          className="absolute top-0 left-0 w-1/4 h-full bg-white/30 skew-x-12"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-sm mb-2 font-medium">
-                        <span className="text-slate-500">Chronic Patient Retention</span>
-                        <span className="text-rose-500 font-bold">Low</span>
-                      </div>
-                      <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden relative">
-                        <div className="w-[25%] h-full bg-rose-400 rounded-full"></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-6 border-t border-slate-100">
-                    <p className="text-[13px] text-slate-500 leading-relaxed font-medium text-center">
-                      We help clinics completely close the gap between <span className="font-bold text-indigo-600">consultation and fulfillment</span>.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="absolute -top-6 -right-6 w-32 h-32 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 rounded-full mix-blend-overlay z-30"></div>
-                <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-blue-50 rounded-full blur-[40px] z-0"></div>
+                  );
+                })}
               </div>
             </motion.div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {/* STANDARDIZED RIGHT COLUMN (PREMIUM GLASS WRAPPER + HIGH-FIDELITY REVENUE CAPTURE ENGINE) */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, x: 20 }} 
+            animate={{ opacity: 1, scale: 1, x: 0 }} 
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }} 
+            className="lg:col-span-5 relative lg:pl-4 mt-12 lg:mt-0 self-center"
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-200/40 via-indigo-200/20 to-purple-200/40 rounded-[3rem] transform rotate-3 scale-105 blur-xl -z-10" />
+            
+            <div className="relative z-10 bg-white/80 backdrop-blur-2xl border border-white/80 shadow-[0_8px_32px_-8px_rgba(79,70,229,0.20)] rounded-[2.5rem] p-6 lg:p-8 ring-1 ring-slate-900/5 overflow-hidden flex flex-col">
+              
+              {/* Header */}
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100/60 no-select">
+                 <div className="flex items-center gap-3">
+                   <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 shadow-sm border border-indigo-100">
+                     <ShieldCheck className="w-5 h-5 animate-pulse" />
+                   </div>
+                   <div>
+                     <h4 className="text-sm font-black text-slate-900 tracking-tight leading-none mb-1">MediKloud Routing</h4>
+                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Revenue Capture Engine</p>
+                   </div>
+                 </div>
+                 <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2 shadow-sm">
+                   <span className="relative flex h-2 w-2">
+                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                   </span>
+                   <span className="text-[10px] font-bold tracking-widest uppercase">Securing</span>
+                 </div>
+              </div>
+
+              {/* Animation Stage */}
+              <div className="relative h-[240px] bg-slate-50/80 rounded-2xl border border-slate-200 overflow-hidden shadow-inner mb-6 no-select">
+                 
+                 {/* Soft Tech Grid */}
+                 <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] opacity-60" />
+
+                 {/* SVG Connecting Lines */}
+                 <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none z-10">
+                    {/* Path 1: Lost to Online Apps (Dotted, Red) */}
+                    <path d="M 15 50 L 45 50 C 45 25, 55 20, 80 20" fill="none" stroke="#fca5a5" strokeWidth="1" strokeDasharray="2 2" className="opacity-70" />
+                    {/* Path 2: Captured In-House (Solid, Indigo) */}
+                    <path d="M 15 50 L 45 50 C 45 75, 55 80, 80 80" fill="none" stroke="#6366f1" strokeWidth="1.5" />
+                    {/* Highlight glowing path */}
+                    <path d="M 45 50 C 45 75, 55 80, 80 80" fill="none" stroke="#4f46e5" strokeWidth="4" strokeLinecap="round" className="opacity-20 blur-sm" />
+                 </svg>
+
+                 {/* Node 1: Consultation Room (Start) */}
+                 <div className="absolute left-[15%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center z-20">
+                    <ClipboardList className="w-5 h-5 text-slate-600" />
+                    <span className="text-[7px] font-black text-slate-400 mt-0.5 uppercase tracking-wider">OPD</span>
+                 </div>
+
+                 {/* Node 2: The MediKloud Engine (Center Router) */}
+                 <div className="absolute left-[45%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
+                    <div className="relative w-12 h-12 bg-white rounded-full border-2 border-indigo-100 flex items-center justify-center shadow-[0_4px_20px_rgba(79,70,229,0.15)] mb-1">
+                       <motion.div animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute inset-0 border-2 border-indigo-500 border-dashed rounded-full" />
+                       <div className="w-8 h-8 bg-indigo-50 rounded-full flex items-center justify-center">
+                          <Zap className="w-4 h-4 text-indigo-600" />
+                       </div>
+                    </div>
+                    <span className="bg-indigo-600 text-white px-2 py-0.5 rounded text-[8px] font-bold uppercase tracking-widest whitespace-nowrap shadow-sm">MediKloud Shield</span>
+                 </div>
+
+                 {/* Node 3: Leakage - Online Apps (Top Right) */}
+                 <div className="absolute left-[80%] top-[20%] -translate-x-1/2 -translate-y-1/2 w-20 p-2 bg-white/90 backdrop-blur-sm rounded-xl border border-red-100 border-dashed flex flex-col items-center justify-center z-10 opacity-80 shadow-sm">
+                    <Smartphone className="w-4 h-4 text-slate-400 mb-1" />
+                    <span className="text-[7px] font-bold text-slate-400 uppercase text-center leading-tight">External<br/>Apps</span>
+                    <div className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-red-50 rounded-full border border-red-100 flex items-center justify-center text-[8px] font-black text-red-500">X</div>
+                 </div>
+
+                 {/* Node 4: Captured - In-House Pharmacy (Bottom Right) */}
+                 <div className="absolute left-[80%] top-[80%] -translate-x-1/2 -translate-y-1/2 w-24 p-3 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl shadow-lg shadow-indigo-600/20 flex flex-col items-center justify-center z-20 ring-4 ring-indigo-50">
+                    <Package className="w-5 h-5 text-white mb-1" />
+                    <span className="text-[8px] font-black text-indigo-50 uppercase text-center leading-tight tracking-widest">In-House<br/>Pharmacy</span>
+                 </div>
+
+                 {/* Animated Prescriptions (Rx) Flowing */}
+                 {[0, 1.5, 3].map((delay, i) => (
+                   <motion.div
+                     key={`rx-${i}`}
+                     initial={{ left: '15%', top: '50%', opacity: 0, scale: 0.5 }}
+                     animate={{
+                       left: ['15%', '45%', '80%', '80%'],
+                       top:  ['50%', '50%', '80%', '80%'],
+                       opacity: [0, 1, 1, 0],
+                       scale: [0.8, 1, 1.1, 0.5]
+                     }}
+                     transition={{ duration: 4.5, repeat: Infinity, ease: 'linear', delay, times: [0, 0.33, 0.66, 1] }}
+                     className="absolute z-30 w-8 h-10 bg-white rounded-md shadow-[0_2px_8px_rgba(79,70,229,0.2)] border border-indigo-200 flex flex-col items-center justify-center -translate-x-1/2 -translate-y-1/2"
+                   >
+                     <FileText className="w-4 h-4 text-indigo-600" />
+                     <div className="w-4 h-0.5 bg-indigo-200 mt-1 rounded-full"></div>
+                     <div className="w-3 h-0.5 bg-indigo-200 mt-0.5 rounded-full"></div>
+                   </motion.div>
+                 ))}
+
+                 {/* Floating Revenue Capture Particles */}
+                 {[0, 1.5, 3].map((delay, i) => (
+                   <motion.div
+                     key={`money-${i}`}
+                     initial={{ left: '80%', top: '80%', opacity: 0 }}
+                     animate={{
+                       top: ['80%', '80%', '55%', '55%'], 
+                       opacity: [0, 0, 1, 0],
+                       scale: [0.5, 0.5, 1.2, 1]
+                     }}
+                     transition={{ duration: 4.5, repeat: Infinity, ease: 'easeOut', delay, times: [0, 0.66, 0.8, 1] }} 
+                     className="absolute z-40 -translate-x-1/2 text-emerald-500 font-black text-sm drop-shadow-sm"
+                   >
+                     +₹850
+                   </motion.div>
+                 ))}
+
+              </div>
+
+              {/* Live Metric Footer Personalized */}
+              <div className="bg-gradient-to-br from-slate-50 to-indigo-50/50 rounded-xl p-4 border border-indigo-100 flex items-center justify-between no-select">
+                 <div>
+                    <p className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest mb-1 flex items-center gap-1.5">
+                       <TrendingUp className="w-3 h-3" />
+                       MediKloud Impact
+                    </p>
+                    <div className="flex items-baseline gap-2">
+                       <h4 className="text-2xl font-black text-slate-900 leading-none tracking-tight">₹42,500</h4>
+                       <span className="text-[10px] font-bold text-emerald-600 bg-emerald-100/80 px-1.5 py-0.5 rounded-md border border-emerald-200">Today</span>
+                    </div>
+                 </div>
+                 <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-indigo-600 ring-4 ring-indigo-50 shadow-sm border border-indigo-100">
+                    <Wallet className="w-5 h-5" />
+                 </div>
+              </div>
+
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

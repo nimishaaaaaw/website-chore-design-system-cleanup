@@ -16,7 +16,7 @@ interface Particle {
   color: string
 }
 
-export function ParticleNetwork() {
+export function ParticleNetwork({ showParticles = true }: { showParticles?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -112,118 +112,122 @@ export function ParticleNetwork() {
       ctx.clearRect(0, 0, w, h)
 
       // 1. Draw Network Connections FIRST (so they sit behind particles)
-      ctx.lineWidth = 1
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const pA = particles[i]
-          const pB = particles[j]
-          const dx = pA.x - pB.x
-          const dy = pA.y - pB.y
-          const distSq = dx * dx + dy * dy
-          
-          if (distSq < CONNECT_DIST * CONNECT_DIST) {
-            const dist = Math.sqrt(distSq)
-            const opacity = (1 - (dist / CONNECT_DIST)) * 0.25 // Faint network lines
-            ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})` // Slate-400
-            ctx.beginPath()
-            ctx.moveTo(pA.x, pA.y)
-            ctx.lineTo(pB.x, pB.y)
-            ctx.stroke()
+      if (showParticles) {
+        ctx.lineWidth = 1
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const pA = particles[i]
+            const pB = particles[j]
+            const dx = pA.x - pB.x
+            const dy = pA.y - pB.y
+            const distSq = dx * dx + dy * dy
+            
+            if (distSq < CONNECT_DIST * CONNECT_DIST) {
+              const dist = Math.sqrt(distSq)
+              const opacity = (1 - (dist / CONNECT_DIST)) * 0.25 // Faint network lines
+              ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})` // Slate-400
+              ctx.beginPath()
+              ctx.moveTo(pA.x, pA.y)
+              ctx.lineTo(pB.x, pB.y)
+              ctx.stroke()
+            }
           }
         }
       }
 
       // 2. Update and draw particles
-      const centerX = w / 2
-      const centerY = h / 2
-      const REPEL_RADIUS_X = w * 0.35 // Large horizontal avoidance
-      const REPEL_RADIUS_Y = h * 0.45 // Even larger vertical avoidance for long text
+      if (showParticles) {
+        const centerX = w / 2
+        const centerY = h / 2
+        const REPEL_RADIUS_X = w * 0.35 // Large horizontal avoidance
+        const REPEL_RADIUS_Y = h * 0.45 // Even larger vertical avoidance for long text
 
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i]
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i]
 
-        // Damping & basic movement
-        p.vx *= 0.99
-        p.vy *= 0.99
-        
-        // Return to minimum drift speed
-        if (Math.abs(p.vx) < 0.15) p.vx += p.vx > 0 ? 0.02 : -0.02
-        if (Math.abs(p.vy) < 0.15) p.vy += p.vy > 0 ? 0.02 : -0.02
+          // Damping & basic movement
+          p.vx *= 0.99
+          p.vy *= 0.99
+          
+          // Return to minimum drift speed
+          if (Math.abs(p.vx) < 0.15) p.vx += p.vx > 0 ? 0.02 : -0.02
+          if (Math.abs(p.vy) < 0.15) p.vy += p.vy > 0 ? 0.02 : -0.02
 
-        // --- NEW: Central Repulsion (Keep text area clear) ---
-        const dxCenter = p.x - centerX
-        const dyCenter = p.y - centerY
-        // Elliptical distance check
-        const normX = dxCenter / REPEL_RADIUS_X
-        const normY = dyCenter / REPEL_RADIUS_Y
-        const distCenterSq = normX * normX + normY * normY
-        
-        if (distCenterSq < 1) {
-          const distCenter = Math.sqrt(distCenterSq)
-          const force = (1 - distCenter) * 0.12 // Subtle outwards push
-          p.vx += (dxCenter / (distCenter * REPEL_RADIUS_X || 1)) * force
-          p.vy += (dyCenter / (distCenter * REPEL_RADIUS_Y || 1)) * force
+          // --- NEW: Central Repulsion (Keep text area clear) ---
+          const dxCenter = p.x - centerX
+          const dyCenter = p.y - centerY
+          // Elliptical distance check
+          const normX = dxCenter / REPEL_RADIUS_X
+          const normY = dyCenter / REPEL_RADIUS_Y
+          const distCenterSq = normX * normX + normY * normY
+          
+          if (distCenterSq < 1) {
+            const distCenter = Math.sqrt(distCenterSq)
+            const force = (1 - distCenter) * 0.12 // Subtle outwards push
+            p.vx += (dxCenter / (distCenter * REPEL_RADIUS_X || 1)) * force
+            p.vy += (dyCenter / (distCenter * REPEL_RADIUS_Y || 1)) * force
+          }
+          // -----------------------------------------------------
+
+          // Mouse Interaction (Crisper organic push)
+          const dx = p.x - mouse.x
+          const dy = p.y - mouse.y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          
+          let hoverOpacityBoost = 0
+          if (dist < MOUSE_RADIUS) {
+            const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS
+            p.vx += (dx / dist) * force * 0.3
+            p.vy += (dy / dist) * force * 0.3
+            hoverOpacityBoost = force * 0.4 
+          }
+
+          // Apply velocity & rotation
+          p.x += p.vx
+          p.y += p.vy
+          p.angle += p.rotSpeed
+
+          // Smooth screen wrapping
+          const pad = 50
+          if (p.x < -pad) p.x = w + pad
+          if (p.x > w + pad) p.x = -pad
+          if (p.y < -pad) p.y = h + pad
+          if (p.y > h + pad) p.y = -pad
+
+          // Draw Medical/Health Shapes
+          ctx.save()
+          ctx.translate(p.x, p.y)
+          ctx.rotate(p.angle)
+
+          const finalOpacity = Math.min(1, p.baseOpacity + hoverOpacityBoost)
+          
+          ctx.fillStyle = `rgba(${p.color}, ${finalOpacity})`
+          ctx.strokeStyle = `rgba(${p.color}, ${finalOpacity})`
+
+          if (p.type === 'cross') {
+            // Sharp medical cross ✚
+            const s = p.size * 0.8
+            const thick = p.size * 0.4
+            ctx.beginPath()
+            ctx.rect(-s, -thick/2, s*2, thick)
+            ctx.rect(-thick/2, -s, thick, s*2)
+            ctx.fill()
+          } else if (p.type === 'capsule') {
+            // Solid Pill / Capsule shape
+            const width = p.size * 2.2
+            const height = p.size * 1.1
+            ctx.beginPath()
+            ctx.roundRect(-width/2, -height/2, width, height, height/2)
+            ctx.fill()
+          } else {
+            // Solid node (Circle)
+            ctx.beginPath()
+            ctx.arc(0, 0, p.size, 0, Math.PI * 2)
+            ctx.fill()
+          }
+
+          ctx.restore()
         }
-        // -----------------------------------------------------
-
-        // Mouse Interaction (Crisper organic push)
-        const dx = p.x - mouse.x
-        const dy = p.y - mouse.y
-        const dist = Math.sqrt(dx * dx + dy * dy)
-        
-        let hoverOpacityBoost = 0
-        if (dist < MOUSE_RADIUS) {
-          const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS
-          p.vx += (dx / dist) * force * 0.3
-          p.vy += (dy / dist) * force * 0.3
-          hoverOpacityBoost = force * 0.4 
-        }
-
-        // Apply velocity & rotation
-        p.x += p.vx
-        p.y += p.vy
-        p.angle += p.rotSpeed
-
-        // Smooth screen wrapping
-        const pad = 50
-        if (p.x < -pad) p.x = w + pad
-        if (p.x > w + pad) p.x = -pad
-        if (p.y < -pad) p.y = h + pad
-        if (p.y > h + pad) p.y = -pad
-
-        // Draw Medical/Health Shapes
-        ctx.save()
-        ctx.translate(p.x, p.y)
-        ctx.rotate(p.angle)
-
-        const finalOpacity = Math.min(1, p.baseOpacity + hoverOpacityBoost)
-        
-        ctx.fillStyle = `rgba(${p.color}, ${finalOpacity})`
-        ctx.strokeStyle = `rgba(${p.color}, ${finalOpacity})`
-
-        if (p.type === 'cross') {
-          // Sharp medical cross ✚
-          const s = p.size * 0.8
-          const thick = p.size * 0.4
-          ctx.beginPath()
-          ctx.rect(-s, -thick/2, s*2, thick)
-          ctx.rect(-thick/2, -s, thick, s*2)
-          ctx.fill()
-        } else if (p.type === 'capsule') {
-          // Solid Pill / Capsule shape
-          const width = p.size * 2.2
-          const height = p.size * 1.1
-          ctx.beginPath()
-          ctx.roundRect(-width/2, -height/2, width, height, height/2)
-          ctx.fill()
-        } else {
-          // Solid node (Circle)
-          ctx.beginPath()
-          ctx.arc(0, 0, p.size, 0, Math.PI * 2)
-          ctx.fill()
-        }
-
-        ctx.restore()
       }
 
       // Draw Mouse Cursor Glow (Brighter, wider aura)

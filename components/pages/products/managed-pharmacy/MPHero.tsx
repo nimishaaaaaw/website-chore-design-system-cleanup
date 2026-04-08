@@ -1,137 +1,132 @@
 "use client"
 
-import React from 'react'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+import React from 'react';
+import { motion } from 'framer-motion';
 import { 
-  ArrowRight, Phone, CheckCircle2, ShieldCheck, 
-  FileText, Users, Package, Lock, TrendingUp, HeartPulse, Server, Zap, Activity, Clock, Smile
-} from 'lucide-react'
-import { useContactModal } from '@/hooks/use-contact-modal'
-import { ParticleNetwork } from '@/components/shared/ParticleNetwork'
+  ChevronRight, 
+  ShieldCheck, 
+  CheckCircle2, 
+  Users, 
+  Package, 
+  Activity, 
+  HeartPulse, 
+  Clock, 
+  TrendingUp, 
+  Smile, 
+  Zap 
+} from 'lucide-react';
+import { HERO_TRUST_BADGES } from '@/components/pages/home/HomeData';
+import { useContactModal } from '@/hooks/use-contact-modal';
+import { ParticleNetwork } from '@/components/shared/ParticleNetwork';
 
 const deployItems = [
   { icon: Users, label: 'Expert Pharmacists' },
   { icon: Package, label: 'Fully-Funded Stock' },
   { icon: Activity, label: 'Clinical Tech' },
   { icon: ShieldCheck, label: 'Total Compliance' }
-]
+];
 
 const secureItems = [
   { icon: HeartPulse, label: '100% Clinical Focus' },
   { icon: Clock, label: 'Your Time' },
-  { icon: CheckCircle2, label: 'Zero Hassle' },
-  { icon: TrendingUp, label: 'Maximized Profits' },
-  { icon: Smile, label: 'Happy Patients' }
-]
+  { icon: CheckCircle2, label: 'Zero Hassle' }
+];
 
-export function MPHero() {
-  const { openModal } = useContactModal()
+export const MPHero = () => {
+  const { openModal } = useContactModal();
 
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-center overflow-hidden pt-[70px] pb-2 md:pt-[80px] md:pb-4 lg:pt-[90px] lg:pb-6">
-      {/* Base gradient */}
+    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-start overflow-hidden pt-[75px] pb-12 md:pt-[110px] md:pb-20">
       <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
+      <ParticleNetwork showParticles={false} />
+      <div className="absolute top-[10%] left-[15%] w-60 h-60 bg-blue-100/25 rounded-full blur-[60px]" aria-hidden="true" />
+      <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-indigo-100/20 rounded-full blur-[60px]" aria-hidden="true" />
 
-      {/* Interactive Medical Particle Canvas */}
-      <ParticleNetwork />
-
-      {/* Ambient glow orbs */}
-      <div className="blob-layer">
-        <div className="blob-blue w-[28rem] h-[28rem] top-[10%] left-[10%]" />
-        <div className="blob-indigo w-[32rem] h-[32rem] bottom-[10%] right-[10%]" />
-      </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-[2]" aria-hidden="true" />
-
-      {/* === CONTENT === */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="container-page relative z-10 w-full">
+        {/* STANDARDIZED 12-COLUMN GRID */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           
-          {/* ── LEFT COLUMN (TEXT & CTAs) ── */}
-          <div className="lg:col-span-7 xl:col-span-6 text-left lg:-translate-y-12">
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.06 }}
-              className="mb-5"
-            >
-              <div className="eyebrow-wrap justify-start">
-                <span className="eyebrow-text text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200/60">Zero Capex · Fully Managed</span>
+          {/* STANDARDIZED LEFT COLUMN */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="lg:col-span-7 space-y-8 text-center lg:text-left">
+            
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start">
+              <span className="eyebrow-line-l"></span>
+              <span className="eyebrow-text">Zero Capex · Fully Managed</span>
+              <span className="eyebrow-line-r"></span>
+            </motion.div>
+            
+            <div className="space-y-6">
+              {/* STANDARDIZED 3-LINE HEADLINE */}
+              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="mb-6 md:mb-8 text-center lg:text-left text-balance">
+                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight text-slate-900 pb-1">
+                  Stop Managing Inventory.
+                </span>
+                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight bg-gradient-display bg-clip-text text-transparent pb-3 mb-1" style={{ color: '#4F46E5' }}>
+                  Let Us Run the Pharmacy.
+                </span>
+                <span className="block text-[1.25rem] sm:text-[1.5rem] md:text-[1.75rem] lg:text-[1.875rem] font-semibold leading-[1.2] tracking-tight text-slate-700/90">
+                  With Zero Daily Stress.
+                </span>
+              </motion.h1>
+              
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-xl mx-auto lg:mx-0">
+                We deploy the tech, fund the medicine stock, and provide licensed pharmacists. You gain a fully optimized, patient-first pharmacy without the daily operational headaches.
+              </motion.p>
+            </div>
+
+            {/* STANDARDIZED CTA & BADGE SPACING */}
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
+                <button onClick={openModal} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
+                  Partner With Us <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
+                {HERO_TRUST_BADGES.map((badge, idx) => {
+                  const Icon = badge.icon;
+                  return (
+                    <div key={idx} className="flex items-center gap-2.5">
+                      <Icon size={16} className="text-blue-500" />
+                      <span className="text-xs font-semibold text-slate-600 tracking-wide uppercase">{badge.label}</span>
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
+          </motion.div>
 
-            {/* ── H1 ── */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-[3.4rem] font-bold text-slate-900 leading-[1.15] tracking-tight mb-4 md:mb-6 max-w-[95%]"
-            >
-              We Set Up & Completely Operate{' '}
-              <span 
-                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 pb-2" 
-                style={{ color: '#4F46E5' }}
-              >
-                Tech-Driven Pharmacies
-              </span>
-            </motion.h1>
+          {/* STANDARDIZED RIGHT COLUMN (PREMIUM GLASS WRAPPER + INTERACTIVE CONDUIT) */}
+          <motion.div initial={{ opacity: 0, scale: 0.95, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }} className="lg:col-span-5 relative lg:pl-4 mt-12 lg:mt-0 self-center">
+            
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-200/40 via-indigo-200/20 to-purple-200/40 rounded-[3rem] transform rotate-3 scale-105 blur-xl -z-10" />
+            
+            <div className="relative z-10 bg-white/80 backdrop-blur-2xl border border-white/80 shadow-card-lg rounded-[2.5rem] p-6 lg:p-8 ring-1 ring-slate-900/5 overflow-hidden flex flex-col">
+              {/* Header */}
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100/60 no-select">
+                 <div className="flex items-center gap-3">
+                   <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 shadow-sm border border-indigo-100">
+                     <ShieldCheck className="w-5 h-5" />
+                   </div>
+                   <div>
+                     <h4 className="text-sm font-black text-slate-900 tracking-tight leading-none mb-1">Operational Managed</h4>
+                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">End-to-End Service</p>
+                   </div>
+                 </div>
+                 <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2 shadow-sm">
+                   <Zap className="w-3 h-3 fill-emerald-500" />
+                   <span className="text-[10px] font-bold tracking-widest uppercase">Proprietary Tech</span>
+                 </div>
+              </div>
 
-            {/* ── Subtitle ── */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="text-xl sm:text-2xl text-slate-500 font-medium mb-8 max-w-2xl leading-relaxed"
-            >
-              for Independent Hospitals & Clinics.
-            </motion.p>
-
-            {/* ── CTAs ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-5"
-            >
-              <button
-                onClick={openModal}
-                className="btn-primary w-full sm:w-auto"
-              >
-                <Phone size={15} className="opacity-80" />
-                Partner With Us
-                <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-            </motion.div>
-          </div>
-
-          {/* ── RIGHT COLUMN (ILLUSTRATIVE FLOW UI) ── */}
-          <div className="lg:col-span-5 xl:col-span-6 relative mt-6 lg:mt-0 flex justify-center lg:justify-end">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, type: 'spring' }}
-              className="relative w-full max-w-md"
-            >
-              {/* Outer Glow & Border */}
-              <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-b from-blue-500/20 via-indigo-500/10 to-transparent blur-xl" />
-              
-              <div className="relative bg-[#f8fafc]/90 backdrop-blur-2xl border border-white/80 rounded-[2rem] p-5 lg:p-7 shadow-[0_20px_60px_-15px_rgba(79,70,229,0.15)] overflow-hidden">
-                
-                {/* Dashboard Grid Background */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_60%,transparent_100%)] opacity-50" />
-
-                <div className="relative z-10 flex flex-col">
-                  
+              {/* Operations Visual (We Bring / Gain Stack) */}
+              <div className="relative z-10 flex flex-col">
                   {/* TOP: Input Generator (We Deploy) */}
-                  <div className="relative">
+                  <div className="relative no-select">
                     <div className="flex items-center gap-2 mb-3.5">
                       <div className="bg-blue-100/80 p-1.5 rounded-lg border border-blue-200/50">
                         <ShieldCheck size={16} className="text-blue-600" />
                       </div>
-                      <span className="text-[12px] sm:text-[13px] font-bold text-slate-900 uppercase tracking-widest mt-0.5">We Bring</span>
+                      <span className="text-[12px] font-black text-slate-900 uppercase tracking-widest mt-0.5">We Bring</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-2.5">
@@ -143,16 +138,10 @@ export function MPHero() {
                           transition={{ delay: 0.4 + (i * 0.1), type: 'spring' }}
                           className="group relative flex items-center gap-2.5 p-2.5 rounded-xl bg-white border border-slate-200/60 shadow-sm hover:shadow-md hover:border-blue-300 transition-all overflow-hidden"
                         >
-                          <motion.div
-                            animate={{ rotate: [0, 5, -5, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, delay: i }}
-                            className="bg-blue-50 p-1.5 rounded-md text-blue-600 shrink-0"
-                          >
+                          <div className="bg-blue-50 p-1.5 rounded-md text-blue-600 shrink-0">
                             <item.icon size={14} strokeWidth={2.5} />
-                          </motion.div>
-                          <span className="text-[12px] sm:text-[13px] font-semibold text-slate-700 relative z-10">{item.label}</span>
-                          
-                          {/* Animated scanline effect inside pill */}
+                          </div>
+                          <span className="text-[11px] font-bold text-slate-700 relative z-10">{item.label}</span>
                           <motion.div
                             animate={{ x: ['-100%', '200%'] }}
                             transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', delay: i * 0.5 }}
@@ -164,8 +153,7 @@ export function MPHero() {
                   </div>
 
                   {/* MIDDLE: Operations Engine Conduit */}
-                  <div className="relative h-16 my-2 flex items-center justify-center">
-                     {/* Vertical Flow Line mapping Top to Bottom */}
+                  <div className="relative h-16 my-2 flex items-center justify-center no-select">
                      <div className="absolute top-0 bottom-0 left-1/2 -ml-px w-[2px] bg-slate-200/50">
                        <motion.div 
                          animate={{ y: ['-100%', '150%'] }} 
@@ -176,7 +164,7 @@ export function MPHero() {
                      
                      <motion.div 
                         whileHover={{ scale: 1.05 }}
-                        className="relative z-10 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl p-3 shadow-lg shadow-indigo-500/30 border-2 border-white flex items-center justify-center mt-1 mb-1 before:absolute before:inset-0 before:rounded-xl before:ring-4 before:ring-indigo-100"
+                        className="relative z-10 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl p-3 shadow-lg shadow-indigo-500/30 border-2 border-white flex items-center justify-center mt-1 mb-1 ring-4 ring-indigo-50"
                      >
                         <motion.div animate={{ rotate: 360 }} transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}>
                           <Zap size={22} className="text-white drop-shadow-md" />
@@ -185,12 +173,12 @@ export function MPHero() {
                   </div>
 
                   {/* BOTTOM: Output Success (You Secure) */}
-                  <div className="relative mt-2">
+                  <div className="relative mt-2 no-select">
                     <div className="flex items-center gap-2 mb-3.5">
                       <div className="bg-indigo-100/80 p-1.5 rounded-lg border border-indigo-200/50">
                         <CheckCircle2 size={16} className="text-indigo-600" />
                       </div>
-                      <span className="text-[12px] sm:text-[13px] font-bold text-slate-900 uppercase tracking-widest mt-0.5">Clinics &amp; Hospitals Gain</span>
+                      <span className="text-[12px] font-black text-slate-900 uppercase tracking-widest mt-0.5">Your Gains</span>
                     </div>
 
                     <div className="flex flex-wrap gap-2">
@@ -205,26 +193,21 @@ export function MPHero() {
                           <div className="text-indigo-600 relative z-10">
                             <item.icon size={14} strokeWidth={2.5} />
                           </div>
-                          <span className="text-[12px] sm:text-[13px] font-semibold text-slate-800 relative z-10">{item.label}</span>
-                          
-                          {/* Subdued ping animation on outputs */}
+                          <span className="text-[11px] font-bold text-slate-800 relative z-10">{item.label}</span>
                           <motion.div
                              animate={{ opacity: [0, 0.5, 0] }}
                              transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                             className="absolute inset-0 bg-gradient-to-r from-indigo-400/0 via-indigo-200/40 to-indigo-400/0 pointer-events-none"
+                             className="absolute inset-0 bg-gradient-to-r from-indigo-400/0 via-indigo-200/40 to-indigo-400/0"
                           />
                         </motion.div>
                       ))}
                     </div>
                   </div>
-
-                </div>
               </div>
-            </motion.div>
-          </div>
-
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

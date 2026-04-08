@@ -3,257 +3,221 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  ArrowRight, 
-  CheckCircle2, 
-  ShieldCheck, 
-  Zap, 
-  Clock, 
-  Activity,
-  Calendar,
-  Users,
-  Phone,
-  BarChart3,
-  Stethoscope
+  ChevronRight, 
+  Users, 
+  Wallet,
+  Package,
+  HeartPulse,
+  UserPlus,
+  ArrowDownRight,
+  Sparkles,
+  CheckCircle,
+  LayoutGrid,
+  Clock,
+  TrendingDown
 } from 'lucide-react';
+import { HERO_TRUST_BADGES } from '@/components/pages/home/HomeData';
 import { useContactModal } from '@/hooks/use-contact-modal';
 import { ParticleNetwork } from '@/components/shared/ParticleNetwork';
+import { AvatarSVG } from '@/components/shared/HeroIcons';
 
 export const HMSHero = () => {
   const { openModal } = useContactModal();
 
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-center overflow-hidden pt-[70px] pb-12 md:pt-[90px] md:pb-20">
-      {/* Base gradient and atmosphere */}
+    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-start overflow-hidden pt-[75px] pb-12 md:pt-[110px] md:pb-20">
       <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
-      
-      {/* Interactive Medical Particle Canvas */}
-      <ParticleNetwork />
+      <ParticleNetwork showParticles={false} />
+      <div className="absolute top-[10%] left-[15%] w-60 h-60 bg-blue-100/25 rounded-full blur-[60px]" aria-hidden="true" />
+      <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-indigo-100/20 rounded-full blur-[60px]" aria-hidden="true" />
 
-      {/* Ambient glow orbs using standard classes */}
-      <div className="blob-layer">
-        <div className="blob-blue w-[28rem] h-[28rem] top-[5%] left-[5%]" />
-        <div className="blob-indigo w-[32rem] h-[32rem] bottom-[10%] right-[10%]" />
-      </div>
-
-      {/* Bottom fade matched to product pages */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-[2]" aria-hidden="true" />
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="container-page relative z-10 w-full">
+        {/* STANDARDIZED 12-COLUMN GRID */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           
-          {/* ── LEFT COLUMN (TEXT & CTAs) ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-7 space-y-8 text-center lg:text-left lg:-translate-y-12"
-          >
-            {/* Eyebrow pattern aligned with product pages */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.05 }}
-              className="eyebrow-wrap lg:justify-start"
-            >
-              <span className="eyebrow-text text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200/60">
-                100% Secure · Zero Training · High-Volume OPD
-              </span>
+          {/* STANDARDIZED LEFT COLUMN */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="lg:col-span-7 space-y-8 text-center lg:text-left">
+            
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start">
+              <span className="eyebrow-line-l"></span>
+              <span className="eyebrow-text">100% Secure · Zero Training · High-Volume OPD</span>
+              <span className="eyebrow-line-r"></span>
             </motion.div>
-
+            
             <div className="space-y-6">
-              {/* Gold standard H1 structure */}
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="mb-6 md:mb-8 text-center lg:text-left"
-              >
-                {/* Line 1: Intro */}
-                <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.05] tracking-tight md:tracking-[-0.02em] text-slate-900 pb-2">
-                  Hospital Management,
+              {/* STANDARDIZED 3-LINE HEADLINE */}
+              <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="mb-6 md:mb-8 text-center lg:text-left text-balance">
+                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight text-slate-900 pb-1">
+                  Hospital Management.
                 </span>
-
-                {/* Line 2: Brand/Product Gradient */}
-                <span className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.05] tracking-tight md:tracking-[-0.02em] bg-gradient-display bg-clip-text text-transparent pb-4 mb-2">
-                  Finally Simple
+                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight bg-gradient-display bg-clip-text text-transparent pb-3 mb-1" style={{ color: '#4F46E5' }}>
+                  Fast, Smart & Simple.
                 </span>
-
-                {/* Line 3: Target Audience */}
-                <span className="block text-[1.4rem] sm:text-[1.8rem] md:text-[2rem] lg:text-[2.2rem] font-bold leading-[1.2] tracking-[-0.02em] text-slate-700/90">
-                  for independent hospitals & clinics
+                <span className="block text-[1.25rem] sm:text-[1.5rem] md:text-[1.75rem] lg:text-[1.875rem] font-semibold leading-[1.2] tracking-tight text-slate-700/90">
+                  For Independent Clinics.
                 </span>
               </motion.h1>
-
-              {/* Body Copy */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl sm:text-2xl text-slate-500 font-medium max-w-xl mx-auto lg:mx-0 leading-relaxed"
-              >
-                No setup headaches. No clunky screens. Just smooth OPD and EMR workflows from day one.
+              
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-xl mx-auto lg:mx-0">
+                Run your entire clinic on a single, lightning-fast hms platform. From AI-driven consultations to automated billing, experience a seamless workflow.
               </motion.p>
             </div>
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5 pt-2"
-            >
-              <button
-                onClick={openModal}
-                className="btn-primary w-full sm:w-auto shadow-btn text-lg"
-              >
-                <Phone size={15} className="opacity-80" />
-                Book a Free Demo
-                <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </motion.div>
-
-            {/* Trust Markers */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.45 }}
-              className="flex flex-wrap justify-center lg:justify-start items-center gap-x-8 gap-y-4 pt-4"
-            >
-              {[
-                { icon: ShieldCheck, text: "100% Secure" },
-                { icon: Zap, text: "Zero Setup Cost" },
-                { icon: Clock, text: "Live in 24 Hours" }
-              ].map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div key={idx} className="flex items-center space-x-2 text-slate-600">
-                    <Icon className="text-blue-500 w-4 h-4" />
-                    <span className="text-[10px] font-bold tracking-widest uppercase">{item.text}</span>
-                  </div>
-                );
-              })}
+            {/* STANDARDIZED CTA & BADGE SPACING */}
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
+                <button onClick={openModal} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
+                  Book A Free Demo <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
+                {HERO_TRUST_BADGES.map((badge, idx) => {
+                  const Icon = badge.icon;
+                  return (
+                    <div key={idx} className="flex items-center gap-2.5">
+                      <Icon size={16} className="text-blue-500" />
+                      <span className="text-xs font-semibold text-slate-600 tracking-wide uppercase">{badge.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.div>
           </motion.div>
 
-          {/* ── RIGHT COLUMN (POLISHED DASHBOARD VISUAL) ── */}
+          {/* STANDARDIZED RIGHT COLUMN (PREMIUM GLASS WRAPPER + HIGH-FIDELITY PATIENT JOURNEY) */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="lg:col-span-5 relative lg:pl-4 mt-12 lg:mt-0"
+            initial={{ opacity: 0, scale: 0.95, x: 20 }} 
+            animate={{ opacity: 1, scale: 1, x: 0 }} 
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }} 
+            className="lg:col-span-5 relative lg:pl-4 mt-12 lg:mt-0 self-center"
           >
-            {/* Premium Background Glow */}
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-200/40 via-indigo-200/20 to-purple-200/40 rounded-[3rem] transform rotate-3 scale-105 blur-xl -z-10" />
-
-            {/* Main Glass Panel Dashboard */}
-            <div className="relative z-10 bg-white/80 backdrop-blur-2xl border border-white/80 shadow-[0_30px_80px_-20px_rgba(30,58,138,0.15)] rounded-[2.5rem] p-6 lg:p-8 ring-1 ring-slate-900/5 overflow-hidden">
+            
+            <div className="relative z-10 bg-white/80 backdrop-blur-2xl border border-white/80 shadow-[0_8px_32px_-8px_rgba(79,70,229,0.20)] rounded-[2.5rem] p-6 lg:p-8 ring-1 ring-slate-900/5 overflow-hidden flex flex-col">
               
-              {/* Dashboard Layout Simulation */}
-              <div className="relative">
-                {/* Header Mockup */}
-                <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100/60">
-                   <div className="flex items-center gap-3">
-                     <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-600/20">
-                       <BarChart3 size={20} />
-                     </div>
-                     <div>
-                       <h4 className="text-sm font-black text-slate-900 tracking-tight leading-none mb-1">Clinic Central</h4>
-                       <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Real-time Control</p>
-                     </div>
+              {/* Header */}
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100/60">
+                 <div className="flex items-center gap-3">
+                   <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 shadow-sm border border-indigo-100">
+                     <LayoutGrid className="w-5 h-5" />
                    </div>
-                   <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2">
-                     <span className="relative flex h-2 w-2">
-                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                       <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                     </span>
-                     <span className="text-[10px] font-bold tracking-widest uppercase">System Live</span>
+                   <div>
+                     <h4 className="text-sm font-black text-slate-900 tracking-tight leading-none mb-1">MediKloud OS</h4>
+                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-0.5">Live Patient Journey</p>
                    </div>
-                </div>
+                 </div>
+                 <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2 shadow-sm">
+                   <span className="relative flex h-2 w-2">
+                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                   </span>
+                   <span className="text-[10px] font-bold tracking-widest uppercase">End-to-End</span>
+                 </div>
+              </div>
 
-                {/* Content Area */}
-                <div className="space-y-6">
-                  {/* Stats Cards */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Today's OPD</p>
-                      <div className="flex items-end gap-2">
-                        <span className="text-2xl font-black text-slate-900 tracking-tighter">142</span>
-                        <span className="text-[10px] font-bold text-emerald-500 mb-1">+12%</span>
-                      </div>
-                    </div>
-                    <div className="p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Avg Wait</p>
-                      <div className="flex items-end gap-1">
-                        <span className="text-2xl font-black text-slate-900 tracking-tighter">12</span>
-                        <span className="text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-widest">min</span>
-                      </div>
-                    </div>
-                  </div>
+              {/* Animation Stage - S-Curve Patient Flow */}
+              <div className="relative h-[280px] bg-slate-50/80 rounded-2xl border border-slate-200 overflow-hidden shadow-inner mb-6 no-select">
+                 
+                 {/* Soft Tech Grid */}
+                 <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] opacity-60" />
 
-                  {/* Quick Actions / Queue */}
-                  <div className="space-y-3">
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center justify-between">
-                      Recent Activity <span>View All</span>
+                 {/* S-Curve Path */}
+                 <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none z-10 p-4">
+                    <path d="M 20 25 L 50 25 C 75 25, 85 35, 85 50 C 85 65, 75 75, 50 75 L 20 75" fill="none" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="4 4" />
+                    {/* Active Gradient Path Overlay */}
+                    <motion.path 
+                      d="M 20 25 L 50 25 C 75 25, 85 35, 85 50 C 85 65, 75 75, 50 75 L 20 75" 
+                      fill="none" 
+                      stroke="url(#flowGradient)" 
+                      strokeWidth="2.5" 
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                    />
+                    <defs>
+                      <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#3b82f6" />
+                        <stop offset="50%" stopColor="#6366f1" />
+                        <stop offset="100%" stopColor="#8b5cf6" />
+                      </linearGradient>
+                    </defs>
+                 </svg>
+
+                 {/* Journey Nodes */}
+                 {[
+                   { name: "Reception", icon: UserPlus, x: "20%", y: "25%", color: "text-blue-600", bg: "bg-blue-50", border: "border-blue-200" },
+                   { name: "Queue", icon: Users, x: "50%", y: "25%", color: "text-slate-600", bg: "bg-slate-50", border: "border-slate-200" },
+                   { name: "Consult", icon: HeartPulse, x: "85%", y: "50%", color: "text-white", bg: "bg-indigo-600", border: "border-indigo-400 ring-4 ring-indigo-50", scale: "scale-110 shadow-[0_0_15px_rgba(79,70,229,0.3)]" },
+                   { name: "Billing", icon: Wallet, x: "50%", y: "75%", color: "text-emerald-600", bg: "bg-emerald-50", border: "border-emerald-200" },
+                   { name: "Pharmacy", icon: Package, x: "20%", y: "75%", color: "text-purple-600", bg: "bg-purple-50", border: "border-purple-200" }
+                 ].map((node, i) => {
+                   const Icon = node.icon;
+                   return (
+                     <div key={i} className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20" style={{ left: node.x, top: node.y }}>
+                       <div className={`w-10 h-10 ${node.bg} rounded-xl shadow-sm border ${node.border} flex items-center justify-center mb-1.5 ${node.scale || ''}`}>
+                         <Icon className={`w-4 h-4 ${node.color}`} />
+                       </div>
+                       <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest bg-white/90 px-1.5 py-0.5 rounded backdrop-blur-sm border border-slate-100 shadow-sm">
+                         {node.name}
+                       </span>
+                     </div>
+                   );
+                 })}
+
+                 {/* Moving Patient Token */}
+                 <motion.div
+                   animate={{
+                     left: ['20%', '20%', '50%', '50%', '85%', '85%', '50%', '50%', '20%', '20%'],
+                     top:  ['25%', '25%', '25%', '25%', '50%', '50%', '75%', '75%', '75%', '75%'],
+                     opacity: [0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+                     scale: [0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5]
+                   }}
+                   transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', times: [0, 0.05, 0.15, 0.25, 0.35, 0.5, 0.6, 0.75, 0.85, 0.95] }}
+                   className="absolute z-30 w-7 h-7 bg-white rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.15)] border border-slate-200 flex items-center justify-center -translate-x-1/2 -translate-y-1/2"
+                 >
+                   <div className="w-6 h-6 rounded-full overflow-hidden bg-slate-100 tracking-normal"><AvatarSVG gender="male" seed="patient-journey" /></div>
+                 </motion.div>
+
+                 {/* Dynamic Step Tooltips */}
+                 {[
+                   { text: "Walk-in Booked", time: [0, 0.05, 0.1, 0.15, 1], x: "20%", y: "10%" },
+                   { text: "Wait: 4 mins", time: [0, 0.25, 0.3, 0.35, 1], x: "50%", y: "10%" },
+                   { text: "E-Rx Synced", time: [0, 0.5, 0.55, 0.6, 1], x: "65%", y: "50%" },
+                   { text: "Auto-Billed", time: [0, 0.75, 0.8, 0.85, 1], x: "50%", y: "90%" },
+                   { text: "Meds Dispensed", time: [0, 0.95, 0.96, 0.98, 1], x: "20%", y: "90%" }
+                 ].map((tooltip, i) => (
+                   <motion.div
+                     key={i}
+                     animate={{ opacity: [0, 0, 1, 0, 0], scale: [0.8, 0.8, 1, 0.8, 0.8] }}
+                     transition={{ duration: 12, repeat: Infinity, ease: 'easeOut', times: tooltip.time }}
+                     className="absolute z-40 bg-slate-900/95 backdrop-blur-md text-white px-2.5 py-1 rounded-full shadow-lg text-[9px] font-bold tracking-wider whitespace-nowrap -translate-x-1/2 -translate-y-1/2 border border-slate-700 flex items-center gap-1.5"
+                     style={{ left: tooltip.x, top: tooltip.y }}
+                   >
+                     <CheckCircle size={10} className="text-emerald-400" /> {tooltip.text}
+                   </motion.div>
+                 ))}
+              </div>
+
+              {/* Live Metric Footer Personalized */}
+              <div className="bg-gradient-to-br from-slate-50 to-purple-50/50 rounded-xl p-4 border border-purple-100 flex items-center justify-between no-select">
+                 <div>
+                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 flex items-center gap-1.5">
+                       <Clock className="w-3 h-3 text-purple-500" />
+                       Patient Wait Time
                     </p>
-                    {[
-                      { name: "Aarav S.", id: "PT-8472", status: "Consultation", color: "text-blue-500", bg: "bg-blue-50" },
-                      { name: "Priya P.", id: "PT-8473", status: "Completed", color: "text-emerald-500", bg: "bg-emerald-50" },
-                      { name: "Rahul V.", id: "PT-8474", status: "Billing", color: "text-amber-500", bg: "bg-amber-50" }
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center justify-between p-3 rounded-xl bg-white/50 border border-slate-100/80">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-400">
-                            {item.name.charAt(0)}
-                          </div>
-                          <div>
-                            <p className="text-xs font-bold text-slate-900 leading-none mb-1">{item.name}</p>
-                            <p className="text-[9px] font-bold text-slate-400 tracking-wider font-mono">{item.id}</p>
-                          </div>
-                        </div>
-                        <div className={`px-2 py-1 rounded-md ${item.bg} ${item.color} text-[9px] font-bold uppercase tracking-widest`}>
-                          {item.status}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                    <div className="flex items-baseline gap-2">
+                       <h4 className="text-xl font-black text-slate-900 leading-none tracking-tight">Reduced by <span className="text-indigo-600">65%</span></h4>
+                    </div>
+                 </div>
+                 <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-purple-600 ring-4 ring-purple-50 shadow-sm border border-purple-100">
+                    <TrendingDown className="w-5 h-5" />
+                 </div>
               </div>
             </div>
-
-            {/* Floating Decorative Badge 1 */}
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -right-8 md:-right-16 top-10 bg-white/90 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl shadow-blue-900/10 border border-white z-20 flex items-center gap-3"
-            >
-              <div className="p-2.5 rounded-xl bg-indigo-50 border border-indigo-100 text-indigo-600">
-                <Stethoscope size={18} />
-              </div>
-              <div className="pr-2">
-                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">EMR Status</p>
-                <p className="text-xs font-black text-slate-800">100% Automated</p>
-              </div>
-            </motion.div>
-
-            {/* Floating Decorative Badge 2 */}
-            <motion.div 
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -left-8 md:-left-16 bottom-12 bg-slate-900/95 backdrop-blur-md p-3.5 rounded-2xl shadow-2xl shadow-slate-900/20 border border-slate-800 z-20 flex items-center gap-3"
-            >
-               <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400">
-                <ShieldCheck size={18} />
-              </div>
-              <div className="pr-4">
-                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Trust</p>
-                <p className="text-xs font-bold text-white uppercase tracking-widest leading-none">100% Secure</p>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
   );
 };
-

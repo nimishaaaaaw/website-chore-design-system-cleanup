@@ -52,7 +52,7 @@ export function ProblemSection() {
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 w-fit mb-4 sm:mb-6 shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
           <span className="text-[10px] font-bold tracking-widest text-indigo-700 uppercase">
-            The Revenue Funnel
+            The Revenue Leakage
           </span>
         </div>
 
@@ -66,12 +66,12 @@ export function ProblemSection() {
         </h2>
 
         {/* Insight Card */}
-        <div className="relative card max-w-sm mt-3 lg:mt-6 overflow-hidden !rounded-xl">
+        <div className="relative card max-w-[500px] mt-3 lg:mt-6 overflow-hidden !rounded-xl">
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-600 rounded-l-xl" />
           <p className="text-sm text-slate-600 leading-relaxed pl-2">
-            Apollo & MedPlus win with standardised ops and tech-controlled inventory.
+            Branded chains and online giants dominate using standardized operations and tech-optimized inventory.
             <strong className="text-indigo-600 font-bold block mt-2 flex items-center gap-2 cursor-pointer hover:text-indigo-700 transition-colors w-fit">
-              MediKloud closes that gap. <ArrowRight className="w-4 h-4" />
+              MediKloud levels the playing field for you. <ArrowRight className="w-4 h-4" />
             </strong>
           </p>
         </div>
@@ -197,7 +197,7 @@ export function ProblemSection() {
           {/* 3. BOTTOM NODE: < 50% Captured */}
           <div className="w-[95%] ml-auto bg-gradient-to-br from-indigo-600 to-violet-600 border border-indigo-800 rounded-xl py-2 px-3 sm:py-3 sm:px-4 flex justify-between items-center relative z-30 shadow-[0_15px_30px_rgba(79,70,229,0.3)]">
             <div>
-              <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-indigo-100/90 mb-0.5">Hospital Captures</p>
+              <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-indigo-100/90 mb-0.5">Revenue Captured</p>
               <p className="text-xl sm:text-2xl font-black text-white tracking-tight">&lt; 50% Final Value</p>
             </div>
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-indigo-400 flex items-center justify-center bg-white shadow-sm shrink-0">
