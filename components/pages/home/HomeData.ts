@@ -124,9 +124,9 @@ export interface TrustBadgeItem {
 }
 
 export const HERO_TRUST_BADGES: TrustBadgeItem[] = [
-  { icon: Wallet, label: "Zero Capex" },
+  { icon: Wallet, label: "Optimized ROI" },
   { icon: ShieldCheck, label: "Zero Revenue Leakage" },
-  { icon: Clock, label: "Live in 15 Days" },
+  { icon: Clock, label: "24/7 Operations" },
   { icon: TrendingUp, label: "Hassle-Free Pharmacy" },
 ];
 

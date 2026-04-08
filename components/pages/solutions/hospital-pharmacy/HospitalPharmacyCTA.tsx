@@ -1,95 +1,30 @@
 "use client"
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Activity, HeartPulse, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
-};
-
-const staggerContainerLocal = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
-};
-
-export const HospitalPharmacyCTA = ({ onBookDemo, onContactSales }: { onBookDemo?: () => void, onContactSales?: () => void }) => {
+export const HospitalPharmacyCTA = ({ onBookDemo, onContactSales }: { onBookDemo: () => void, onContactSales?: () => void }) => {
   return (
-    <section className="section-py bg-slate-950 relative overflow-hidden">
-      {/* Background Atmosphere */}
+    <section className="section-py bg-indigo-600 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-indigo-950/50" />
-        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-indigo-600/10 rounded-full blur-[100px] -mr-48 -mt-48" />
-        <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-600/10 rounded-full blur-[80px] -ml-24 -mb-24" />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
+        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-white/10 rounded-full blur-[100px] -mr-48 -mt-48" />
+        <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-900/30 rounded-full blur-[80px] -ml-24 -mb-24" />
       </div>
 
       <div className="container-page relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-blue-100/90 text-xs font-bold backdrop-blur-md shadow-2xl tracking-wide"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            Your hospital's next growth lever
-          </motion.div>
+        <div className="max-w-4xl mx-auto text-center space-y-10">
+          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
+            Stop losing the revenue you already earned.
+          </motion.h2>
 
-          <div className="space-y-6">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight tracking-tight px-4"
-            >
-              Take back control of <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
-                your pharmacy's value
-              </span>
-            </motion.h2>
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-body-lg md:text-xl text-indigo-100 max-w-2xl mx-auto font-medium leading-relaxed">
+            Let our team run a free 30-minute audit on your current pharmacy. We will show you exactly how much cash is leaking, and how quickly we can fix it.
+          </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-body-lg md:text-xl text-blue-100/60 max-w-2xl mx-auto font-medium"
-            >
-              This isn't a software upgrade. It's a fundamental shift in how your hospital captures revenue and retains patients.
-            </motion.p>
-          </div>
-
-          {/* Proof Grid */}
-          <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto pt-4">
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm group hover:bg-white/10 transition-colors">
-              <Activity className="w-6 h-6 text-cyan-400 mb-4" />
-              <p className="font-bold text-white text-sm">Your prescriptions <br/><span className="text-slate-400">stay with you.</span></p>
-            </div>
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm group hover:bg-white/10 transition-colors">
-              <HeartPulse className="w-6 h-6 text-blue-400 mb-4" />
-              <p className="font-bold text-white text-sm">Your patients <br/><span className="text-slate-400">stay with you.</span></p>
-            </div>
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-sm group hover:bg-white/10 transition-colors">
-              <ShieldCheck className="w-6 h-6 text-indigo-400 mb-4" />
-              <p className="font-bold text-white text-sm">Your revenue <br/><span className="text-slate-400">stays with you.</span></p>
-            </div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center pt-8"
-          >
-            <button 
-              onClick={onBookDemo}
-              className="btn-dark-cta min-w-[240px] group shadow-2xl shadow-cyan-500/20"
-            >
-              See the system in action
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex justify-center pt-6">
+            <button onClick={onBookDemo} className="btn-lg bg-white text-indigo-600 hover:bg-indigo-50 shadow-2xl shadow-indigo-900/20 active:scale-[0.98] transition-all font-black text-[16px] px-10 py-4">
+              Schedule your free audit
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </button>
           </motion.div>

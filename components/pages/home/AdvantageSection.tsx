@@ -43,7 +43,7 @@ const ADVANTAGES: AdvantageItem[] = [
     tagline: "Speed to Market",
     title: "Day 1",
     subtitle: "Operations infrastructure",
-    description: "Staff deployed, tech integrated, inventory live — before you've spent a single rupee.",
+    description: "Staff deployed, tech integrated, and inventory live — before you spend a rupee.",
     tags: [
       { label: "Capex risk", dir: "down", color: "text-blue-600 bg-blue-50 ring-1 ring-blue-500/10" },
       { label: "Speed", dir: "up", color: "text-emerald-600 bg-emerald-50 ring-1 ring-emerald-500/10" }
@@ -59,7 +59,7 @@ const ADVANTAGES: AdvantageItem[] = [
     tagline: "Revenue Protection",
     title: "Zero",
     subtitle: "Leakage tolerance",
-    description: "Every billing event, every dispense, and every inventory movement — reconciled daily.",
+    description: "Every billing event, dispense, and movement is reconciled daily to stop leakage.",
     tags: [
       { label: "Pilferage", dir: "down", color: "text-rose-600 bg-rose-50 ring-1 ring-rose-500/10" },
       { label: "Billing gaps", dir: "down", color: "text-rose-600 bg-rose-50 ring-1 ring-rose-500/10" }
@@ -75,7 +75,7 @@ const ADVANTAGES: AdvantageItem[] = [
     tagline: "Network Scale",
     title: "Chain",
     subtitle: "Procurement pricing",
-    description: "We buy medicines at the scale of a massive network. Your hospital keeps the upgraded margin.",
+    description: "We buy medicines at massive network scale. Your hospital keeps the upgraded margin.",
     tags: [
       { label: "COGS", dir: "down", color: "text-indigo-600 bg-indigo-50 ring-1 ring-indigo-500/10" },
       { label: "Gross margin", dir: "up", color: "text-indigo-600 bg-indigo-50 ring-1 ring-indigo-500/10" }
@@ -91,7 +91,7 @@ const ADVANTAGES: AdvantageItem[] = [
     tagline: "Compounding Growth",
     title: "Recurring",
     subtitle: "Revenue that compounds",
-    description: "A chronic patient who refills every month is worth 12x a standard one-time hospital visit.",
+    description: "Chronic patients refilling monthly are worth 12x more than standard one-time visits.",
     tags: [
       { label: "Retention", dir: "up", color: "text-violet-600 bg-violet-50 ring-1 ring-violet-500/10" },
       { label: "Patient LTV", dir: "up", color: "text-violet-600 bg-violet-50 ring-1 ring-violet-500/10" }
@@ -171,7 +171,7 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
 
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-            <div className="flex items-start gap-4 md:gap-6">
+            <div className="flex items-start gap-4 md:gap-6 flex-1">
               <div className={cn(
                 "w-14 h-14 md:w-16 md:h-16 rounded-[1.25rem] flex items-center justify-center text-white shadow-xl",
                 `bg-gradient-to-br ${theme.gradient}`
@@ -179,7 +179,7 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
                 {React.cloneElement(item.icon as React.ReactElement<any>, { size: 32, strokeWidth: 2 })}
               </div>
 
-              <div className="space-y-1">
+              <div className="space-y-1 flex-1">
                 <div className="flex items-center gap-2">
                   <span className={cn("text-[10px] md:text-xs font-bold uppercase tracking-widest", theme.text)}>
                     {item.subtitle}
@@ -192,7 +192,7 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
                 <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tighter leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-slate-500 text-sm md:text-base font-medium max-w-sm leading-relaxed pt-1">
+                <p className="text-slate-500 text-sm md:text-base font-medium leading-relaxed pt-1">
                   {item.description}
                 </p>
               </div>

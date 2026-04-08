@@ -12,6 +12,7 @@ import { HospitalPharmacyPain } from '@/components/pages/solutions/hospital-phar
 import { HospitalPharmacyApproach } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyApproach';
 import { HospitalPharmacyProducts } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyProducts';
 import { HospitalPharmacyOutcomes } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyOutcomes';
+import { HospitalPharmacyEmotionalClose } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyEmotionalClose';
 import { HospitalPharmacyCTA } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyCTA';
 
 export default function HospitalPharmacyPage() {
@@ -51,6 +52,9 @@ export default function HospitalPharmacyPage() {
 
         {/* Outcomes Section - Before/After Comparison */}
         <HospitalPharmacyOutcomes />
+
+        {/* Emotional Close / Trust Section */}
+        <HospitalPharmacyEmotionalClose />
 
         {/* Final CTA Section */}
         <HospitalPharmacyCTA 

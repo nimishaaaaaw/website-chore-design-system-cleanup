@@ -1,15 +1,14 @@
 "use client"
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Store, ShieldCheck, Users, RefreshCw, CheckCircle2 } from 'lucide-react';
+import { Sparkles, MessageCircle, Package, Users2, ShieldCheck, RefreshCw } from 'lucide-react';
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
+const fadeInUp: any = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
 };
 
-const staggerContainerLocal = {
+const staggerContainerLocal: any = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -19,143 +18,106 @@ const staggerContainerLocal = {
 
 export const HospitalPharmacyApproach = () => {
   return (
-    <section className="section-py bg-slate-50 border-t border-slate-100">
-      <div className="container-page">
+    <section id="how-it-works" className="section-py bg-slate-100 relative overflow-hidden">
+      <div className="container-page relative z-10">
         <motion.div 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={{ once: true }} 
-          variants={fadeInUp} 
-          className="text-center mb-16 space-y-4"
+          initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} 
+          className="max-w-4xl mx-auto text-center mb-16 space-y-6"
         >
-          <div className="eyebrow-wrap">
-            <span className="eyebrow-line-l" />
-            <span className="eyebrow-text text-indigo-600">The solution</span>
-            <span className="eyebrow-line-r" />
+          <div className="eyebrow-wrap justify-center">
+            <span className="eyebrow-line-l bg-indigo-500/30" />
+            <span className="eyebrow-text text-indigo-600 uppercase tracking-tighter">The Partnership</span>
+            <span className="eyebrow-line-r bg-indigo-500/30" />
           </div>
-          <h2 className="text-h2 font-black tracking-tight text-slate-900 leading-tight">
-            We don't just improve your pharmacy. <br/>
-            <span className="text-indigo-600">We rebuild how it operates.</span>
+          <h2 className="text-h2 font-black tracking-tight text-slate-900 leading-[1.1] md:text-5xl">
+            We run the pharmacy.<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600">You focus on the patient.</span>
           </h2>
+          <p className="text-body-lg text-slate-600 font-medium max-w-2xl mx-auto">
+            We don't just sell software. We deploy a complete, fully-managed retail operation inside your clinic walls—at zero cost to you.
+          </p>
         </motion.div>
 
         <motion.div 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={{ once: true }} 
-          variants={staggerContainerLocal} 
-          className="grid md:grid-cols-2 gap-8"
+          initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainerLocal}
+          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6"
         >
-          {/* Card 1 */}
-          <motion.div variants={fadeInUp} className="card p-8 md:p-10 hover:shadow-card-lg transition-all duration-300 group flex flex-col border-indigo-50">
-            <div className="bg-indigo-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Store className="w-8 h-8 text-indigo-600" />
+          {/* Card 1: Inventory (Dark Card) */}
+          <motion.div variants={fadeInUp} className="md:col-span-2 bg-slate-950 rounded-[2.5rem] p-10 lg:p-12 relative overflow-hidden group shadow-2xl shadow-slate-900/20">
+            <div className="absolute -right-20 -top-20 w-80 h-80 bg-blue-600/20 blur-[80px] rounded-full group-hover:bg-blue-500/30 transition-colors duration-700"></div>
+            
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="flex items-center justify-between mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center backdrop-blur-md">
+                  <Package className="w-7 h-7 text-blue-400" />
+                </div>
+                <div className="px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold tracking-widest uppercase flex items-center gap-2">
+                  <Sparkles className="w-3 h-3" /> Zero Capital Required
+                </div>
+              </div>
+              
+              <div className="mt-auto">
+                <h3 className="text-3xl font-black text-white mb-4 tracking-tight">100% Funded Inventory</h3>
+                <p className="text-slate-400 text-lg leading-relaxed font-medium max-w-lg">
+                  We buy the stock. We carry the risk. We clear out your dead medicines and replenish the fast-movers based directly on your doctors' prescriptions. Your capital is finally free.
+                </p>
+              </div>
             </div>
-            <h3 className="text-h3 font-bold mb-4 text-slate-900 tracking-tight">1. We take over operations completely</h3>
-            <ul className="space-y-4 mb-8 text-slate-600 flex-grow">
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">Licensed pharmacists deployed and managed by us</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">Full inventory funded and optimized by our network</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">Centralized procurement for maximum margin recovery</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">Digital-first billing and reconciliation systems</span>
-              </li>
-            </ul>
-            <div className="bg-indigo-50/50 p-4 rounded-xl border border-indigo-100">
-              <p className="text-sm font-bold text-indigo-900">
-                No more vendor calls. No more staff dependency. No more blind spots.
+          </motion.div>
+
+          {/* Card 2: Staffing (Light Card) */}
+          <motion.div variants={fadeInUp} className="md:col-span-1 bg-white rounded-[2.5rem] p-10 border border-slate-200 shadow-sm group hover:shadow-card-lg transition-all duration-300 flex flex-col">
+            <div className="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center mb-8 group-hover:bg-indigo-600 group-hover:text-white text-indigo-600 transition-colors duration-500">
+              <Users2 className="w-7 h-7" />
+            </div>
+            <div className="mt-auto">
+              <h3 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">Expert Staffing</h3>
+              <p className="text-slate-500 font-medium leading-relaxed">
+                We hire, train, and manage the licensed pharmacists. You never worry about scheduling, attrition, or counter management again.
               </p>
             </div>
           </motion.div>
 
-          {/* Card 2 */}
-          <motion.div variants={fadeInUp} className="card p-8 md:p-10 hover:shadow-card-lg transition-all duration-300 group flex flex-col border-indigo-50">
-            <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <ShieldCheck className="w-8 h-8 text-blue-600" />
+          {/* Card 3: Pilferage (Light Card) */}
+          <motion.div variants={fadeInUp} className="md:col-span-1 bg-white rounded-[2.5rem] p-10 border border-slate-200 shadow-sm group hover:shadow-card-lg transition-all duration-300 flex flex-col">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-8 group-hover:bg-emerald-600 group-hover:text-white text-emerald-600 transition-colors duration-500">
+              <ShieldCheck className="w-7 h-7" />
             </div>
-            <h3 className="text-h3 font-bold mb-4 text-slate-900 tracking-tight">2. Every medicine tracked. Every rupee accounted.</h3>
-            <ul className="space-y-4 mb-8 text-slate-600 flex-grow">
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">Real-time billing vs dispensing reconciliation</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">Structural anti-theft protocols and zero manual loopholes</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">Daily automated reports with item-level accuracy</span>
-              </li>
-            </ul>
-            <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
-              <p className="text-sm font-bold text-blue-900">
-                Leakage doesn't reduce. It stops.
+            <div className="mt-auto">
+              <h3 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">Leak-Proof Ops</h3>
+              <p className="text-slate-500 font-medium leading-relaxed">
+                Barcode billing and daily automated audits mean zero untracked inventory walking out the door. Every pill is accounted for.
               </p>
             </div>
           </motion.div>
 
-          {/* Card 3 */}
-          <motion.div variants={fadeInUp} className="card p-8 md:p-10 hover:shadow-card-lg transition-all duration-300 group flex flex-col border-indigo-50">
-            <div className="bg-slate-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Users className="w-8 h-8 text-slate-900" />
+          {/* Card 4: Refills (Gradient Card) */}
+          <motion.div variants={fadeInUp} className="md:col-span-2 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-[2.5rem] p-10 lg:p-12 relative overflow-hidden group shadow-xl shadow-indigo-600/20 flex flex-col justify-end">
+            <div className="absolute right-[-40px] bottom-[-20px] md:right-8 md:top-1/2 md:-translate-y-1/2 w-[280px] bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-5 shadow-2xl transform rotate-3 group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 hidden sm:block">
+               <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shadow-inner">
+                     <MessageCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <span className="text-white text-sm font-bold block">Refill Assistant</span>
+                    <span className="text-indigo-200 text-xs">Just now</span>
+                  </div>
+               </div>
+               <div className="bg-white text-slate-800 text-[14px] p-4 rounded-2xl rounded-tl-sm leading-relaxed shadow-sm font-medium">
+                  "Hi! It's time for your monthly BP medicine refill from <span className="text-indigo-600 font-bold">Your Clinic</span>. Reply '1' to confirm home delivery."
+               </div>
             </div>
-            <h3 className="text-h3 font-bold mb-4 text-slate-900 tracking-tight">3. Patients stop going outside</h3>
-            <ul className="space-y-4 mb-8 text-slate-600 flex-grow">
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">100% availability of exactly prescribed medicines</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">Integrated sameday home delivery for chronic care</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">No "buy from outside" moments for your patients</span>
-              </li>
-            </ul>
-            <div className="bg-slate-100 p-4 rounded-xl border border-slate-200">
-              <p className="text-sm font-bold text-slate-900">
-                Every prescription has a fulfillment path within your walls.
-              </p>
-            </div>
-          </motion.div>
 
-          {/* Card 4 - Dark Highlight */}
-          <motion.div variants={fadeInUp} className="bg-slate-950 p-8 md:p-10 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300 group relative overflow-hidden flex flex-col border border-white/10">
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-indigo-500/20 blur-3xl rounded-full" />
-            <div className="bg-white/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform backdrop-blur-md">
-              <RefreshCw className="w-8 h-8 text-cyan-400" />
-            </div>
-            <h3 className="text-h3 font-bold mb-4 text-white tracking-tight relative z-10">4. Chronic patients stay for life</h3>
-            <ul className="space-y-4 mb-8 text-slate-400 flex-grow relative z-10">
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">Automated refill reminders synced with doctor visit cycles</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">1-tap reorder experience via mobile or WhatsApp</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                <span className="text-sm font-medium">Loyalty programs that keep patients inside your ecosystem</span>
-              </li>
-            </ul>
-            <div className="bg-white/5 p-4 rounded-xl border border-white/10 relative z-10">
-              <p className="text-sm font-bold text-white">
-                Capture lifetime value, not just the first sale.
-              </p>
+            <div className="relative z-10 flex flex-col h-full max-w-[50%]">
+              <div className="w-14 h-14 rounded-2xl bg-white/20 border border-white/20 flex items-center justify-center mb-8 backdrop-blur-sm">
+                <RefreshCw className="w-7 h-7 text-white" />
+              </div>
+              <div className="mt-auto">
+                <h3 className="text-3xl font-black text-white mb-4 tracking-tight">The Refill Engine</h3>
+                <p className="text-indigo-100 text-lg leading-relaxed font-medium">
+                  We trigger automated WhatsApp reminders and handle last-mile home delivery under your clinic's brand. Chronic patients stay yours, forever.
+                </p>
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -163,4 +125,3 @@ export const HospitalPharmacyApproach = () => {
     </section>
   );
 };
-

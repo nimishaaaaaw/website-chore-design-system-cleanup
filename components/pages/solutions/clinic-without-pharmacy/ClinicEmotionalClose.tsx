@@ -2,74 +2,46 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HeartPulse, Quote } from 'lucide-react';
+import { HeartPulse } from 'lucide-react';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
 };
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
-};
-
 export const ClinicEmotionalClose = () => {
   return (
-    <section className="section-py bg-section-alt relative overflow-hidden border-t border-slate-100">
-      <div className="container-page">
-        <motion.div
+    <section className="section-py bg-section-surface">
+      <div className="container-page text-center max-w-4xl mx-auto">
+        <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={staggerContainer}
-          className="text-center max-w-4xl mx-auto space-y-10"
+          variants={fadeInUp}
+          className="w-20 h-20 mx-auto bg-[#EEF2FF] rounded-3xl flex items-center justify-center mb-10 border border-[#C7D2FE]"
         >
-          {/* Section Indicator */}
-          <motion.div variants={fadeInUp} className="flex justify-center flex-col items-center">
-             <div className="w-16 h-[2px] bg-indigo-500/30 rounded-full mb-8" />
-             <HeartPulse className="w-12 h-12 text-indigo-600" />
-          </motion.div>
-
-          <motion.h3 
-            variants={fadeInUp} 
-            className="text-h2 font-black text-slate-900 leading-tight tracking-tight px-4"
-          >
-            Your job isn’t just to prescribe. <br />
-            <span className="text-indigo-600">
-               It’s to ensure the patient gets better.
-            </span>
-          </motion.h3>
-
-          <motion.div 
-            variants={fadeInUp} 
-            className="space-y-6 max-w-2xl mx-auto border-l-4 border-indigo-500 pl-8 text-left"
-          >
-            <p className="text-body-lg md:text-xl font-medium text-slate-700 leading-relaxed">
-              But that only happens if the patient actually gets the medicine — on time, without friction, and exactly as prescribed.
-            </p>
-            <p className="text-base text-slate-500 font-medium leading-relaxed">
-              Right now, that part is out of your control.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            variants={fadeInUp} 
-            className="pt-12 space-y-6"
-          >
-             <p className="text-2xl font-bold text-slate-900 tracking-tight">
-               MediKloud brings it back — <span className="underline decoration-indigo-500 underline-offset-8">seamlessly</span>.
-             </p>
-             <p className="text-body-lg text-slate-600 max-w-xl mx-auto font-medium leading-relaxed">
-               So every prescription you write doesn’t just end on paper — it completes the loop.
-             </p>
-          </motion.div>
+          <HeartPulse className="w-10 h-10 text-[#4F46E5]" />
         </motion.div>
+        <motion.h2 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mb-8"
+        >
+          A more capable clinic.<br className="hidden md:block" />
+          <span className="bg-gradient-display bg-clip-text text-transparent pb-2" style={{ color: '#4F46E5' }}>Better recovery for your patients.</span>
+        </motion.h2>
+        <motion.p 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="text-xl text-[#64748B] leading-relaxed font-medium"
+        >
+          Doorstep delivery ensures treatment starts immediately. Automated refills drive better outcomes for chronic conditions. We help you close the care loop.
+        </motion.p>
       </div>
     </section>
   );
 };
-
