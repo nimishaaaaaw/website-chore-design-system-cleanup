@@ -22,19 +22,19 @@ export const HospitalPharmacyApproach = () => {
       <div className="container-page relative z-10">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} 
-          className="max-w-4xl mx-auto text-center mb-16 space-y-6"
+          className="max-w-[825px] mx-auto text-center mb-12 lg:mb-20 space-y-6"
         >
           <div className="eyebrow-wrap justify-center">
             <span className="eyebrow-line-l bg-indigo-500/30" />
-            <span className="eyebrow-text text-indigo-600 uppercase tracking-tighter">The Partnership</span>
+            <span className="eyebrow-text text-indigo-600">The Partnership</span>
             <span className="eyebrow-line-r bg-indigo-500/30" />
           </div>
-          <h2 className="text-h2 font-black tracking-tight text-slate-900 leading-[1.1] md:text-5xl">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.3]">
             We run the pharmacy.<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600">You focus on the patient.</span>
+            <span className="text-indigo-600">You focus on the patient.</span>
           </h2>
-          <p className="text-body-lg text-slate-600 font-medium max-w-2xl mx-auto">
-            We don't just sell software. We deploy a complete, fully-managed retail operation inside your clinic walls—at zero cost to you.
+          <p className="text-body-lg text-slate-500 font-medium max-w-[800px] mx-auto mt-4">
+            We don't believe in generic partnerships. Whether you need us to run your daily counter or just automate your home deliveries, we have a model that fits your clinical workflow.
           </p>
         </motion.div>
 
@@ -51,14 +51,14 @@ export const HospitalPharmacyApproach = () => {
                 <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center backdrop-blur-md">
                   <Package className="w-7 h-7 text-blue-400" />
                 </div>
-                <div className="px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold tracking-widest uppercase flex items-center gap-2">
+                <div className="px-3 py-1 rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[12px] font-bold tracking-tight flex items-center gap-2">
                   <Sparkles className="w-3 h-3" /> Zero Capital Required
                 </div>
               </div>
               
               <div className="mt-auto">
-                <h3 className="text-3xl font-black text-white mb-4 tracking-tight">100% Funded Inventory</h3>
-                <p className="text-slate-400 text-lg leading-relaxed font-medium max-w-lg">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 tracking-tight">100% Funded Inventory</h3>
+                <p className="text-slate-400 text-base leading-relaxed max-w-lg">
                   We buy the stock. We carry the risk. We clear out your dead medicines and replenish the fast-movers based directly on your doctors' prescriptions. Your capital is finally free.
                 </p>
               </div>
@@ -71,8 +71,8 @@ export const HospitalPharmacyApproach = () => {
               <Users2 className="w-7 h-7" />
             </div>
             <div className="mt-auto">
-              <h3 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">Expert Staffing</h3>
-              <p className="text-slate-500 font-medium leading-relaxed">
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 tracking-tight">Expert Staffing</h3>
+              <p className="text-slate-500 text-base leading-relaxed">
                 We hire, train, and manage the licensed pharmacists. You never worry about scheduling, attrition, or counter management again.
               </p>
             </div>
@@ -84,8 +84,8 @@ export const HospitalPharmacyApproach = () => {
               <ShieldCheck className="w-7 h-7" />
             </div>
             <div className="mt-auto">
-              <h3 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">Leak-Proof Ops</h3>
-              <p className="text-slate-500 font-medium leading-relaxed">
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 tracking-tight">Leak-Proof Ops</h3>
+              <p className="text-slate-500 text-base leading-relaxed">
                 Barcode billing and daily automated audits mean zero untracked inventory walking out the door. Every pill is accounted for.
               </p>
             </div>
@@ -99,7 +99,7 @@ export const HospitalPharmacyApproach = () => {
                      <MessageCircle className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <span className="text-white text-sm font-bold block">Refill Assistant</span>
+                    <span className="text-white text-[12px] font-bold block tracking-tight">Refill Assistant</span>
                     <span className="text-indigo-200 text-xs">Just now</span>
                   </div>
                </div>
@@ -113,8 +113,8 @@ export const HospitalPharmacyApproach = () => {
                 <RefreshCw className="w-7 h-7 text-white" />
               </div>
               <div className="mt-auto">
-                <h3 className="text-3xl font-black text-white mb-4 tracking-tight">The Refill Engine</h3>
-                <p className="text-indigo-100 text-lg leading-relaxed font-medium">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 tracking-tight">The Refill Engine</h3>
+                <p className="text-indigo-100 text-base leading-relaxed">
                   We trigger automated WhatsApp reminders and handle last-mile home delivery under your clinic's brand. Chronic patients stay yours, forever.
                 </p>
               </div>

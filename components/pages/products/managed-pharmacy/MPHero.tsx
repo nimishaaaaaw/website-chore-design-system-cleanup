@@ -47,10 +47,10 @@ export const MPHero = () => {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           
           {/* STANDARDIZED LEFT COLUMN (Refined High-Fidelity Spacing) */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="lg:col-span-7 text-center lg:text-left">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="lg:col-span-7 text-center lg:text-left">
             
             {/* Eyebrow - Keep Airy */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start mb-10 md:mb-14 pt-6">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start mb-10 md:mb-14 pt-6">
               <span className="eyebrow-line-l"></span>
               <span className="eyebrow-text">Zero Capex · Fully Managed</span>
               <span className="eyebrow-line-r"></span>
@@ -60,41 +60,41 @@ export const MPHero = () => {
             <div className="space-y-8 md:space-y-10">
               <div className="space-y-6 md:space-y-8">
                 {/* STANDARDIZED 3-LINE HEADLINE (Uneven Spacing) */}
-                <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-center lg:text-left text-balance">
+                <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-center lg:text-left text-balance">
                   <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
-                    <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight text-slate-900">
+                    <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight text-slate-900">
                       Stop Managing Inventory.
                     </span>
-                    <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.1] tracking-tight bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>
+                    <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>
                       Let Us Run the Pharmacy.
                     </span>
                   </div>
                   <div className="mt-8 md:mt-10">
-                    <span className="block text-[1.25rem] sm:text-[1.5rem] md:text-[1.75rem] lg:text-[1.875rem] font-semibold leading-[1.2] tracking-tight text-slate-700/90 italic">
+                    <span className="block text-[1.25rem] sm:text-[1.5rem] md:text-[1.75rem] lg:text-[1.875rem] font-semibold leading-relaxed tracking-tight text-slate-700/90 italic">
                       With Zero Daily Stress.
                     </span>
                   </div>
                 </motion.h1>
                 
-                <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-xl mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-                  We deploy the tech, fund the medicine stock, and provide licensed pharmacists. You gain a fully optimized, patient-first pharmacy without the daily operational headaches.
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
+                  Delegate your entire pharmacy operation to experts. From stock sourcing and staffing to daily billing and inventory, we manage everything while you focus on patient care.
                 </motion.p>
               </div>
 
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
-              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2 lg:pt-4">
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2 lg:pt-4">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
                   <button onClick={openModal} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
                     Partner With Us <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">
                   {HERO_TRUST_BADGES.map((badge, idx) => {
                     const Icon = badge.icon;
                     return (
                       <div key={idx} className="flex items-center gap-2.5">
                         <Icon size={16} className="text-blue-500" />
-                        <span className="text-xs font-semibold text-slate-600 tracking-wide uppercase">{badge.label}</span>
+                        <span className="text-xs font-semibold text-slate-600 tracking-wider uppercase">{badge.label}</span>
                       </div>
                     );
                   })}
@@ -104,7 +104,7 @@ export const MPHero = () => {
           </motion.div>
 
           {/* STANDARDIZED RIGHT COLUMN (PREMIUM GLASS WRAPPER + INTERACTIVE CONDUIT) */}
-          <motion.div initial={{ opacity: 0, scale: 0.95, x: 20 }} animate={{ opacity: 1, scale: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }} className="lg:col-span-5 relative lg:pl-4 mt-12 lg:mt-0 self-center">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }} className="lg:col-span-5 relative lg:pl-4 mt-12 lg:mt-0 self-center">
             
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-200/40 via-indigo-200/20 to-purple-200/40 rounded-[3rem] transform rotate-3 scale-105 blur-xl -z-10" />
             
@@ -116,8 +116,8 @@ export const MPHero = () => {
                      <ShieldCheck className="w-5 h-5" />
                    </div>
                    <div>
-                     <h4 className="text-sm font-bold text-slate-900 tracking-tight leading-none mb-1">Operational Managed</h4>
-                     <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">End-to-End Service</p>
+                      <h4 className="text-sm font-bold text-slate-900 tracking-tight leading-none mb-1">Operational Managed</h4>
+                      <p className="text-[10px] font-semibold text-[#8696a0] uppercase tracking-widest">End-to-End Service</p>
                    </div>
                  </div>
                  <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2 shadow-sm">

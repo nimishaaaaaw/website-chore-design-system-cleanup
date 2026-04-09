@@ -1,7 +1,11 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { Building2, Plus, Clock, Package, ShieldCheck, Activity, MapPin, Zap, Bike } from 'lucide-react';
+
+const premiumEase = [0.16, 1, 0.3, 1] as const;
 
 const clinics = [
   { 
@@ -28,15 +32,26 @@ const clinics = [
 
 export const VPNerveCenter = () => {
   return (
-    <section className="min-h-screen relative overflow-hidden bg-[#030712] text-slate-200 flex flex-col justify-center py-12 md:py-20">
-      {/* Background Gradient Matched to User Code */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(29,78,216,0.15),rgba(255,255,255,0))] pointer-events-none" />
+    <section className="section-py relative overflow-hidden bg-slate-950 text-slate-200" id="nerve-center">
+      {/* Forensic Background Textures */}
+      <div className="tech-grid-overlay !opacity-[0.03]" />
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+      
+      {/* Dynamic Brand Blobs */}
+      <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none animate-float-slow" />
+      <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-600/10 rounded-full blur-[80px] translate-y-1/2 pointer-events-none animate-pulse-slow" />
 
       <div className="container-page flex flex-col items-center relative z-10">
         {/* Section Header - Removed as per user request */}
 
         {/* Main Animation Container */}
-        <div className="w-full max-w-6xl bg-[#0B1120] border border-white/10 rounded-[2rem] overflow-hidden shadow-[0_0_50px_-12px_rgba(0,0,0,0.8)] relative mb-16 ring-1 ring-white/5">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: premiumEase }}
+          className="w-full max-w-6xl bg-slate-900/50 border border-white/10 rounded-[2.5rem] overflow-hidden shadow-card-lg relative mb-16 ring-1 ring-white/5"
+        >
           
           {/* SVG Animation Canvas */}
           <div className="relative w-full aspect-[4/3] md:aspect-[16/9]">
@@ -124,7 +139,7 @@ export const VPNerveCenter = () => {
                         {/* Badge Background */}
                         <circle cx="16" cy="16" r="14" fill="#047857" stroke="#10B981" strokeWidth="1.5" />
                         {/* Bike Icon */}
-                        <Bike x="6" y="6" width="20" height="20" color="#ffffff" strokeWidth={2.5} />
+                        <Bike x="6" y="6" width="20" height="20" color="#ffffff" strokeWidth={1.5} />
                       </g>
                     </g>
                   ))}
@@ -142,19 +157,19 @@ export const VPNerveCenter = () => {
                   className="overflow-visible"
                 >
                   <div className="flex flex-col items-center justify-center w-full h-full group cursor-default">
-                    <div className="bg-[#0f172a]/80 backdrop-blur-xl border border-slate-700/60 border-t-blue-500/50 p-3.5 rounded-2xl shadow-2xl transition-all duration-300 transform group-hover:scale-110 group-hover:bg-[#1e293b]/90 group-hover:border-t-blue-400 flex flex-col items-center gap-1.5 z-10 w-full relative">
+                    <div className="bg-slate-900/80 backdrop-blur-xl border border-white/10 border-t-blue-500/50 p-3.5 rounded-2xl shadow-2xl transition-all duration-300 transform group-hover:scale-110 group-hover:bg-slate-800/90 group-hover:border-t-blue-400 flex flex-col items-center gap-1.5 z-10 w-full relative">
                       {/* Active Clinic Ping indicator */}
                       <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5">
                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" style={{ animationDuration: '3s' }}></span>
                          <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-blue-500 border-2 border-[#0f172a]"></span>
                       </div>
                       <div className="bg-slate-800/50 p-2 rounded-lg">
-                        <Building2 className="w-5 h-5 text-blue-300" />
+                        <Building2 className="w-5 h-5 text-blue-300" strokeWidth={1.5} />
                       </div>
                       <span className="text-sm font-bold text-slate-100 text-center leading-tight whitespace-nowrap tracking-wide">{clinic.name}</span>
                     </div>
                     <div className="mt-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider flex items-center gap-1 shadow-[0_0_10px_rgba(16,185,129,0.1)]">
-                      <MapPin className="w-3 h-3" /> Doorstep
+                      <MapPin className="w-3 h-3" strokeWidth={1.5} /> Doorstep
                     </div>
                   </div>
                 </foreignObject>
@@ -168,16 +183,22 @@ export const VPNerveCenter = () => {
                     <div className="absolute inset-0 bg-blue-600 rounded-[2.5rem] blur-2xl opacity-30 animate-pulse transition-opacity group-hover:opacity-50"></div>
                     
                     {/* Main Hub Box */}
-                    <div className="bg-slate-900/90 backdrop-blur-2xl border border-blue-500/40 shadow-[0_0_40px_rgba(59,130,246,0.3)] p-6 rounded-[2rem] flex flex-col items-center relative z-10 transform transition-transform duration-500 group-hover:scale-105">
+                    <div className="bg-slate-900/90 backdrop-blur-2xl border border-blue-500/40 shadow-glow p-6 rounded-[2.5rem] flex flex-col items-center relative z-10 transform transition-transform duration-500 group-hover:scale-105">
                       <div className="relative mb-3">
                         <div className="absolute inset-0 bg-blue-400 blur-lg opacity-50"></div>
-                        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-4 rounded-2xl relative z-10 shadow-inner">
-                          <Plus className="w-8 h-8 text-white" strokeWidth={3} />
+                        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-4 rounded-2xl relative z-10 shadow-inner flex items-center justify-center">
+                          <Image 
+                            src="/favicon.png" 
+                            alt="MediKloud Icon" 
+                            width={32} 
+                            height={32} 
+                            className="w-8 h-8 object-contain"
+                          />
                         </div>
                       </div>
-                      <span className="text-base font-extrabold text-white mb-1.5 tracking-tight">Dark Pharmacy Hub</span>
+                      <span className="text-base font-bold text-white mb-1.5 tracking-tight">Medikloud Hub</span>
                       <div className="flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-lg">
-                        <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
+                        <ShieldCheck className="w-3.5 h-3.5 text-blue-400" strokeWidth={1.5} />
                         <span className="text-[10px] text-blue-300 uppercase tracking-widest font-bold">
                           Inventory Core
                         </span>
@@ -189,37 +210,37 @@ export const VPNerveCenter = () => {
             </svg>
           </div>
 
-          {/* Overlay Stats/Info positioned at the bottom corners */}
-          <div className="absolute bottom-6 left-6 hidden md:block">
-            <div className="bg-[#0f172a]/70 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl">
+          {/* Overlay Stats/Info positioned at the corners */}
+          <div className="absolute top-6 left-6 hidden md:block">
+            <div className="bg-slate-900/70 backdrop-blur-xl border border-white/10 p-5 rounded-[2rem] shadow-card-lg">
               <div className="flex items-center gap-4">
                 <div className="bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-xl">
-                  <Zap className="w-6 h-6 text-emerald-400" />
+                  <Zap className="w-6 h-6 text-emerald-400" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">Avg Response</p>
-                  <p className="text-2xl font-black text-white tracking-tight">9.4 min</p>
+                  <p className="text-2xl font-bold stat-number !text-white tracking-tight">9.4 min</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="absolute bottom-6 right-6 hidden md:block">
-            <div className="bg-[#0f172a]/70 backdrop-blur-xl border border-white/10 p-5 rounded-2xl shadow-2xl">
+            <div className="bg-slate-900/70 backdrop-blur-xl border border-white/10 p-5 rounded-[2rem] shadow-card-lg">
               <div className="flex items-center gap-4">
                 <div className="bg-blue-500/10 border border-blue-500/20 p-3 rounded-xl">
-                  <Activity className="w-6 h-6 text-blue-400" />
+                  <Activity className="w-6 h-6 text-blue-400" strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">Fulfillment</p>
-                  <p className="text-2xl font-black text-white tracking-tight">100%</p>
+                  <p className="text-2xl font-bold stat-number !text-white tracking-tight">100%</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Feature Cards Grid (Adapted from User's original sections) */}
+          {/* Feature Cards Grid (Adapted from User's original sections) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
           {[
             {
@@ -271,15 +292,18 @@ export const VPNerveCenter = () => {
               }
             }
           ].map((feature, idx) => (
-            <div key={idx} className={`group relative bg-[#0f172a]/50 backdrop-blur-md border border-slate-800 p-8 rounded-[2rem] hover:bg-[#1e293b]/50 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-15px_${feature.colors.shadow}] overflow-hidden`}>
+            <div 
+              key={idx} 
+              className={`group relative bg-slate-900/50 backdrop-blur-md border border-white/5 p-8 rounded-[2rem] hover:bg-slate-800/50 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card-lg overflow-hidden z-10 hover:z-20`}
+            >
                {/* Accent bar */}
                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${feature.colors.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-
+ 
               <div className={`${feature.colors.bg} ${feature.colors.border} w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                <feature.icon className={`w-7 h-7 ${feature.colors.text}`} />
+                <feature.icon className={`w-7 h-7 ${feature.colors.text}`} strokeWidth={1.5} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{feature.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed font-medium">
+              <h3 className="premium-h3 !text-white !text-xl mb-3">{feature.title}</h3>
+              <p className="premium-p !text-sm !text-slate-400 font-medium">
                 {feature.desc}
               </p>
             </div>

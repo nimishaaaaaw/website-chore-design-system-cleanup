@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const premiumEase = [0.16, 1, 0.3, 1] as const;
+
 export const VPComparison = () => {
   // Enhanced data structure with 'status' to drive semantic colors and icons
   const comparisonData = [
@@ -69,7 +71,7 @@ export const VPComparison = () => {
     // Define organic, neutral styles for standard columns, keeping focus on the data
     const styles: Record<string, { icon: React.ReactNode, text: string }> = {
       neutral: {
-        icon: <Minus size={16} className={isDarkColumn ? "text-slate-500" : "text-slate-400"} />,
+        icon: <Minus size={16} strokeWidth={1.5} className={isDarkColumn ? "text-slate-500" : "text-slate-400"} />,
         text: isDarkColumn ? "text-slate-400" : "text-slate-500"
       },
       standard: {
@@ -77,11 +79,11 @@ export const VPComparison = () => {
         text: isDarkColumn ? "text-slate-300" : "text-slate-600 font-medium"
       },
       positive: {
-        icon: <CheckCircle2 size={18} className={isDarkColumn ? "text-emerald-400" : "text-emerald-500"} />,
+        icon: <CheckCircle2 size={18} strokeWidth={1.5} className={isDarkColumn ? "text-emerald-400" : "text-emerald-500"} />,
         text: isDarkColumn ? "text-white font-medium" : "text-slate-900 font-medium"
       },
       highlight: {
-        icon: <TrendingUp size={18} className={isDarkColumn ? "text-blue-400" : "text-indigo-600"} />,
+        icon: <TrendingUp size={18} strokeWidth={1.5} className={isDarkColumn ? "text-blue-400" : "text-indigo-600"} />,
         text: isDarkColumn ? "text-blue-100 font-bold" : "text-indigo-700 font-bold"
       }
     };
@@ -97,7 +99,11 @@ export const VPComparison = () => {
   };
 
   return (
-    <div className="bg-white font-sans py-12 flex flex-col justify-center">
+    <div className="bg-white relative py-12 flex flex-col justify-center">
+      {/* Forensic Background Textures */}
+      <div className="tech-grid-overlay !opacity-[0.03]" />
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+
       <section className="section-py relative overflow-hidden w-full">
         <div className="container-page relative z-10">
           
@@ -105,9 +111,9 @@ export const VPComparison = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-5xl mx-auto text-center mb-16 md:mb-20 space-y-6"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: premiumEase }}
+            className="header-lock text-center mb-16 md:mb-20 space-y-6"
           >
             <div className="eyebrow-wrap">
               <span className="eyebrow-line-r" />
@@ -115,14 +121,14 @@ export const VPComparison = () => {
               <span className="eyebrow-line-l" />
             </div>
             
-            <h2 className="text-section md:text-5xl lg:text-6xl text-balance leading-[1.2]">
-              Pick the right pharmacy <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 pb-1" style={{ color: '#4F46E5' }}>
+            <h2 className="premium-h2 text-balance leading-[1.2]">
+              Pick the right pharmacy <br className="hidden md:block" />
+              <span className="text-indigo-600">
                 operating model for your clinic.
               </span>
             </h2>
             
-            <p className="text-body-lg text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
+            <p className="premium-p intro-lock !text-slate-500 max-w-2xl mx-auto leading-relaxed">
               Compare the setup costs, daily effort, and financial upside to make the best choice for your practice.
             </p>
           </motion.div>
@@ -131,9 +137,9 @@ export const VPComparison = () => {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="relative max-w-[1100px] mx-auto"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.1, ease: premiumEase }}
+            className="relative max-w-6xl mx-auto"
           >
             {/* Outer Wrapper for styling */}
             <div className="rounded-[2.5rem] bg-white border border-slate-200/60 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] overflow-hidden relative">
@@ -160,8 +166,8 @@ export const VPComparison = () => {
                         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-50" />
                         
                         <div className="relative z-10 flex flex-col items-center">
-                          <span className="inline-flex items-center justify-center px-3 py-1 mb-4 text-[10px] uppercase tracking-[0.2em] font-bold text-indigo-200 bg-indigo-500/20 ring-1 ring-indigo-500/40 rounded-full backdrop-blur-md">
-                            <Zap size={10} className="mr-1.5 text-indigo-300" fill="currentColor" />
+                          <span className="inline-flex items-center justify-center px-4 py-1 mb-4 text-[10px] uppercase tracking-[0.2em] font-bold text-indigo-200 bg-indigo-500/20 ring-1 ring-indigo-500/40 rounded-full backdrop-blur-md">
+                            <Zap size={10} strokeWidth={1.5} className="mr-1.5 text-indigo-300" fill="currentColor" />
                             Virtual Pharmacy
                           </span>
                           <h3 className="text-2xl font-extrabold text-white tracking-tight">MediKloud</h3>
@@ -219,7 +225,7 @@ export const VPComparison = () => {
               {/* Bottom Callout Bar */}
               <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border-t border-indigo-100/60 p-5 md:p-6 text-center">
                  <div className="inline-flex items-center justify-center space-x-3 text-indigo-800 font-semibold text-sm md:text-base">
-                    <CheckCircle2 size={20} className="text-indigo-600" />
+                    <CheckCircle2 size={20} strokeWidth={1.5} className="text-indigo-600" />
                     <span>Focus on patient care. We handle the rest.</span>
                  </div>
               </div>

@@ -70,70 +70,89 @@ export const HMSModules = () => {
   const [activeModule, setActiveModule] = useState(0);
 
   return (
-    <section className="relative py-section-sm md:py-section bg-slate-50 overflow-hidden">
-      <div className="max-w-container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h2 
+    <section className="relative overflow-hidden bg-slate-50 section-py-premium">
+      {/* Gold Standard Atmosphere (Subtle for Alt Section) */}
+      <div className="tech-grid-overlay !opacity-[0.02]" />
+      <div className="noise-texture !opacity-[0.02]" />
+
+      <div className="container-page relative z-10">
+        <header className="header-lock text-center mb-16 md:mb-24">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-h1 font-bold text-slate-900 leading-[1.1] tracking-tight mb-6"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            Comprehensive Modules. <br />
-            <span className="bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>Built for Total Control.</span>
-          </motion.h2>
-        </div>
+            <div className="eyebrow-wrap">
+              <span className="eyebrow-line-l" />
+              <span className="eyebrow-text">Modular Architecture</span>
+              <span className="eyebrow-line-r" />
+            </div>
+            <h2 className="premium-h2 mb-6">
+              Comprehensive Modules. <br className="hidden md:block" />
+              <span className="text-brand-indigo-600">Built for Total Control.</span>
+            </h2>
+          </motion.div>
+        </header>
 
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 max-w-6xl mx-auto items-start">
           
-          {/* Left Column: Tab Navigation */}
-          <div className="w-full lg:w-1/3 flex flex-col gap-3">
+          {/* Left Column: Tab Navigation (Premium Semantic Architecture) */}
+          <div className="w-full lg:w-[380px] flex flex-col gap-4">
             {modulesData.map((module, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveModule(idx)}
-                className={`w-full flex items-center justify-between p-5 rounded-2xl text-left transition-all duration-300 transform ${
+                className={`w-full flex items-center justify-between p-5 rounded-[1.5rem] text-left transition-all duration-300 group ${
                   activeModule === idx 
-                    ? 'bg-gradient-action text-white shadow-card-lg scale-[1.02]' 
-                    : 'bg-white text-slate-500 hover:bg-slate-100/50 hover:text-slate-900 border border-slate-200'
+                    ? 'bg-gradient-action text-white shadow-card-lg scale-[1.02] border-transparent' 
+                    : 'bg-white text-slate-500 hover:bg-white hover:text-brand-600 border border-slate-200 shadow-card hover:shadow-card-md hover:border-brand-indigo-100'
                 }`}
               >
                 <div className="flex items-center gap-4">
-                  <div className={`p-2.5 rounded-xl border ${activeModule === idx ? 'bg-white/20 border-white/20' : 'bg-blue-50 border-blue-100 text-blue-600'}`}>
-                    {module.icon}
+                  <div className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-colors duration-300 ${
+                    activeModule === idx 
+                      ? 'bg-white/20 border-white/20 text-white' 
+                      : 'bg-slate-50 border-slate-100 text-slate-400 group-hover:bg-brand-50 group-hover:border-brand-100 group-hover:text-brand-600'
+                  }`}>
+                    {React.cloneElement(module.icon as React.ReactElement, { strokeWidth: 1.5 } as any)}
                   </div>
-                  <span className="font-bold text-lg">{module.title}</span>
+                  <span className={`font-bold text-base tracking-tight transition-colors ${activeModule === idx ? 'text-white' : 'text-slate-900'}`}>
+                    {module.title}
+                  </span>
                 </div>
-                <ChevronRight className={`w-5 h-5 transition-transform ${activeModule === idx ? 'opacity-100 translate-x-1' : 'opacity-0 -translate-x-2'}`} />
+                <ChevronRight 
+                  strokeWidth={1.5}
+                  className={`w-5 h-5 transition-all duration-300 ${activeModule === idx ? 'opacity-100 translate-x-1' : 'opacity-0 -translate-x-2'}`} 
+                />
               </button>
             ))}
           </div>
 
           {/* Right Column: Tab Content (Feature Grid) */}
-          <div className="w-full lg:w-2/3 min-h-[460px]">
+          <div className="flex-1 min-h-[460px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeModule}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4 }}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
               >
                 {modulesData[activeModule].features.map((feature, idx) => (
                   <div 
                     key={idx} 
-                    className="bg-white p-6 rounded-3xl shadow-card border border-slate-200/60 hover:shadow-card-md hover:border-brand-indigo-100 transition-all group relative overflow-hidden"
+                    className="bg-white p-7 rounded-[2rem] shadow-card border border-slate-200/60 hover:shadow-card-lg hover:border-brand-indigo-100 transition-all duration-300 group relative overflow-hidden"
                   >
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-blue-100 transition-colors" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-brand-50/40 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-100/50 transition-colors duration-500" />
                     
                     <div className="relative z-10">
-                      <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-gradient-action transition-colors">
-                        <CheckCircle2 className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" />
+                      <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-5 group-hover:bg-brand-600 group-hover:border-brand-600 transition-all duration-300">
+                        <CheckCircle2 strokeWidth={1.5} className="w-6 h-6 text-brand-600 group-hover:text-white transition-colors" />
                       </div>
-                      <h4 className="text-h3 font-bold text-slate-900 mb-2">{feature.name}</h4>
-                      <p className="text-body text-slate-600 leading-relaxed font-medium">{feature.desc}</p>
+                      <h4 className="text-lg font-bold text-slate-900 mb-2 leading-tight tracking-tight">{feature.name}</h4>
+                      <p className="text-sm font-medium text-slate-500 leading-relaxed">{feature.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -142,8 +161,6 @@ export const HMSModules = () => {
           </div>
 
         </div>
-
-
       </div>
     </section>
   );

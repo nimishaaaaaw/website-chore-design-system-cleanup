@@ -19,66 +19,76 @@ const comparisonData = [
 
 export const HMSComparison = () => {
   return (
-    <section className="relative py-section-sm md:py-section bg-white overflow-hidden border-t border-slate-100">
-      <div className="max-w-container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.h2 
+    <section className="relative section-py-premium bg-white overflow-hidden border-t border-slate-100">
+      {/* Gold Standard Atmosphere */}
+      <div className="tech-grid-overlay !opacity-[0.03]" />
+      <div className="noise-texture !opacity-[0.02]" />
+
+      <div className="container-page relative z-10">
+        <header className="header-lock text-center mb-16 md:mb-24">
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-h1 font-bold text-slate-900 leading-[1.1] tracking-tight mb-6"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            The Modern <br />
-            <span className="bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>Clinical Standard.</span>
-          </motion.h2>
+            <div className="eyebrow-wrap">
+              <span className="eyebrow-line-l" />
+              <span className="eyebrow-text">Modern Standard</span>
+              <span className="eyebrow-line-r" />
+            </div>
+            <h2 className="premium-h2 mb-6 text-balance">
+              The Modern <span className="text-brand-indigo-600">Clinical Standard.</span>
+            </h2>
+          </motion.div>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-body-lg text-slate-600 leading-relaxed"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="premium-p intro-lock"
           >
-            Traditional Hospital Management Systems were built for the desktop era—slow, complex, and high-maintenance. MediKloud was built for the mobile era—fast, intuitive, and always connected.
+            Traditional Hospital Management Systems were built for accounting. <strong>MediKloud HMS</strong> is built for care, speed, and clinical precision.
           </motion.p>
-        </div>
+        </header>
 
+        {/* Comparison Matrix */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto overflow-hidden rounded-[2.5rem] border border-slate-200 shadow-float bg-white"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-5xl mx-auto overflow-hidden rounded-[2rem] border border-slate-200 shadow-float-brand bg-white"
         >
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>
                 <tr>
-                  <th className="p-8 bg-slate-50 text-slate-400 font-black text-xs uppercase tracking-[0.2em] w-1/3 border-b border-slate-200">Feature</th>
-                  <th className="p-8 bg-slate-50 text-slate-400 font-black text-xs uppercase tracking-[0.2em] w-1/3 border-b border-slate-200 text-center">Legacy HMS Systems</th>
-                  <th className="p-8 bg-blue-600 text-white font-black text-xs uppercase tracking-[0.2em] w-1/3 border-b border-blue-700 text-center relative overflow-hidden">
+                  <th className="p-8 bg-slate-50 text-slate-900 font-bold text-[11px] uppercase tracking-widest w-1/3 border-b border-slate-100">Feature</th>
+                  <th className="p-8 bg-slate-50 text-slate-900 font-bold text-[11px] uppercase tracking-widest w-1/3 border-b border-slate-100 text-center">Legacy HMS Systems</th>
+                  <th className="p-8 bg-brand-600 text-white font-bold text-[11px] uppercase tracking-widest w-1/3 border-b border-brand-700 text-center relative overflow-hidden">
                     <div className="relative z-10 flex items-center justify-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-teal-300" />
+                      <CheckCircle2 strokeWidth={1.5} className="w-4 h-4 text-white" />
                       MediKloud HMS
                     </div>
-                    <div className="absolute inset-0 bg-gradient-action opacity-90 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-action"></div>
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-slate-50">
                 {comparisonData.map((row, idx) => (
                   <tr key={idx} className="hover:bg-slate-50/50 transition-colors group">
-                    <td className="p-6 font-bold text-slate-800 text-sm group-hover:pl-8 transition-all">{row.feature}</td>
-                    <td className="p-6 text-slate-500 text-center transition-colors">
+                    <td className="p-6 font-bold text-slate-900 text-sm">{row.feature}</td>
+                    <td className="p-6 text-slate-500 text-center">
                       <div className="flex items-center justify-center gap-3">
-                        <X className="w-4 h-4 text-rose-300 hidden sm:block" />
-                        <span className="text-xs font-bold uppercase tracking-wider">{row.legacy}</span>
+                        <X strokeWidth={1.5} className="w-4 h-4 text-rose-400 hidden sm:block" />
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{row.legacy}</span>
                       </div>
                     </td>
-                    <td className="p-6 font-black text-blue-900 text-center bg-blue-50/30 border-x border-blue-100/50 transition-colors">
+                    <td className="p-6 text-center bg-brand-50/30 border-x border-brand-100/50">
                       <div className="flex items-center justify-center gap-3">
-                        <Check className="w-5 h-5 text-success hidden sm:block" />
-                        <span className="text-xs uppercase tracking-[0.05em]">{row.modern}</span>
+                        <Check strokeWidth={2} className="w-5 h-5 text-success hidden sm:block" />
+                        <span className="text-[11px] font-bold uppercase tracking-widest text-brand-indigo-600">{row.modern}</span>
                       </div>
                     </td>
                   </tr>
@@ -88,21 +98,39 @@ export const HMSComparison = () => {
           </div>
         </motion.div>
 
-        {/* Strategic Outcome Banner */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-20 max-w-4xl mx-auto bg-gradient-tinted rounded-[2rem] border border-blue-100/50 p-8 lg:p-12 text-center shadow-card group"
+        {/* Strategic Outcome Banner: GOLD STANDARD REFIT */}
+        <div 
+          className="mt-16 md:mt-24 bg-slate-900 rounded-[2.5rem] p-12 lg:p-20 text-center shadow-card-xl relative overflow-hidden group"
         >
-          <h3 className="text-h2 font-bold text-slate-900 tracking-tight leading-tight mb-4">
-            Eliminate the overhead of legacy software.
-          </h3>
-          <p className="text-h1 font-black bg-gradient-display bg-clip-text text-transparent transform group-hover:scale-[1.02] transition-transform">
-            Move to the modern clinical standard.
-          </p>
-        </motion.div>
+          {/* Atmospheric Primitives (Dark) */}
+          <div className="tech-grid-overlay !opacity-[0.05]" />
+          <div className="noise-texture !opacity-[0.03]" />
+          
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-brand-600/10 blur-[120px] rounded-full group-hover:scale-125 transition-transform duration-1000" />
+            <div className="absolute -bottom-1/2 left-0 w-80 h-80 bg-brand-indigo-600/10 blur-[100px] rounded-full" />
+          </div>
+          
+          <div className="relative z-10 flex flex-col items-center">
+            <div className="w-16 h-1 bg-brand-600 rounded-full mb-12 opacity-60"></div>
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl mx-auto leading-[1.1] tracking-tight text-balance mb-8">
+              The product of <br className="hidden md:block" />
+              <span className="text-indigo-400">forensic healthcare engineering.</span>
+            </h3>
+            
+            <div className="mt-4 flex items-center gap-6">
+              <div className="flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-brand-600" />
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Clinical Excellence</span>
+              </div>
+              <div className="w-px h-3 bg-slate-700" />
+              <div className="flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-brand-600" />
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Modern Architecture</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>

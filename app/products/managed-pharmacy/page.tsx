@@ -1,7 +1,6 @@
 import { Header } from '@/components/layout/Header'
 import { MPHero } from '@/components/pages/products/managed-pharmacy/MPHero'
 import { MPProblemGrid } from '@/components/pages/products/managed-pharmacy/MPProblemGrid'
-// import { MPv2ProblemStack } from '@/components/pages/products/managed-pharmacy/MPv2ProblemStack'
 import { MPv2Solution } from '@/components/pages/products/managed-pharmacy/MPv2Solution'
 import { MPv2Timeline } from '@/components/pages/products/managed-pharmacy/MPv2Timeline'
 import { MPv2PersonaCTA } from '@/components/pages/products/managed-pharmacy/MPv2PersonaCTA'
@@ -15,12 +14,11 @@ export const metadata = {
 
 export default function ManagedPharmacyPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
       <Header />
       <main id="main">
         <MPHero />
         <MPProblemGrid />
-        
         <MPv2Solution />
         <MPv2Timeline />
         <MPv2PersonaCTA />

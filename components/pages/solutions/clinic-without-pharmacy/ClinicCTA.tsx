@@ -2,43 +2,50 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface ClinicCTAProps {
   onBookDemo?: () => void;
   onSeeHowItWorks?: () => void;
 }
 
+const premiumEase = [0.16, 1, 0.3, 1] as any;
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: premiumEase } }
 };
 
 export const ClinicCTA = ({ onBookDemo }: ClinicCTAProps) => {
   return (
-    <section className="section-py-lg relative overflow-hidden bg-[#020617]">
+    <section className="section-py-lg relative overflow-hidden bg-slate-900">
       {/* Background Atmosphere */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[30rem] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="tech-grid-overlay opacity-20" />
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
       
-      <div className="container-page relative z-10 text-center max-w-4xl mx-auto">
+      {/* Dynamic Brand Blobs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[30rem] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none animate-float-slow" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 blur-[100px] rounded-full pointer-events-none animate-pulse-slow" />
+      
+      <div className="container-page relative z-10 text-center">
         <motion.div
-           initial="hidden"
-           whileInView="visible"
-           viewport={{ once: true }}
-           variants={fadeInUp}
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, margin: "-100px" }}
+           transition={{ duration: 0.8, ease: premiumEase }}
+           className="header-lock mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15] mb-6">
-            Ready to close the <br className="hidden md:block" />
-            <span className="text-indigo-400">care loop?</span>
+          <h2 className="premium-h2 !text-white mb-8">
+            Ready to <span className="text-indigo-400">close the care loop?</span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="premium-p !text-slate-400 !text-xl intro-lock mx-auto">
             Join the forward-thinking clinics scaling their patient outcomes and revenue with MediKloud&apos;s digital pharmacy infrastructure.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
             <button 
               onClick={onBookDemo}
-              className="btn btn-dark-cta min-w-[200px]"
+              className="btn px-10 py-5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-glow transition-all active:scale-[0.98] min-w-[200px]"
             >
               Book a Free Demo
             </button>
@@ -47,7 +54,7 @@ export const ClinicCTA = ({ onBookDemo }: ClinicCTAProps) => {
                 const el = document.getElementById('how-it-works');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="btn px-8 py-3.5 text-white font-semibold border border-white/10 hover:bg-white/5 transition-colors rounded-xl min-w-[200px]"
+              className="btn px-10 py-5 text-white font-bold border border-white/20 hover:bg-white/5 transition-all rounded-2xl min-w-[200px] active:scale-[0.98]"
             >
               See how it works
             </button>
@@ -56,27 +63,22 @@ export const ClinicCTA = ({ onBookDemo }: ClinicCTAProps) => {
 
         {/* Support Banner */}
         <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { delay: 0.4, duration: 0.8 } }
-          }}
-          className="mt-16 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-x-10 gap-y-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="mt-20 pt-10 border-t border-white/10 flex flex-wrap justify-center gap-x-10 gap-y-6"
         >
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">AI-Driven Logistics</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Instant Setup</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Zero Inventory Required</span>
-          </div>
+          {[
+            { label: "AI-Driven Logistics", color: "bg-indigo-500" },
+            { label: "Instant Setup", color: "bg-brand-500" },
+            { label: "Zero Inventory Required", color: "bg-emerald-500" }
+          ].map((chip, i) => (
+            <div key={i} className="trust-chip bg-white/5 border-white/10">
+              <div className={`w-1.5 h-1.5 rounded-full ${chip.color} shadow-[0_0_8px_rgba(59,130,246,0.3)]`} />
+              <span className="trust-chip-text !text-slate-300">{chip.label}</span>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

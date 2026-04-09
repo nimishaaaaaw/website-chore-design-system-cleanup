@@ -3,31 +3,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const premiumEase = [0.16, 1, 0.3, 1] as any;
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: premiumEase } }
 };
 
 export const ClinicWhatChanges = () => {
   return (
-    <section className="section-py bg-section-alt border-y border-[#E2E8F0]">
-      <div className="container-page">
-        <div className="text-center max-w-4xl mx-auto mb-20">
-          <motion.h2 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15] mb-6"
-          >
-            All the capabilities of a pharmacy,<br className="hidden md:block" />
-            <span className="bg-gradient-display bg-clip-text text-transparent pb-2" style={{ color: '#4F46E5' }}>
-              none of the heavy lifting.
-            </span>
-          </motion.h2>
-        </div>
+    <section className="section-py bg-slate-50 relative overflow-hidden border-t border-slate-100">
+      <div className="tech-grid-overlay !opacity-[0.03]" />
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+      
+      <div className="container-page relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: premiumEase }}
+          className="header-lock text-center mb-12 lg:mb-20"
+        >
+          <h2 className="premium-h2">
+            All the <span className="text-indigo-600">capabilities of a pharmacy,</span>
+            none of the heavy lifting.
+          </h2>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-12 lg:mt-20">
           {[
             { title: "Zero Inventory", desc: "No tracking expiry dates, no wasted medicines." },
             { title: "Zero Real Estate", desc: "Don't sacrifice a single square foot of your clinic." },
@@ -36,21 +39,18 @@ export const ClinicWhatChanges = () => {
           ].map((item, i) => (
             <motion.div 
               key={i} 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, scale: 0.95 },
-                visible: { opacity: 1, scale: 1, transition: { delay: i * 0.1, duration: 0.5 } }
-              }}
-              className="card p-8 flex flex-col sm:flex-row items-start gap-6 hover:border-[#C7D2FE] group transition-all shadow-sm"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: i * 0.1, duration: 0.5, ease: premiumEase }}
+              className="card p-10 flex flex-col sm:flex-row items-center sm:items-start gap-8 border-slate-200 hover:border-brand-indigo-100 group group-hover:z-20 transition-all rounded-[2rem]"
             >
-              <div className="w-14 h-14 rounded-2xl bg-[#F8FAFC] flex items-center justify-center text-[#94A3B8] flex-shrink-0 border border-[#E2E8F0] group-hover:bg-[#EEF2FF] group-hover:text-[#4F46E5] group-hover:border-[#C7D2FE] transition-colors">
-                <span className="font-black text-2xl line-through decoration-2">0</span>
+              <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center text-slate-400 flex-shrink-0 border border-slate-200 group-hover:bg-indigo-50 group-hover:text-indigo-600 group-hover:border-indigo-100 transition-colors duration-500">
+                <span className="font-bold text-2xl line-through decoration-2">0</span>
               </div>
-              <div>
-                <h4 className="text-h3 text-[#0F172A] mb-3">{item.title}</h4>
-                <p className="text-base font-medium text-[#64748B]">{item.desc}</p>
+              <div className="text-center sm:text-left">
+                <h4 className="premium-h3 mb-3">{item.title}</h4>
+                <p className="premium-p text-slate-600">{item.desc}</p>
               </div>
             </motion.div>
           ))}

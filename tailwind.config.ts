@@ -240,6 +240,7 @@ const config: Config = {
         'section-sm':  '48px',   // mobile section padding
         'section':     '80px',   // desktop standard
         'section-lg':  '112px',  // hero, CTA
+        'breathing':   '128px',  // Premium breathing gap
       },
 
       // ─────────────────────────────────────────────────────────
@@ -249,6 +250,8 @@ const config: Config = {
         'container': '1280px',  // outer page wrapper
         'content':   '768px',   // prose / text blocks
         'narrow':    '560px',   // hero subtext, focused content
+        'header-lock': '900px',   // Premium solution header constraint
+        'intro-lock':  '800px',   // Premium intro paragraph constraint
       },
 
       // ─────────────────────────────────────────────────────────
@@ -294,6 +297,10 @@ const config: Config = {
         // Bottom fade on hero (masks blob overflow)
         'fade-bottom':
           'linear-gradient(to top, #FFFFFF, rgba(255,255,255,0.8), transparent)',
+        
+        // ── Patterns ─────────────────────────────────────────
+        'tech-grid': 
+          'linear-gradient(to right, #ffffff0a 1px, transparent 1px), linear-gradient(to bottom, #ffffff0a 1px, transparent 1px)',
       },
 
       // ─────────────────────────────────────────────────────────
@@ -358,6 +365,7 @@ const config: Config = {
       transitionTimingFunction: {
         'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
         'spring': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+        'premium': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },

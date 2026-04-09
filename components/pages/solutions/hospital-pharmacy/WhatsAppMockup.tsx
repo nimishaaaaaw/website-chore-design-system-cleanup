@@ -187,7 +187,7 @@ export const WhatsAppMockup = () => {
                 <Package className="w-4 h-4 text-emerald-400" />
               </div>
               <div>
-                <div className="text-[11px] font-black text-emerald-400 uppercase tracking-widest">Dispatched</div>
+                <div className="text-[11px] font-bold text-emerald-400 tracking-tight">Dispatched</div>
                 <div className="text-[10px] text-emerald-100/70 font-medium mt-0.5">Arriving today by 5 PM</div>
               </div>
             </div>

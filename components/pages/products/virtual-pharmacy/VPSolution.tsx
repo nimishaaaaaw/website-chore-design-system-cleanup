@@ -15,17 +15,22 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const premiumEase = [0.16, 1, 0.3, 1] as const;
+
 const VPSolution = () => {
   return (
-    <section className="bg-slate-950 py-24 md:py-32 relative text-slate-300 border-t border-slate-900">
-      {/* Dark Atmosphere Background */}
+    <section className="bg-slate-950 py-24 md:py-32 relative text-slate-300 border-t border-slate-900" id="infrastructure">
+      {/* Forensic Background Textures */}
+      <div className="tech-grid-overlay !opacity-[0.03]" />
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+      
+      {/* Background Blobs for depth */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-[-10%] right-[-5%] w-[40rem] h-[40rem] bg-indigo-600/10 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] left-[-5%] w-[40rem] h-[40rem] bg-blue-600/10 blur-[120px] rounded-full" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px]" />
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
@@ -34,20 +39,23 @@ const VPSolution = () => {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: premiumEase }}
             >
-              <div className="inline-flex items-center space-x-2 bg-blue-500/10 px-4 py-2 rounded-full mb-6 border border-blue-500/20">
-                <Layers className="w-4 h-4 text-blue-400" />
-                <span className="text-[11px] font-bold tracking-widest text-blue-400 uppercase">The Paradigm Shift</span>
+              <div className="eyebrow-wrap !justify-start mb-6">
+                <span className="eyebrow-line-l"></span>
+                <span className="eyebrow-text flex items-center gap-2">
+                   <Layers size={14} className="text-blue-400" /> The Paradigm Shift
+                </span>
+                <span className="eyebrow-line-r"></span>
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.1] mb-6">
+              <h2 className="premium-h2 !text-white mb-6">
                 Pharmacy,<br />
-                <span className="text-blue-600">delivered as a service.</span>
+                <span className="text-indigo-600">delivered as a service.</span>
               </h2>
               
-              <p className="text-lg text-slate-400 leading-relaxed font-medium">
+              <p className="premium-p intro-lock !text-slate-400">
                 We completely decoupled the pharmacy from the clinic. You keep all the clinical and financial benefits, while we absorb the physical footprint, the inventory risk, and the regulatory burden.
               </p>
             </motion.div>
@@ -55,19 +63,19 @@ const VPSolution = () => {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="hidden lg:block pt-4 border-t border-slate-800"
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: premiumEase }}
+              className="hidden lg:block pt-8 border-t border-slate-800"
             >
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-10">
                 <div>
-                  <p className="text-3xl font-bold text-white tracking-tight">0<span className="text-xl text-slate-500">sq.ft</span></p>
-                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">Space Required</p>
+                  <p className="stat-number !text-white text-3xl">0<span className="text-xl text-slate-500 font-bold ml-1">sq.ft</span></p>
+                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1.5">Space Required</p>
                 </div>
                 <div className="w-px h-10 bg-slate-800" />
                 <div>
-                  <p className="text-3xl font-bold text-white tracking-tight">₹0</p>
-                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">Capital Invested</p>
+                  <p className="stat-number !text-white text-3xl">₹0</p>
+                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1.5">Capital Invested</p>
                 </div>
               </div>
             </motion.div>
@@ -81,8 +89,8 @@ const VPSolution = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="bg-slate-900/50 backdrop-blur-md rounded-[2rem] border border-slate-800 p-8 hover:bg-slate-800/50 transition-colors group relative overflow-hidden"
+              transition={{ duration: 0.6, ease: premiumEase }}
+              className="bg-slate-900/50 backdrop-blur-md rounded-[2.5rem] border border-slate-800 p-8 md:p-10 hover:bg-slate-800/50 transition-colors group relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Monitor size={120} />
@@ -90,10 +98,10 @@ const VPSolution = () => {
               
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mb-6 border border-blue-600/30">
-                  <Monitor size={20} className="stroke-[2]" />
+                  <Monitor size={20} className="strokeWidth={1.5}" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Next-Gen Clinic OS</h3>
-                <p className="text-slate-400 font-medium leading-relaxed mb-8 max-w-md">
+                <h3 className="premium-h3 !text-white mb-4">Next-Gen Clinic OS</h3>
+                <p className="premium-p mb-8 max-w-md !text-slate-400">
                   We upgrade your practice with world-class clinic management software. Handle patient flow, daily operations, EMRs, and instantly beam prescriptions to our fulfillment network with a single click.
                 </p>
 
@@ -122,8 +130,8 @@ const VPSolution = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-slate-900/50 backdrop-blur-md rounded-[2rem] border border-slate-800 p-8 hover:bg-slate-800/50 transition-colors group relative overflow-hidden"
+              transition={{ duration: 0.6, delay: 0.1, ease: premiumEase }}
+              className="bg-slate-900/50 backdrop-blur-md rounded-[2.5rem] border border-slate-800 p-8 md:p-10 hover:bg-slate-800/50 transition-colors group relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Server size={120} />
@@ -131,10 +139,10 @@ const VPSolution = () => {
               
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mb-6 border border-blue-600/30">
-                  <Server size={20} className="stroke-[2]" />
+                  <Server size={20} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Hyper-Local Dark Hubs</h3>
-                <p className="text-slate-400 font-medium leading-relaxed mb-8 max-w-md">
+                <h3 className="premium-h3 !text-white mb-4">Hyper-Local Dark Hubs</h3>
+                <p className="premium-p mb-8 max-w-md !text-slate-400">
                   We build and run a fully licensed, pharmacist-led medicine warehouse strategically located near your clinic.
                 </p>
 
@@ -148,14 +156,14 @@ const VPSolution = () => {
                     </div>
                   </div>
                   <div className="bg-slate-950/50 border border-slate-800 p-3 rounded-xl flex items-center gap-3">
-                    <Package className="w-3.5 h-3.5 text-blue-600" />
+                    <Package size={14} className="text-blue-600" strokeWidth={1.5} />
                     <div>
                       <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Inventory</p>
                       <p className="text-xs font-bold text-slate-300">Brand Matched</p>
                     </div>
                   </div>
                   <div className="bg-slate-950/50 border border-slate-800 p-3 rounded-xl flex items-center gap-3 hidden sm:flex">
-                    <Stethoscope className="w-3.5 h-3.5 text-indigo-400" />
+                    <Stethoscope size={14} className="text-indigo-400" strokeWidth={1.5} />
                     <div>
                       <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Staffing</p>
                       <p className="text-xs font-bold text-slate-300">Provided</p>
@@ -170,8 +178,8 @@ const VPSolution = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-slate-900/50 backdrop-blur-md rounded-[2rem] border border-slate-800 p-8 hover:bg-slate-800/50 transition-colors group relative overflow-hidden"
+              transition={{ duration: 0.6, delay: 0.2, ease: premiumEase }}
+              className="bg-slate-900/50 backdrop-blur-md rounded-[2.5rem] border border-slate-800 p-8 md:p-10 hover:bg-slate-800/50 transition-colors group relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Route size={120} />
@@ -179,10 +187,10 @@ const VPSolution = () => {
 
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-indigo-600/20 text-indigo-400 rounded-xl flex items-center justify-center mb-6 border border-indigo-600/30">
-                  <Truck size={20} className="stroke-[2]" />
+                  <Truck size={20} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">10-Minute Routing Protocol</h3>
-                <p className="text-slate-400 font-medium leading-relaxed mb-8 max-w-md">
+                <h3 className="premium-h3 !text-white mb-4">10-Minute Routing Protocol</h3>
+                <p className="premium-p mb-8 max-w-md !text-slate-400">
                   Our dedicated fleet intercepts the e-prescription and dispatches immediately, handing the medicine to the patient at your clinic door before they leave.
                 </p>
 
@@ -214,8 +222,8 @@ const VPSolution = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gradient-to-br from-slate-900/80 to-indigo-950/50 backdrop-blur-md rounded-[2rem] border border-indigo-500/20 p-8 hover:border-indigo-500/40 transition-colors group relative overflow-hidden"
+              transition={{ duration: 0.6, delay: 0.3, ease: premiumEase }}
+              className="bg-gradient-to-br from-slate-900/80 to-indigo-950/50 backdrop-blur-md rounded-[2.5rem] border border-indigo-500/20 p-8 md:p-10 hover:border-indigo-500/40 transition-colors group relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                 <PieChart size={120} />
@@ -223,10 +231,10 @@ const VPSolution = () => {
 
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-emerald-600/20 text-emerald-400 rounded-xl flex items-center justify-center mb-6 border border-emerald-600/30">
-                  <PieChart size={20} className="stroke-[2]" />
+                  <PieChart size={20} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Zero-Touch Revenue Engine</h3>
-                <p className="text-slate-400 font-medium leading-relaxed mb-8 max-w-md">
+                <h3 className="premium-h3 !text-white mb-4">Zero-Touch Revenue Engine</h3>
+                <p className="premium-p mb-8 max-w-md !text-slate-400">
                   Because your clinic acts as the point-of-care, you earn a substantial service fee on every fulfilled prescription—pure profit without the overhead.
                 </p>
 
@@ -236,8 +244,8 @@ const VPSolution = () => {
                     <IndianRupee className="w-4 h-4 text-emerald-400" />
                   </div>
                   <div>
-                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-0.5">Partner Margin</p>
-                    <p className="text-xl font-bold text-white">15<span className="text-emerald-400">—</span>20%</p>
+                    <p className="text-[9px] text-slate-500 font-bold uppercase tracking-widest mb-0.5">Partner Margin</p>
+                    <p className="stat-number !text-white text-base md:text-lg">15<span className="text-emerald-400">—</span>20%</p>
                   </div>
                 </div>
               </div>

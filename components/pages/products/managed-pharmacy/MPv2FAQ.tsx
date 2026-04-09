@@ -2,7 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus, HelpCircle } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
+
+const premiumEase = [0.16, 1, 0.3, 1] as any;
 
 const faqs = [
   {
@@ -51,23 +53,26 @@ export function MPv2FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative bg-section-alt section-py border-t border-slate-100 overflow-hidden">
-      <div className="container-page relative z-10">
+    <section className="relative bg-white section-py border-t border-slate-100 overflow-hidden">
+      {/* Forensic Atmospheric Finish */}
+      <div className="tech-grid-overlay opacity-5" />
+      
+      <div className="container-page relative z-10 w-full">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="header-lock text-center mb-16">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-section text-center md:text-5xl leading-tight tracking-tight mb-6"
+              transition={{ delay: 0.1, duration: 0.8, ease: premiumEase }}
+              className="premium-h2"
             >
               Frequently Asked Questions
             </motion.h2>
           </div>
 
-          {/* FAQ List */}
+          {/* FAQ List - Standardized Components */}
           <div className="space-y-4">
             {faqs.map((faq, idx) => {
               const isActive = activeIndex === idx;
@@ -75,20 +80,20 @@ export function MPv2FAQ() {
               return (
                 <div
                   key={idx}
-                  className={`border rounded-[1.5rem] overflow-hidden transition-all duration-300 group ${isActive
-                      ? 'bg-white border-indigo-200 shadow-card-md'
-                      : 'bg-white/50 border-slate-200 hover:border-slate-300 hover:bg-white'
+                  className={`border rounded-3xl overflow-hidden transition-all duration-500 group ${isActive
+                      ? 'bg-white border-indigo-100 shadow-card-md'
+                      : 'bg-slate-50 border-slate-200 hover:border-indigo-100 hover:bg-white'
                     }`}
                 >
                   <button
                     onClick={() => setActiveIndex(isActive ? null : idx)}
-                    className="w-full flex items-center justify-between p-5 md:p-8 text-left focus:outline-none"
+                    className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
                   >
-                    <span className={`text-base md:text-h4 font-bold pr-8 transition-colors ${isActive ? 'text-brand-indigo-600' : 'text-slate-900 group-hover:text-brand-indigo-600'}`}>
+                    <span className={`text-base md:text-lg font-bold pr-8 transition-colors duration-300 ${isActive ? 'text-indigo-600' : 'text-slate-900 group-hover:text-indigo-600'}`}>
                       {faq.question}
                     </span>
-                    <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isActive ? 'bg-indigo-100 text-brand-indigo-600' : 'bg-slate-100 text-slate-500 group-hover:bg-indigo-50 group-hover:text-brand-indigo-600'}`}>
-                      {isActive ? <Minus size={18} strokeWidth={2.5} /> : <Plus size={18} strokeWidth={2.5} />}
+                    <div className={`shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${isActive ? 'bg-indigo-600 text-white' : 'bg-white text-slate-400 group-hover:bg-indigo-50 group-hover:text-indigo-600 shadow-sm border border-slate-100'}`}>
+                      {isActive ? <Minus size={18} strokeWidth={1.5} /> : <Plus size={18} strokeWidth={1.5} />}
                     </div>
                   </button>
 
@@ -98,11 +103,11 @@ export function MPv2FAQ() {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        transition={{ duration: 0.5, ease: premiumEase }}
                       >
-                        <div className="px-5 md:px-8 pb-6 md:pb-8 pt-0">
-                          <div className="h-px w-full bg-slate-100 mb-6" />
-                          <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium">
+                        <div className="px-6 md:px-8 pb-8 md:pb-10 pt-0">
+                          <div className="h-px w-full bg-slate-100 mb-8" />
+                          <p className="premium-p !text-sm lg:!text-base">
                             {faq.answer}
                           </p>
                         </div>

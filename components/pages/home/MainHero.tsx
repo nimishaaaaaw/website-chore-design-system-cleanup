@@ -32,8 +32,8 @@ export function MainHero() {
 
           {/* Eyebrow — above the h1, not inside it */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.06 }}
             className="eyebrow-wrap justify-center"
           >
@@ -44,8 +44,8 @@ export function MainHero() {
 
           {/* ── H1 ── */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.08 }}
             className="mb-5 md:mb-8 text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl"
           >
@@ -62,8 +62,8 @@ export function MainHero() {
 
           {/* ── SUBTITLE ── */}
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.2 }}
             className="hero-subtitle max-w-[800px] mx-auto mb-8 md:mb-10"
           >
@@ -72,8 +72,8 @@ export function MainHero() {
 
           {/* ── CTAs ── */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.45 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-10 md:mb-12"
           >
@@ -88,8 +88,8 @@ export function MainHero() {
 
           {/* Social Proof Signal */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.55 }}
             className="flex flex-col items-center justify-center gap-3 mb-12"
           >

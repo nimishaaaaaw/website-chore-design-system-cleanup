@@ -52,19 +52,34 @@ export const HMSFAQ = () => {
 
   return (
     <section className="relative bg-white py-section-sm md:py-section border-t border-slate-100 overflow-hidden">
+      {/* Atmospheric Primitives */}
+      <div className="tech-grid-overlay opacity-[0.03]" />
+      <div className="noise-texture opacity-[0.02]" />
+      
       <div className="max-w-container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
-          {/* Header Section */}
-          <div className="text-center mb-16">
-            <motion.h2 
+          {/* Header Section: GOLD STANDARD REFIT */}
+          <div className="text-center mb-16 md:mb-24">
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-h1 text-center md:text-5xl font-bold leading-tight tracking-tight text-slate-900"
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col items-center"
             >
-              Frequently Asked Questions
-            </motion.h2>
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <span className="eyebrow-line-l" />
+                <span className="eyebrow-text">Support & Clarity</span>
+                <span className="eyebrow-line-r" />
+              </div>
+              
+              <h2 className="premium-h2 mb-4 text-balance">
+                Frequently Asked <span className="text-brand-indigo-600">Questions.</span>
+              </h2>
+              <p className="premium-p intro-lock !max-w-2xl">
+                Everything you need to know about India&apos;s most comprehensive Hospital Management System.
+              </p>
+            </motion.div>
           </div>
 
           {/* FAQ Accordion List */}
@@ -75,10 +90,10 @@ export const HMSFAQ = () => {
               return (
                 <div 
                   key={idx}
-                  className={`border rounded-[1.5rem] overflow-hidden transition-all duration-300 group ${
+                  className={`border rounded-[1.5rem] overflow-hidden transition-all duration-500 group ${
                     isActive 
-                      ? 'bg-white border-indigo-200 shadow-card-md' 
-                      : 'bg-white/50 border-slate-200 hover:border-slate-300 hover:bg-white'
+                      ? 'bg-white border-brand-indigo-200 shadow-card-md' 
+                      : 'bg-white/40 border-slate-200 hover:border-brand-indigo-100/50 hover:bg-white'
                   }`}
                 >
                   <button 

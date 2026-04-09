@@ -17,6 +17,8 @@ import {
 import { motion, Variants } from 'framer-motion';
 import { useContactModal } from '@/hooks/use-contact-modal';
 
+const premiumEase = [0.16, 1, 0.3, 1] as const;
+
 const VPCTA = () => {
   const { openModal } = useContactModal();
 
@@ -38,13 +40,17 @@ const VPCTA = () => {
       y: 0,
       transition: { 
         duration: 0.8, 
-        ease: [0.22, 1, 0.36, 1] 
+        ease: premiumEase 
       }
     }
   };
 
   return (
     <section className="relative bg-white section-py-lg overflow-hidden">
+      {/* Forensic Background Textures */}
+      <div className="tech-grid-overlay !opacity-[0.03]" />
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+
       {/* ── ATMOSPHERIC DEPTH (HERO STYLE) ── */}
       <div className="blob-layer">
         <div className="blob-blue w-[32rem] h-[32rem] -top-24 -left-20 opacity-40" />
@@ -64,23 +70,18 @@ const VPCTA = () => {
           >
             {/* Eyebrow */}
             <motion.div variants={itemVariants} className="eyebrow-wrap justify-center lg:justify-start">
-               <span className="eyebrow-line-r hidden lg:block" />
-               <span className="eyebrow-text text-indigo-600">Now Expanding Nationwide</span>
+               <span className="eyebrow-line-l" />
+               <span className="eyebrow-text text-indigo-600 text-center lg:text-left">Expansion Nationwide</span>
+               <span className="eyebrow-line-r" />
             </motion.div>
             
             {/* H2 Headline (Hero Format) */}
             <motion.h2 
               variants={itemVariants} 
-              className="text-4xl sm:text-5xl lg:text-[3.2rem] font-bold text-slate-900 leading-[1.15] tracking-tight mb-6 max-w-[95%]"
+              className="premium-h2 !text-slate-900 border-lock text-center lg:text-left mb-6"
             >
               Enable digital pharmacy <br className="hidden md:block" />
-              for your clinic & give{' '}
-              <span 
-                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 pb-2" 
-                style={{ color: '#4F46E5' }}
-              >
-                patients better care.
-              </span>
+              for your clinic & give <span className="text-indigo-600">patients better care.</span>
             </motion.h2>
             
             {/* Subheadline: Benefits List (Refined hierarchy) */}
@@ -89,16 +90,16 @@ const VPCTA = () => {
               className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8"
             >
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-50/80 border border-indigo-100/50 shadow-sm">
-                <Zap size={14} className="text-amber-500" fill="currentColor" />
-                <span className="text-[13px] font-bold text-slate-700 uppercase tracking-widest">7-Day Live</span>
+                <Zap size={14} strokeWidth={1.5} className="text-amber-500" fill="currentColor" />
+                <span className="text-[9px] font-bold text-slate-700 uppercase tracking-widest leading-none">7-Day Live</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50/80 border border-emerald-100/50 shadow-sm">
-                <ShieldCheck size={14} className="text-emerald-500" />
-                <span className="text-[13px] font-bold text-slate-700 uppercase tracking-widest">Zero Setup Cost</span>
+                <ShieldCheck size={14} strokeWidth={1.5} className="text-emerald-500" />
+                <span className="text-[9px] font-bold text-slate-700 uppercase tracking-widest leading-none">Zero Setup Cost</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-50/80 border border-blue-100/50 shadow-sm">
-                <ClipboardCheck size={14} className="text-blue-500" />
-                <span className="text-[13px] font-bold text-slate-700 uppercase tracking-widest">Free EHR</span>
+                <ClipboardCheck size={14} strokeWidth={1.5} className="text-blue-500" />
+                <span className="text-[9px] font-bold text-slate-700 uppercase tracking-widest leading-none">Free EHR</span>
               </div>
             </motion.div>
             
@@ -108,9 +109,9 @@ const VPCTA = () => {
                 onClick={openModal} 
                 className="btn-primary w-full sm:w-auto px-10 h-14 lg:h-16 text-base lg:text-[17px] font-bold flex items-center justify-center shadow-btn hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group whitespace-nowrap"
               >
-                <Phone size={16} className="mr-3 opacity-80" />
+                <Phone size={16} strokeWidth={1.5} className="mr-3 opacity-80" />
                 Partner With Us
-                <ArrowUpRight size={18} className="ml-2 opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <ArrowUpRight size={18} strokeWidth={1.5} className="ml-2 opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
             </motion.div>
           </motion.div>
@@ -154,7 +155,7 @@ const VPCTA = () => {
                 className="flex items-center justify-center p-0.5"
               >
                 <div className="scale-x-[-1]"> {/* Flip icon to face left/down */}
-                  <Bike size={14} className="text-blue-600" strokeWidth={2.5} />
+                   <Bike size={14} className="text-blue-600" strokeWidth={1.5} />
                 </div>
               </motion.div>
             </motion.div>
@@ -165,8 +166,8 @@ const VPCTA = () => {
             
             <div className="absolute top-[50%] left-[50%] z-10 flex items-center justify-center -translate-x-1/2 -translate-y-1/2">
               <div className="relative w-16 h-16 bg-slate-900 text-white rounded-2xl flex items-center justify-center shadow-xl shadow-slate-900/20 border border-slate-700">
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent rounded-2xl pointer-events-none" />
-                <Stethoscope size={28} />
+                 <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent rounded-2xl pointer-events-none" />
+                <Stethoscope size={28} strokeWidth={1.5} />
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 border-2 border-white rounded-full" />
               </div>
               <div className="absolute top-full mt-3 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200 shadow-sm whitespace-nowrap">
@@ -180,10 +181,10 @@ const VPCTA = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
                 </div>
-                <span className="text-[10px] font-extrabold text-blue-700 uppercase tracking-wider">MediKloud Hub</span>
+                <span className="text-[9px] font-bold text-blue-700 uppercase tracking-[0.2em]">MediKloud Hub</span>
               </motion.div>
-              <div className="relative w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg shadow-blue-500/30 ring-4 ring-blue-50">
-                <Warehouse size={20} />
+               <div className="relative w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg shadow-blue-500/30 ring-4 ring-blue-50">
+                <Warehouse size={20} strokeWidth={1.5} />
               </div>
             </motion.div>
           </motion.div>

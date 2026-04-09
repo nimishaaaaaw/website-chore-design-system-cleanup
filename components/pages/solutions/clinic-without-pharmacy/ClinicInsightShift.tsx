@@ -4,112 +4,81 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, ClipboardCheck, PackageCheck, HeartPulse } from 'lucide-react';
 
+const premiumEase = [0.16, 1, 0.3, 1] as any;
+
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: premiumEase } }
 };
 
 export const ClinicInsightShift = () => {
   return (
-    <section className="py-28 relative overflow-hidden bg-[#0F172A] border-y border-[#1E1B4B]">
-      {/* Abstract Glows for Dark Section */}
-      <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-[#4F46E5] opacity-25 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-[#2563EB] opacity-25 rounded-full blur-[80px] translate-y-1/2 pointer-events-none" />
+    <section className="section-py bg-slate-900 relative overflow-hidden" id="insight-shift">
+      {/* Forensic Background Textures */}
+      <div className="tech-grid-overlay opacity-20" />
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
+      
+      {/* Brand Blobs */}
+      <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-indigo-500/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none animate-float-slow" />
+      <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-brand-600/10 rounded-full blur-[80px] translate-y-1/2 pointer-events-none animate-float-slower" />
       
       <div className="container-page relative z-10">
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sky-300 text-sm font-bold mb-8 backdrop-blur-md"
-          >
-            <Sparkles className="w-4 h-4" /> The MediKloud Virtual Pharmacy
-          </motion.div>
-          
-          <motion.h2 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.15] mb-6"
-          >
-            Turn your clinic into a <br className="hidden md:block" /> full-service care hub.<br className="hidden md:block" />
-            <span className="bg-gradient-display bg-clip-text text-transparent pb-2" style={{ color: '#60A5FA' }}>
-              Without stocking a single pill.
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: premiumEase }}
+          className="header-lock text-center mb-12 lg:mb-20"
+        >
+          <div className="eyebrow-wrap justify-center mb-6">
+            <span className="eyebrow-line-l !bg-indigo-500/30"></span>
+            <span className="eyebrow-text !text-indigo-400 flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5" /> The MediKloud Virtual Pharmacy
             </span>
-          </motion.h2>
-        </div>
-        
-        {/* Visual Flow */}
-        <div className="relative max-w-5xl mx-auto">
-          {/* Connecting Line (Desktop Only) */}
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#4F46E5] to-transparent -translate-y-1/2 opacity-50 pointer-events-none" />
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-            {/* Step 1 */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { delay: 0.1, duration: 0.5 } }
-              }}
-              className="bg-[#1E293B]/60 backdrop-blur-md border border-[#334155] rounded-3xl p-8 hover:bg-[#1E293B] hover:border-[#4F46E5]/50 transition-all"
-            >
-              <div className="w-12 h-12 rounded-2xl bg-[#0F172A] border border-[#334155] flex items-center justify-center mb-6 shadow-inner">
-                <ClipboardCheck className="w-6 h-6 text-sky-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3 tracking-tight">1. You Prescribe</h3>
-              <p className="text-[#94A3B8] font-medium leading-relaxed">
-                Write prescriptions normally. Our software seamlessly routes the digital order to our secure fulfillment network.
-              </p>
-            </motion.div>
-
-            {/* Step 2 */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { delay: 0.2, duration: 0.5 } }
-              }}
-              className="bg-[#1E293B]/60 backdrop-blur-md border border-[#334155] rounded-3xl p-8 hover:bg-[#1E293B] hover:border-[#4F46E5]/50 transition-all"
-            >
-              <div className="w-12 h-12 rounded-2xl bg-[#0F172A] border border-[#334155] flex items-center justify-center mb-6 shadow-inner">
-                <PackageCheck className="w-6 h-6 text-blue-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">2. Invisible Logistics</h3>
-              <p className="text-[#94A3B8] font-medium leading-relaxed">
-                We act as your backend. Our dark pharmacies pick, pack, and dispatch authentic medicines on your behalf.
-              </p>
-            </motion.div>
-
-            {/* Step 3 */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { delay: 0.3, duration: 0.5 } }
-              }}
-              className="bg-[#1E293B]/60 backdrop-blur-md border border-[#334155] rounded-3xl p-8 hover:bg-[#1E293B] hover:border-[#4F46E5]/50 transition-all"
-            >
-              <div className="w-12 h-12 rounded-2xl bg-[#0F172A] border border-[#334155] flex items-center justify-center mb-6 shadow-inner">
-                <HeartPulse className="w-6 h-6 text-indigo-400" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">3. Care Loop Closed</h3>
-              <p className="text-[#94A3B8] font-medium leading-relaxed">
-                Patients receive treatment at their doorstep. Adherence goes up, and your clinic monetizes its digital workflow.
-              </p>
-            </motion.div>
+            <span className="eyebrow-line-r !bg-indigo-500/30"></span>
           </div>
+          
+          <h2 className="premium-h2 !text-white">
+            Turn your clinic into a <span className="text-indigo-400">full-service care hub.</span>
+          </h2>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+          {[
+            { 
+              icon: ClipboardCheck, 
+              title: "1. You Prescribe", 
+              desc: "Write prescriptions normally. Our software seamlessly routes the digital order to our secure fulfillment network."
+            },
+            { 
+              icon: PackageCheck, 
+              title: "2. Invisible Logistics", 
+              desc: "We act as your backend. Our dark pharmacies pick, pack, and dispatch authentic medicines on your behalf."
+            },
+            { 
+              icon: HeartPulse, 
+              title: "3. Care Loop Closed", 
+              desc: "Patients receive treatment at their doorstep. Adherence goes up, and your clinic monetizes its digital workflow."
+            }
+          ].map((item, i) => (
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: i * 0.1, duration: 0.5, ease: premiumEase }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 hover:border-indigo-500/50 transition-all duration-500 group group-hover:z-20"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center mb-8 shadow-inner group-hover:border-indigo-500/30 transition-colors">
+                <item.icon className="w-7 h-7 text-indigo-400" strokeWidth={1.5} />
+              </div>
+              <h3 className="premium-h3 !text-white mb-3">{item.title}</h3>
+              <p className="premium-p !text-slate-400">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
-
       </div>
     </section>
   );

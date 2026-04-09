@@ -27,7 +27,7 @@ export const scaleIn: Variants = {
 
 // --- Reusable Components ---
 export const Section = ({ children, className = "", id = "" }: { children: React.ReactNode, className?: string, id?: string }) => (
-  <section id={id} className={`py-24 md:py-32 px-6 lg:px-12 max-w-7xl mx-auto overflow-hidden ${className}`}>
+  <section id={id} className={`section-py px-6 lg:px-12 max-w-[1280px] mx-auto overflow-hidden ${className}`}>
     {children}
   </section>
 );
@@ -39,7 +39,7 @@ export const Badge = ({ children, color = "blue" }: { children: React.ReactNode,
     green: "bg-teal-50 text-teal-600 border-teal-100",
   };
   return (
-    <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${colors[color]} mb-6`}>
+    <span className={`inline-flex items-center px-3 py-1 rounded-lg text-[12px] font-bold border ${colors[color]} mb-6 tracking-tight`}>
       {children}
     </span>
   );
@@ -52,12 +52,12 @@ interface SectionHeaderProps {
 }
 
 export const SectionHeader = ({ title, subtitle, light = false }: SectionHeaderProps) => (
-  <div className="mb-16 max-w-3xl">
+  <div className="mb-12 lg:mb-20 max-w-[825px]">
     <motion.h4 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`text-sm font-bold uppercase tracking-widest ${light ? 'text-blue-200' : 'text-blue-600'} mb-4`}
+      className={`eyebrow-text ${light ? 'text-blue-200' : 'text-blue-600'} mb-4`}
     >
       {subtitle}
     </motion.h4>
@@ -66,7 +66,7 @@ export const SectionHeader = ({ title, subtitle, light = false }: SectionHeaderP
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: 0.1 }}
-      className={`text-3xl md:text-5xl font-bold leading-tight ${light ? 'text-white' : 'text-slate-900'}`}
+      className={`text-3xl md:text-5xl font-bold tracking-tight leading-[1.3] ${light ? 'text-white' : 'text-slate-900'}`}
     >
       {title}
     </motion.h2>
@@ -91,8 +91,8 @@ export const FeatureCard = ({ icon: Icon, title, description, delay = 0 }: Featu
     <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
       <Icon className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors duration-300" />
     </div>
-    <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-    <p className="text-slate-600 leading-relaxed">{description}</p>
+    <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 tracking-tight">{title}</h3>
+    <p className="text-slate-500 font-medium leading-relaxed">{description}</p>
   </motion.div>
 );
 

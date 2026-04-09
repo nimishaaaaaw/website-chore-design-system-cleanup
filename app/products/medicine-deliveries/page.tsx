@@ -31,11 +31,9 @@ export default function MedicineDeliveriesPage() {
           <MedicineDeliveriesProblem />
           <MedicineDeliveriesImpact />
           <MedicineDeliveriesEconomics />
+          <MedicineDeliveriesCTA />
           <MedicineDeliveriesFAQ />
         </div>
-
-        {/* Final CTA */}
-        <MedicineDeliveriesCTA />
       </main>
       <Footer />
     </div>
