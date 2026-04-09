@@ -82,7 +82,7 @@ export default function MobileMenu() {
 									<Link href="/products/managed-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Managed Pharmacy</Link>
 									<Link href="/products/virtual-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Virtual Pharmacy</Link>
 									<Link href="/products/hospital-management-system" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Hospital Management System</Link>
-									<Link href="/products/refill-engine" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Refill Engine</Link>
+									<Link href="/products/medicine-deliveries" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Medicine Deliveries</Link>
 								</motion.div>
 							)}
 						</AnimatePresence>

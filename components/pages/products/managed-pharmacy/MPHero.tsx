@@ -116,13 +116,13 @@ export const MPHero = () => {
                      <ShieldCheck className="w-5 h-5" />
                    </div>
                    <div>
-                     <h4 className="text-sm font-black text-slate-900 tracking-tight leading-none mb-1">Operational Managed</h4>
-                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">End-to-End Service</p>
+                     <h4 className="text-sm font-bold text-slate-900 tracking-tight leading-none mb-1">Operational Managed</h4>
+                     <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">End-to-End Service</p>
                    </div>
                  </div>
                  <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2 shadow-sm">
                    <Zap className="w-3 h-3 fill-emerald-500" />
-                   <span className="text-[10px] font-bold tracking-widest uppercase">Proprietary Tech</span>
+                   <span className="text-[10px] font-semibold tracking-widest uppercase">Proprietary Tech</span>
                  </div>
               </div>
 
@@ -134,7 +134,7 @@ export const MPHero = () => {
                       <div className="bg-blue-100/80 p-1.5 rounded-lg border border-blue-200/50">
                         <ShieldCheck size={16} className="text-blue-600" />
                       </div>
-                      <span className="text-[12px] font-black text-slate-900 uppercase tracking-widest mt-0.5">We Bring</span>
+                      <span className="text-[12px] font-bold text-slate-900 uppercase tracking-widest mt-0.5">We Bring</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-2.5">
@@ -149,7 +149,7 @@ export const MPHero = () => {
                           <div className="bg-blue-50 p-1.5 rounded-md text-blue-600 shrink-0">
                             <item.icon size={14} strokeWidth={2.5} />
                           </div>
-                          <span className="text-[11px] font-bold text-slate-700 relative z-10">{item.label}</span>
+                          <span className="text-[11px] font-semibold text-slate-700 relative z-10">{item.label}</span>
                           <motion.div
                             animate={{ x: ['-100%', '200%'] }}
                             transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', delay: i * 0.5 }}
@@ -186,7 +186,7 @@ export const MPHero = () => {
                       <div className="bg-indigo-100/80 p-1.5 rounded-lg border border-indigo-200/50">
                         <CheckCircle2 size={16} className="text-indigo-600" />
                       </div>
-                      <span className="text-[12px] font-black text-slate-900 uppercase tracking-widest mt-0.5">Your Gains</span>
+                      <span className="text-[12px] font-bold text-slate-900 uppercase tracking-widest mt-0.5">Your Gains</span>
                     </div>
 
                     <div className="flex flex-wrap gap-2">
@@ -201,7 +201,7 @@ export const MPHero = () => {
                           <div className="text-indigo-600 relative z-10">
                             <item.icon size={14} strokeWidth={2.5} />
                           </div>
-                          <span className="text-[11px] font-bold text-slate-800 relative z-10">{item.label}</span>
+                          <span className="text-[11px] font-semibold text-slate-800 relative z-10">{item.label}</span>
                           <motion.div
                              animate={{ opacity: [0, 0.5, 0] }}
                              transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}

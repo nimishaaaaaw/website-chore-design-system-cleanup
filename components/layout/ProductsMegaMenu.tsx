@@ -37,9 +37,9 @@ const products = [
   },
   {
     icon: RotateCw,
-    title: 'Refill Engine',
+    title: 'Medicine Deliveries',
     tagline: 'Automated retention for chronic care patients.',
-    href: '/products/refill-engine',
+    href: '/products/medicine-deliveries',
     color: 'indigo'
   }
 ]

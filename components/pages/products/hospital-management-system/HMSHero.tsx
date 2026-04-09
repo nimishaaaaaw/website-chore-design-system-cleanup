@@ -110,8 +110,8 @@ export const HMSHero = () => {
                      <LayoutGrid className="w-5 h-5" />
                    </div>
                    <div>
-                     <h4 className="text-sm font-black text-slate-900 tracking-tight leading-none mb-1">MediKloud OS</h4>
-                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-0.5">Live Patient Journey</p>
+                     <h4 className="text-sm font-bold text-slate-900 tracking-tight leading-none mb-1">MediKloud OS</h4>
+                     <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest px-0.5">Live Patient Journey</p>
                    </div>
                  </div>
                  <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2 shadow-sm">
@@ -119,7 +119,7 @@ export const HMSHero = () => {
                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                    </span>
-                   <span className="text-[10px] font-bold tracking-widest uppercase">End-to-End</span>
+                   <span className="text-[10px] font-semibold tracking-widest uppercase">End-to-End</span>
                  </div>
               </div>
 
@@ -166,7 +166,7 @@ export const HMSHero = () => {
                        <div className={`w-10 h-10 ${node.bg} rounded-xl shadow-sm border ${node.border} flex items-center justify-center mb-1.5 ${node.scale || ''}`}>
                          <Icon className={`w-4 h-4 ${node.color}`} />
                        </div>
-                       <span className="text-[8px] font-black text-slate-600 uppercase tracking-widest bg-white/90 px-1.5 py-0.5 rounded backdrop-blur-sm border border-slate-100 shadow-sm">
+                       <span className="text-[8px] font-bold text-slate-600 uppercase tracking-widest bg-white/90 px-1.5 py-0.5 rounded backdrop-blur-sm border border-slate-100 shadow-sm">
                          {node.name}
                        </span>
                      </div>
@@ -199,7 +199,7 @@ export const HMSHero = () => {
                      key={i}
                      animate={{ opacity: [0, 0, 1, 0, 0], scale: [0.8, 0.8, 1, 0.8, 0.8] }}
                      transition={{ duration: 12, repeat: Infinity, ease: 'easeOut', times: tooltip.time }}
-                     className="absolute z-40 bg-slate-900/95 backdrop-blur-md text-white px-2.5 py-1 rounded-full shadow-lg text-[9px] font-bold tracking-wider whitespace-nowrap -translate-x-1/2 -translate-y-1/2 border border-slate-700 flex items-center gap-1.5"
+                     className="absolute z-40 bg-slate-900/95 backdrop-blur-md text-white px-2.5 py-1 rounded-full shadow-lg text-[9px] font-semibold tracking-wider whitespace-nowrap -translate-x-1/2 -translate-y-1/2 border border-slate-700 flex items-center gap-1.5"
                      style={{ left: tooltip.x, top: tooltip.y }}
                    >
                      <CheckCircle size={10} className="text-emerald-400" /> {tooltip.text}
@@ -210,12 +210,12 @@ export const HMSHero = () => {
               {/* Live Metric Footer Personalized */}
               <div className="bg-gradient-to-br from-slate-50 to-purple-50/50 rounded-xl p-4 border border-purple-100 flex items-center justify-between no-select">
                  <div>
-                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 flex items-center gap-1.5">
+                    <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mb-1 flex items-center gap-1.5">
                        <Clock className="w-3 h-3 text-purple-500" />
                        Patient Wait Time
                     </p>
                     <div className="flex items-baseline gap-2">
-                       <h4 className="text-xl font-black text-slate-900 leading-none tracking-tight">Reduced by <span className="text-indigo-600">65%</span></h4>
+                       <h4 className="text-xl font-bold text-slate-900 leading-none tracking-tight">Reduced by <span className="text-indigo-600">65%</span></h4>
                     </div>
                  </div>
                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-purple-600 ring-4 ring-purple-50 shadow-sm border border-purple-100">

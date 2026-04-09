@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "vibeproxy": {
+      "command": "node",
+      "args": [
+        "vibe-proxy-mcp/index.js"
+      ]
+    }
+  }
+}

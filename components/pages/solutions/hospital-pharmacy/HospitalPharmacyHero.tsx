@@ -113,8 +113,8 @@ export const HospitalPharmacyHero = ({ onBookDemo }: HospitalPharmacyHeroProps) 
                      <ShieldCheck className="w-5 h-5 animate-pulse" />
                    </div>
                    <div>
-                     <h4 className="text-sm font-black text-slate-900 tracking-tight leading-none mb-1">MediKloud Routing</h4>
-                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Revenue Capture Engine</p>
+                     <h4 className="text-sm font-bold text-slate-900 tracking-tight leading-none mb-1">MediKloud Routing</h4>
+                     <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Revenue Capture Engine</p>
                    </div>
                  </div>
                  <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2 shadow-sm">
@@ -122,7 +122,7 @@ export const HospitalPharmacyHero = ({ onBookDemo }: HospitalPharmacyHeroProps) 
                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                    </span>
-                   <span className="text-[10px] font-bold tracking-widest uppercase">Securing</span>
+                   <span className="text-[10px] font-semibold tracking-widest uppercase">Securing</span>
                  </div>
               </div>
 
@@ -145,7 +145,7 @@ export const HospitalPharmacyHero = ({ onBookDemo }: HospitalPharmacyHeroProps) 
                  {/* Node 1: Consultation Room (Start) */}
                  <div className="absolute left-[15%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-xl shadow-md border border-slate-200 flex flex-col items-center justify-center z-20">
                     <ClipboardList className="w-5 h-5 text-slate-600" />
-                    <span className="text-[7px] font-black text-slate-400 mt-0.5 uppercase tracking-wider">OPD</span>
+                    <span className="text-[7px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">OPD</span>
                  </div>
 
                  {/* Node 2: The MediKloud Engine (Center Router) */}
@@ -169,7 +169,7 @@ export const HospitalPharmacyHero = ({ onBookDemo }: HospitalPharmacyHeroProps) 
                  {/* Node 4: Captured - In-House Pharmacy (Bottom Right) */}
                  <div className="absolute left-[80%] top-[80%] -translate-x-1/2 -translate-y-1/2 w-24 p-3 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl shadow-lg shadow-indigo-600/20 flex flex-col items-center justify-center z-20 ring-4 ring-indigo-50">
                     <Package className="w-5 h-5 text-white mb-1" />
-                    <span className="text-[8px] font-black text-indigo-50 uppercase text-center leading-tight tracking-widest">In-House<br/>Pharmacy</span>
+                    <span className="text-[8px] font-bold text-indigo-50 uppercase text-center leading-tight tracking-widest">In-House<br/>Pharmacy</span>
                  </div>
 
                  {/* Animated Prescriptions (Rx) Flowing */}
@@ -214,13 +214,13 @@ export const HospitalPharmacyHero = ({ onBookDemo }: HospitalPharmacyHeroProps) 
               {/* Live Metric Footer Personalized */}
               <div className="bg-gradient-to-br from-slate-50 to-indigo-50/50 rounded-xl p-4 border border-indigo-100 flex items-center justify-between no-select">
                  <div>
-                    <p className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest mb-1 flex items-center gap-1.5">
+                    <p className="text-[10px] font-semibold text-indigo-600 uppercase tracking-widest mb-1 flex items-center gap-1.5">
                        <TrendingUp className="w-3 h-3" />
                        MediKloud Impact
                     </p>
                     <div className="flex items-baseline gap-2">
-                       <h4 className="text-2xl font-black text-slate-900 leading-none tracking-tight">₹42,500</h4>
-                       <span className="text-[10px] font-bold text-emerald-600 bg-emerald-100/80 px-1.5 py-0.5 rounded-md border border-emerald-200">Today</span>
+                       <h4 className="text-2xl font-bold text-slate-900 leading-none tracking-tight">₹42,500</h4>
+                       <span className="text-[10px] font-semibold text-emerald-600 bg-emerald-100/80 px-1.5 py-0.5 rounded-md border border-emerald-200">Today</span>
                     </div>
                  </div>
                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-indigo-600 ring-4 ring-indigo-50 shadow-sm border border-indigo-100">

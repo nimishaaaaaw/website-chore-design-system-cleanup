@@ -31,7 +31,7 @@ export function Footer() {
                 { name: 'Managed Pharmacy', href: '/products/managed-pharmacy' },
                 { name: 'Virtual Pharmacy', href: '/products/virtual-pharmacy' },
                 { name: 'Hospital Management', href: '/products/hospital-management-system' },
-                { name: 'Refill Engine', href: '/products/refill-engine' }
+                { name: 'Medicine Deliveries', href: '/products/medicine-deliveries' }
               ].map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">

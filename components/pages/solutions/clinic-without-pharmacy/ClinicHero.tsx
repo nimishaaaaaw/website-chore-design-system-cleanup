@@ -102,8 +102,8 @@ export const ClinicHero = ({ onBookDemo }: ClinicHeroProps) => {
                      <Route className="w-5 h-5" />
                    </div>
                    <div>
-                     <h4 className="text-sm font-black text-slate-900 tracking-tight leading-none mb-1">Instant Fulfillment</h4>
-                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Dark Store Network</p>
+                     <h4 className="text-sm font-bold text-slate-900 tracking-tight leading-none mb-1">Instant Fulfillment</h4>
+                     <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Dark Store Network</p>
                    </div>
                  </div>
                  <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2 shadow-sm">
@@ -111,7 +111,7 @@ export const ClinicHero = ({ onBookDemo }: ClinicHeroProps) => {
                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                    </span>
-                   <span className="text-[10px] font-bold tracking-widest uppercase">Live 10-Min</span>
+                   <span className="text-[10px] font-semibold tracking-widest uppercase">Live 10-Min</span>
                  </div>
               </div>
 
@@ -133,7 +133,7 @@ export const ClinicHero = ({ onBookDemo }: ClinicHeroProps) => {
                        <div className="absolute top-0 w-full h-1 bg-blue-500" />
                        <Building2 className="w-6 h-6 text-blue-600 mb-1" />
                     </div>
-                    <span className="text-[10px] font-black text-slate-700 uppercase tracking-widest bg-white/90 px-2.5 py-1 rounded shadow-sm backdrop-blur-sm border border-slate-100">Your Clinic</span>
+                    <span className="text-[10px] font-bold text-slate-700 uppercase tracking-widest bg-white/90 px-2.5 py-1 rounded shadow-sm backdrop-blur-sm border border-slate-100">Your Clinic</span>
                  </div>
 
                  {/* Node 2: MediKloud Hub (Right) */}
@@ -142,7 +142,7 @@ export const ClinicHero = ({ onBookDemo }: ClinicHeroProps) => {
                        <Package className="w-6 h-6 text-white" />
                        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-0 bg-indigo-400 rounded-2xl blur-md -z-10" />
                     </div>
-                    <span className="text-[10px] font-black text-indigo-700 uppercase tracking-widest bg-indigo-50 px-2.5 py-1 rounded shadow-sm border border-indigo-100">MediKloud Hub</span>
+                    <span className="text-[10px] font-bold text-indigo-700 uppercase tracking-widest bg-indigo-50 px-2.5 py-1 rounded shadow-sm border border-indigo-100">MediKloud Hub</span>
                  </div>
 
                  {/* Animation 1: E-Rx Token (Moves Left -> Right on Top Track) */}
@@ -202,7 +202,7 @@ export const ClinicHero = ({ onBookDemo }: ClinicHeroProps) => {
                    initial={{ opacity: 0, y: 0 }}
                    animate={{ opacity: [0, 0, 1, 0, 0], y: [0, 0, -30, -50, -50], scale: [0.5, 0.5, 1.2, 1, 0.5] }}
                    transition={{ duration: 8, repeat: Infinity, ease: 'easeOut', times: [0, 0.75, 0.8, 0.95, 1] }}
-                   className="absolute left-[20%] top-[45%] -translate-x-1/2 z-50 text-emerald-500 font-black text-[13px] drop-shadow-sm whitespace-nowrap"
+                   className="absolute left-[20%] top-[45%] -translate-x-1/2 z-50 text-emerald-500 font-bold text-[13px] drop-shadow-sm whitespace-nowrap"
                  >
                    +₹210 Margin
                  </motion.div>
@@ -212,12 +212,12 @@ export const ClinicHero = ({ onBookDemo }: ClinicHeroProps) => {
               {/* Live Metric Footer Personalized */}
               <div className="bg-gradient-to-br from-slate-50 to-blue-50/50 rounded-xl p-4 border border-blue-100 flex items-center justify-between">
                  <div>
-                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 flex items-center gap-1.5">
+                    <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest mb-1 flex items-center gap-1.5">
                        <Clock className="w-3 h-3 text-blue-500" />
                        MediKloud SLA
                     </p>
                     <div className="flex items-baseline gap-2">
-                       <h4 className="text-xl font-black text-slate-900 leading-none tracking-tight">10-Min Guarantee</h4>
+                       <h4 className="text-xl font-bold text-slate-900 leading-none tracking-tight">10-Min Guarantee</h4>
                     </div>
                  </div>
                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-600 ring-4 ring-blue-50 shadow-sm border border-blue-100">

@@ -1,0 +1,11 @@
+{
+    "name": "vibe-annotations-proxy",
+    "version": "1.0.0",
+    "description": "Proxy to bridge Stdio MCP to Vibe Annotations SSE",
+    "main": "index.js",
+    "type": "module",
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.0.0",
+        "eventsource": "^2.0.2"
+    }
+}

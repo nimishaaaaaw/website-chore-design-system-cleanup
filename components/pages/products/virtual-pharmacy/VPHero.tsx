@@ -151,17 +151,17 @@ export const VPHero = () => {
               {/* Header */}
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100/60 no-select">
                 <div>
-                  <h3 className="text-sm font-black text-slate-900 tracking-tight flex items-center gap-2">
+                  <h3 className="text-sm font-bold text-slate-900 tracking-tight flex items-center gap-2">
                     Live Order #{orderId}
                   </h3>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Virtual Pharmacy Engine</p>
+                  <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mt-1">Virtual Pharmacy Engine</p>
                 </div>
                 <div className="flex items-center gap-2 bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 shadow-sm">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
-                  <span className="text-[10px] font-bold tracking-widest uppercase">Processing</span>
+                  <span className="text-[10px] font-semibold tracking-widest uppercase">Processing</span>
                 </div>
               </div>
 
@@ -226,7 +226,7 @@ export const VPHero = () => {
                                 className="overflow-hidden"
                               >
                                 <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
-                                  <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
+                                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
                                     {stage.metrics}
                                   </span>
                                   <div className="w-24 h-1.5 bg-slate-100 rounded-full overflow-hidden">
