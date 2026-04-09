@@ -9,7 +9,8 @@ import { Header } from '@/components/layout/Header'
 import { MainHero } from '@/components/pages/home/MainHero'
 import { Stats } from '@/components/pages/home/Stats'
 import { ProblemSection } from '@/components/pages/home/ProblemSection'
-import { PersonaROISection } from '@/components/pages/home/persona-roi'
+import { FulfillmentEcosystem } from '@/components/pages/home/FulfillmentEcosystem'
+import { SetupWizard } from '@/components/pages/home/SetupWizard'
 import { AdvantageSection } from '@/components/pages/home/AdvantageSection'
 import { MarqueeSection } from '@/components/pages/home/MarqueeSection'
 
@@ -35,13 +36,16 @@ export default function PageV2() {
         {/* 2. Stats strip */}
         <Stats />
 
-        {/* 3. Problem */}
+        {/* 3. Problem — Revenue Leakage funnel */}
         <ProblemSection />
 
-        {/* 4. Combined Persona + ROI (Choose your Setup) */}
-        <PersonaROISection />
+        {/* 4. Bridge — Continuous Care */}
+        <FulfillmentEcosystem />
 
-        {/* 5. Advantage Section */}
+        {/* 5. Interactive — Find Your Setup */}
+        <SetupWizard />
+
+        {/* 6. Advantage Section */}
         <AdvantageSection />
 
         {/* 6. Social proof marquee */}

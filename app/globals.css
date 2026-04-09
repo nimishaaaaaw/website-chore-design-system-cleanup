@@ -75,6 +75,7 @@
   --text-secondary:   #334155;   /* slate-700 — h1-sub, dark sublines */
   --text-heading:     #1E293B;   /* slate-800 — h3, h4 */
   --text-body:        #475569;   /* slate-600 — body copy */
+  --text-subtitle:    #64748B;   /* slate-500 — hero sublines, secondary content */
   --text-muted:       #94A3B8;   /* slate-400 — chips, eyebrow, captions */
   --text-accent:      #2563EB;   /* brand-600 — links, eyebrow text */
   --text-inverse:     #FFFFFF;   /* on dark backgrounds */
@@ -297,6 +298,13 @@
   /* ── TYPOGRAPHY UTILITIES ────────────────────────────────── */
   .text-display  { @apply text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl; }
   .text-section  { @apply text-h2 font-bold text-slate-900 tracking-tight; }
+  
+  /* ── HERO SUBTITLE ────────────────────────────────────────── */
+  /* Replaces ad-hoc text-slate-500/600 with the Gold Standard.  */
+  .hero-subtitle {
+    color: var(--text-subtitle) !important;
+    @apply text-xl font-medium leading-[1.6];
+  }
 
   /* ── BUTTONS ─────────────────────────────────────────────── */
   /* Base — shared across all button variants */
@@ -476,6 +484,12 @@
 
   /* Balanced text wrapping for headings */
   .text-balance { text-wrap: balance; }
+
+  /* Animation Utilities */
+  .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+  .animate-float-medium { animation: float-medium 6s ease-in-out infinite; }
+  .animate-float-slower { animation: float-slower 10s ease-in-out infinite; }
+  .animate-shimmer { animation: shimmer 2s infinite; }
 }
 
 
@@ -510,6 +524,10 @@
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 /* Respect reduced motion preference */

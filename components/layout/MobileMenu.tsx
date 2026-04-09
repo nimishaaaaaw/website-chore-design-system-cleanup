@@ -49,18 +49,8 @@ export default function MobileMenu() {
 									className="pl-4 space-y-4 overflow-hidden"
 								>
 									<div className="space-y-2">
-										<p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Hospital</p>
-										<div className="pl-2 space-y-2">
-											<Link href="/solutions/hospital-with-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>With in-house pharmacy</Link>
-											<Link href="/solutions/hospital-without-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Without in-house pharmacy</Link>
-										</div>
-									</div>
-									<div className="space-y-2">
-										<p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Clinic</p>
-										<div className="pl-2 space-y-2">
-											<Link href="/solutions/clinic-with-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>With in-house pharmacy</Link>
-											<Link href="/solutions/clinic-without-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Without in-house pharmacy</Link>
-										</div>
+										<Link href="/solutions/with-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>I have an In-House Pharmacy</Link>
+										<Link href="/solutions/without-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>No Pharmacy Yet</Link>
 									</div>
 								</motion.div>
 							)}

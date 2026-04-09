@@ -7,42 +7,24 @@ import { cn } from '@/lib/utils'
 
 const solutionGroups = [
   {
-    title: 'Clinic Solutions',
-    desc: 'Only OPD / Consultations',
+    title: 'Choose Your Setup',
+    desc: "Solutions built for your facility's current stage.",
     accent: 'indigo',
-    icon: Activity,
-    items: [
-      {
-        icon: Pill,
-        title: 'Clinic with Pharmacy',
-        desc: 'Inventory & staff management',
-        href: '/solutions/clinic-with-pharmacy',
-      },
-      {
-        icon: PackageX,
-        title: 'Clinic without Pharmacy',
-        desc: 'Custom pharmacy pods for clinics',
-        href: '/solutions/clinic-without-pharmacy',
-      }
-    ]
-  },
-  {
-    title: 'Hospital Solutions',
-    desc: 'OPD + IPD + OT + Emergencies',
-    accent: 'blue',
     icon: Building2,
     items: [
       {
         icon: Pill,
-        title: 'Hospital with Pharmacy',
-        desc: 'Full operational takeover & setup',
-        href: '/solutions/hospital-with-pharmacy',
+        title: 'I have an In-House Pharmacy',
+        desc: 'Optimize ops, staff & inventory management',
+        href: '/solutions/with-pharmacy',
+        color: 'indigo'
       },
       {
         icon: PackageX,
-        title: 'Hospital without Pharmacy',
-        desc: 'Zero-capex revenue recovery layer',
-        href: '/solutions/hospital-without-pharmacy',
+        title: 'No Pharmacy Yet',
+        desc: 'Launch a digital pharmacy in 10 minutes',
+        href: '/solutions/without-pharmacy',
+        color: 'blue'
       }
     ]
   }
@@ -50,72 +32,91 @@ const solutionGroups = [
 
 export default function SolutionsMegaMenu() {
   return (
-    <div className="w-[360px] p-4">
-      <div className="space-y-6">
+    <div className="w-[410px] p-5">
+      <div className="space-y-7">
         {solutionGroups.map((group, groupIdx) => (
-          <div key={groupIdx} className="space-y-3">
+          <div key={groupIdx} className="space-y-4">
             {/* Group Header */}
-            <div className="px-1 flex items-center justify-between">
+            <div className="px-1 flex flex-col gap-2.5">
               <div className="flex items-center gap-2">
                 <div className={cn(
                   "w-1 h-3 rounded-full",
                   group.accent === 'indigo' ? 'bg-indigo-600' : 'bg-blue-600'
                 )} />
-                <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                   {group.title}
                 </h3>
               </div>
-              <span className={cn(
-                "text-[9px] font-bold px-2 py-0.5 rounded-md",
-                group.accent === 'indigo' ? 'bg-indigo-50 text-indigo-600' : 'bg-blue-50 text-blue-600'
-              )}>
-                {group.desc}
-              </span>
+              <div className="inline-flex">
+                <span className={cn(
+                    "text-[10px] font-bold px-3 py-1 rounded-xl leading-relaxed",
+                    group.accent === 'indigo' ? "bg-indigo-50 text-indigo-600" : "bg-blue-50 text-blue-600"
+                )}>
+                    {group.desc}
+                </span>
+              </div>
             </div>
             
             {/* Group Items */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               {group.items.map((item, itemIdx) => {
                 const Icon = item.icon
+                const isIndigo = (item.color || group.accent) === 'indigo'
+                
                 return (
                   <Link
                     key={itemIdx}
                     href={item.href}
-                    className="group block relative"
+                    className="group block"
                   >
                     <div className={cn(
-                        "flex items-center justify-between p-3.5 rounded-2xl transition-all duration-300 border shadow-sm",
-                        "bg-white border-slate-200 hover:border-transparent",
-                        group.accent === 'indigo' ? "hover:bg-indigo-50/80 hover:shadow-md" : "hover:bg-blue-50/80 hover:shadow-md"
+                        "flex items-center justify-between p-4 rounded-[24px] transition-all duration-300 border",
+                        "relative overflow-hidden shadow-sm",
+                        isIndigo 
+                          ? "bg-indigo-50/30 border-indigo-100/50 hover:bg-indigo-50 hover:border-indigo-200 hover:shadow-md" 
+                          : "bg-blue-50/30 border-blue-100/50 hover:bg-blue-50 hover:border-blue-200 hover:shadow-md",
+                        "hover:scale-[1.01] active:scale-[0.99]"
                     )}>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-4 relative z-10">
+                            {/* Icon Container */}
                             <div className={cn(
-                                "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300",
-                                group.accent === 'indigo' 
-                                    ? "bg-slate-50 text-indigo-600 border border-slate-100 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-transparent" 
-                                    : "bg-slate-50 text-blue-600 border border-slate-100 group-hover:bg-blue-600 group-hover:text-white group-hover:border-transparent"
+                                "w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm",
+                                isIndigo 
+                                    ? "bg-indigo-600 text-white shadow-indigo-200" 
+                                    : "bg-blue-600 text-white shadow-blue-200"
                             )}>
-                                <Icon size={20} />
+                                <Icon size={20} className="group-hover:scale-110 transition-transform duration-300" />
                             </div>
+                            
                             <div className="min-w-0">
-                                <p className={cn(
-                                    "font-bold text-sm tracking-tight transition-colors duration-300",
-                                    group.accent === 'indigo' ? "text-slate-900" : "text-slate-900"
-                                )}>
+                                <p className="font-bold text-[15px] text-slate-900 tracking-tight leading-none mb-1.5 flex items-center gap-1.5">
                                     {item.title}
+                                    {isIndigo && <span className="w-1 h-1 rounded-full bg-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity" />}
                                 </p>
-                                <p className="text-[11px] text-slate-400 font-medium tracking-tight mt-0.5 opacity-90">
+                                <p className="text-[12px] text-slate-500 font-medium tracking-tight opacity-80 group-hover:opacity-100 transition-opacity">
                                     {item.desc}
                                 </p>
                             </div>
                         </div>
-                        <ChevronRight 
-                            size={14} 
-                            className={cn(
-                                "transition-all duration-300 transform -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 outline-none",
-                                group.accent === 'indigo' ? "text-indigo-400" : "text-blue-400"
-                            )} 
-                        />
+
+                        {/* Interactive Arrow CTA */}
+                        <div className={cn(
+                          "w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300",
+                          isIndigo 
+                            ? "border-indigo-200 text-indigo-500 bg-white group-hover:bg-indigo-600 group-hover:text-white group-hover:border-transparent" 
+                            : "border-blue-200 text-blue-500 bg-white group-hover:bg-blue-600 group-hover:text-white group-hover:border-transparent"
+                        )}>
+                          <ChevronRight 
+                              size={14} 
+                              className="transition-transform duration-300 group-hover:translate-x-0.5"
+                          />
+                        </div>
+
+                        {/* Subtle background glow on hover */}
+                        <div className={cn(
+                          "absolute -right-4 -bottom-4 w-24 h-24 rounded-full blur-3xl opacity-0 transition-opacity duration-500",
+                          isIndigo ? "bg-indigo-400/10 group-hover:opacity-100" : "bg-blue-400/10 group-hover:opacity-100"
+                        )} />
                     </div>
                   </Link>
                 )
