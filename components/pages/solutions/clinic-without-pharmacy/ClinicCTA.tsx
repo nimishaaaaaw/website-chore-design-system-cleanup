@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 interface ClinicCTAProps {
   onBookDemo?: () => void;
@@ -18,14 +19,8 @@ const fadeInUp = {
 
 export const ClinicCTA = ({ onBookDemo }: ClinicCTAProps) => {
   return (
-    <section className="section-py-lg relative overflow-hidden bg-slate-900">
-      {/* Background Atmosphere */}
-      <div className="tech-grid-overlay opacity-20" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
-      
-      {/* Dynamic Brand Blobs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[30rem] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none animate-float-slow" />
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 blur-[100px] rounded-full pointer-events-none animate-pulse-slow" />
+    <section className="section-py-lg relative overflow-hidden">
+      <DarkAtmosphere />
       
       <div className="container-page relative z-10 text-center">
         <motion.div

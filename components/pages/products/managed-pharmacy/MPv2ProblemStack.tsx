@@ -12,6 +12,7 @@ import {
   UserMinus,
   EyeOff
 } from 'lucide-react';
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 export function MPv2ProblemStack() {
   const containerVariants = {
@@ -61,9 +62,9 @@ export function MPv2ProblemStack() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true, margin: "-10% 0px" }}
-              className="group relative overflow-hidden rounded-[2.5rem] bg-slate-950/90 backdrop-blur-xl border border-slate-800 p-8 md:p-12 shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.8)] flex flex-col md:flex-row gap-10 items-center justify-between"
+              className="group relative overflow-hidden rounded-[2.5rem] p-8 md:p-12 shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.8)] flex flex-col md:flex-row gap-10 items-center justify-between"
             >
-              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-rose-500/40 to-transparent" />
+              <DarkAtmosphere withMouseEffect={false} />
               
               <div className="flex-1 space-y-4">
                 <div className="flex items-center gap-4 mb-2">
@@ -95,9 +96,9 @@ export function MPv2ProblemStack() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true, margin: "-10% 0px" }}
-              className="group relative overflow-hidden rounded-[2.5rem] bg-slate-950/95 backdrop-blur-xl border border-slate-800 p-8 md:p-12 shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.8)] flex flex-col md:flex-row gap-10 items-center justify-between"
+              className="group relative overflow-hidden rounded-[2.5rem] p-8 md:p-12 shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.8)] flex flex-col md:flex-row gap-10 items-center justify-between"
             >
-              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" />
+              <DarkAtmosphere withMouseEffect={false} />
               
               <div className="flex-1 space-y-4">
                 <div className="flex items-center gap-4 mb-2">
@@ -135,9 +136,9 @@ export function MPv2ProblemStack() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true, margin: "-10% 0px" }}
-              className="group relative overflow-hidden rounded-[2.5rem] bg-slate-950 border border-slate-800 p-8 md:p-12 shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.8)] flex flex-col md:flex-row gap-10 items-center justify-between"
+              className="group relative overflow-hidden rounded-[2.5rem] p-8 md:p-12 shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.8)] flex flex-col md:flex-row gap-10 items-center justify-between"
             >
-              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
+              <DarkAtmosphere withMouseEffect={false} />
               
               <div className="flex-1 space-y-4">
                 <div className="flex items-center gap-4 mb-2">
@@ -177,10 +178,9 @@ export function MPv2ProblemStack() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true, margin: "-10% 0px" }}
-              className="group relative overflow-hidden rounded-[2.5rem] bg-indigo-950/30 backdrop-blur-xl border border-slate-700/50 p-8 md:p-12 shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.8)] flex flex-col md:flex-row gap-10 items-center justify-between"
+              className="group relative overflow-hidden rounded-[2.5rem] p-8 md:p-12 shadow-[0_-20px_40px_-15px_rgba(0,0,0,0.8)] flex flex-col md:flex-row gap-10 items-center justify-between"
             >
-              <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-indigo-500/60 to-transparent" />
-              <div className="absolute inset-0 bg-indigo-500/5 blur-3xl -z-10" />
+              <DarkAtmosphere withMouseEffect={false} />
               
               <div className="flex-1 space-y-4">
                 <div className="flex items-center gap-4 mb-2">
@@ -206,7 +206,7 @@ export function MPv2ProblemStack() {
                 >
                   FIX THIS NOW <ArrowRight size={18} />
                 </motion.button>
-                <p className="text-[9px] text-center font-mono text-slate-500 uppercase tracking-widest">
+                <p className="text-[9px] text-center font-mono text-slate-400 uppercase tracking-widest">
                   Stop the leaks today
                 </p>
               </div>

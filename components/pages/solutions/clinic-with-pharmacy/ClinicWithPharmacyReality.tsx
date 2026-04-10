@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { AlertCircle, ShoppingCart, Users2, FileText, Ban, ArrowRight } from 'lucide-react';
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -120,24 +121,26 @@ export const ClinicWithPharmacyReality = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 p-8 rounded-[2rem] bg-slate-50 border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8 group hover:bg-slate-900 transition-all duration-700 hover:shadow-2xl hover:shadow-slate-900/10"
+          className="mt-16 p-8 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group shadow-card-lg ring-1 ring-white/10"
         >
-          <div className="flex items-center gap-6">
-            <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center text-rose-500 group-hover:bg-rose-500 group-hover:text-white transition-all duration-500">
+          <DarkAtmosphere withMouseEffect={false} />
+          
+          <div className="flex items-center gap-6 relative z-10">
+            <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-indigo-400 border border-white/20">
               <AlertCircle className="w-6 h-6" />
             </div>
             <div>
-              <p className="text-sm font-black text-slate-400 tracking-[0.2em] uppercase mb-1 group-hover:text-slate-500 transition-colors">compounding loss</p>
-              <p className="text-body-lg text-slate-700 font-bold group-hover:text-white transition-colors leading-tight">
+              <p className="text-sm font-black text-indigo-400/80 tracking-[0.2em] uppercase mb-1">compounding loss</p>
+              <p className="text-body-lg text-white font-bold leading-tight">
                 Losing just 5–10 prescriptions a day creates a hollow <br className="hidden lg:block"/> 
                 revenue structure that collapses your year-end EBITDA.
               </p>
             </div>
           </div>
           
-          <div className="px-6 py-3 rounded-xl border border-slate-200 group-hover:border-slate-800 group-hover:bg-slate-800 transition-all text-center">
+          <div className="px-6 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-center relative z-10">
             <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">Impact estimation</span>
-            <span className="text-xl font-black text-rose-500 tracking-tighter italic">Significant</span>
+            <span className="text-xl font-black text-indigo-400 tracking-tighter italic">Significant</span>
           </div>
         </motion.div>
       </div>

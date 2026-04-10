@@ -16,15 +16,12 @@ const staggerContainerLocal: any = {
   }
 };
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 export const HospitalPharmacyOutcomes = () => {
   return (
-    <section id="business-case" className="section-py bg-slate-950 relative overflow-hidden">
-      {/* Deep Slate Grid Atmosphere */}
-      <div className="blob-layer pointer-events-none">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] bg-indigo-600/[0.05] rounded-full blur-[140px] animate-pulse" />
-      </div>
+    <section id="business-case" className="section-py relative overflow-hidden">
+      <DarkAtmosphere />
 
       <div className="container-page relative z-10">
         {/* Header */}
@@ -38,7 +35,7 @@ export const HospitalPharmacyOutcomes = () => {
             Better care for your patients. <br className="hidden md:block" />
             <span className="text-indigo-400">Zero headaches for you.</span>
           </h2>
-          <p className="text-body-lg text-slate-600 font-medium max-w-[800px] mx-auto leading-relaxed">
+          <p className="text-body-lg text-slate-400 font-medium max-w-[800px] mx-auto leading-relaxed">
             When patients buy medicines from random external chemists, you can't guarantee the quality, and you don't know if they are actually taking what you prescribed. A MediKloud-managed pharmacy closes the loop on patient care.
           </p>
         </motion.div>

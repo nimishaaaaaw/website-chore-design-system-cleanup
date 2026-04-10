@@ -5,20 +5,14 @@ import { motion } from 'framer-motion';
 import { ArrowLeftRight, ArrowRight, CheckCircle2, Phone } from 'lucide-react';
 import { useContactModal } from '@/hooks/use-contact-modal';
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 export const HMSCTA = () => {
   const { openModal } = useContactModal();
 
   return (
-    <section className="relative py-24 md:py-32 bg-slate-900 overflow-hidden text-center text-white border-t border-slate-800/60">
-      {/* Dynamic Background Atmosphere: GOLD STANDARD DARK STACK */}
-      <div className="tech-grid-overlay !opacity-[0.05]" />
-      <div className="noise-texture !opacity-[0.03]" />
-      
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.15)_0,transparent_70%)]" />
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-600/10 blur-[100px] rounded-full" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-indigo-600/10 blur-[100px] rounded-full" />
-      </div>
+    <section className="relative py-24 md:py-32 overflow-hidden text-center text-white border-t border-slate-800/60">
+      <DarkAtmosphere />
       
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <motion.div

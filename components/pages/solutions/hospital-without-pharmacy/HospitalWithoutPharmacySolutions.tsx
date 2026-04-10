@@ -17,15 +17,12 @@ const staggerContainerLocal = {
   }
 };
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 export const HospitalWithoutPharmacySolutions = () => {
   return (
-    <section className="section-py bg-slate-950 relative overflow-hidden">
-      {/* Dark Atmosphere Blobs */}
-      <div className="blob-layer pointer-events-none overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80rem] h-[80rem] bg-indigo-600/[0.05] rounded-full blur-[140px] animate-pulse" />
-        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-blue-600/[0.08] rounded-full blur-[120px] -mr-32 -mt-32 animate-float-slow" />
-        <div className="absolute bottom-0 left-0 w-[50rem] h-[50rem] bg-cyan-600/[0.06] rounded-full blur-[140px] -ml-40 -mb-40 animate-float-medium" />
-      </div>
+    <section className="section-py relative overflow-hidden">
+      <DarkAtmosphere />
 
       <div className="container-page relative z-10">
         <motion.div 

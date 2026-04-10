@@ -31,7 +31,7 @@ export interface StatItem {
 
 export const PROBLEM_STATS: StatItem[] = [
   { label: 'Internal Bleed',        stat: '15–20%', note: 'Pilferage & missed billing' },
-  { label: 'Prescription Leakage',  stat: '20–30%', note: 'Fills at Apollo, MedPlus, 1mg' },
+  { label: 'Prescription Leakage',  stat: '90%',    note: 'Patients take prescriptions to external pharmacies, leading to permanent revenue and trust leakage.' },
   { label: 'No Pharmacy at All',    stat: '25%',    note: 'Every prescription lost to retail' },
 ];
 
@@ -131,8 +131,8 @@ export const HERO_TRUST_BADGES: TrustBadgeItem[] = [
 ];
 
 export const VISION_STATS = [
-  { title: '20–30%', label: 'Increased Pharmacy Profits', icon: TrendingUp, color: 'from-blue-600 to-indigo-600' },
-  { title: 'Home Delivery', label: '& Automated Refills', icon: Truck, color: 'from-indigo-600 to-violet-600' },
-  { title: 'Free HMS', label: 'Zero-cost hospital software', icon: Monitor, color: 'from-blue-500 to-blue-700' },
-  { title: 'AI-Powered', label: 'Procurement, billing & inventory', icon: Bot, color: 'from-violet-500 to-indigo-600' },
+  { title: 'Stop Leakage', label: 'Capture Full Rx Value', icon: ShieldCheck, color: 'from-indigo-500 to-blue-600' },
+  { title: '₹0 Capex', label: 'Setup & Operation Cost', icon: Wallet, color: 'from-blue-600 to-indigo-600' },
+  { title: 'Free HMS', label: 'Smart Billing & EHR', icon: Monitor, color: 'from-indigo-500 to-blue-500' },
+  { title: '15–20%', label: 'Avg. Revenue Recovered', icon: TrendingUp, color: 'from-blue-500 to-indigo-700' },
 ];

@@ -10,8 +10,9 @@ import { MainHero } from '@/components/pages/home/MainHero'
 import { Stats } from '@/components/pages/home/Stats'
 import { ProblemSection } from '@/components/pages/home/ProblemSection'
 import { FulfillmentEcosystem } from '@/components/pages/home/FulfillmentEcosystem'
-import { SetupWizard } from '@/components/pages/home/SetupWizard'
+// import { SetupWizard } from '@/components/pages/home/SetupWizard'
 import { AdvantageSection } from '@/components/pages/home/AdvantageSection'
+import { HomeFAQ } from '@/components/pages/home/HomeFAQ'
 import { MarqueeSection } from '@/components/pages/home/MarqueeSection'
 
 // ── Dynamic imports only for heavy below-fold sections with loading skeletons ──
@@ -39,16 +40,20 @@ export default function PageV2() {
         {/* 3. Problem — Revenue Leakage funnel */}
         <ProblemSection />
 
-        {/* 4. Bridge — Continuous Care */}
-        <FulfillmentEcosystem />
-
-        {/* 5. Interactive — Find Your Setup */}
-        <SetupWizard />
-
-        {/* 6. Advantage Section */}
+        {/* 4. Advantage Section */}
         <AdvantageSection />
 
-        {/* 6. Social proof marquee */}
+        {/* 5. Bridge — Continuous Care */}
+        <FulfillmentEcosystem />
+
+        {/* 6. Interactive — Find Your Setup (Removed for now)
+        <SetupWizard />
+        */}
+
+        {/* 7. FAQs */}
+        <HomeFAQ />
+
+        {/* 8. Social proof marquee */}
         <MarqueeSection />
       </main>
 

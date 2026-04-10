@@ -29,8 +29,9 @@ Use this workflow to refactor any existing website section into a "Gold Standard
 - **Corners**: Standardize major containers to **`rounded-[2.5rem]`** and smaller cards to **`rounded-[2rem]`**.
 
 ### 2. Atmospheric Injection
-- **Tech Grid**: Inject `<div className="tech-grid-overlay !opacity-[0.03]" />` for dark sections or subtle texture on light ones.
-- **Noise Texture**: Add the signature forensic grain: `<div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />`.
+- **Standard Background**: Strictly use `<DarkAtmosphere />` for all dark sections. This ensures the "Vibrant Indigo" aesthetic (Indigo-Blue gradient + Ambient Glows) is consistent site-wide.
+- **Tech Grid**: Inject `<div className="tech-grid-overlay !opacity-[0.03]" />` for additional technical texture where appropriate.
+- **Noise Texture**: Standardized grain is already included in `<DarkAtmosphere />`.
 - **Z-Index Health**: Always ensure background textures/blobs are at the base, and use **`group-hover:z-20`** on animated cards to prevent shadow clipping during hover.
 
 ### 3. Typographic Calibration

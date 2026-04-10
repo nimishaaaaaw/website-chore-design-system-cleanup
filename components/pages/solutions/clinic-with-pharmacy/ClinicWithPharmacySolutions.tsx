@@ -17,17 +17,12 @@ const staggerContainerLocal = {
   }
 };
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 export const ClinicWithPharmacySolutions = () => {
   return (
-    <section className="section-py bg-slate-950 relative overflow-hidden">
-      {/* Dark Atmosphere Blobs & Grid */}
-      <div className="blob-layer pointer-events-none">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80rem] h-[80rem] bg-indigo-600/[0.05] rounded-full blur-[140px] animate-pulse" />
-        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-blue-600/[0.08] rounded-full blur-[120px] -mr-32 -mt-32 animate-float-slow" />
-        <div className="absolute bottom-0 left-0 w-[50rem] h-[50rem] bg-cyan-600/[0.06] rounded-full blur-[140px] -ml-40 -mb-40 animate-float-medium" />
-      </div>
+    <section className="section-py relative overflow-hidden">
+      <DarkAtmosphere />
 
       <div className="container-page relative z-10">
         <motion.div 

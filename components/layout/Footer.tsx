@@ -25,7 +25,7 @@ export function Footer() {
 
           {/* Solutions Column */}
           <div className="lg:col-span-3 space-y-5">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Solutions</h3>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Offerings</h3>
             <ul className="space-y-3">
               {[
                 { name: 'Managed Pharmacy', href: '/products/managed-pharmacy' },

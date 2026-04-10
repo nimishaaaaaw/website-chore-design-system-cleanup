@@ -300,7 +300,7 @@ export function PersonaROISection() {
                       )}
                       {selected === 'co' && (
                         <motion.div key="co" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex flex-col gap-1.5">
-                          <BreakdownRow icon={PieChart} colorClass="blue" label="Commission (~17.5%)" value={formatMoney(potL * 0.175)} />
+                          <BreakdownRow icon={PieChart} colorClass="blue" label="Operational Fee (~17.5%)" value={formatMoney(potL * 0.175)} />
                           <BreakdownRow icon={Repeat} colorClass="blue" label="Chronic Refills Gap" value={formatMoney(refill)} />
                         </motion.div>
                       )}

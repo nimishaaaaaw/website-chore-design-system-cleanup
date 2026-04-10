@@ -8,6 +8,8 @@ import {
     ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import EventSource from "eventsource";
+import { execSync } from "child_process";
+import path from "path";
 
 // Polyfill EventSource for Node.js
 global.EventSource = EventSource;
@@ -26,8 +28,17 @@ async function run() {
     try {
         await client.connect(transport);
     } catch (error) {
-        console.error("Failed to connect to Vibe Annotations:", error);
-        process.exit(1);
+        console.error("Failed to connect to Vibe Annotations. Attempting restart...");
+        try {
+            const projectRoot = "/Users/yeswanth/Documents/Medikloud_Tech/Website/Website_Part2";
+            execSync(".agent/vibe-start.sh", { cwd: projectRoot, stdio: "inherit" });
+            // Wait and retry once
+            await new Promise(r => setTimeout(r, 2000));
+            await client.connect(transport);
+        } catch (innerError) {
+            console.error("Self-healing failed:", innerError.message);
+            process.exit(1);
+        }
     }
 
     // 2. Start Stdio Server for the Agent

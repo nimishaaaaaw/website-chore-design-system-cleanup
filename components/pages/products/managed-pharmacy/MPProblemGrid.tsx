@@ -8,9 +8,13 @@ import {
   ArrowRight,
   Clock3,
   Trash2,
-  PackageX
+  PackageX,
+  TrendingDown,
+  Activity,
+  ShieldAlert
 } from 'lucide-react';
 import { useContactModal } from '@/hooks/use-contact-modal';
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 const premiumEase = [0.16, 1, 0.3, 1] as any;
 
@@ -35,199 +39,240 @@ export function MPProblemGrid() {
   };
 
   return (
-    <section className="relative bg-white overflow-hidden border-t border-slate-100 section-py">
-      {/* Forensic Background textures */}
+    <section className="relative bg-white overflow-hidden section-py border-t border-slate-100">
+      {/* Subtle Background Pattern */}
       <div className="tech-grid-overlay opacity-[0.03]" />
       
-      <motion.div 
-        className="relative z-10 container-page"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
-        {/* Gold Standard Header Section */}
-        <motion.div variants={itemVariants} className="header-lock text-center mb-12 lg:mb-20 space-y-4">
+      <div className="relative z-10 container-page">
+        
+        {/* Standardized Gold Header Section */}
+        <div className="header-lock text-center mb-12 space-y-4 max-w-[850px] mx-auto">
           <div className="eyebrow-wrap justify-center">
             <span className="eyebrow-line-l"></span>
-            <span className="eyebrow-text">Operational Leakage</span>
+            <span className="eyebrow-text flex items-center gap-2">
+               <ShieldAlert size={14} className="text-indigo-600" />
+               Operational Leakage
+            </span>
             <span className="eyebrow-line-r"></span>
           </div>
           <h2 className="premium-h2">
-            Your pharmacy is <span className="text-indigo-600">losing cash daily.</span>
+            Your pharmacy is{" "}
+            <span className="text-indigo-600">
+              losing cash daily.
+            </span>
           </h2>
-          <p className="premium-p intro-lock">
-            Running a standalone pharmacy without the scale and tech of a retail chain is bleeding your profits and losing your patients.
+          <p className="premium-p intro-lock !max-w-2xl">
+            Operating a pharmacy without the scale and technology of a modern retail chain leads to operational losses and patient churn.
           </p>
-        </motion.div>
+        </div>
 
-        {/* The Problem Grid - Standardized Locks */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* Unified Bento Grid - Perfect Symmetry - Compact Mode */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
           
-          {/* Card 1: Wasted Money (Double span) */}
-          <motion.div 
-            variants={itemVariants}
-            className="lg:col-span-2 group group-hover:z-20 relative overflow-hidden rounded-3xl bg-white border border-slate-200 p-8 lg:p-10 flex flex-col md:flex-row gap-8 hover:shadow-card-md transition-all duration-500"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-rose-50/50 blur-3xl opacity-50 pointer-events-none" />
+          {/* Card 1: Wasted Money */}
+          <div className="group flex flex-col h-full bg-white rounded-[1.5rem] p-6 lg:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-indigo-50 to-transparent rounded-full blur-3xl opacity-50 -z-10 transition-opacity group-hover:opacity-100" />
             
-            <div className="space-y-6 flex-1 relative z-10">
-              <div className="flex items-center gap-4">
-                 <div className="w-14 h-14 flex items-center justify-center bg-rose-50 rounded-2xl border border-rose-100/50 text-rose-600 shrink-0">
-                  <Trash2 size={28} strokeWidth={1.5} />
-                 </div>
-                 <h3 className="premium-h3">Wasted Money</h3>
+            <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4 text-indigo-600 border border-indigo-100 group-hover:scale-110 transition-transform duration-500 shrink-0">
+              <Trash2 size={20} strokeWidth={2} />
+            </div>
+            <h3 className="premium-h3 mb-2 shrink-0">Wasted Money</h3>
+            <p className="text-sm lg:text-[15px] text-slate-500 leading-relaxed mb-4 shrink-0">
+              Capital gets completely trapped in aging medicine sitting on shelves until expiry, aggressively starving your clinic of essential growth capital.
+            </p>
+
+            <div className="flex flex-wrap gap-1.5 mb-5 shrink-0">
+              {['Retail Markups', 'Dead Stock', 'Expired Meds'].map(tag => (
+                <span key={tag} className="px-2.5 py-1 bg-indigo-50 border border-indigo-100/50 rounded-md text-[10px] font-bold text-indigo-600 uppercase tracking-widest">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            {/* Abstract UI Element */}
+            <div className="mt-auto bg-slate-50 rounded-xl p-4 border border-slate-100">
+              <div className="flex justify-between items-end mb-3">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Profit Loss</span>
+                <span className="text-[11px] font-bold text-indigo-600 flex items-center gap-1"><TrendingDown size={14}/> HIGH</span>
               </div>
-              <p className="premium-p max-w-lg">
-                Your cash is stuck in <span className="text-slate-900 font-bold underline decoration-rose-300 underline-offset-4">unsold medicine</span> that sits on shelves until it expires.
-              </p>
-              <div className="space-y-3 pt-2">
-                {[
-                  "Buying at high retail prices",
-                  "Inconsistent inventory tracking",
-                  "Expired stock with zero return value"
-                ].map((text, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm font-medium text-slate-600 leading-snug">
-                    <div className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
-                    {text}
-                  </li>
+              <div className="flex items-end gap-1.5 h-10 w-full">
+                {[40, 65, 80, 50, 30, 15].map((height, i) => (
+                  <div key={i} className="flex-1 bg-slate-200 rounded-t-sm relative group-hover:bg-indigo-100 transition-colors" style={{ height: '100%' }}>
+                    <motion.div 
+                      initial={{ height: 0 }}
+                      whileInView={{ height: `${height}%` }}
+                      transition={{ delay: 0.2 + (i * 0.1), duration: 0.8, ease: premiumEase }}
+                      className="absolute bottom-0 left-0 right-0 bg-indigo-400 rounded-t-sm origin-bottom" 
+                    />
+                  </div>
                 ))}
               </div>
             </div>
-            
-            <div className="w-full md:w-56 bg-slate-50/50 rounded-2xl p-6 border border-slate-100 flex flex-col justify-center items-center text-center relative z-10">
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Profit Loss</span>
-              <div className="text-4xl font-bold text-rose-600 mb-1 leading-none tracking-tight">HIGH</div>
-              <div className="h-2.5 w-full bg-slate-200 rounded-full mt-4 overflow-hidden shadow-inner">
-                 <motion.div 
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "85%" }}
-                  transition={{ duration: 1.5, ease: premiumEase }}
-                  className="h-full bg-gradient-to-r from-rose-500 to-rose-600 rounded-full" />
-              </div>
-            </div>
-          </motion.div>
+          </div>
 
           {/* Card 2: Staff Stress */}
-          <motion.div 
-            variants={itemVariants}
-            className="group group-hover:z-20 relative overflow-hidden rounded-3xl bg-white border border-slate-200 p-8 lg:p-10 flex flex-col justify-between hover:shadow-card-md transition-all duration-500"
-          >
-            <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 flex items-center justify-center bg-amber-50 rounded-2xl border border-amber-100/50 text-amber-600">
-                  <Clock3 size={28} strokeWidth={1.5} />
-                </div>
-                <h3 className="premium-h3">Staff Stress</h3>
-              </div>
-              <p className="premium-p mb-8">
-                Skilled pharmacists are <span className="text-amber-600 font-bold">overwhelmed</span> by manual documentation and fragmented billing processes.
-              </p>
-            </div>
-            <div className="bg-slate-50/80 flex flex-col gap-2.5 p-5 rounded-2xl border border-slate-100 font-bold text-[10px] text-slate-500 uppercase tracking-widest relative z-10">
-               <div className="flex justify-between items-center">
-                 <span>Operational Friction</span>
-                 <span className="text-amber-600 font-black">Severe</span>
-               </div>
-               <div className="w-full h-1 bg-slate-200 rounded-full overflow-hidden">
-                 <div className="w-4/5 h-full bg-amber-500 rounded-full" />
-               </div>
-            </div>
-          </motion.div>
-
-          {/* Card 3: Lost Customers */}
-          <motion.div 
-            variants={itemVariants}
-            className="group group-hover:z-20 relative overflow-hidden rounded-3xl bg-white border border-slate-200 p-8 lg:p-10 flex flex-col lg:col-span-1 md:col-span-2 hover:shadow-card-md transition-all duration-500"
-          >
-            <div className="flex-1 relative z-10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 flex items-center justify-center bg-indigo-50 rounded-2xl border border-indigo-100/50 text-indigo-600">
-                  <UserMinus size={28} strokeWidth={1.5} />
-                </div>
-                <h3 className="premium-h3">Churn Loop</h3>
-              </div>
-              <p className="premium-p mb-8">
-                Patients visit your clinic, but they take their <span className="text-indigo-600 font-bold italic">lifelong medication business</span> to massive retail chains.
-              </p>
-            </div>
-            <div className="flex items-center gap-4 bg-indigo-50/50 p-5 rounded-2xl border border-indigo-100/50 relative z-10">
-               <div className="p-3 bg-white rounded-xl text-indigo-600 shrink-0 shadow-sm border border-indigo-100/50">
-                 <PackageX size={20} strokeWidth={1.5} />
-               </div>
-               <p className="text-[10px] font-bold text-slate-600 uppercase tracking-widest leading-relaxed">
-                  No Home Delivery = <br/><span className="text-indigo-600">Patients Leave Forever</span>
-               </p>
-            </div>
-          </motion.div>
-
-          {/* Card 4: Operating in the Dark (Double span) */}
-          <motion.div 
-            variants={itemVariants}
-            className="lg:col-span-2 group group-hover:z-20 relative overflow-hidden rounded-3xl bg-slate-900 p-8 lg:p-10 flex flex-col md:flex-row gap-8 lg:gap-12 shadow-sm hover:shadow-card-md transition-all duration-500"
-          >
-            <div className="tech-grid-overlay opacity-20" />
+          <div className="group flex flex-col h-full bg-white rounded-[1.5rem] p-6 lg:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-indigo-50 to-transparent rounded-full blur-3xl opacity-50 -z-10 transition-opacity group-hover:opacity-100" />
             
-            <div className="flex-1 relative z-10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 flex items-center justify-center bg-white/5 rounded-2xl border border-white/10 text-white shadow-inner">
-                  <EyeOff size={28} strokeWidth={1.5} />
-                </div>
-                <h3 className="premium-h3 !text-white">Operating in the Dark</h3>
-              </div>
-              <p className="premium-p !text-slate-400 mb-8 max-w-lg">
-                Standalone pharmacy owners usually manage by <span className="text-white font-bold italic">pure gut feeling.</span> You only find out you lost money at the end of the month.
-              </p>
-              
-              <div className="flex flex-wrap gap-2.5">
-                {['Zero Real-time Data', 'Fragmented CRM', 'Delayed Reporting'].map(tag => (
-                  <span key={tag} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4 text-indigo-600 border border-indigo-100 group-hover:scale-110 transition-transform duration-500 shrink-0">
+              <Clock3 size={20} strokeWidth={2} />
+            </div>
+            <h3 className="premium-h3 mb-2 shrink-0">Staff Stress</h3>
+            <p className="text-sm lg:text-[15px] text-slate-500 leading-relaxed mb-4 shrink-0">
+              Pharmacists are overwhelmed by manual workloads, driving high attrition. Fragmented systems expose your clinic to fatal underbilling and theft.
+            </p>
+
+            <div className="flex flex-wrap gap-1.5 mb-5 shrink-0">
+              {['Staff Attrition', 'Underbilling', 'Inventory Theft'].map(tag => (
+                <span key={tag} className="px-2.5 py-1 bg-indigo-50 border border-indigo-100/50 rounded-md text-[10px] font-bold text-indigo-600 uppercase tracking-widest">
+                  {tag}
+                </span>
+              ))}
             </div>
 
-            <div className="md:w-64 flex flex-col justify-center items-center gap-4 relative z-10 bg-white shadow-2xl p-6 rounded-2xl border border-slate-100">
-               <motion.button 
-                onClick={openModal}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full h-12 bg-indigo-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-black transition-colors"
-               >
-                SOLVE THIS <ArrowRight size={18} strokeWidth={1.5} />
-               </motion.button>
-               <p className="text-[10px] text-center font-bold text-slate-500 uppercase tracking-widest">
-                Stop the revenue leaks
-               </p>
+             {/* Abstract UI Element */}
+            <div className="mt-auto bg-slate-50 rounded-xl p-4 border border-slate-100">
+              <div className="flex justify-between items-center mb-2.5">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Operational Friction</span>
+                <span className="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-[10px] font-bold rounded-md uppercase">Severe</span>
+              </div>
+              <div className="space-y-2">
+                <div className="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "85%" }}
+                    transition={{ duration: 1.5, ease: premiumEase }}
+                    className="h-full bg-indigo-400 rounded-full" 
+                  />
+                </div>
+                <div className="flex justify-between text-[10px] text-slate-500 font-medium tracking-wide">
+                  <span>Manual Tasks: 85%</span>
+                  <span>Clinical Care: 15%</span>
+                </div>
+              </div>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Card 3: Operating in the Dark (Dark Theme) */}
+          <div className="group flex flex-col h-full bg-slate-900 rounded-[1.5rem] p-6 lg:p-8 border border-slate-800 shadow-xl hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-500 relative overflow-hidden">
+            <DarkAtmosphere withMouseEffect={false} />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/40 via-slate-900/0 to-slate-900/0 -z-10" />
+            
+            <div className="relative z-10 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 text-white border border-white/10 group-hover:scale-110 transition-transform duration-500 shrink-0">
+              <EyeOff size={20} strokeWidth={2} />
+            </div>
+            <h3 className="relative z-10 premium-h3 !text-white mb-2 shrink-0">Operating in the Dark</h3>
+            <p className="relative z-10 text-slate-400 leading-relaxed mb-4 shrink-0 text-sm lg:text-[15px]">
+              Inventory is managed purely by estimation. Devastating operational losses are only discovered during delayed end-of-month reconciliations.
+            </p>
+
+            <div className="relative z-10 flex flex-wrap gap-1.5 mb-5 shrink-0">
+              {['Zero Real-time Data', 'Fragmented CRM', 'Delayed Reports'].map(tag => (
+                <span key={tag} className="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[10px] font-bold text-slate-300 uppercase tracking-widest backdrop-blur-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Abstract UI Element */}
+            <div className="relative z-10 mt-auto bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10 overflow-hidden">
+              <div className="absolute inset-0 backdrop-blur-[2px] bg-slate-900/20 z-10 flex items-center justify-center">
+                 <div className="flex items-center gap-1.5 text-indigo-300 text-[10px] font-bold bg-slate-900/80 px-2.5 py-1 rounded-full border border-indigo-500/30">
+                    <Activity size={12} /> Sync Failed
+                 </div>
+              </div>
+              <div className="space-y-2 opacity-50 blur-[1px]">
+                <div className="h-3 bg-white/10 rounded w-3/4"></div>
+                <div className="h-3 bg-white/10 rounded w-1/2"></div>
+                <div className="h-3 bg-white/10 rounded w-5/6"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: Churn Loop */}
+          <div className="group flex flex-col h-full bg-white rounded-[1.5rem] p-6 lg:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-indigo-50 to-transparent rounded-full blur-3xl opacity-50 -z-10 transition-opacity group-hover:opacity-100" />
+            
+            <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4 text-indigo-600 border border-indigo-100 group-hover:scale-110 transition-transform duration-500 shrink-0">
+              <UserMinus size={20} strokeWidth={2} />
+            </div>
+            <h3 className="premium-h3 mb-2 shrink-0">Churn Loop</h3>
+            <p className="text-sm lg:text-[15px] text-slate-500 leading-relaxed mb-4 shrink-0">
+              Patients visit your clinic for immediate care, but divert their highly profitable chronic refill prescriptions straight to massive external retail chains.
+            </p>
+
+            <div className="flex flex-wrap gap-1.5 mb-5 shrink-0">
+              {['No Delivery', 'External Refills', 'Lost Retention'].map(tag => (
+                <span key={tag} className="px-2.5 py-1 bg-indigo-50 border border-indigo-100/50 rounded-md text-[10px] font-bold text-indigo-600 uppercase tracking-widest">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Abstract UI Element */}
+            <div className="mt-auto bg-slate-50 rounded-xl p-4 border border-slate-100 flex items-center justify-between">
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm">
+                  <PackageX size={14} />
+                </div>
+                <span className="text-[9px] font-bold text-slate-400 uppercase">Clinic</span>
+              </div>
+              
+              <div className="flex-1 flex items-center justify-center relative px-2">
+                <div className="w-full h-px border-t border-dashed border-slate-300"></div>
+                <div className="absolute top-1/2 -translate-y-1/2 bg-white px-2 text-[9px] font-bold text-indigo-600 tracking-wider text-center leading-tight">
+                  NO HOME DELIVERY = <br/> PATIENTS LEAVE
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 shadow-sm">
+                  <ArrowRight size={14} />
+                </div>
+                <span className="text-[9px] font-bold text-indigo-600 uppercase">Retailer</span>
+              </div>
+            </div>
+          </div>
 
         </div>
 
-        {/* Standardized Footer Stats */}
-        <motion.div 
-          variants={itemVariants}
-          className="mt-12 lg:mt-20 pt-10 border-t border-slate-100"
-        >
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
-            {[
-              { label: "Lost Profits", value: "₹1 Lakh+", sub: "Per Month" },
-              { label: "Wasted Clinical Time", value: "2 Hours", sub: "Daily Admin" },
-              { label: "Dead Inventory", value: "₹5 Lakh+", sub: "Trapped Cash" },
-              { label: "Chronic Churn", value: "60%+", sub: "Lost to Retail" }
-            ].map((stat, i) => (
-              <div key={i} className="flex flex-col items-center text-center">
-                <p className="stat-number text-3xl md:text-4xl">{stat.value}</p>
-                <p className="stat-label flex flex-col items-center font-bold uppercase tracking-widest leading-relaxed">
-                  <span className="text-indigo-600 mb-0.5">{stat.label}</span>
-                  {stat.sub}
-                </p>
-              </div>
-            ))}
+        {/* High-Impact Stats Row */}
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-5 max-w-5xl mx-auto">
+          {[
+            { label: "Lost Profits", value: "₹1 Lakh+", sub: "Per Month" },
+            { label: "Wasted Clinical Time", value: "2 Hours", sub: "Daily Admin" },
+            { label: "Dead Inventory", value: "₹5 Lakh+", sub: "Trapped Cash" },
+            { label: "Chronic Churn", value: "60%+", sub: "Lost to Retail" }
+          ].map((stat, i) => (
+            <div key={i} className="bg-white rounded-2xl p-5 lg:p-6 border border-slate-200 shadow-sm flex flex-col items-center justify-center text-center hover:shadow-card-sm transition-shadow">
+              <div className="stat-number font-bold text-3xl md:text-4xl mb-2 text-indigo-600 tracking-tight">{stat.value}</div>
+              <div className="text-xs font-bold text-slate-900 mb-1">{stat.label}</div>
+              <div className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">{stat.sub}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Global CTA Section */}
+        <div className="mt-12 max-w-5xl mx-auto">
+          <div className="bg-slate-900 rounded-[1.5rem] p-8 lg:p-10 border border-slate-800 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 group">
+            <DarkAtmosphere withMouseEffect={true} />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-500/20 via-transparent to-transparent opacity-50 pointer-events-none" />
+            
+            <div className="relative z-10 text-center md:text-left">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">Ready to stop the leakage?</h3>
+              <p className="text-slate-400 text-sm lg:text-base">Stop the revenue gaps and upgrade to retail-grade infrastructure today.</p>
+            </div>
+            
+            <button 
+              onClick={openModal}
+              className="relative z-10 w-full md:w-auto px-6 py-3.5 bg-white text-slate-900 hover:bg-indigo-50 rounded-xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.1)] text-sm"
+            >
+              STOP THE LEAKAGE <ArrowRight size={16} />
+            </button>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+
+      </div>
     </section>
   );
 }

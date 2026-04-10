@@ -13,8 +13,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.medikloud.com'),
-  title: 'MediKloud — AI-Powered Hospital Operations',
-  description: 'AI agents for HMS, pharmacy, delivery, and kiosks. Reduce cost, prevent stockouts, and improve patient experience with real-time visibility and automation.',
+  title: 'MediKloud — Hospital Pharmacy Management & Zero Capex Setup',
+  description: 'Stop pharmacy leakage and capture your full Rx value. We provide the staff, inventory, and technology to run your in-house pharmacy with zero capex risk.',
   manifest: '/manifest.webmanifest',
   keywords: [
     'Hospital Management System',
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     shortcut: ['/favicon.png'],
   },
   openGraph: {
-    title: 'MediKloud — AI-Powered Hospital Operations',
-    description: 'AI agents for HMS, pharmacy, delivery, and kiosks.',
+    title: 'MediKloud — Hospital Pharmacy Management & Zero Capex Setup',
+    description: 'We provide the staff, inventory, and technology to run your in-house pharmacy with zero capex risk.',
     url: 'https://www.medikloud.com',
     siteName: 'MediKloud',
     images: [
@@ -67,8 +67,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MediKloud — AI-Powered Hospital Operations',
-    description: 'AI agents for HMS, pharmacy, delivery, and kiosks.',
+    title: 'MediKloud — Hospital Pharmacy Management & Zero Capex Setup',
+    description: 'We provide the staff, inventory, and technology to run your in-house pharmacy with zero capex risk.',
     images: ['/healthcare-hero-illustration.png'],
   },
   alternates: {

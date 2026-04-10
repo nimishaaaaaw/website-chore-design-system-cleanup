@@ -30,16 +30,12 @@ const clinics = [
   },
 ];
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 export const VPNerveCenter = () => {
   return (
-    <section className="section-py relative overflow-hidden bg-slate-950 text-slate-200" id="nerve-center">
-      {/* Forensic Background Textures */}
-      <div className="tech-grid-overlay !opacity-[0.03]" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
-      
-      {/* Dynamic Brand Blobs */}
-      <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-indigo-600/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none animate-float-slow" />
-      <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-600/10 rounded-full blur-[80px] translate-y-1/2 pointer-events-none animate-pulse-slow" />
+    <section className="section-py relative overflow-hidden" id="nerve-center">
+      <DarkAtmosphere />
 
       <div className="container-page flex flex-col items-center relative z-10">
         {/* Section Header - Removed as per user request */}

@@ -23,8 +23,8 @@ const bottomMarqueeItems = [
 ];
 
 const MarqueeItem = ({ text }: { text: string }) => (
-  <div className="mx-3 md:mx-4 flex items-center justify-center px-6 py-3 bg-white rounded-full shadow-[0_2px_8px_-4px_rgba(0,0,0,0.08)]">
-    <span className="text-[15px] font-normal text-slate-600 tracking-wide">
+  <div className="mx-4 md:mx-6 flex items-center justify-center px-6 py-3">
+    <span className="text-base font-normal text-slate-600 tracking-wide">
       {text}
     </span>
   </div>
@@ -32,8 +32,8 @@ const MarqueeItem = ({ text }: { text: string }) => (
 
 export function MarqueeSection() {
   return (
-    <section className="py-10 md:py-12 bg-white relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto relative z-10 w-full">
+    <section className="py-section-sm bg-section-surface relative overflow-hidden">
+      <div className="max-w-container mx-auto relative z-10 w-full">
         
         {/* Top Row - Moving Left */}
         <div className="mb-6">

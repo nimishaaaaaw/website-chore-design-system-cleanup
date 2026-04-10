@@ -1,6 +1,11 @@
-# MediKloud "Non-Hero" Gold Standard — Design & Engineering Tokens
-
 This document codifies the forensic architectural standards for all **Non-Hero** components. These tokens have been integrated into the **Tailwind Config** and **Global CSS** for semantic usage.
+
+## 0. Core Directive: ZERO Hard-Coding
+- **Colors**: No hex codes (`#...`) allowed. Use Tailwind brand/slate classes or CSS variables.
+- **Spacing**: Use standard Tailwind spacing (`p-4`, `space-y-8`) or named tokens (`py-section`).
+- **Typography**: Strictly use semantic classes like `.premium-h2`, `.premium-p`, etc.
+- **SVGs**: Use `var(--indigo-600)` or other brand tokens for strokes and fills.
+- **Audit with References**: For every refactor, provide established file references where the proposed tokens are already successfully implemented.
 
 ## 1. Semantic Typographic Components
 | Element | CSS Component Class | Role |

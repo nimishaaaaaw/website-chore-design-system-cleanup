@@ -12,16 +12,16 @@ import { ParticleNetwork } from '@/components/shared/ParticleNetwork'
 export function MainHero() {
   const { openModal } = useContactModal()
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-[90px] pb-4 md:pt-[110px] md:pb-8">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-section-lg pb-section-sm">
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
 
       {/* Interactive Medical Particle Canvas */}
       <ParticleNetwork />
 
-      {/* Ambient glow orbs — simplified for performance */}
-      <div className="absolute top-[10%] left-[15%] w-60 h-60 bg-blue-100/25 rounded-full blur-[60px]" aria-hidden="true" />
-      <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-indigo-100/20 rounded-full blur-[60px]" aria-hidden="true" />
+      {/* Ambient glow orbs — staggered animations for premium feel */}
+      <div className="absolute top-[10%] left-[15%] w-72 h-72 bg-brand-100/30 rounded-full blur-[80px] animate-float-slow" aria-hidden="true" />
+      <div className="absolute bottom-[20%] right-[10%] w-80 h-80 bg-brand-indigo-100/20 rounded-full blur-[90px] animate-float-slower" aria-hidden="true" />
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-[2]" aria-hidden="true" />
@@ -38,7 +38,7 @@ export function MainHero() {
             className="eyebrow-wrap justify-center"
           >
             <span className="eyebrow-line-l" />
-            <span className="eyebrow-text">India's First · AI-Driven · Fully Managed</span>
+            <span className="eyebrow-text">Zero Capex · AI-Driven · End-to-End</span>
             <span className="eyebrow-line-r" />
           </motion.div>
 
@@ -50,13 +50,13 @@ export function MainHero() {
             className="mb-5 md:mb-8 text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl"
           >
             <span
-              className="block text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem] font-bold leading-[1.2] tracking-tight md:tracking-[-0.02em] bg-gradient-display bg-clip-text text-transparent pb-3 mb-2 md:mb-4"
+              className="block font-bold leading-[1.1] tracking-tighter bg-gradient-display bg-clip-text text-transparent pb-3 mb-2 md:mb-4"
               style={{ color: '#4F46E5' }}
             >
-              Building In-House Pharmacies
+              Building Fully Managed In-House Pharmacies
             </span>
-            <span className="block text-[1.5rem] sm:text-[2rem] md:text-[2.25rem] font-bold leading-[1.2] tracking-[-0.02em] text-slate-700">
-              for Independent Hospitals & Clinics
+            <span className="block text-h2 sm:text-h1 font-bold leading-[1.1] tracking-tight text-slate-700">
+              for Independent Hospitals &amp; Clinics
             </span>
           </motion.h1>
 
@@ -67,7 +67,7 @@ export function MainHero() {
             transition={{ duration: 0.4, delay: 0.2 }}
             className="hero-subtitle max-w-[800px] mx-auto mb-8 md:mb-10"
           >
-            Complete <strong className="text-slate-600 font-medium">hospital pharmacy management</strong> — from digital tools and end-to-end operations to tech-led inventory control, trained staff, and doorstep delivery.
+            We set up, staff, and run your hospital pharmacy with zero capital investment. You focus on patients — we turn lost prescriptions into steady revenue.
           </motion.p>
 
           {/* ── CTAs ── */}
@@ -79,7 +79,7 @@ export function MainHero() {
           >
             <button
               onClick={openModal}
-              className="group inline-flex items-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px]"
+              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-bold rounded-xl shadow-btn hover:opacity-90 active:scale-[.98] transition-all duration-200 text-[16px] md:text-[17px]"
             >
               Book A Free Demo
               <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -99,7 +99,7 @@ export function MainHero() {
                 const Icon = badge.icon;
                 return (
                   <div key={idx} className="flex items-center gap-2.5">
-                    <Icon size={16} className="text-blue-500" />
+                    <Icon size={16} className="text-brand-500" />
                     <span className="text-xs font-semibold text-slate-600 tracking-wide uppercase">
                       {badge.label}
                     </span>
@@ -111,13 +111,7 @@ export function MainHero() {
 
           {/* SEO hidden content */}
           <p className="sr-only">
-            MediKloud is India&apos;s first tech-driven hospital pharmacy management company offering fully managed 
-            hospital pharmacy operations, hospital pharmacy management, and zero capex pharmacy setup for 
-            independent hospitals and clinics. Our AI-powered platform covers pharmacy inventory management, 
-            procurement automation, pharmacy billing and revenue leakage control, medicine home delivery, 
-            and automated prescription refills. Free hospital management software (HMS) included with 
-            AI scribe, EHR, and clinical billing tools. Serving hospitals and clinics across India 
-            with virtual pharmacy fulfillment, pharmacy staffing, and complete pharmacy operations management.
+            MediKloud offers fully managed in-house pharmacies for independent hospitals and clinics in India. We provide the staff, inventory, and technology to run your hospital pharmacy with zero capex risk. Stop pharmacy leakage, automate procurement, and capture your full Rx value. Free hospital management software (HMS) included.
           </p>
         </div>
       </div>

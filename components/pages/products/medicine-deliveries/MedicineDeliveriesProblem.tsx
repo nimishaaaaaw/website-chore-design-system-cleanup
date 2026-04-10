@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 
 const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 const anatomyItems = [
   {
@@ -147,10 +148,9 @@ export const MedicineDeliveriesProblem = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: premiumEase, delay: 0.5 }}
-                className="mt-12 bg-indigo-950 rounded-[2rem] p-7 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10 overflow-hidden"
+                className="mt-12 rounded-[2rem] p-7 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10 overflow-hidden"
               >
-                {/* Blueprint Background */}
-                <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(255,255,255,1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,1)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
+                <DarkAtmosphere withMouseEffect={false} />
 
                 <div className="flex items-center space-x-4 text-white relative z-10">
                   <div className="bg-white/10 p-2.5 rounded-xl border border-white/10 text-emerald-400 backdrop-blur-md">

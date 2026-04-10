@@ -17,6 +17,8 @@ const comparisonData = [
   { feature: "System Maintenance", legacy: "Costly On-Site Support", modern: "Live Instant Updates" }
 ];
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 export const HMSComparison = () => {
   return (
     <section className="relative section-py-premium bg-white overflow-hidden border-t border-slate-100">
@@ -76,7 +78,7 @@ export const HMSComparison = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-50">
-                {comparisonData.map((row, idx) => (
+                {comparisonData.map((row, idx) => (row && (
                   <tr key={idx} className="hover:bg-slate-50/50 transition-colors group">
                     <td className="p-6 font-bold text-slate-900 text-sm">{row.feature}</td>
                     <td className="p-6 text-slate-500 text-center">
@@ -92,7 +94,7 @@ export const HMSComparison = () => {
                       </div>
                     </td>
                   </tr>
-                ))}
+                )))}
               </tbody>
             </table>
           </div>
@@ -100,16 +102,9 @@ export const HMSComparison = () => {
 
         {/* Strategic Outcome Banner: GOLD STANDARD REFIT */}
         <div 
-          className="mt-16 md:mt-24 bg-slate-900 rounded-[2.5rem] p-12 lg:p-20 text-center shadow-card-xl relative overflow-hidden group"
+          className="mt-16 md:mt-24 rounded-[2.5rem] p-12 lg:p-20 text-center shadow-card-xl relative overflow-hidden group border border-white/5"
         >
-          {/* Atmospheric Primitives (Dark) */}
-          <div className="tech-grid-overlay !opacity-[0.05]" />
-          <div className="noise-texture !opacity-[0.03]" />
-          
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-brand-600/10 blur-[120px] rounded-full group-hover:scale-125 transition-transform duration-1000" />
-            <div className="absolute -bottom-1/2 left-0 w-80 h-80 bg-brand-indigo-600/10 blur-[100px] rounded-full" />
-          </div>
+          <DarkAtmosphere showStars={false} />
           
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-16 h-1 bg-brand-600 rounded-full mb-12 opacity-60"></div>

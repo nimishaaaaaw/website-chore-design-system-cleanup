@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, UserPlus, Pill, CheckCircle2, Activity, Home, PackageCheck, Sparkles, Monitor, Truck, TrendingUp } from 'lucide-react';
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 const premiumEase = [0.16, 1, 0.3, 1] as any;
 
@@ -198,13 +199,14 @@ l
             </div>
             <div className="bg-gradient-tinted shadow-card p-8 min-h-[360px] flex items-center justify-center relative overflow-hidden group group-hover:z-20 rounded-[2.5rem] border border-brand-indigo-100">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/40 blur-[50px] rounded-full pointer-events-none" />
-                <div className="w-[230px] h-[320px] bg-slate-900 rounded-[2.5rem] border-[6px] border-slate-800 shadow-2xl relative overflow-hidden flex flex-col z-10 group-hover:-translate-y-2 transition-transform duration-500">
-                   <div className="w-24 h-5 bg-slate-800 mx-auto rounded-b-xl mb-4" />
-                   <div className="flex-1 px-4 py-2 space-y-4 flex flex-col justify-end pb-8">
+                <div className="w-[230px] h-[320px] rounded-[2.5rem] border-[6px] border-slate-800 shadow-2xl relative overflow-hidden flex flex-col z-10 group-hover:-translate-y-2 transition-transform duration-500">
+                   <DarkAtmosphere withMouseEffect={false} showStars={false} />
+                   <div className="w-24 h-5 bg-slate-800/80 backdrop-blur-md mx-auto rounded-b-xl mb-4 relative z-10" />
+                   <div className="flex-1 px-4 py-2 space-y-4 flex flex-col justify-end pb-8 relative z-10">
                       <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl rounded-bl-sm border border-white/10 shadow-lg">
                          <div className="flex items-center gap-1.5 mb-1.5">
                            <div className="w-4 h-4 bg-emerald-500 rounded-full flex items-center justify-center shadow-sm"><Sparkles size={10} className="text-white"/></div>
-                           <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">MediKloud Auto-Refill</span>
+                           <span className="text-[9px] text-indigo-400 font-bold uppercase tracking-wider">MediKloud Auto-Refill</span>
                          </div>
                          <p className="text-white text-[11px] font-medium leading-snug">Your monthly prescription is running low. Tap to refill securely.</p>
                       </div>

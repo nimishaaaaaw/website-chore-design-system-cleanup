@@ -12,6 +12,8 @@ import {
   HeartPulse
 } from 'lucide-react';
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 export const HMSEaseOfUse = () => {
   return (
     <section className="relative overflow-hidden bg-white section-py-premium">
@@ -186,16 +188,9 @@ export const HMSEaseOfUse = () => {
 
         {/* Strategic Outcome Banner: GOLD STANDARD DARK REFIT */}
         <div 
-          className="mt-16 md:mt-24 bg-slate-900 rounded-[2.5rem] p-12 lg:p-20 text-center shadow-card-xl relative overflow-hidden group border border-white/5"
+          className="mt-16 md:mt-24 rounded-[2.5rem] p-12 lg:p-20 text-center shadow-card-xl relative overflow-hidden group border border-white/5"
         >
-          {/* Atmospheric Primitives (Dark) */}
-          <div className="tech-grid-overlay !opacity-[0.05]" />
-          <div className="noise-texture !opacity-[0.03]" />
-          
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-3xl bg-blue-500/10 blur-[120px] rounded-full group-hover:scale-125 transition-transform duration-1000" />
-            <div className="absolute -bottom-1/2 left-0 w-72 h-72 bg-brand-indigo-600/10 blur-[100px] rounded-full" />
-          </div>
+          <DarkAtmosphere showStars={false} />
           
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-16 h-1 bg-brand-600 rounded-full mb-10 opacity-60"></div>

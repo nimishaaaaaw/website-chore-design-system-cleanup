@@ -10,16 +10,12 @@ import {
   Key 
 } from 'lucide-react';
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 export const HMSSecurity = () => {
   return (
-    <section className="relative overflow-hidden bg-slate-900 section-py-premium text-white border-t border-slate-800">
-      {/* Gold Standard Atmosphere (Dark Fortress) */}
-      <div className="tech-grid-overlay !opacity-[0.05]" />
-      <div className="noise-texture !opacity-[0.03]" />
-
-      {/* Background Glows (Calibrated) */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-600/10 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-indigo-600/10 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3 pointer-events-none" />
+    <section className="relative overflow-hidden section-py-premium text-white border-t border-slate-800">
+      <DarkAtmosphere />
 
       <div className="container-page relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
@@ -38,7 +34,7 @@ export const HMSSecurity = () => {
                 <span className="eyebrow-line-r" />
               </div>
               
-               <h2 className="premium-h2 mb-8 lowercase sm:normal-case">
+              <h2 className="premium-h2 mb-8 lowercase sm:normal-case">
                 <span className="text-white">Data Security.</span> <br className="hidden md:block" />
                 <span className="text-indigo-400">A Clinical Fortress.</span>
               </h2>
@@ -88,7 +84,7 @@ export const HMSSecurity = () => {
                    transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                    className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/[0.08] transition-all group"
                 >
-                  <div className="bg-slate-900 w-11 h-11 rounded-xl flex items-center justify-center border border-white/10 mb-4 shadow-inner">
+                  <div className="bg-white/5 w-11 h-11 rounded-xl flex items-center justify-center border border-white/10 mb-4 shadow-inner">
                     {React.cloneElement(item.icon as React.ReactElement, { strokeWidth: 1.5 } as any)}
                   </div>
                   <h4 className="text-base font-bold text-white mb-2">{item.title}</h4>
@@ -101,16 +97,9 @@ export const HMSSecurity = () => {
 
         {/* Strategic Outcome Banner: GOLD STANDARD DARK REFIT */}
         <div 
-          className="mt-16 md:mt-24 bg-slate-900 rounded-[2.5rem] p-12 lg:p-20 text-center shadow-card-xl relative overflow-hidden group border border-white/5"
+          className="mt-16 md:mt-24 rounded-[2.5rem] p-12 lg:p-20 text-center shadow-card-xl relative overflow-hidden group border border-white/5"
         >
-          {/* Atmospheric Primitives (Dark) */}
-          <div className="tech-grid-overlay !opacity-[0.05]" />
-          <div className="noise-texture !opacity-[0.03]" />
-          
-          <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-brand-600/10 blur-[120px] rounded-full group-hover:scale-125 transition-transform duration-1000" />
-            <div className="absolute -bottom-1/2 left-0 w-80 h-80 bg-brand-indigo-600/10 blur-[100px] rounded-full" />
-          </div>
+          <DarkAtmosphere showStars={false} />
           
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-16 h-1 bg-brand-600 rounded-full mb-12 opacity-60"></div>

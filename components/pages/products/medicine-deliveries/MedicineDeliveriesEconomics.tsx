@@ -12,6 +12,7 @@ import {
 } from 'lucide-react'
 
 const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 const economicModel = [
   {
@@ -87,18 +88,17 @@ export const MedicineDeliveriesEconomics = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: premiumEase, delay: 0.2 }}
-              className="p-8 md:p-10 bg-indigo-950 rounded-[2.5rem] relative overflow-hidden group shadow-card-lg ring-1 ring-white/10"
+              className="p-8 md:p-10 rounded-[2.5rem] relative overflow-hidden group shadow-card-lg ring-1 ring-white/10"
             >
-              {/* Blueprint Grid Overlay */}
-              <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(255,255,255,1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,1)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
-
+              <DarkAtmosphere withMouseEffect={false} />
+              
               <div className="relative z-10">
                 <p className="text-indigo-400 font-bold uppercase tracking-widest text-[10px] mb-3 leading-none">Strategic Outcome</p>
                 <p className="text-xl md:text-2xl text-white font-bold leading-tight tracking-tight text-balance">
                   No hidden fees. No heavy capital investment. Just a smarter way to scale.
                 </p>
               </div>
-              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-all z-10">
                 <Coins className="w-20 h-20 text-white" strokeWidth={1.5} />
               </div>
             </motion.div>
@@ -131,10 +131,9 @@ export const MedicineDeliveriesEconomics = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: premiumEase, delay: 0.4 }}
-              className="bg-indigo-950 p-8 md:p-10 rounded-[2.5rem] text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-card-lg relative overflow-hidden ring-1 ring-white/10"
+              className="p-8 md:p-10 rounded-[2.5rem] text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-card-lg relative overflow-hidden ring-1 ring-white/10"
             >
-               {/* Blueprint Grid Overlay */}
-               <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(255,255,255,1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,1)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
+               <DarkAtmosphere withMouseEffect={false} />
 
                <div className="flex items-center space-x-5 relative z-10">
                   <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 text-emerald-400">

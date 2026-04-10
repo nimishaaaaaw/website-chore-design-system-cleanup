@@ -24,7 +24,7 @@ export function MPv2Solution() {
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative items-start">
           
           {/* LEFT COLUMN: Sticky Header (Synchronized) */}
-          <div className="lg:w-5/12 lg:sticky lg:top-[120px] z-10">
+          <div className="lg:w-5/12 lg:sticky lg:top-[max(25vh,160px)] z-10">
             <div className="space-y-8">
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
@@ -35,7 +35,7 @@ export function MPv2Solution() {
               >
                 <span className="eyebrow-line-l"></span>
                 <span className="eyebrow-text flex items-center gap-2">
-                   <Zap size={14} className="text-indigo-600" /> Managed Operations
+                   <Zap size={14} className="text-indigo-600" /> Zero Ops Deployment
                 </span>
                 <span className="eyebrow-line-r"></span>
               </motion.div>
@@ -47,8 +47,8 @@ export function MPv2Solution() {
                 transition={{ duration: 0.8, ease: premiumEase }}
                 className="premium-h2"
               >
-                Enterprise infrastructure <br />
-                <span className="text-indigo-600">deployed in weeks.</span>
+                Your entire pharmacy, <br />
+                <span className="text-indigo-600">running on autopilot.</span>
               </motion.h2>
               
               <motion.p 
@@ -58,27 +58,8 @@ export function MPv2Solution() {
                 transition={{ delay: 0.1, duration: 0.8, ease: premiumEase }}
                 className="premium-p intro-lock"
               >
-                We install the hardware, software, and professional staff. You reclaim your margins. <strong className="text-slate-900 font-bold italic">We handle the rest.</strong>
+                We deploy the hardware, technology, and clinical staff directly into your facility. You retain full ownership of the revenue flow. <strong className="text-slate-900 font-bold italic">We handle the rest.</strong>
               </motion.p>
-
-              {/* Desktop CTA */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                className="pt-8 hidden lg:block"
-              >
-                <button 
-                  onClick={openModal}
-                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  START MANAGED TRANSITION <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </button>
-                <p className="mt-4 text-slate-500 font-bold text-[10px] uppercase tracking-widest italic">
-                  * Guaranteed 30-Day Operational Handover
-                </p>
-              </motion.div>
             </div>
           </div>
 
@@ -93,50 +74,82 @@ export function MPv2Solution() {
                   desc: "We bring the entire retail chain backend into your four walls. Eliminate hiring stress and procurement overhead.",
                   tags: "Ownership: MediKloud",
                   points: [
-                    "Licensed pharmacists on our payroll",
+                    "Licensed pharmacists deployed to your facility",
                     "Complete inventory funding (₹2L–10L+)",
-                    "Modular medical-grade shelving",
+                    "Zero Inventory Loss guaranteed",
                     "Bulk procurement price protection"
-                  ]
+                  ],
+                  theme: {
+                    base: "text-blue-600",
+                    bg: "bg-blue-50",
+                    border: "border-blue-100",
+                    borderA: "border-blue-100/50",
+                    hoverBorder: "hover:border-blue-200",
+                    hoverText: "group-hover:text-blue-100/50"
+                  }
                 },
                 {
                   id: "02",
                   icon: Cpu,
                   title: "Anti-Leakage Tech",
-                  desc: "Deploying the same HMS, AI demand forecasting, and inventory controls that power India's largest chains.",
+                  desc: "Deploying advanced HMS, AI demand forecasting, and strict inventory controls natively inside your clinic.",
                   tags: "Shrinkage: Eliminated",
                   points: [
                     "AI forecasting prevents dead stock expiry",
                     "Full barcode billing integration",
                     "Automated 60-day vendor returns",
                     "Daily discrepancy loss reporting"
-                  ]
+                  ],
+                  theme: {
+                    base: "text-emerald-600",
+                    bg: "bg-emerald-50",
+                    border: "border-emerald-100",
+                    borderA: "border-emerald-100/50",
+                    hoverBorder: "hover:border-emerald-200",
+                    hoverText: "group-hover:text-emerald-100/50"
+                  }
                 },
                 {
                   id: "03",
                   icon: Smartphone,
-                  title: "The Retention Engine",
+                  title: "Direct Home Deliveries",
                   desc: "Stop losing patients to e-pharmacy apps. We operate branded home delivery directly from your clinic hub.",
-                  tags: "Patient LTV: Locked",
+                  tags: "Patient: Retained",
                   points: [
                     "Same-day home delivery infrastructure",
                     "WhatsApp adherence & refill triggers",
                     "Clinical-grade packaging",
                     "Refill revenue remains in your clinic"
-                  ]
+                  ],
+                  theme: {
+                    base: "text-purple-600",
+                    bg: "bg-purple-50",
+                    border: "border-purple-100",
+                    borderA: "border-purple-100/50",
+                    hoverBorder: "hover:border-purple-200",
+                    hoverText: "group-hover:text-purple-100/50"
+                  }
                 },
                 {
                   id: "04",
                   icon: HeartHandshake,
-                  title: "Pure Medical Revenue",
-                  desc: "Simple, transparent, and doctor-first. A guaranteed revenue share on every single Net Rupee collected.",
-                  tags: "Revenue: Automated",
+                  title: "Automated Revenue",
+                  desc: "Convert your operational leaks into a highly profitable, self-sustaining pharmacy engine with zero upfront capital.",
+                  tags: "Revenue: Captured",
                   points: [
-                    "Transparent monthly revenue share",
+                    "100% transparent billing",
                     "Zero operational load for doctors",
                     "Central Ops monitoring 24/7",
                     "Scalable across multiple facilities"
-                  ]
+                  ],
+                  theme: {
+                    base: "text-amber-600",
+                    bg: "bg-amber-50",
+                    border: "border-amber-100",
+                    borderA: "border-amber-100/50",
+                    hoverBorder: "hover:border-amber-200",
+                    hoverText: "group-hover:text-amber-100/50"
+                  }
                 }
               ].map((module, i) => (
                 <motion.div 
@@ -145,16 +158,16 @@ export function MPv2Solution() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.8, ease: premiumEase }}
-                  className="bg-white border border-slate-200 rounded-[2.5rem] p-8 md:p-12 shadow-card-sm hover:shadow-card-md hover:border-indigo-100 transition-shadow transition-colors duration-500 group group-hover:z-20"
+                  className={`bg-white border ${module.theme.border} rounded-[2.5rem] p-8 md:p-12 shadow-card-sm hover:shadow-card-md ${module.theme.hoverBorder} transition-shadow transition-colors duration-500 group group-hover:z-20`}
                 >
                   <div className="flex flex-wrap items-center justify-between gap-6 mb-8">
                     <div className="flex items-center gap-5">
-                      <div className="w-16 h-16 rounded-2xl bg-indigo-50 border border-indigo-100/50 text-indigo-600 flex items-center justify-center">
+                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border ${module.theme.bg} ${module.theme.borderA} ${module.theme.base}`}>
                         <module.icon size={32} strokeWidth={1.5} />
                       </div>
-                      <span className="text-4xl font-bold text-slate-100 group-hover:text-indigo-100/50 transition-colors duration-500">{module.id}</span>
+                      <span className={`text-4xl font-bold text-slate-100 transition-colors duration-500 ${module.theme.hoverText}`}>{module.id}</span>
                     </div>
-                    <div className="px-5 py-2 bg-indigo-50 text-indigo-600 text-[11px] font-bold tracking-widest uppercase rounded-xl border border-indigo-100/30">
+                    <div className={`px-5 py-2 text-[11px] font-bold tracking-widest uppercase rounded-xl border ${module.theme.bg} ${module.theme.base} border-opacity-30 border-current`}>
                       {module.tags}
                     </div>
                   </div>
@@ -167,7 +180,7 @@ export function MPv2Solution() {
                   <div className="grid sm:grid-cols-2 gap-y-4 gap-x-8">
                     {module.points.map((point, idx) => (
                       <div key={idx} className="flex items-start gap-3 text-sm font-medium text-slate-600">
-                        <CheckCircle2 size={18} className="text-indigo-600 mt-0.5 shrink-0" strokeWidth={1.5} />
+                        <CheckCircle2 size={18} className={`mt-0.5 shrink-0 ${module.theme.base}`} strokeWidth={1.5} />
                         {point}
                       </div>
                     ))}
@@ -175,18 +188,6 @@ export function MPv2Solution() {
                 </motion.div>
               ))}
               
-              {/* Mobile CTA */}
-              <div className="pt-8 lg:hidden flex flex-col items-center text-center">
-                <button 
-                  onClick={openModal}
-                  className="w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl shadow-lg"
-                >
-                  START UPGRADE <ArrowRight size={18} className="inline ml-2" strokeWidth={1.5} />
-                </button>
-                <p className="mt-4 text-slate-500 font-bold text-[10px] uppercase tracking-widest italic">
-                  * 30-Day Managed Transition
-                </p>
-              </div>
             </div>
           </div>
         </div>

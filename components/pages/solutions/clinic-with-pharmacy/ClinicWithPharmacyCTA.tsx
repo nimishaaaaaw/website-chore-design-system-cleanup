@@ -9,33 +9,12 @@ interface ClinicWithPharmacyCTAProps {
   onTalkToExpert?: () => void;
 }
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 export const ClinicWithPharmacyCTA = ({ onBookDemo, onTalkToExpert }: ClinicWithPharmacyCTAProps) => {
   return (
-    <section className="section-py bg-slate-950 relative overflow-hidden">
-      {/* Background Atmosphere & Grid */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-        <div className="absolute h-full w-full bg-slate-950" />
-        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-indigo-600/10 rounded-full blur-[100px] -mr-48 -mt-48 animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-600/10 rounded-full blur-[80px] -ml-24 -mb-24 animate-float-slow" />
-        
-        {/* Floating Sparkles cluster */}
-        <motion.div 
-          animate={{ y: [0, -20, 0], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-1/4"
-        >
-          <Sparkles className="w-8 h-8 text-cyan-500/20" />
-        </motion.div>
-        <motion.div 
-          animate={{ y: [0, 20, 0], opacity: [0.2, 0.5, 0.2] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-1/4 right-1/4"
-        >
-          <Sparkles className="w-12 h-12 text-indigo-500/20" />
-        </motion.div>
-      </div>
+    <section className="section-py relative overflow-hidden">
+      <DarkAtmosphere />
 
       <div className="container-page relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-12">

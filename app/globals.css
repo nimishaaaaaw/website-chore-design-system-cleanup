@@ -281,9 +281,9 @@
   /* RULES:                                                    */
   /* 1. One per page — the main hero headline only             */
   /* 2. Always add style={{ color: '#4F46E5' }} as fallback    */
-  /* 3. font-black (900) on this element ONLY                  */
+  /* 3. font-bold (700) on this element ONLY                    */
   .display-headline {
-    @apply font-black leading-[1.1] tracking-tighter;
+    @apply font-bold leading-[1.1] tracking-tighter;
     background: var(--gradient-display);
     -webkit-background-clip: text;
     background-clip: text;
@@ -579,7 +579,7 @@
    import { Poppins } from 'next/font/google';
 
    const poppins = Poppins({
-     weight: ['400', '600', '700', '900'],
+     weight: ['400', '600', '700'],
      subsets: ['latin'],
      variable: '--font-poppins',
      display: 'swap',
@@ -595,6 +595,6 @@
      );
    }
 
-   NOTE: weight '900' is loaded for the ONE display headline.
-   All other elements use 400, 600, or 700 only.
+   NOTE: weight '700' is used for the display headline.
+   All other elements use 400, 600, or 700.
    ═══════════════════════════════════════════════════════════════ */

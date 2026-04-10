@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, MessageCircle, Package, Users2, ShieldCheck, RefreshCw } from 'lucide-react';
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 const fadeInUp: any = {
   hidden: { opacity: 0, y: 40 },
@@ -43,8 +44,8 @@ export const HospitalPharmacyApproach = () => {
           className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {/* Card 1: Inventory (Dark Card) */}
-          <motion.div variants={fadeInUp} className="md:col-span-2 bg-slate-950 rounded-[2.5rem] p-10 lg:p-12 relative overflow-hidden group shadow-2xl shadow-slate-900/20">
-            <div className="absolute -right-20 -top-20 w-80 h-80 bg-blue-600/20 blur-[80px] rounded-full group-hover:bg-blue-500/30 transition-colors duration-700"></div>
+          <motion.div variants={fadeInUp} className="md:col-span-2 rounded-[2.5rem] p-10 lg:p-12 relative overflow-hidden group shadow-2xl shadow-slate-900/20">
+            <DarkAtmosphere withMouseEffect={false} />
             
             <div className="relative z-10 flex flex-col h-full">
               <div className="flex items-center justify-between mb-8">

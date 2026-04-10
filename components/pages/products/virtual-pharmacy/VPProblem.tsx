@@ -14,6 +14,8 @@ import { motion } from 'framer-motion';
 
 const premiumEase = [0.16, 1, 0.3, 1] as const;
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 const VPProblem = () => {
   return (
     <section className="bg-section-alt border-y border-slate-100 section-py relative overflow-hidden" id="challenge">
@@ -86,11 +88,9 @@ const VPProblem = () => {
 
           {/* Box 2: Space Constraints (Span 5) - Tightened */}
           <div 
-            className="md:col-span-5 bg-slate-900 rounded-[2.5rem] p-8 md:p-10 relative overflow-hidden group text-white shadow-card-brand hover:-translate-y-1 transition-all duration-500 flex flex-col"
+            className="md:col-span-5 rounded-[2.5rem] p-8 md:p-10 relative overflow-hidden group text-white shadow-card-brand hover:-translate-y-1 transition-all duration-500 flex flex-col border border-white/5"
           >
-            {/* Blueprint Grid Background */}
-            <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(255,255,255,1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,1)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
-            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl -mr-20 -mt-20 transition-transform duration-700 group-hover:scale-125 pointer-events-none" />
+            <DarkAtmosphere showStars={false} />
             
             <div className="flex items-center gap-3 mb-6 relative z-10">
               <div className="bg-white/10 w-11 h-11 rounded-xl flex items-center justify-center border border-white/10 backdrop-blur-sm text-indigo-300 shadow-xl">

@@ -40,16 +40,16 @@ const ADVANTAGES: AdvantageItem[] = [
   {
     id: 0,
     icon: <Zap className="w-6 h-6" />,
-    tagline: "Speed to Market",
-    title: "Day 1",
+    tagline: "Operational Excellence",
+    title: "End-to-End",
     subtitle: "Operations infrastructure",
     description: "Staff deployed, tech integrated, and inventory live — before you spend a rupee.",
     tags: [
       { label: "Capex risk", dir: "down", color: "text-blue-600 bg-blue-50 ring-1 ring-blue-500/10" },
-      { label: "Speed", dir: "up", color: "text-emerald-600 bg-emerald-50 ring-1 ring-emerald-500/10" }
+      { label: "Efficiency", dir: "up", color: "text-blue-600 bg-blue-50 ring-1 ring-blue-500/10" }
     ],
-    metric: "Go live in under 7 days",
-    traditional: "Setting up a compliant pharmacy takes months, lakhs in capital, and full management attention.",
+    metric: "100% Fully Managed",
+    traditional: "Setting up a compliant pharmacy requires massive capital investment and full management attention.",
     medikloud: "We've already built the playbook. We deploy it into your hospital — you approve, we execute.",
     themeColor: "blue"
   },
@@ -61,10 +61,10 @@ const ADVANTAGES: AdvantageItem[] = [
     subtitle: "Leakage tolerance",
     description: "Every billing event, dispense, and movement is reconciled daily to stop leakage.",
     tags: [
-      { label: "Pilferage", dir: "down", color: "text-rose-600 bg-rose-50 ring-1 ring-rose-500/10" },
-      { label: "Billing gaps", dir: "down", color: "text-rose-600 bg-rose-50 ring-1 ring-rose-500/10" }
+      { label: "Pilferage", dir: "down", color: "text-emerald-600 bg-emerald-50 ring-1 ring-emerald-500/10" },
+      { label: "Billing gaps", dir: "down", color: "text-emerald-600 bg-emerald-50 ring-1 ring-emerald-500/10" }
     ],
-    metric: "30-40% avg. revenue recovered",
+    metric: "15-20% avg. revenue recovered",
     traditional: "Losses surface at the month-end review. By the time you see the gap, the money is already gone.",
     medikloud: "Billing, inventory, and dispense are cross-checked automatically. Discrepancies get caught the same day.",
     themeColor: "emerald"
@@ -94,9 +94,9 @@ const ADVANTAGES: AdvantageItem[] = [
     description: "Chronic patients refilling monthly are worth 12x more than standard one-time visits.",
     tags: [
       { label: "Retention", dir: "up", color: "text-violet-600 bg-violet-50 ring-1 ring-violet-500/10" },
-      { label: "Patient LTV", dir: "up", color: "text-violet-600 bg-violet-50 ring-1 ring-violet-500/10" }
+      { label: "Refill Revenue", dir: "up", color: "text-violet-600 bg-violet-50 ring-1 ring-violet-500/10" }
     ],
-    metric: "3x increase in patient LTV",
+    metric: "3x increase in chronic retention",
     traditional: "Chronic patients drift to the nearest retail chemist after discharge. You get absolutely nothing.",
     medikloud: "Automated WhatsApp and SMS reminders bring them back to your pharmacy — month after month.",
     themeColor: "purple"
@@ -255,14 +255,7 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
                 <span className="text-[10px] font-semibold uppercase tracking-wider">{tag.label}</span>
               </div>
             ))}
-            <div className="ml-auto hidden sm:flex items-center gap-4 text-slate-500">
-              <div className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest">
-                <Plus className="w-3 h-3" /> Day 1 Support
-              </div>
-              <div className="flex items-center gap-1 text-[9px] font-bold uppercase tracking-widest">
-                <CheckCircle2 className="w-3 h-3" /> Fully Managed
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -460,23 +453,20 @@ export function AdvantageSection() {
                 className="eyebrow-wrap justify-center lg:justify-start !mb-0"
               >
                 <div className="eyebrow-line-r" />
-                <span className="eyebrow-text flex items-center gap-2 bg-indigo-50/50 px-4 py-1.5 rounded-full border border-indigo-100 shadow-sm">
-                  <TrendingUp size={14} className="text-indigo-600" />
-                  The Advantage
-                </span>
+                <span className="eyebrow-text">The Advantage</span>
                 <div className="eyebrow-line-l" />
               </motion.div>
 
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tighter">
-                The advantage <br />
-                <span className="text-indigo-600">Apollo</span> has. <br />
-                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-violet-600 italic px-1 pb-1 pr-2" style={{ color: '#4F46E5' }}>
+                <span className="text-indigo-600">The advantage</span> <br />
+                corporate chains have. <br />
+                <span className="inline-block text-indigo-600 italic px-1 pb-1 pr-2">
                   Available to you.
                 </span>
               </h2>
 
               <p className="text-slate-500 text-base md:text-lg font-medium leading-relaxed max-w-sm mx-auto lg:mx-0">
-                Apollo wins because of scale, not luck. We give independent hospitals the exact same operating infrastructure.
+                Corporate pharmacy chains win because of scale, not luck. We give independent hospitals the exact same operating infrastructure.
               </p>
             </div>
           </div>

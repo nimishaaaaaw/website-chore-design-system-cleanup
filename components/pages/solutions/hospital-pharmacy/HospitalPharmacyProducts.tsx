@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Store, Activity, RefreshCw, ShieldCheck, Sparkles, Monitor, FileText, Receipt, Users2, Repeat, Package } from 'lucide-react';
 import { WhatsAppMockup } from './WhatsAppMockup';
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 const fadeInUp: any = {
   hidden: { opacity: 0, y: 40 },
@@ -62,11 +63,8 @@ export const HospitalPharmacyProducts = () => {
             </div>
             
             {/* ADVANCED VISUAL 1: Live Inventory Dashboard */}
-            <div className="order-1 lg:order-2 bg-slate-950 rounded-[2.5rem] p-8 lg:p-12 relative overflow-hidden aspect-[4/3] flex items-center justify-center border border-blue-900/30 shadow-2xl">
-              {/* Tech Grid Background */}
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-              {/* Glowing Orb */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/20 blur-[60px] rounded-full"></div>
+            <div className="order-1 lg:order-2 rounded-[2.5rem] p-8 lg:p-12 relative overflow-hidden aspect-[4/3] flex items-center justify-center shadow-2xl">
+              <DarkAtmosphere withMouseEffect={false} />
 
               {/* Central Glassy Dashboard */}
               <div className="w-full max-w-[340px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-2xl relative z-10 group">
@@ -130,9 +128,8 @@ export const HospitalPharmacyProducts = () => {
             className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
           >
             {/* ADVANCED VISUAL 2: Full HMS Dashboard Mockup */}
-            <div className="bg-slate-950 rounded-[2.5rem] p-8 lg:p-12 relative overflow-hidden aspect-[4/3] flex items-center justify-center border border-cyan-900/30 shadow-2xl">
-              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-600/20 blur-[80px] rounded-full"></div>
+            <div className="rounded-[2.5rem] p-8 lg:p-12 relative overflow-hidden aspect-[4/3] flex items-center justify-center shadow-2xl">
+              <DarkAtmosphere withMouseEffect={false} />
 
               <div className="w-full max-w-[380px] relative z-10 flex flex-col gap-4">
                 {/* Top Row: OPD & Billing Modules */}
@@ -233,9 +230,8 @@ export const HospitalPharmacyProducts = () => {
             </div>
             
             {/* ADVANCED VISUAL 3: Realistic WhatsApp Ordering Flow */}
-            <div className="order-1 lg:order-2 bg-slate-950 rounded-[2.5rem] p-6 lg:p-10 relative overflow-hidden flex items-center justify-center border border-violet-900/30 shadow-2xl group min-h-[550px]">
-              <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.15)_0%,transparent_70%)] blur-[40px] rounded-full pointer-events-none group-hover:bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.25)_0%,transparent_70%)] transition-colors duration-700"></div>
+            <div className="order-1 lg:order-2 rounded-[2.5rem] p-6 lg:p-10 relative overflow-hidden flex items-center justify-center shadow-2xl group min-h-[550px]">
+              <DarkAtmosphere withMouseEffect={false} />
 
               {/* Realistic Phone Chassis + Auto-scrolling Sequence */}
               <WhatsAppMockup />

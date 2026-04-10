@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, ClipboardCheck, PackageCheck, HeartPulse } from 'lucide-react';
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 const premiumEase = [0.16, 1, 0.3, 1] as any;
 
@@ -13,14 +14,8 @@ const fadeInUp = {
 
 export const ClinicInsightShift = () => {
   return (
-    <section className="section-py bg-slate-900 relative overflow-hidden" id="insight-shift">
-      {/* Forensic Background Textures */}
-      <div className="tech-grid-overlay opacity-20" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
-      
-      {/* Brand Blobs */}
-      <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-indigo-500/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none animate-float-slow" />
-      <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-brand-600/10 rounded-full blur-[80px] translate-y-1/2 pointer-events-none animate-float-slower" />
+    <section className="section-py relative overflow-hidden" id="insight-shift">
+      <DarkAtmosphere />
       
       <div className="container-page relative z-10">
         <motion.div 
@@ -69,7 +64,7 @@ export const ClinicInsightShift = () => {
               transition={{ delay: i * 0.1, duration: 0.5, ease: premiumEase }}
               className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 hover:border-indigo-500/50 transition-all duration-500 group group-hover:z-20"
             >
-              <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center mb-8 shadow-inner group-hover:border-indigo-500/30 transition-colors">
+              <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-8 shadow-inner group-hover:bg-indigo-500/20 group-hover:border-indigo-500/30 transition-all duration-500">
                 <item.icon className="w-7 h-7 text-indigo-400" strokeWidth={1.5} />
               </div>
               <h3 className="premium-h3 !text-white mb-3">{item.title}</h3>

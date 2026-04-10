@@ -65,12 +65,9 @@ const config: Config = {
       // ─────────────────────────────────────────────────────────
       // FONT WEIGHT — 3 values only
       //
-      // 900 (font-black)   → display headline ONLY. One use, site-wide.
-      // 700 (font-bold)    → h1, h2 section headings
+      // 700 (font-bold)    → h1, h2 and display headlines
       // 600 (font-semibold)→ h3, h4, eyebrow labels, button text
       // 400 (font-normal)  → body, captions, nav links, chips
-      //
-      // !! DO NOT add font-black to any new component !!
       // ─────────────────────────────────────────────────────────
       // (Tailwind already has these — listed here for documentation)
 
@@ -205,6 +202,9 @@ const config: Config = {
         'float':   '0 8px 32px -4px rgba(79,70,229,0.18), 0 2px 8px -2px rgba(15,23,42,0.08)',
         // Blue-tinted (for cards on dark bg)
         'glow':    '0 0 40px -8px rgba(79,70,229,0.40)',
+        // Specialized decorative glows
+        'glow-indigo': '0 0 12px 2px rgba(79, 70, 229, 0.40)',
+        'accent-glow': '0 4px 24px -4px rgba(6, 182, 212, 0.35)',
         'none':    'none',
       },
 
@@ -383,7 +383,7 @@ export default config;
 // ── DISPLAY HEADLINE (hero only, one per page) ──────────────
 //   <span
 //     className="text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl
-//                font-black leading-[1.1] tracking-tighter
+//                font-bold leading-[1.1] tracking-tighter
 //                bg-gradient-display bg-clip-text text-transparent"
 //     style={{ color: '#4F46E5' }}  {/* ← fallback — REQUIRED */}
 //   >

@@ -15,20 +15,14 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+
 const premiumEase = [0.16, 1, 0.3, 1] as const;
 
 const VPSolution = () => {
   return (
-    <section className="bg-slate-950 py-24 md:py-32 relative text-slate-300 border-t border-slate-900" id="infrastructure">
-      {/* Forensic Background Textures */}
-      <div className="tech-grid-overlay !opacity-[0.03]" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
-      
-      {/* Background Blobs for depth */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-10%] right-[-5%] w-[40rem] h-[40rem] bg-indigo-600/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[40rem] h-[40rem] bg-blue-600/10 blur-[120px] rounded-full" />
-      </div>
+    <section className="py-24 md:py-32 relative text-slate-300 border-t border-slate-900" id="infrastructure">
+      <DarkAtmosphere />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
