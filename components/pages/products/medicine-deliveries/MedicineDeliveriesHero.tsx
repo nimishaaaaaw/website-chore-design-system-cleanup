@@ -95,7 +95,7 @@ export const MedicineDeliveriesHero = () => {
             {/* Eyebrow - Keep Airy */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start mb-10 md:mb-14 pt-6">
               <span className="eyebrow-line-l"></span>
-              <span className="eyebrow-text">Digital Health Extension · Patient Retention</span>
+              <span className="eyebrow-text">Continuous Care · Patient Retention</span>
               <span className="eyebrow-line-r"></span>
             </motion.div>
             
@@ -106,28 +106,33 @@ export const MedicineDeliveriesHero = () => {
                 <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-center lg:text-left text-balance">
                   <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
                     <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight text-slate-900">
-                      Medicine Deliveries From
+                      Deliver Medicines From Your
                     </span>
                     <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>
-                      Hospital Pharmacies
+                      Hospital Pharmacy
                     </span>
                   </div>
                   <div className="mt-8 md:mt-10">
                     <span className="block text-[1.25rem] sm:text-[1.5rem] md:text-[1.75rem] lg:text-[1.875rem] font-semibold leading-relaxed tracking-tight text-slate-700/90 italic">
-                      Directly to the patient's Doorstep.
+                      Directly to the Patient's Doorstep.
                     </span>
                   </div>
                 </motion.h1>
                 
                 <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-                  We provide the technology and resources for patients to order directly from you and deliver them as well. Ensure 100% patient retention with automated chronic refills.
+                  Stop losing revenue to retail aggregators. We handle the logistics to deliver medicines directly from your hospital to the patient's door, securing 100% retention with automated refills.
                 </motion.p>
               </div>
 
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2 lg:pt-4">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
-                  <button onClick={openModal} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
+                  <button onClick={() => openModal({
+                    badge: "Medicine Deliveries",
+                    title: "Enable Direct Patient Delivery.",
+                    description: "Let us handle the logistics so you can recover lost prescription revenue.",
+                    btnText: "Schedule Live Demo"
+                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
                     Partner With Us <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

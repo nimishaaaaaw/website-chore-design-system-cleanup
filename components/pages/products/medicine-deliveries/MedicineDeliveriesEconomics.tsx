@@ -22,8 +22,8 @@ const economicModel = [
   },
   {
     icon: <PieChart className="w-6 h-6" strokeWidth={1.5} />,
-    title: "Flexible Delivery Fees",
-    desc: "You have total control. Decide who pays the delivery fee based on your specific patient base."
+    title: "You Decide Who Pays for Delivery",
+    desc: "Choose whether the patient pays the delivery fee or you absorb it. It's your call, every time."
   },
   {
     icon: <PiggyBank className="w-6 h-6" strokeWidth={1.5} />,
@@ -32,8 +32,8 @@ const economicModel = [
   },
   {
     icon: <Handshake className="w-6 h-6" strokeWidth={1.5} />,
-    title: "The Retention Bonus",
-    desc: "The real profit is retention. Every chronic patient you keep is worth ₹90,000+ in lifetime value."
+    title: "Every Patient You Keep Is Worth More",
+    desc: "Every chronic patient you keep delivering to is worth ₹90,000+ in lifetime prescription value."
   }
 ];
 
@@ -56,7 +56,7 @@ export const MedicineDeliveriesEconomics = () => {
               className="eyebrow-wrap mb-8 lg:justify-start"
             >
               <span className="eyebrow-line-r" />
-              <span className="eyebrow-text">Financial Trust</span>
+              <span className="eyebrow-text">How It Works</span>
               <span className="eyebrow-line-l" />
             </motion.div>
             
@@ -80,10 +80,10 @@ export const MedicineDeliveriesEconomics = () => {
               transition={{ duration: 0.8, ease: premiumEase, delay: 0.1 }}
               className="premium-p intro-lock mb-12"
             >
-              We provide the technology and the logistics at a model that is fair and clear. We only win when your hospital’s delivery network is capturing thousands of rupees in retained revenue.
+              We provide the technology and the logistics. You pay only per successful delivery—nothing upfront, no risk.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -93,9 +93,9 @@ export const MedicineDeliveriesEconomics = () => {
               <DarkAtmosphere withMouseEffect={false} />
               
               <div className="relative z-10">
-                <p className="text-indigo-400 font-bold uppercase tracking-widest text-[10px] mb-3 leading-none">Strategic Outcome</p>
+                <p className="text-indigo-400 font-bold uppercase tracking-widest text-[10px] mb-3 leading-none">Our Promise</p>
                 <p className="text-xl md:text-2xl text-white font-bold leading-tight tracking-tight text-balance">
-                  No hidden fees. No heavy capital investment. Just a smarter way to scale.
+                  No hidden fees. No upfront investment. You only pay when a delivery is made.
                 </p>
               </div>
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-all z-10">
@@ -126,29 +126,6 @@ export const MedicineDeliveriesEconomics = () => {
               ))}
             </div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: premiumEase, delay: 0.4 }}
-              className="p-8 md:p-10 rounded-[2.5rem] text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-card-lg relative overflow-hidden ring-1 ring-white/10"
-            >
-               <DarkAtmosphere withMouseEffect={false} />
-
-               <div className="flex items-center space-x-5 relative z-10">
-                  <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 text-emerald-400">
-                     <TrendingUp className="w-8 h-8" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                     <p className="text-emerald-400 text-[10px] font-bold uppercase tracking-widest leading-none mb-1.5">Impact Strategy</p>
-                     <p className="text-xl md:text-2xl font-bold tracking-tight text-white">Retain High-Value Patients</p>
-                  </div>
-               </div>
-               <div className="text-center md:text-right relative z-10 border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-10 w-full md:w-auto">
-                  <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-1.5 leading-none">Lifetime Value (LTV)</p>
-                  <p className="stat-number text-4xl text-white">₹90,000<span className="text-indigo-500 ml-1">+</span></p>
-               </div>
-            </motion.div>
           </div>
         </div>
       </div>

@@ -17,28 +17,23 @@ import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 const anatomyItems = [
   {
     icon: <TrendingDown className="w-6 h-6" strokeWidth={1.5} />,
-    title: "The 'Go Outside' Leak",
-    desc: "Every time staff says 'Get it from outside,' you're handing over a voucher for your competitors."
+    title: "Lost After the Consultation",
+    desc: "When a patient leaves to find a pharmacy, they often don't come back to your hospital for refills."
   },
   {
     icon: <HeartHandshake className="w-6 h-6" strokeWidth={1.5} />,
-    title: "The Caregiver’s Burden",
-    desc: "Recovering families shouldn't hunt for pharmacies. Don't force them to trust an aggregator."
+    title: "Your Patient's Recovery Gets Complicated",
+    desc: "Recovering families are forced to chase down pharmacies instead of focusing on rest and recovery."
   },
   {
     icon: <ShieldCheck className="w-6 h-6" strokeWidth={1.5} />,
-    title: "Total Brand Integrity",
-    desc: "Online apps swap your prescriptions for inventory. We deliver the exact trusted brand."
+    title: "Chemists Change What You Prescribed",
+    desc: "External chemists regularly swap your prescribed brands for cheaper alternatives to maximise their margin."
   },
   {
     icon: <FileText className="w-6 h-6" strokeWidth={1.5} />,
-    title: "Fragmented Clinical Records",
-    desc: "Refill loops break when patients buy elsewhere. You lose data on treatment adherence."
-  },
-  {
-    icon: <Coins className="w-6 h-6" strokeWidth={1.5} />,
-    title: "Invisible Revenue Drift",
-    desc: "A single chronic patient lost to convenience is a ₹90,000+ drain on your hospital’s value."
+    title: "No Visibility on Refills",
+    desc: "You have no way of knowing if your chronic patients are actually taking the medicines you prescribed."
   }
 ];
 
@@ -85,7 +80,7 @@ export const MedicineDeliveriesProblem = () => {
               transition={{ duration: 0.8, ease: premiumEase, delay: 0.1 }}
               className="premium-p text-slate-500 font-medium max-w-[800px] leading-relaxed mb-12"
             >
-              Patients will travel hundreds of miles to consult with a doctor they trust. But for their medicine? They choose the nearest, most convenient option—even if it compromises your care plan.
+              Patients will travel across the city to consult with a doctor they trust. But for medicines, they choose the most convenient option—and their loyalty quietly shifts to third-party chemists and delivery apps.
             </motion.p>
             
             <motion.div 
@@ -93,12 +88,12 @@ export const MedicineDeliveriesProblem = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: premiumEase, delay: 0.2 }}
-              className="bg-indigo-600 rounded-[2rem] p-8 text-white shadow-xl shadow-indigo-900/10 relative overflow-hidden group"
+              className="bg-slate-50 border-l-4 border-indigo-600 rounded-r-[2rem] p-8 lg:p-10 text-slate-800 shadow-sm relative overflow-hidden group ring-1 ring-slate-100"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
-              <h4 className="text-[10px] font-bold text-indigo-100 uppercase tracking-widest mb-3 relative z-10">Strategic Insight</h4>
-              <p className="text-lg font-bold leading-relaxed relative z-10 text-indigo-50">
-                Close the service gap. Ensure the care you provide makes it all the way to the patient’s hands.
+              <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
+              <h4 className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest mb-3 relative z-10">Strategic Insight</h4>
+              <p className="text-[17px] font-semibold leading-relaxed relative z-10 text-slate-700">
+                Your care shouldn't stop at the hospital door. Patients need a seamless path from your prescription to their home.
               </p>
             </motion.div>
           </div>
@@ -110,13 +105,14 @@ export const MedicineDeliveriesProblem = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: premiumEase }}
-              className="bg-white rounded-[2.5rem] p-8 lg:p-12 border border-slate-100 shadow-card-lg relative group ring-1 ring-black/[0.03]"
+              className="bg-white rounded-[2.5rem] p-8 lg:p-12 border border-slate-100 shadow-card-lg relative group ring-1 ring-black/[0.03] overflow-hidden flex flex-col h-full"
             >
-              <div className="absolute top-0 right-12 translate-y-[-50%] bg-indigo-950 text-white px-6 py-3 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] shadow-xl z-20">
-                The Anatomy of a Lost Patient
+              <div className="mb-6 pb-5 border-b border-slate-100 flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                <h3 className="text-[11px] font-bold text-slate-800 uppercase tracking-[0.15em]">Operational Leakage Points</h3>
               </div>
               
-              <div className="space-y-10 mt-4 relative z-10">
+              <div className="space-y-7 pb-8 relative z-10">
                 {anatomyItems.map((item, index) => (
                   <motion.div 
                     key={index} 
@@ -124,19 +120,13 @@ export const MedicineDeliveriesProblem = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, ease: premiumEase, delay: index * 0.1 }}
-                    className="flex gap-6 group/item"
+                    className="flex gap-5 group/item"
                   >
-                    <div className={`flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center border shadow-sm group-hover/item:scale-110 group-hover/item:shadow-md transition-all duration-500 ${
-                      index === 0 ? 'bg-rose-50 text-rose-600 border-rose-100' : 
-                      index === 1 ? 'bg-indigo-50 text-indigo-600 border-indigo-100' :
-                      index === 2 ? 'bg-emerald-50 text-emerald-600 border-emerald-100' :
-                      index === 3 ? 'bg-slate-50 text-slate-600 border-slate-100' :
-                      'bg-indigo-50 text-indigo-600 border-indigo-100'
-                    }`}>
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center border bg-slate-50 border-slate-100 text-indigo-600 group-hover/item:bg-indigo-50 group-hover/item:border-indigo-100 group-hover/item:shadow-sm group-hover/item:scale-105 transition-all duration-500">
                       {item.icon}
                     </div>
-                    <div className="pt-1">
-                      <h3 className="premium-h3 mb-1.5 group-hover/item:text-indigo-600 transition-colors">{item.title}</h3>
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 mb-1.5 group-hover/item:text-indigo-600 transition-colors tracking-tight">{item.title}</h3>
                       <p className="text-sm font-medium text-slate-600 leading-relaxed">{item.desc}</p>
                     </div>
                   </motion.div>
@@ -148,7 +138,7 @@ export const MedicineDeliveriesProblem = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: premiumEase, delay: 0.5 }}
-                className="mt-12 rounded-[2rem] p-7 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10 overflow-hidden"
+                className="mt-auto pt-10 rounded-none rounded-b-[2.5rem] p-8 lg:p-12 -mx-8 lg:-mx-12 -mb-8 lg:-mb-12 flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10 overflow-hidden border-t border-slate-200/20 shadow-inner"
               >
                 <DarkAtmosphere withMouseEffect={false} />
 
@@ -158,7 +148,7 @@ export const MedicineDeliveriesProblem = () => {
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400 block mb-0.5">Strategy</span>
-                    <span className="text-sm font-bold text-white uppercase tracking-tight">Stop the Revenue Drift</span>
+                    <span className="text-sm font-bold text-white uppercase tracking-tight">The Cost of Leakage</span>
                   </div>
                 </div>
                 <div className="text-center sm:text-right relative z-10">

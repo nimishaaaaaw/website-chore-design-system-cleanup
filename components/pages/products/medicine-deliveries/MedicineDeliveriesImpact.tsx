@@ -15,26 +15,26 @@ const impactBenefits = [
   {
     id: "01",
     icon: <Settings2 className="w-6 h-6" strokeWidth={1.5} />,
-    title: "You Control the Quality",
-    desc: "No brand-swapping. The patient gets the exact medicine you prescribed, directly from your pharmacy."
+    title: "Exact Brand Delivery",
+    desc: "The patient gets exactly what you wrote on the prescription. No swaps. No shortcuts."
   },
   {
     id: "02",
     icon: <Smile className="w-6 h-6" strokeWidth={1.5} />,
-    title: "Stress-Free for Families",
-    desc: "Families don't have to leave the patient's side to hunt for medicines. We deliver it to their door."
+    title: "Patients Go Home Without the Hassle",
+    desc: "Families focus entirely on patient recovery rather than hunting for medicines across the city."
   },
   {
     id: "03",
     icon: <BellRing className="w-6 h-6" strokeWidth={1.5} />,
-    title: "Patients Never Miss a Dose",
-    desc: "Our system sends simple reminders for chronic refills, allowing patients to refill with one tap."
+    title: "Chronic Patients Never Fall Off",
+    desc: "A simple WhatsApp reminder brings them back to you every month, automatically."
   },
   {
     id: "04",
     icon: <Sparkles className="w-6 h-6" strokeWidth={1.5} />,
-    title: "A Modern Hospital Experience",
-    desc: "Doorstep delivery is the new standard of professional care that patients appreciate and remember."
+    title: "They Come Back to You",
+    desc: "A seamless delivery experience keeps patients loyal to your hospital for every future consultation and refill."
   }
 ];
 
@@ -55,7 +55,7 @@ export const MedicineDeliveriesImpact = () => {
             className="eyebrow-wrap justify-center mb-8"
           >
             <span className="eyebrow-line-l !bg-indigo-500/30" />
-            <span className="eyebrow-text !text-indigo-400">The Modern Standard</span>
+            <span className="eyebrow-text !text-indigo-400">Why It Matters</span>
             <span className="eyebrow-line-r !bg-indigo-500/30" />
           </motion.div>
           
@@ -66,8 +66,8 @@ export const MedicineDeliveriesImpact = () => {
             transition={{ duration: 0.8, ease: premiumEase }}
             className="premium-h2 !text-white text-balance mb-8"
           >
-            Why Delivering from <br className="hidden md:block"/>
-            <span className="text-indigo-400">Your Hospital Matters.</span>
+            Deliver better care. <br className="hidden md:block"/>
+            <span className="text-indigo-400">Keep your patients.</span>
           </motion.h2>
           
           <motion.p 
@@ -77,8 +77,7 @@ export const MedicineDeliveriesImpact = () => {
             transition={{ duration: 0.8, ease: premiumEase, delay: 0.1 }}
             className="premium-p intro-lock !text-slate-400"
           >
-            When your hospital handles the delivery, the quality of care never stops. 
-            It’s better for your patients, easier for their families, and more reliable for your doctors.
+            When you control the delivery, you control the full treatment—from the prescription pad to the patient’s door.
           </motion.p>
         </div>
 

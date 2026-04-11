@@ -29,22 +29,27 @@ export const MedicineDeliveriesCTA = () => {
         >
           <div className="eyebrow-wrap mb-8 justify-center">
             <span className="eyebrow-line-r !bg-indigo-500/30" />
-            <span className="eyebrow-text !text-indigo-400 capitalize">Next Steps</span>
+            <span className="eyebrow-text !text-indigo-400 capitalize">Get Started</span>
             <span className="eyebrow-line-l !bg-indigo-500/30" />
           </div>
 
           <h2 className="premium-h2 !text-white !text-4xl md:!text-5xl lg:!text-6xl mb-8 text-balance tracking-tight font-bold">
-            Ready to enable <br className="hidden md:block" />
-            <span className="text-indigo-400">Medicine Deliveries?</span>
+            Ready to Deliver Medicines <br className="hidden md:block" />
+            <span className="text-indigo-400">Directly From Your Hospital?</span>
           </h2>
           
           <p className="premium-p !text-indigo-100/60 max-w-2xl mx-auto mb-14 text-base md:text-lg font-medium leading-relaxed">
-            Experience India's easiest medicine delivery network. Reclaim your hospital's revenue and modernize patient care today.
+            Set up hospital-to-home medicine deliveries in days. No upfront cost. No new staff required.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
             <button 
-              onClick={openModal}
+              onClick={() => openModal({
+                    badge: "Medicine Deliveries",
+                    title: "Start Delivering From Your Hospital.",
+                    description: "Let us handle the logistics so your patients always get the right medicine, on time.",
+                    btnText: "Schedule Live Demo"
+                  })}
               className="group relative inline-flex items-center justify-center gap-4 px-10 h-16 text-lg font-bold text-white bg-indigo-600 rounded-2xl overflow-hidden shadow-glow hover:bg-indigo-500 hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto active:scale-95 ring-1 ring-white/10"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
