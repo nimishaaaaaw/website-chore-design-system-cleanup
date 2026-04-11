@@ -46,7 +46,7 @@ const VPCTA = () => {
   };
 
   return (
-    <section className="relative bg-white section-py-lg overflow-hidden">
+    <section className="relative bg-white pt-10 pb-20 md:pb-32 overflow-hidden">
       {/* Forensic Background Textures */}
       <div className="tech-grid-overlay !opacity-[0.03]" />
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
@@ -71,7 +71,7 @@ const VPCTA = () => {
             {/* Eyebrow */}
             <motion.div variants={itemVariants} className="eyebrow-wrap justify-center lg:justify-start">
                <span className="eyebrow-line-l" />
-               <span className="eyebrow-text text-indigo-600 text-center lg:text-left">Expansion Nationwide</span>
+               <span className="eyebrow-text text-indigo-600 text-center lg:text-left">Close The Care Loop</span>
                <span className="eyebrow-line-r" />
             </motion.div>
             
@@ -80,8 +80,8 @@ const VPCTA = () => {
               variants={itemVariants} 
               className="premium-h2 !text-slate-900 border-lock text-center lg:text-left mb-6"
             >
-              Enable digital pharmacy <br className="hidden md:block" />
-              for your clinic & give <span className="text-indigo-600">patients better care.</span>
+              Launch your Virtual Pharmacy <br className="hidden md:block" />
+              and guarantee <span className="text-indigo-600">100% care continuity.</span>
             </motion.h2>
             
             {/* Subheadline: Benefits List (Refined hierarchy) */}
@@ -91,15 +91,15 @@ const VPCTA = () => {
             >
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-50/80 border border-indigo-100/50 shadow-sm">
                 <Zap size={14} strokeWidth={1.5} className="text-amber-500" fill="currentColor" />
-                <span className="text-[9px] font-bold text-slate-700 uppercase tracking-widest leading-none">7-Day Live</span>
+                <span className="text-[9px] font-bold text-slate-700 uppercase tracking-widest leading-none">More Clinic Revenue</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-50/80 border border-emerald-100/50 shadow-sm">
                 <ShieldCheck size={14} strokeWidth={1.5} className="text-emerald-500" />
-                <span className="text-[9px] font-bold text-slate-700 uppercase tracking-widest leading-none">Zero Setup Cost</span>
+                <span className="text-[9px] font-bold text-slate-700 uppercase tracking-widest leading-none">Zero Capex</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-50/80 border border-blue-100/50 shadow-sm">
                 <ClipboardCheck size={14} strokeWidth={1.5} className="text-blue-500" />
-                <span className="text-[9px] font-bold text-slate-700 uppercase tracking-widest leading-none">Free EHR</span>
+                <span className="text-[9px] font-bold text-slate-700 uppercase tracking-widest leading-none">Clinic OS Included</span>
               </div>
             </motion.div>
             

@@ -1,8 +1,7 @@
-'use client';
+"use client"
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const premiumEase = [0.16, 1, 0.3, 1] as const;
 
@@ -46,78 +45,37 @@ const faqData = [
 ];
 
 export function VPFAQ() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
   return (
-    <section className="relative bg-white section-py border-t border-slate-100 overflow-hidden">
-      {/* Forensic Background Textures */}
-      <div className="tech-grid-overlay !opacity-[0.03]" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
-
-      <div className="container-page relative z-10">
-        <div className="max-w-4xl mx-auto">
+    <section className="relative bg-slate-50 section-py border-t border-slate-100 overflow-hidden">
+      {/* Forensic Atmospheric Finish */}
+      <div className="tech-grid-overlay opacity-5" />
+      
+      <div className="container-page relative z-10 w-full">
+        <div className="max-w-6xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-16">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: premiumEase }}
-              className="premium-h2 header-lock text-center mb-6"
-            >
-              Frequently <span className="text-indigo-600">Asked Questions</span>
-            </motion.h2>
+          <div className="text-center mb-16 md:mb-20">
+            <h2 className="premium-h2">
+              Frequently Asked <span className="text-indigo-600">Questions</span>
+            </h2>
           </div>
 
-          {/* FAQ Accordion List */}
-          <div className="space-y-4">
-            {faqData.map((faq, idx) => {
-              const isActive = activeIndex === idx;
-              
-              return (
-                <div 
-                  key={idx}
-                  className={`border rounded-[2rem] overflow-hidden transition-all duration-300 group ${
-                    isActive 
-                      ? 'bg-white border-indigo-200 shadow-card-md' 
-                      : 'bg-white/50 border-slate-200 hover:border-slate-300 hover:bg-white'
-                  }`}
-                >
-                  <button 
-                    onClick={() => setActiveIndex(isActive ? null : idx)}
-                    className="w-full flex items-center justify-between p-5 md:p-8 text-left focus:outline-none"
-                  >
-                    <span className={`text-base md:text-lg font-bold tracking-tight pr-8 transition-colors ${isActive ? 'text-indigo-600' : 'text-slate-900 group-hover:text-indigo-600'}`}>
-                      {faq.question}
-                    </span>
-                    <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isActive ? 'bg-indigo-100 text-indigo-600' : 'bg-slate-100 text-slate-500 group-hover:bg-indigo-50 group-hover:text-indigo-600'}`}>
-                      {isActive ? <Minus size={18} strokeWidth={1.5} /> : <Plus size={18} strokeWidth={1.5} />}
-                    </div>
-                  </button>
-                  
-                  <AnimatePresence initial={false}>
-                    {isActive && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: premiumEase }}
-                      >
-                        <div className="px-5 md:px-8 pb-6 md:pb-8 pt-0">
-                          <div className="h-px w-full bg-slate-100 mb-6" />
-                          <p className="premium-p text-sm md:text-base leading-relaxed">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+          {/* FAQ Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {faqData.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-card-sm transition-all duration-300"
+              >
+                <h4 className="text-lg font-bold text-slate-900 mb-4">{faq.question}</h4>
+                <div className="premium-p !text-slate-600 leading-relaxed font-sans">
+                  {faq.answer}
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
 }
+

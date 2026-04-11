@@ -16,52 +16,52 @@ export const VPComparison = () => {
   // Enhanced data structure with 'status' to drive semantic colors and icons
   const comparisonData = [
     { 
-      feature: "Capital Investment", 
+      feature: "Upfront Capital", 
       no: { value: "₹0", status: "neutral" }, 
       own: { value: "₹5L - ₹15L+", status: "standard" }, 
       medi: { value: "₹0", status: "positive" } 
     },
     { 
-      feature: "Space Requirement", 
+      feature: "Space Required", 
       no: { value: "None", status: "neutral" }, 
-      own: { value: "100 - 200 sq. ft.", status: "standard" }, 
+      own: { value: "150+ sq. ft. minimum", status: "standard" }, 
       medi: { value: "None", status: "positive" } 
     },
     { 
-      feature: "Regulatory & Licensing", 
+      feature: "Daily Management", 
+      no: { value: "Zero", status: "neutral" }, 
+      own: { value: "High (Staff & vendors)", status: "standard" }, 
+      medi: { value: "Zero (We run all ops)", status: "positive" } 
+    },
+    { 
+      feature: "Licensing & Compliance", 
       no: { value: "N/A", status: "neutral" }, 
-      own: { value: "Strict drug licenses", status: "standard" }, 
-      medi: { value: "Fully handled by us", status: "positive" } 
+      own: { value: "Clinic is legally liable", status: "standard" }, 
+      medi: { value: "We hold the licenses", status: "positive" } 
     },
     { 
-      feature: "Staffing Overhead", 
-      no: { value: "None", status: "neutral" }, 
-      own: { value: "Pharmacist + Helpers", status: "standard" }, 
-      medi: { value: "None required", status: "positive" } 
-    },
-    { 
-      feature: "Inventory Management", 
+      feature: "Dead Stock & Expiry", 
       no: { value: "N/A", status: "neutral" }, 
-      own: { value: "Stockouts & Expiry risk", status: "standard" }, 
-      medi: { value: "Zero risk (Infinite shelf)", status: "positive" } 
+      own: { value: "100% Clinic financial loss", status: "standard" }, 
+      medi: { value: "100% MediKloud loss", status: "positive" } 
     },
     { 
-      feature: "Patient Experience", 
-      no: { value: "Must travel to pharmacy", status: "standard" }, 
-      own: { value: "Wait in clinic queue", status: "standard" }, 
-      medi: { value: "Seamless home delivery", status: "highlight" } 
+      feature: "Time to Patient", 
+      no: { value: "Delayed (Patient travels)", status: "standard" }, 
+      own: { value: "Immediate (At counter)", status: "positive" }, 
+      medi: { value: "~10 Minutes", status: "highlight" } 
     },
     { 
-      feature: "Clinical Insights", 
-      no: { value: "Zero visibility", status: "standard" }, 
-      own: { value: "Manual tracking", status: "standard" }, 
-      medi: { value: "Real-time Rx adherence", status: "highlight" } 
+      feature: "Brand Substitution", 
+      no: { value: "High (Chemists flip brands)", status: "standard" }, 
+      own: { value: "Low (You control shelves)", status: "standard" }, 
+      medi: { value: "Zero (Exact Rx mapping)", status: "highlight" } 
     },
     { 
-      feature: "Revenue Generation", 
-      no: { value: "₹0", status: "neutral" }, 
-      own: { value: "Profit minus heavy overhead", status: "standard" }, 
-      medi: { value: "Consistent passive margin", status: "highlight" } 
+      feature: "Patient Retention", 
+      no: { value: "0% (Lost to apps)", status: "standard" }, 
+      own: { value: "Manual (Clinic staff)", status: "standard" }, 
+      medi: { value: "Automated (Smart refills)", status: "highlight" } 
     },
   ];
 
@@ -99,7 +99,7 @@ export const VPComparison = () => {
   };
 
   return (
-    <div className="bg-white relative py-12 flex flex-col justify-center">
+    <div className="bg-white relative pt-12 pb-0 flex flex-col justify-center">
       {/* Forensic Background Textures */}
       <div className="tech-grid-overlay !opacity-[0.03]" />
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
@@ -129,7 +129,7 @@ export const VPComparison = () => {
             </h2>
             
             <p className="premium-p intro-lock !text-slate-500 max-w-2xl mx-auto leading-relaxed">
-              Compare the setup costs, daily effort, and financial upside to make the best choice for your practice.
+              Compare the setup costs, daily operations, and patient outcomes to make the right choice for your clinic.
             </p>
           </motion.div>
 
