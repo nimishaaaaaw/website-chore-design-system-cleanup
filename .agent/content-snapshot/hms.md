@@ -1,5 +1,5 @@
 # Hospital Management System (HMS)
-> **URL**: `/products/hospital-management-system` | **Snapshot**: 2026-04-11 22:38
+> **URL**: `/products/hospital-management-system` | **Snapshot**: 2026-04-12 02:06
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 
@@ -18,6 +18,9 @@
 - Reduced by 65%
 
 **Data Array Titles / Labels**
+- Clinic OS
+- Migrate your clinic to MediKloud HMS.
+- Schedule Live Demo
 - Reception
 - Queue
 - Consult
@@ -25,25 +28,15 @@
 - Pharmacy
 
 **Body Copy**
-- Manage your clinic from any device. Our all-in-one OS simplifies every aspect of your facility—from appointments and electronic health records to real-time billing and staff logs.
+- Run your entire facility from any device. Built exclusively for doctor-owned clinics, MediKloud connects your reception, OPD, and pharmacy into one zero-friction workflow.
 - Live Patient Journey
 - Patient Wait Time
+- Schedule your free 24-hour setup walkthrough with our implementation experts.
 - Walk-in Booked
 - Wait: 4 mins
 - E-Rx Synced
 - Auto-Billed
 - Meds Dispensed
-
-**CTAs / Buttons**
-- Book A Free Demo
-
-
-
-### `HMSTrustBanner`
-**Body Copy**
-- Cloud-based deployment in < 24 hours
-- No hidden fees
-- Zero training required
 
 
 
@@ -54,7 +47,7 @@
 - Prescribe
 
 **H2**
-- Built for People, Not for Manuals.
+- Built for Modern Clinics, Not for IT Teams.
 
 **H3**
 - Spend your time on the patient, not the platform.
@@ -67,7 +60,7 @@
 - Smartphone-Simple
 - One-Tap Workflows
 - No Clunky Screens
-- Fast Onboarding
+- 2-Hour Setup
 
 **Body Copy**
 - Good Morning
@@ -75,8 +68,8 @@
 - Patients
 - Wait Time
 - M • 34 yrs • Fever
-- A native mobile experience designed for doctors who move fast.
-- From patient check-in to digital prescriptions, every task is a single tap away.
+- A mobile-first experience designed for clinics that move fast.
+- From reception check-in to digital prescriptions and final billing, every task is a single tap away.
 - Get your entire reception and clinical staff live in under 2 hours.
 
 **CTAs / Buttons**
@@ -86,10 +79,10 @@
 
 ### `HMSModules`
 **Eyebrow / Badge**
-- Modular Architecture
+- The Clinic OS
 
 **H2**
-- Comprehensive Modules. Built for Total Control.
+- Every Department Consolidated. Built for Absolute Control.
 
 **Data Array Titles / Labels**
 - OPD & Clinical EHR
@@ -97,7 +90,7 @@
 - Smart Scheduling
 - Queue Control
 - Digital Prescriptions
-- Pharmacy Integration
+- Integrated Pharmacy
 - Inventory Control
 - GST Billing
 - Expiry Alerts
@@ -144,22 +137,22 @@
 
 ### `HMSSecurity`
 **Eyebrow / Badge**
-- Enterprise Security
+- Bank-Grade Security
 
 **H2**
-- Data Security. A Clinical Fortress.
+- Absolute Patient Data Security.
 
 **H3**
 - Absolute peace of mind. Absolute data integrity.
 
 **Data Array Titles / Labels**
-- 100% Data Sovereignty
-- ABDM & HIPAA Ready
+- 100% Data Ownership
+- ABDM & HIPAA Compliant
 - Zero-Loss Continuity
-- Role-Based Access
+- Staff Access Controls
 
 **Body Copy**
-- Your patient records are your most valuable asset. MediKloud protects them with bank-grade encryption and an architecture designed for total privacy. We handle the complexity so you can focus on care.
+- Patient records are your facility's most valuable asset. MediKloud protects them with advanced encryption and an architecture designed for total privacy. We handle the security overhead so you can focus entirely on care.
 - Your data is yours. Private storage with absolute access control.
 - Built to meet rigorous Indian and global healthcare standards.
 - Automated backups and 99.9% uptime. Your clinic never stops.
@@ -175,7 +168,7 @@
 - The Modern Clinical Standard.
 
 **H3**
-- The product of forensic healthcare engineering.
+- Engineered for clinical speed. Not just hospital accounting.
 
 **Data Array Titles / Labels**
 - Setup & Deployment
@@ -186,7 +179,7 @@
 - < 2 Hours (Smartphone-Simple)
 - Financial Investment
 - Heavy Upfront Licensing
-- Low-Entry SaaS Subscription
+- Zero CapEx. Pay-as-you-go.
 - Device Access
 - Fixed Desktop Terminals
 - Any Device (Mobile, Tablet, web)
@@ -206,8 +199,8 @@
 - Static Month-End Reports
 - Live Dashboard & Insights
 - System Maintenance
-- Costly On-Site Support
-- Live Instant Updates
+- Costly AMCs & Downtime
+- Zero AMC. Over-the-air Updates.
 
 **Body Copy**
 - Traditional Hospital Management Systems were built for accounting. MediKloud HMS is built for care, speed, and clinical precision.
@@ -226,36 +219,38 @@
 
 **FAQ — Questions**
 - How do I migrate my existing patient data?
-- Is MediKloud HMS ABDM and ABHA compliant?
+- Is MediKloud HMS ABDM compliant?
 - What happens if the internet goes down?
-- Can MediKloud be customized for my specialty?
-- Are there any hidden maintenance fees?
+- Can it be customized for my specialty?
+- Are there any hidden maintenance AMC fees?
 - How much training does my staff need?
 - Does it support multi-doctor clinics?
 - What are the hardware requirements?
 - Who owns my clinical data?
 - Does it handle GST and TPA automatically?
 
-**FAQ — Answers**
-- Yes. MediKloud is fully ABDM-compliant. Create ABHA IDs and link health records natively within the platform.
-- Yes. We offer specialty-specific templates (Cardio, Ortho, Gynec, etc.) and fully customizable SOAP notes to match your workflow.
-- None. We use a transparent SaaS model with no hidden charges for updates, security, or maintenance.
-- Minimal. Most staff are fully proficient after a single 2-hour onboarding session.
-- Yes. Add multiple doctors and departments with specialized desks and role-based access control.
-- No servers needed. Runs on any standard tablet, laptop, or desktop with a basic internet connection.
-- Yes. Generate GST-compliant invoices and track insurance claims/settlements in one unified dashboard.
-
 
 
 ### `HMSCTA`
 **H2**
-- Ready to Modernize Your Hospital?
+- Ready to deploy the Clinic OS?
+
+**Data Array Titles / Labels**
+- Clinic OS
+- Migrate your clinic to MediKloud HMS.
+- Schedule Live Demo
 
 **Body Copy**
-- Join the clinical-first revolution. Get a forensic walkthrough of the platform and reclaim your staff's time and your facility's margins.
+- Stop managing software and get back to patient care. Get a live walkthrough of the platform, and see how you can migrate your entire clinic in under 24 hours.
+- Schedule your free 24-hour setup walkthrough with our implementation experts.
 
-**CTAs / Buttons**
-- Book a Demo
+
+
+### `HMSTrustBanner`
+**Body Copy**
+- Cloud-based deployment in < 24 hours
+- No hidden fees
+- Zero training required
 
 
 

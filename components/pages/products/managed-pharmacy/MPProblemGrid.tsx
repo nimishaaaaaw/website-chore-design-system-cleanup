@@ -264,7 +264,12 @@ export function MPProblemGrid() {
             </div>
             
             <button 
-              onClick={openModal}
+              onClick={() => openModal({
+                    badge: "Managed Pharmacy",
+                    title: "Start your pharmacy recovery plan.",
+                    description: "Fill out the form below to book a free pharmacy audit with our experts.",
+                    btnText: "Book My Free Audit"
+                  })}
               className="relative z-10 w-full md:w-auto px-6 py-3.5 bg-white text-slate-900 hover:bg-indigo-50 rounded-xl font-bold flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.1)] text-sm"
             >
               STOP THE LEAKAGE <ArrowRight size={16} />

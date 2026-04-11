@@ -160,7 +160,12 @@ export function Header() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center w-48 justify-end">
             <button
-              onClick={openModal}
+              onClick={() => openModal({
+                    badge: "Partnership",
+                    title: "Protect your clinic's revenue.",
+                    description: "Book an audit with our experts to see how much margin you can recover.",
+                    btnText: "Book My Free Audit"
+                  })}
               className="group inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white font-bold rounded-xl shadow-btn hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300 no-underline"
             >
               Book a Demo

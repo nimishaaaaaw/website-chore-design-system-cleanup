@@ -16,7 +16,7 @@ import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 export const HMSEaseOfUse = () => {
   return (
-    <section className="relative overflow-hidden bg-white section-py-premium">
+    <section className="relative overflow-hidden bg-white pt-16 md:pt-24 pb-0">
       {/* Gold Standard Atmosphere */}
       <div className="tech-grid-overlay !opacity-[0.03]" />
       <div className="noise-texture !opacity-[0.02]" />
@@ -126,8 +126,8 @@ export const HMSEaseOfUse = () => {
                   <span className="eyebrow-line-r" />
                 </div>
                 <h2 className="premium-h2 mb-8">
-                  Built for People, <br className="hidden md:block" />
-                  <span className="text-brand-indigo-600">Not for Manuals.</span>
+                  Built for Modern Clinics, <br className="hidden md:block" />
+                  <span className="text-brand-indigo-600">Not for IT Teams.</span>
                 </h2>
               </motion.div>
               
@@ -147,12 +147,12 @@ export const HMSEaseOfUse = () => {
                 {
                   icon: <Smartphone strokeWidth={1.5} className="w-6 h-6 text-brand-600" />,
                   title: "Smartphone-Simple",
-                  desc: "A native mobile experience designed for doctors who move fast."
+                  desc: "A mobile-first experience designed for clinics that move fast."
                 },
                 {
                   icon: <MousePointerClick strokeWidth={1.5} className="w-6 h-6 text-emerald-600" />,
                   title: "One-Tap Workflows",
-                  desc: "From patient check-in to digital prescriptions, every task is a single tap away."
+                  desc: "From reception check-in to digital prescriptions and final billing, every task is a single tap away."
                 },
                 {
                   icon: <Layout strokeWidth={1.5} className="w-6 h-6 text-amber-600" />,
@@ -161,7 +161,7 @@ export const HMSEaseOfUse = () => {
                 },
                 {
                   icon: <Rocket strokeWidth={1.5} className="w-6 h-6 text-purple-600" />,
-                  title: "Fast Onboarding",
+                  title: "2-Hour Setup",
                   desc: "Get your entire reception and clinical staff live in under 2 hours."
                 }
               ].map((item, idx) => (

@@ -1,5 +1,5 @@
 # Medicine Deliveries
-> **URL**: `/products/medicine-deliveries` | **Snapshot**: 2026-04-11 22:38
+> **URL**: `/products/medicine-deliveries` | **Snapshot**: 2026-04-12 02:06
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 
@@ -15,6 +15,11 @@
 
 **H4**
 - Live Dispatch Map
+
+**Data Array Titles / Labels**
+- Medicine Deliveries
+- Enable Direct Patient Delivery.
+- Schedule Live Demo
 
 **Body Copy**
 - We provide the technology and resources for patients to order directly from you and deliver them as well. Ensure 100% patient retention with automated chronic refills.
@@ -39,9 +44,7 @@
 - Karan L.
 - Siddharth P.
 - Amit J.
-
-**CTAs / Buttons**
-- Partner With Us
+- Let us handle the logistics so you can recover lost prescription revenue.
 
 
 
@@ -154,11 +157,14 @@
 **H2**
 - Ready to enable Medicine Deliveries?
 
+**Data Array Titles / Labels**
+- Medicine Deliveries
+- Enable Direct Patient Delivery.
+- Schedule Live Demo
+
 **Body Copy**
 - Experience India's easiest medicine delivery network. Reclaim your hospital's revenue and modernize patient care today.
-
-**CTAs / Buttons**
-- Book a Free Demo
+- Let us handle the logistics so you can recover lost prescription revenue.
 
 
 

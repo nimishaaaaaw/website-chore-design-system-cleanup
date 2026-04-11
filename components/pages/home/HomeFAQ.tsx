@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const faqData = [
   {
@@ -36,13 +35,7 @@ export const HomeFAQ = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}
           <div className="text-center mb-16 md:mb-20">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center"
-            >
+            <div className="flex flex-col items-center">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <span className="eyebrow-line-l" />
                 <span className="eyebrow-text">Clarity & Operations</span>
@@ -55,25 +48,21 @@ export const HomeFAQ = () => {
               <p className="premium-p intro-lock !max-w-2xl">
                 Get the operational details on how MediKloud seamlessly scales your hospital pharmacy.
               </p>
-            </motion.div>
+            </div>
           </div>
 
           {/* FAQ Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {faqData.map((faq, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
                 className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-card-sm transition-all duration-300"
               >
                 <h4 className="text-lg font-bold text-slate-900 mb-4">{faq.question}</h4>
                 <p className="premium-p !text-slate-600 leading-relaxed font-sans">
                   {faq.answer}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

@@ -460,7 +460,12 @@ function BlueprintView({
 
       <div className="max-w-xl mx-auto space-y-6 pt-2">
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <button onClick={openModal} className="btn-primary !px-8 !py-3 group text-sm">
+          <button onClick={() => openModal({
+                    badge: "Partnership",
+                    title: "Stop your pharmacy leakage.",
+                    description: "Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.",
+                    btnText: "Book My Free Audit"
+                  })} className="btn-primary !px-8 !py-3 group text-sm">
             <Phone size={16} />
             Schedule Implementation Call
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

@@ -8,7 +8,7 @@ import { useContactModal } from "@/hooks/use-contact-modal"
 import { trackEvent } from "@/lib/analytics"
 
 export function ContactModal() {
-  const { isOpen, closeModal } = useContactModal()
+  const { isOpen, closeModal, overrides } = useContactModal()
   const [formSubmitted, setFormSubmitted] = useState(false)
 
   return (
@@ -55,13 +55,13 @@ export function ContactModal() {
                         >
                           <div className="mb-8">
                             <div className="inline-block px-3 py-1 mb-4 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-[10px] font-bold uppercase tracking-widest">
-                              Book a Demo
+                              {overrides?.badge || "Book a Demo"}
                             </div>
                             <Dialog.Title className="text-3xl font-bold text-slate-900 leading-tight">
-                              Start your pharmacy recovery plan.
+                              {overrides?.title || "Start your pharmacy recovery plan."}
                             </Dialog.Title>
                             <Dialog.Description className="sr-only">
-                              Fill out the form below to book a free pharmacy audit with our experts.
+                              {overrides?.description || "Fill out the form below to book a free pharmacy audit with our experts."}
                             </Dialog.Description>
                           </div>
 
@@ -157,7 +157,7 @@ export function ContactModal() {
                                 type="submit" 
                                 className="w-full bg-blue-600 text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 active:scale-[0.98] disabled:opacity-50"
                               >
-                                Book My Free Audit
+                                {overrides?.btnText || "Book My Free Audit"}
                               </button>
                               <p className="text-[10px] text-center text-slate-400 mt-4 leading-relaxed">
                                 By clicking, you agree to our privacy policy and terms. Our team will contact you within 24 hours.

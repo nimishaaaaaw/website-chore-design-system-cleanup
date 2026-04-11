@@ -95,7 +95,12 @@ export default function MobileMenu() {
 					<button
 						onClick={() => {
 							setOpen(false)
-							openModal()
+							openModal({
+                    badge: "Partnership",
+                    title: "Protect your clinic's revenue.",
+                    description: "Book an audit with our experts to see how much margin you can recover.",
+                    btnText: "Book My Free Audit"
+                  })
 						}}
 						className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-2xl shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
 					>

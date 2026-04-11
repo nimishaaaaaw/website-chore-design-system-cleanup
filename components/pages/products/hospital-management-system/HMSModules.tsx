@@ -25,7 +25,7 @@ const modulesData = [
     ]
   },
   {
-    title: "Pharmacy Integration",
+    title: "Integrated Pharmacy",
     icon: <Pill className="w-5 h-5" />,
     features: [
       { name: "Inventory Control", desc: "Real-time stock tracking, batch management, and auto-reorder points." },
@@ -85,12 +85,12 @@ export const HMSModules = () => {
           >
             <div className="eyebrow-wrap">
               <span className="eyebrow-line-l" />
-              <span className="eyebrow-text">Modular Architecture</span>
+              <span className="eyebrow-text">The Clinic OS</span>
               <span className="eyebrow-line-r" />
             </div>
             <h2 className="premium-h2 mb-6">
-              Comprehensive Modules. <br className="hidden md:block" />
-              <span className="text-brand-indigo-600">Built for Total Control.</span>
+              Every Department Consolidated. <br className="hidden md:block" />
+              <span className="text-brand-indigo-600">Built for Absolute Control.</span>
             </h2>
           </motion.div>
         </header>

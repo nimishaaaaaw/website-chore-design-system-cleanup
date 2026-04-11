@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const premiumEase = [0.16, 1, 0.3, 1] as const;
 

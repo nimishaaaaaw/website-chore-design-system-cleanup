@@ -31,7 +31,12 @@ export function GetStartedCTA() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-2">
           <button 
-            onClick={openModal}
+            onClick={() => openModal({
+                    badge: "Partnership",
+                    title: "Stop your pharmacy leakage.",
+                    description: "Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.",
+                    btnText: "Book My Free Audit"
+                  })}
             className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-indigo-600 rounded-2xl shadow-glow hover:shadow-glow-lg hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95 border-1.5 border-white/10"
           >
             <div className="absolute inset-0 bg-gradient-action opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />

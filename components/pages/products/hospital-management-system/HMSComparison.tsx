@@ -7,14 +7,14 @@ import { CheckCircle2, X, Check } from 'lucide-react';
 const comparisonData = [
   { feature: "Setup & Deployment", legacy: "15–30 Days (On-Premise)", modern: "< 24 Hours (Cloud Native)" },
   { feature: "Staff Training", legacy: "2–4 Weeks of Manuals", modern: "< 2 Hours (Smartphone-Simple)" },
-  { feature: "Financial Investment", legacy: "Heavy Upfront Licensing", modern: "Low-Entry SaaS Subscription" },
+  { feature: "Financial Investment", legacy: "Heavy Upfront Licensing", modern: "Zero CapEx. Pay-as-you-go." },
   { feature: "Device Access", legacy: "Fixed Desktop Terminals", modern: "Any Device (Mobile, Tablet, web)" },
   { feature: "Laboratory Sync", legacy: "Manual Result Entry", modern: "Direct Machine Integration" },
   { feature: "Patient Alerts", legacy: "Manual Phone Calls", modern: "Automated WhatsApp Reminders" },
   { feature: "Multi-Doctor Support", legacy: "Single-License Silos", modern: "Real-Time Collaborative Flow" },
   { feature: "ABDM/ABHA Compliance", legacy: "Manual Configuration", modern: "Automated & Built-In" },
   { feature: "Operational Analytics", legacy: "Static Month-End Reports", modern: "Live Dashboard & Insights" },
-  { feature: "System Maintenance", legacy: "Costly On-Site Support", modern: "Live Instant Updates" }
+  { feature: "System Maintenance", legacy: "Costly AMCs & Downtime", modern: "Zero AMC. Over-the-air Updates." }
 ];
 
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
@@ -109,8 +109,8 @@ export const HMSComparison = () => {
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-16 h-1 bg-brand-600 rounded-full mb-12 opacity-60"></div>
             <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl mx-auto leading-[1.1] tracking-tight text-balance mb-8">
-              The product of <br className="hidden md:block" />
-              <span className="text-indigo-400">forensic healthcare engineering.</span>
+              Engineered for clinical speed. <br className="hidden md:block" />
+              <span className="text-indigo-400">Not just hospital accounting.</span>
             </h3>
             
             <div className="mt-4 flex items-center gap-6">

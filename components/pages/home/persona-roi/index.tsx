@@ -321,7 +321,12 @@ export function PersonaROISection() {
                         </div>
                       </div>
                       <button
-                        onClick={openModal}
+                        onClick={() => openModal({
+                    badge: "Partnership",
+                    title: "Stop your pharmacy leakage.",
+                    description: "Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.",
+                    btnText: "Book My Free Audit"
+                  })}
                         className={`h-9 px-4 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 whitespace-nowrap ${
                           isHospital ? 'bg-indigo-600 hover:bg-indigo-500 text-white' : 'bg-blue-600 hover:bg-blue-700 text-white'
                         }`}

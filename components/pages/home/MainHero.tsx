@@ -78,7 +78,12 @@ export function MainHero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-10 md:mb-12"
           >
             <button
-              onClick={openModal}
+              onClick={() => openModal({
+                    badge: "Partnership",
+                    title: "Stop your pharmacy leakage.",
+                    description: "Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.",
+                    btnText: "Book My Free Audit"
+                  })}
               className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-bold rounded-xl shadow-btn hover:opacity-90 active:scale-[.98] transition-all duration-200 text-[16px] md:text-[17px]"
             >
               Book A Free Demo

@@ -1,5 +1,5 @@
 # Managed Pharmacy
-> **URL**: `/products/managed-pharmacy` | **Snapshot**: 2026-04-11 22:38
+> **URL**: `/products/managed-pharmacy` | **Snapshot**: 2026-04-12 02:06
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 
@@ -27,6 +27,9 @@
 - Increased Revenue
 - Patient Retention
 - Zero Admin Work
+- Managed Pharmacy
+- Start your pharmacy recovery plan.
+- Book My Free Audit
 
 **Body Copy**
 - Stop losing prescriptions to external retail chains. We provide the capital, tech, and pharmacists to capture that revenue internally—with zero operational load.
@@ -34,9 +37,7 @@
 - -100%
 - 200%
 - 150%
-
-**CTAs / Buttons**
-- Book a Demo
+- Fill out the form below to book a free pharmacy audit with our experts.
 
 
 
@@ -59,6 +60,9 @@
 - Wasted Clinical Time
 - Dead Inventory
 - Chronic Churn
+- Managed Pharmacy
+- Start your pharmacy recovery plan.
+- Book My Free Audit
 
 **Body Copy**
 - Operating a pharmacy without the scale and technology of a modern retail chain leads to operational losses and patient churn.
@@ -82,15 +86,13 @@
 - Daily Admin
 - Trapped Cash
 - Lost to Retail
+- Fill out the form below to book a free pharmacy audit with our experts.
 
 **Stats / Metrics**
 - ₹1 Lakh+
 - 2 Hours
 - ₹5 Lakh+
 - 60%+
-
-**CTAs / Buttons**
-- STOP THE LEAKAGE
 
 
 
@@ -178,11 +180,14 @@
 **H2**
 - Ready to upgrade your hospital pharmacy?
 
+**Data Array Titles / Labels**
+- Managed Pharmacy
+- Start your pharmacy recovery plan.
+- Book My Free Audit
+
 **Body Copy**
 - Experience autonomous pharmacy operations with zero upfront cost. We handle the staff, medicine, and stress while you own 100% of the retail profit.
-
-**CTAs / Buttons**
-- Book a Demo
+- Fill out the form below to book a free pharmacy audit with our experts.
 
 
 

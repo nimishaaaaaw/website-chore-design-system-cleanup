@@ -122,7 +122,12 @@ export const VPHero = () => {
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2 lg:pt-4">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
-                  <button onClick={openModal} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
+                  <button onClick={() => openModal({
+                    badge: "Virtual Pharmacy",
+                    title: "Launch your 10-Min Pharmacy.",
+                    description: "Schedule a demo to see how we can fulfill your exact prescriptions with zero space required.",
+                    btnText: "Schedule Live Demo"
+                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
                     Partner With Us <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

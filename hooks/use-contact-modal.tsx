@@ -2,9 +2,17 @@
 
 import React, { createContext, useContext, useState, useCallback } from "react"
 
+export interface ModalOverrides {
+  badge?: string;
+  title?: string;
+  description?: string;
+  btnText?: string;
+}
+
 interface ContactModalContextType {
   isOpen: boolean
-  openModal: () => void
+  overrides?: ModalOverrides
+  openModal: (overrides?: ModalOverrides) => void
   closeModal: () => void
 }
 
@@ -12,12 +20,16 @@ const ContactModalContext = createContext<ContactModalContextType | undefined>(u
 
 export function ContactModalProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)
+  const [overrides, setOverrides] = useState<ModalOverrides | undefined>()
 
-  const openModal = useCallback(() => setIsOpen(true), [])
+  const openModal = useCallback((newOverrides?: ModalOverrides) => {
+    setOverrides(newOverrides)
+    setIsOpen(true)
+  }, [])
   const closeModal = useCallback(() => setIsOpen(false), [])
 
   return (
-    <ContactModalContext.Provider value={{ isOpen, openModal, closeModal }}>
+    <ContactModalContext.Provider value={{ isOpen, overrides, openModal, closeModal }}>
       {children}
     </ContactModalContext.Provider>
   )

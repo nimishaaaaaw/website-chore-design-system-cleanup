@@ -79,7 +79,12 @@ export default function LandingPageTemplate({
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button
-                    onClick={openModal}
+                    onClick={() => openModal({
+                    badge: "Partnership",
+                    title: "Protect your clinic's revenue.",
+                    description: "Book an audit with our experts to see how much margin you can recover.",
+                    btnText: "Book My Free Audit"
+                  })}
                     className={`px-8 py-4 rounded-2xl text-white font-bold text-lg transition-all shadow-xl hover:-translate-y-1 active:scale-[0.98] flex items-center justify-center gap-3 ${buttonClass}`}
                   >
                     Get Started Now <ArrowRight size={20} />
@@ -136,7 +141,12 @@ export default function LandingPageTemplate({
                             Join 500+ clinics and hospitals already supercharging their clinical operations with MediKloud.
                         </p>
                         <button
-                            onClick={openModal}
+                            onClick={() => openModal({
+                    badge: "Partnership",
+                    title: "Protect your clinic's revenue.",
+                    description: "Book an audit with our experts to see how much margin you can recover.",
+                    btnText: "Book My Free Audit"
+                  })}
                             className="bg-white text-slate-900 px-10 py-5 rounded-2xl font-black text-xl hover:bg-blue-50 transition-all shadow-2xl active:scale-[0.95]"
                         >
                             Book My Consultation →

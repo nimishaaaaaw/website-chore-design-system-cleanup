@@ -66,14 +66,19 @@ export const HMSHero = () => {
                 </motion.h1>
                 
                 <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-                  Manage your clinic from any device. Our all-in-one OS simplifies every aspect of your facility—from appointments and electronic health records to real-time billing and staff logs.
+                  Run your entire facility from any device. Built exclusively for doctor-owned clinics, MediKloud connects your reception, OPD, and pharmacy into one zero-friction workflow.
                 </motion.p>
               </div>
 
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2 lg:pt-4">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
-                  <button onClick={openModal} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
+                  <button onClick={() => openModal({
+                    badge: "Clinic OS",
+                    title: "Migrate your clinic to MediKloud HMS.",
+                    description: "Schedule your free 24-hour setup walkthrough with our implementation experts.",
+                    btnText: "Schedule Live Demo",
+                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
                     Book A Free Demo <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -133,15 +138,12 @@ export const HMSHero = () => {
                  <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none z-10 p-4">
                     <path d="M 20 25 L 50 25 C 75 25, 85 35, 85 50 C 85 65, 75 75, 50 75 L 20 75" fill="none" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="4 4" />
                     {/* Active Gradient Path Overlay */}
-                    <motion.path 
+                    <path 
                       d="M 20 25 L 50 25 C 75 25, 85 35, 85 50 C 85 65, 75 75, 50 75 L 20 75" 
                       fill="none" 
                       stroke="url(#flowGradient)" 
                       strokeWidth="2.5" 
                       strokeLinecap="round"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
                     />
                     <defs>
                       <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">

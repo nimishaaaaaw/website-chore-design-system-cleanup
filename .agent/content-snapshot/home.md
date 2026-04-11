@@ -1,5 +1,5 @@
 # Home Page
-> **URL**: `/` | **Snapshot**: 2026-04-11 22:38
+> **URL**: `/` | **Snapshot**: 2026-04-12 02:06
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 
@@ -12,12 +12,15 @@
 **H1**
 - Building Fully Managed In-House Pharmacies for Independent Hospitals & Clinics
 
+**Data Array Titles / Labels**
+- Partnership
+- Stop your pharmacy leakage.
+- Book My Free Audit
+
 **Body Copy**
 - We set up, staff, and run your hospital pharmacy with zero capital investment. You focus on patients — we turn lost prescriptions into steady revenue.
 - MediKloud offers fully managed in-house pharmacies for independent hospitals and clinics in India. We provide the staff, inventory, and technology to run your hospital pharmacy with zero capex risk. Stop pharmacy leakage, automate procurement, and capture your full Rx value. Free hospital management software (HMS) included.
-
-**CTAs / Buttons**
-- Book A Free Demo
+- Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.
 
 
 
@@ -107,6 +110,9 @@
 - Setup Design
 - Go-to-Market
 - Tech Strategy
+- Partnership
+- Stop your pharmacy leakage.
+- Book My Free Audit
 
 **Body Copy**
 - Optimized for baseline.
@@ -127,9 +133,10 @@
 - Digitise prescriptions and deliver medicines under your brand with zero footprint.
 - Physical presence for acute needs + virtual fulfillment for chronic long-term care.
 - Your setup needs a tailored assessment to map fulfillment and technology roadmap.
+- Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.
 
 **CTAs / Buttons**
-- Schedule Implementation Call
+- openModal( )} className="btn-primary !px-8 !py-3 group text-sm"> Schedule Implementation Call
 - Reset Discovery
 - View Recommendations
 - Go Back
@@ -242,11 +249,14 @@
 **H2**
 - Ready to transform your in-house pharmacy?
 
+**Data Array Titles / Labels**
+- Partnership
+- Stop your pharmacy leakage.
+- Book My Free Audit
+
 **Body Copy**
 - Experience the future of hospital pharmacy management. Get a personalised demo to see how we can scale your operations and protect your margins. You focus on patients—we handle the staff, stock, and stress.
-
-**CTAs / Buttons**
-- Book a Demo
+- Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.
 
 
 

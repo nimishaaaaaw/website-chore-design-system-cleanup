@@ -1,6 +1,6 @@
 import { Header } from '@/components/layout/Header'
 import { HMSHero } from '@/components/pages/products/hospital-management-system/HMSHero'
-import { HMSTrustBanner } from '@/components/pages/products/hospital-management-system/HMSTrustBanner'
+
 import { HMSEaseOfUse } from '@/components/pages/products/hospital-management-system/HMSEaseOfUse'
 import { HMSModules } from '@/components/pages/products/hospital-management-system/HMSModules'
 import { HMSSecurity } from '@/components/pages/products/hospital-management-system/HMSSecurity'
@@ -22,8 +22,6 @@ export default function HMSPage() {
         {/* Hero Section */}
         <HMSHero />
         
-        {/* Trust Banner */}
-        <HMSTrustBanner />
 
         <div className="relative overflow-hidden">
           {/* Subtle Global Background Elements */}

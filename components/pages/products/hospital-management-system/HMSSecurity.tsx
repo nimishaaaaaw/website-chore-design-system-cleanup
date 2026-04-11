@@ -14,7 +14,7 @@ import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
 export const HMSSecurity = () => {
   return (
-    <section className="relative overflow-hidden section-py-premium text-white border-t border-slate-800">
+    <section className="relative overflow-hidden pt-16 md:pt-24 pb-0 text-white border-t border-slate-800">
       <DarkAtmosphere />
 
       <div className="container-page relative z-10">
@@ -30,13 +30,13 @@ export const HMSSecurity = () => {
             >
               <div className="flex items-center gap-3 mb-8">
                 <span className="eyebrow-line-l" />
-                <span className="eyebrow-text !text-brand-400">Enterprise Security</span>
+                <span className="eyebrow-text !text-brand-400">Bank-Grade Security</span>
                 <span className="eyebrow-line-r" />
               </div>
               
               <h2 className="premium-h2 mb-8 lowercase sm:normal-case">
-                <span className="text-white">Data Security.</span> <br className="hidden md:block" />
-                <span className="text-indigo-400">A Clinical Fortress.</span>
+                <span className="text-white">Absolute Patient</span> <br className="hidden md:block" />
+                <span className="text-indigo-400">Data Security.</span>
               </h2>
             </motion.div>
             
@@ -47,7 +47,7 @@ export const HMSSecurity = () => {
               transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-lg font-medium text-slate-400 leading-relaxed max-w-xl"
             >
-              Your patient records are your most valuable asset. MediKloud protects them with bank-grade encryption and an architecture designed for total privacy. We handle the complexity so you can focus on care.
+              Patient records are your facility's most valuable asset. MediKloud protects them with advanced encryption and an architecture designed for total privacy. We handle the security overhead so you can focus entirely on care.
             </motion.p>
           </div>
 
@@ -57,12 +57,12 @@ export const HMSSecurity = () => {
               {[
                 {
                   icon: <Database className="w-5 h-5 text-brand-400" />,
-                  title: "100% Data Sovereignty",
+                  title: "100% Data Ownership",
                   desc: "Your data is yours. Private storage with absolute access control."
                 },
                 {
                   icon: <ShieldCheck className="w-5 h-5 text-emerald-400" />,
-                  title: "ABDM & HIPAA Ready",
+                  title: "ABDM & HIPAA Compliant",
                   desc: "Built to meet rigorous Indian and global healthcare standards."
                 },
                 {
@@ -72,7 +72,7 @@ export const HMSSecurity = () => {
                 },
                 {
                   icon: <Lock className="w-5 h-5 text-amber-400" />,
-                  title: "Role-Based Access",
+                  title: "Staff Access Controls",
                   desc: "Granular controls ensure only authorized staff view sensitive data."
                 }
               ].map((item, idx) => (
