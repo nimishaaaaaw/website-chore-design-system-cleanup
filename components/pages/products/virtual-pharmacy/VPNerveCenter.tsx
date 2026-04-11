@@ -241,7 +241,7 @@ export const VPNerveCenter = () => {
           {[
             {
               title: "10-Min Fulfillment",
-              desc: "Optimistic dispatch sends riders out the moment a prescription is signed. Patients get meds before leaving the clinic.",
+              desc: "Packing begins the moment you sign the e-prescription. A rider is dispatched swiftly to hand the medicines to the patient before they leave.",
               icon: Clock,
               colors: {
                 bg: "bg-blue-500/10",
@@ -253,7 +253,7 @@ export const VPNerveCenter = () => {
             },
             {
               title: "Zero Inventory Risk",
-              desc: "We stock 100% of your tailored formulary in our central hub. Zero expiry or dead stock burden on your clinic.",
+              desc: "We stock your complete custom formulary in our nearby hub. You carry zero capital risk from expired or dead stock.",
               icon: ShieldCheck,
               colors: {
                 bg: "bg-emerald-500/10",
@@ -265,7 +265,7 @@ export const VPNerveCenter = () => {
             },
             {
               title: "Zero Space Needed",
-              desc: "No valuable patient space wasted on pharmacy counters. Operates entirely as a virtual node in the background.",
+              desc: "Keep your clinic space dedicated entirely to patient care, not pharmacy counters. The entire process runs seamlessly in the background.",
               icon: Building2,
               colors: {
                 bg: "bg-purple-500/10",
@@ -277,7 +277,7 @@ export const VPNerveCenter = () => {
             },
             {
               title: "100% Brand Accuracy",
-              desc: "We guarantee the exact brands you prescribe. Real-time HMS integration ensures flawless physical delivery.",
+              desc: "We deliver the exact brands you write. Seamless HMS integration guarantees flawless fulfillment without manual errors.",
               icon: Package,
               colors: {
                 bg: "bg-amber-500/10",

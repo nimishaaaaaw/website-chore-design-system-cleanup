@@ -50,14 +50,15 @@ export default function PageV2() {
         <SetupWizard />
         */}
 
-        {/* 7. FAQs */}
-        <HomeFAQ />
-
-        {/* 8. Social proof marquee */}
+        {/* 7. Social proof marquee */}
         <MarqueeSection />
       </main>
 
       <GetStartedCTA />
+
+      {/* 8. FAQs */}
+      <HomeFAQ />
+
       <Footer />
       <BackToTop />
     </div>

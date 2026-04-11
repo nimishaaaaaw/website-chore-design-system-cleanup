@@ -1,8 +1,7 @@
 "use client"
 
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Plus, Minus } from 'lucide-react'
+import React from 'react'
+import { motion } from 'framer-motion'
 
 const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -54,82 +53,47 @@ const faqItems = [
 ];
 
 export const MedicineDeliveriesFAQ = () => {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
   return (
-    <section id="faq" className="relative section-py bg-white border-t border-slate-100 overflow-hidden">
-      {/* Gold Atmospheric Primitives */}
-      <div className="tech-grid-overlay !opacity-[0.03]" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+    <section id="faq" className="relative bg-slate-50 section-py border-t border-slate-100 overflow-hidden">
+      {/* Forensic Atmospheric Finish */}
+      <div className="tech-grid-overlay opacity-5" />
       
-      <div className="container-page relative z-10">
-        <div className="header-lock text-center mb-16 md:mb-20">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: premiumEase }}
-            className="premium-h2 text-balance lg:max-w-header-lock mx-auto"
-          >
-            Frequently Asked <span className="text-indigo-600">Questions.</span>
-          </motion.h2>
-        </div>
+      <div className="container-page relative z-10 w-full">
+        <div className="max-w-6xl mx-auto">
+          {/* Header Section */}
+          <div className="text-center mb-16 md:mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: premiumEase }}
+              className="premium-h2"
+            >
+              Frequently Asked <span className="text-indigo-600">Questions</span>
+            </motion.h2>
+          </div>
 
-        <div className="max-w-4xl mx-auto space-y-4">
-          {faqItems.map((faq, idx) => {
-            const isActive = openFaq === idx;
-            
-            return (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
+          {/* FAQ Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {faqItems.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: premiumEase, delay: idx * 0.05 }}
-                className={`border rounded-[2rem] overflow-hidden transition-all duration-300 group ${
-                  isActive 
-                    ? 'bg-white border-indigo-200 shadow-card-md' 
-                    : 'bg-white/50 border-slate-200 hover:border-slate-300 hover:bg-white'
-                }`}
+                transition={{ duration: 0.6, ease: premiumEase, delay: index * 0.05 }}
+                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-card-sm transition-all duration-300"
               >
-                <button 
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none group gap-6"
-                >
-                  <span className={`text-base md:text-lg font-bold transition-colors leading-tight tracking-tight ${isActive ? 'text-indigo-600' : 'text-slate-900 group-hover:text-indigo-600'}`}>
-                    {faq.q}
-                  </span>
-                  <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isActive ? 'bg-indigo-100 text-indigo-600' : 'bg-slate-100 text-slate-500 group-hover:bg-indigo-50 group-hover:text-indigo-600'}`}>
-                    {isActive ? <Minus size={18} strokeWidth={1.5} /> : <Plus size={18} strokeWidth={1.5} />}
-                  </div>
-                </button>
-                
-                <AnimatePresence initial={false}>
-                  {isActive && (
-                    <motion.div 
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: premiumEase }}
-                    >
-                      <div className="px-6 md:px-8 pb-6 md:pb-8 pt-0">
-                        <div className="h-px w-full bg-slate-100 mb-6" />
-                        <div className="premium-p !text-[15px] font-medium leading-relaxed">
-                          {faq.a}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <h4 className="text-lg font-bold text-slate-900 mb-4">{faq.q}</h4>
+                <div className="premium-p !text-slate-600 leading-relaxed font-sans">
+                  {faq.a}
+                </div>
               </motion.div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
+

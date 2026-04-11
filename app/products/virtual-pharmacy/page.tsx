@@ -9,8 +9,8 @@ import { VPFAQ } from '@/components/pages/products/virtual-pharmacy/VPFAQ';
 import { VPCTA } from '@/components/pages/products/virtual-pharmacy/VPCTA';
 
 export const metadata = {
-  title: 'Virtual Pharmacy | MediKloud',
-  description: 'The 10-Minute Digital Pharmacy for Independent Clinics. MediKloud provides the tech, inventory, and logistics to fulfill your prescriptions at the clinic doorstep in 10 minutes.',
+  title: '10-Minute Virtual Pharmacy for Clinics in India | MediKloud',
+  description: 'Provide a full pharmacy experience without buying stock or losing space. MediKloud delivers medicines to your waiting patients in 10 mins at the clinic.',
 };
 
 export default function VirtualPharmacyPage() {

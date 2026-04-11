@@ -95,8 +95,8 @@ Every page revamp must produce the following before injection:
 
 | Element | Rule |
 | :--- | :--- |
-| **Meta Title** | ≤60 characters. Include primary keyword naturally. Pattern: `[Primary Benefit] — MediKloud` |
-| **Meta Description** | ≤155 characters. Include keyword + a clear benefit + implicit CTA. |
+| **Meta Title** | ≤60 chars. Avoid marketing pitches (e.g., "Run a..."). Use objective *Product + Audience* snapshots. Pattern: `[Product/Benefit] for [Audience] \| MediKloud` |
+| **Meta Description** | Strictly ≤154 chars (longer text is visually truncated by Google with an ellipsis on desktop). Avoid sales pitches. Use the *Operational Snapshot* formula: `[What the service objectively does] + [The primary clinical/business outcome]`. Must be highly specific and clear to a doctor. |
 | **H1** | One per page. Must contain primary keyword. Clear and direct — not clever. |
 | **H2s** | Use as question-style headings where it fits naturally. Include secondary keywords. |
 | **Internal Links** | Each page must link to at least 2 related pages on the site. |

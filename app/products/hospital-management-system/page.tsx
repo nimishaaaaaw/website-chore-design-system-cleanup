@@ -10,8 +10,8 @@ import { HMSCTA } from '@/components/pages/products/hospital-management-system/H
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata = {
-  title: "Hospital Management Software (HMS) | Medikloud",
-  description: "Independent clinics and hospitals' most loved HMS. Zero training, high-volume OPD, and ABDM-ready workflows.",
+  title: "Clinic & Hospital Management System (HMS SaaS) | MediKloud",
+  description: "Deploy an easy-to-use hospital management SaaS in 24 hours. Connect your clinic's OPD, billing, and pharmacy workflows instantly with zero training.",
 };
 
 export default function HMSPage() {

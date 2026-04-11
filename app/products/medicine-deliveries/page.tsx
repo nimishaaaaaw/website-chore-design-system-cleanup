@@ -8,8 +8,8 @@ import { MedicineDeliveriesCTA } from '@/components/pages/products/medicine-deli
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata = {
-  title: "Medicine Deliveries | MediKloud",
-  description: "Enable medicine deliveries directly from your hospital pharmacy. Bridge the gap between consultation and doorstep care with our technology and logistics.",
+  title: "Hospital Pharmacy Medicine Delivery | MediKloud",
+  description: "Send medications from your hospital straight to your patients' homes. We handle the tracking and delivery to ensure zero drop-offs in chronic care.",
 };
 
 export default function MedicineDeliveriesPage() {

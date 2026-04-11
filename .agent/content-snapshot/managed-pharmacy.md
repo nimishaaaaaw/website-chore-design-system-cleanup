@@ -1,5 +1,5 @@
 # Managed Pharmacy
-> **URL**: `/products/managed-pharmacy` | **Snapshot**: 2026-04-11 00:52
+> **URL**: `/products/managed-pharmacy` | **Snapshot**: 2026-04-11 22:38
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 

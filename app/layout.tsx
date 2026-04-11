@@ -13,8 +13,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.medikloud.com'),
-  title: 'MediKloud — Hospital Pharmacy Management & Zero Capex Setup',
-  description: 'Stop pharmacy leakage and capture your full Rx value. We provide the staff, inventory, and technology to run your in-house pharmacy with zero capex risk.',
+  title: 'HMS, Pharmacy Management & Medicine Delivery | MediKloud',
+  description: 'Stop revenue leakage. MediKloud equips your hospital with a free HMS, fully managed pharmacy operations, and automated home medicine delivery.',
   manifest: '/manifest.webmanifest',
   keywords: [
     'Hospital Management System',
@@ -51,8 +51,8 @@ export const metadata: Metadata = {
     shortcut: ['/favicon.png'],
   },
   openGraph: {
-    title: 'MediKloud — Hospital Pharmacy Management & Zero Capex Setup',
-    description: 'We provide the staff, inventory, and technology to run your in-house pharmacy with zero capex risk.',
+    title: 'HMS, Pharmacy Management & Medicine Delivery | MediKloud',
+    description: 'Stop revenue leakage. MediKloud equips your hospital with a free HMS, fully managed pharmacy operations, and automated home medicine delivery.',
     url: 'https://www.medikloud.com',
     siteName: 'MediKloud',
     images: [
@@ -67,8 +67,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MediKloud — Hospital Pharmacy Management & Zero Capex Setup',
-    description: 'We provide the staff, inventory, and technology to run your in-house pharmacy with zero capex risk.',
+    title: 'HMS, Pharmacy Management & Medicine Delivery | MediKloud',
+    description: 'Stop revenue leakage. MediKloud equips your hospital with a free HMS, fully managed pharmacy operations, and automated home medicine delivery.',
     images: ['/healthcare-hero-illustration.png'],
   },
   alternates: {
@@ -103,39 +103,47 @@ export default async function RootLayout({
           Skip to content
         </a>
         {/* Schema.org structured data for Organization */}
-        <Script id="ld-org" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'MediKloud',
-            url: 'https://www.medikloud.com',
-            logo: 'https://www.medikloud.com/favicon-512x512.png',
-            sameAs: [
-              // Add your real profile URLs if available
-            ],
-            contactPoint: [{
-              '@type': 'ContactPoint',
-              telephone: '+91-7702670993',
-              contactType: 'sales',
-              areaServed: 'IN',
-              availableLanguage: ['English', 'Hindi']
-            }]
-          })}
-        </Script>
+        <Script 
+          id="ld-org" 
+          type="application/ld+json" 
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'MediKloud',
+              url: 'https://www.medikloud.com',
+              logo: 'https://www.medikloud.com/favicon-512x512.png',
+              sameAs: [],
+              contactPoint: [{
+                '@type': 'ContactPoint',
+                telephone: '+91-7702670993',
+                contactType: 'sales',
+                areaServed: 'IN',
+                availableLanguage: ['English', 'Hindi']
+              }]
+            })
+          }} 
+        />
         {/* Schema.org structured data for WebSite with potentialAction */}
-        <Script id="ld-website" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'MediKloud',
-            url: 'https://www.medikloud.com',
-            potentialAction: {
-              '@type': 'SearchAction',
-              target: 'https://www.google.com/search?q={search_term_string}+site:medikloud.com',
-              'query-input': 'required name=search_term_string'
-            }
-          })}
-        </Script>
+        <Script 
+          id="ld-website" 
+          type="application/ld+json" 
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'MediKloud',
+              url: 'https://www.medikloud.com',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: 'https://www.google.com/search?q={search_term_string}+site:medikloud.com',
+                'query-input': 'required name=search_term_string'
+              }
+            })
+          }} 
+        />
 
         <ScrollIndicator />
         <ClientProviders>

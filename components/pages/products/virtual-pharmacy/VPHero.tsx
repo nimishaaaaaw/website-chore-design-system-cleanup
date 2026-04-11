@@ -34,7 +34,7 @@ export const VPHero = () => {
     {
       id: 0,
       title: "Prescribed via MediKloud HMS",
-      desc: "Doctor's Rx is auto-received by our Dark Store",
+      desc: "E-prescription instantly reaches our nearby MediKloud Hub",
       icon: FileText,
       iconBg: "bg-blue-100/80",
       iconColor: "text-blue-600",
@@ -54,7 +54,7 @@ export const VPHero = () => {
     {
       id: 2,
       title: "Rider Dispatched",
-      desc: "Medicines picked up and en route to clinic",
+      desc: "Medicines packed and en route to your clinic",
       icon: Truck,
       iconBg: "bg-purple-100/80",
       iconColor: "text-purple-600",
@@ -64,7 +64,7 @@ export const VPHero = () => {
     {
       id: 3,
       title: "Delivered at Clinic Door",
-      desc: "Handed directly to patient within 10 minutes",
+      desc: "Handed directly to the patient before they leave",
       icon: CheckCircle2,
       iconBg: "bg-amber-100/80",
       iconColor: "text-amber-600",
@@ -90,7 +90,7 @@ export const VPHero = () => {
             {/* Eyebrow - Keep Airy */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start mb-10 md:mb-14 pt-6">
               <span className="eyebrow-line-l"></span>
-              <span className="eyebrow-text">Zero Space Needed · Instant Fulfillment · High Retention</span>
+              <span className="eyebrow-text">Zero Space Needed · 10-Min Fulfillment · Zero Upfront Capital</span>
               <span className="eyebrow-line-r"></span>
             </motion.div>
             
@@ -115,7 +115,7 @@ export const VPHero = () => {
                 </motion.h1>
                 
                 <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-                  Offer a complete pharmacy experience without renting space or buying stock. Prescribe via our app, and we will deliver the medicine to your clinic instantly.
+                  Deliver medicines straight to your patients at the clinic door in 10 minutes. Eliminate the overhead of inventory, physical space, and hiring pharmacists.
                 </motion.p>
               </div>
 

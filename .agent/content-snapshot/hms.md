@@ -1,5 +1,5 @@
 # Hospital Management System (HMS)
-> **URL**: `/products/hospital-management-system` | **Snapshot**: 2026-04-11 00:52
+> **URL**: `/products/hospital-management-system` | **Snapshot**: 2026-04-11 22:38
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 
@@ -219,7 +219,7 @@
 - Support & Clarity
 
 **H2**
-- Frequently Asked Questions.
+- Frequently Asked Questions
 
 **Body Copy**
 - Everything you need to know about India's most comprehensive Hospital Management System.

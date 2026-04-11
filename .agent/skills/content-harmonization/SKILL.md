@@ -29,7 +29,7 @@ Run every item before writing any new copy:
 | **Stat Integrity** | Note every hardcoded number. Do NOT change without user confirmation |
 | **Gold Copy** | Check against the Protected Phrases list — do not rewrite these |
 | **CTA Language** | "FIX THIS NOW" and similar aggressive copy — replace with approved CTAs |
-| **SEO/GEO** | Does the page have: an H1 with the primary keyword? At least one FAQ section? A meta title + description? Is the copy fact-dense with specific numbers, not vague claims? |
+| **SEO/GEO** | Does the page have: an H1 with the primary keyword? At least one FAQ section? Is the meta title an objective *Product + Audience* snapshot (no marketing pitches)? Is the meta description strictly ≤154 chars and a clear *Operational Snapshot*? Is the copy fact-dense with specific numbers, not vague claims? |
 
 ---
 

@@ -1,5 +1,5 @@
 # Medicine Deliveries
-> **URL**: `/products/medicine-deliveries` | **Snapshot**: 2026-04-11 00:52
+> **URL**: `/products/medicine-deliveries` | **Snapshot**: 2026-04-11 22:38
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 
@@ -126,7 +126,7 @@
 
 ### `MedicineDeliveriesFAQ`
 **H2**
-- Frequently Asked Questions.
+- Frequently Asked Questions
 
 **FAQ — Questions**
 - Do I need to hire my own riders?

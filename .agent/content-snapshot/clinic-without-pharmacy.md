@@ -1,5 +1,5 @@
 # Solutions: Clinic Without Pharmacy
-> **URL**: `/solutions/without-pharmacy` | **Snapshot**: 2026-04-11 00:52
+> **URL**: `/solutions/without-pharmacy` | **Snapshot**: 2026-04-11 22:38
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 

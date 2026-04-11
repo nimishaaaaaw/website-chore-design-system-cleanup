@@ -57,8 +57,8 @@ For each section being changed, produce a table:
 | CTA | ... | ... | ... |
 
 ### 2B. SEO/GEO Deliverables (Mandatory — Produce for Every Page)
-- **Meta Title**: ≤60 chars, contains primary keyword, format: `[Benefit] — MediKloud`
-- **Meta Description**: ≤155 chars, keyword + benefit + implicit CTA
+- **Meta Title**: ≤60 chars, objective *Product + Audience* snapshot. Avoid marketing pitches. Format: `[Product/Benefit] for [Audience] | MediKloud`
+- **Meta Description**: Strictly ≤154 chars to prevent Google snippet truncation! *Operational Snapshot* formula. Direct, action + outcome. Avoid sales jargon.
 - **FAQ Section**: Minimum 4 Q&As. Questions match how a doctor searches. Answers are 40–80 words, direct, fact-first. No marketing tone.
 - **Internal Links**: Identify 2 other MediKloud pages this page should link to naturally.
 - **Keyword Check**: Confirm primary keyword from `seo-geo-playbook.md` appears naturally in H1 and at least once in body copy.

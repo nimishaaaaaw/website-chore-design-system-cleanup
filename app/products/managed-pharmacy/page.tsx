@@ -8,8 +8,8 @@ import { MPv2FAQ } from '@/components/pages/products/managed-pharmacy/MPv2FAQ'
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata = {
-  title: "Fully Managed Pharmacy Operations — MediKloud",
-  description: "Stop prescription leakage and capture 100% of your Rx value. Deploy a fully managed pharmacy inside your clinic with zero capital or operational load.",
+  title: "Fully Managed Pharmacy for Hospitals in India | MediKloud",
+  description: "Deploy a fully managed pharmacy inside your hospital with zero capex. We handle the staff, stock, and software to completely stop prescription leakage.",
 };
 
 export default function ManagedPharmacyPage() {

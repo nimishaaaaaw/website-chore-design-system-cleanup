@@ -1,8 +1,7 @@
 "use client"
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const faqData = [
   {
@@ -28,23 +27,20 @@ const faqData = [
 ];
 
 export const HomeFAQ = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
   return (
-    <section className="relative bg-white py-section-sm md:py-section border-t border-slate-100 overflow-hidden">
-      {/* Atmospheric Primitives */}
-      <div className="tech-grid-overlay opacity-[0.03]" />
-      <div className="noise-texture opacity-[0.02]" />
+    <section className="relative bg-slate-50 section-py border-t border-slate-100 overflow-hidden">
+      {/* Forensic Atmospheric Finish */}
+      <div className="tech-grid-overlay opacity-5" />
       
       <div className="max-w-container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-16 md:mb-24">
+          <div className="text-center mb-16 md:mb-20">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center"
             >
               <div className="flex items-center justify-center gap-3 mb-6">
@@ -54,7 +50,7 @@ export const HomeFAQ = () => {
               </div>
               
               <h2 className="premium-h2 mb-4 text-balance">
-                Frequently Asked <span className="text-indigo-600">Questions.</span>
+                Frequently Asked <span className="text-indigo-600">Questions</span>
               </h2>
               <p className="premium-p intro-lock !max-w-2xl">
                 Get the operational details on how MediKloud seamlessly scales your hospital pharmacy.
@@ -62,52 +58,23 @@ export const HomeFAQ = () => {
             </motion.div>
           </div>
 
-          {/* FAQ Accordion List */}
-          <div className="space-y-4">
-            {faqData.map((faq, idx) => {
-              const isActive = activeIndex === idx;
-              
-              return (
-                <div 
-                  key={idx}
-                  className={`border rounded-[1.5rem] overflow-hidden transition-all duration-500 group ${
-                    isActive 
-                      ? 'bg-white border-indigo-200 shadow-card-md' 
-                      : 'bg-white/40 border-slate-200 hover:border-indigo-100/50 hover:bg-white'
-                  }`}
-                >
-                  <button 
-                    onClick={() => setActiveIndex(isActive ? null : idx)}
-                    className="w-full flex items-center justify-between p-5 md:p-8 text-left focus:outline-none"
-                  >
-                    <span className={`text-base md:text-xl font-bold pr-8 transition-colors ${isActive ? 'text-indigo-600' : 'text-slate-900 group-hover:text-brand-600'}`}>
-                      {faq.question}
-                    </span>
-                    <div className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isActive ? 'bg-indigo-100 text-indigo-600' : 'bg-slate-100 text-slate-500 group-hover:bg-indigo-50 group-hover:text-brand-600'}`}>
-                      {isActive ? <Minus size={18} strokeWidth={2.5} /> : <Plus size={18} strokeWidth={2.5} />}
-                    </div>
-                  </button>
-                  
-                  <AnimatePresence initial={false}>
-                    {isActive && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                      >
-                        <div className="px-5 md:px-8 pb-6 md:pb-8 pt-0">
-                          <div className="h-px w-full bg-slate-100 mb-6" />
-                          <p className="text-slate-600 text-sm md:text-base leading-relaxed font-medium">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
+          {/* FAQ Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {faqData.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
+                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-card-sm transition-all duration-300"
+              >
+                <h4 className="text-lg font-bold text-slate-900 mb-4">{faq.question}</h4>
+                <p className="premium-p !text-slate-600 leading-relaxed font-sans">
+                  {faq.answer}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
