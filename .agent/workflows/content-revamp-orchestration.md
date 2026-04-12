@@ -45,10 +45,15 @@ List all stats needing user verification. Collect upfront — present in Phase 2
 
 ---
 
-## Phase 2: Draft & Review
+## Phase 2: Draft & Review (Section-by-Section)
 
-### 2A. Draft Proposal
-For each section being changed, produce a table:
+> [!IMPORTANT]
+> **Strict Section-by-Section Lifecycle**: You must focus on one section at a time. The user selects the section.
+
+### 2A. Target Section & Draft Proposal
+1. Await the user's section choice. 
+2. Once selected, create a Markdown Artifact with your proposed changes for *only* that section. Use the artifact so the user can easily track diffs and provide feedback.
+3. Use a clear Before/After format in the artifact (e.g., tables or diffs):
 
 | Element | Current Copy | Proposed Copy | Reason |
 | :--- | :--- | :--- | :--- |
@@ -56,7 +61,8 @@ For each section being changed, produce a table:
 | Body | ... | ... | ... |
 | CTA | ... | ... | ... |
 
-### 2B. SEO/GEO Deliverables (Mandatory — Produce for Every Page)
+### 2B. SEO/GEO Deliverables (Required for the Page)
+*Note: Produce these either during the section drafts or as a final pass for the page.*
 - **Meta Title**: ≤60 chars, objective *Product + Audience* snapshot. Avoid marketing pitches. Format: `[Product/Benefit] for [Audience] | MediKloud`
 - **Meta Description**: Strictly ≤154 chars to prevent Google snippet truncation! *Operational Snapshot* formula. Direct, action + outcome. Avoid sales jargon.
 - **FAQ Section**: Minimum 4 Q&As. Questions match how a doctor searches. Answers are 40–80 words, direct, fact-first. No marketing tone.
@@ -64,12 +70,12 @@ For each section being changed, produce a table:
 - **Keyword Check**: Confirm primary keyword from `seo-geo-playbook.md` appears naturally in H1 and at least once in body copy.
 
 ### 2C. Clarification Queue
-Collect everything that needs user input before injection:
+Collect everything that needs user input before finalizing the section:
 - Stats needing confirmation
 - Any Gold Copy flagged for potential changes
 - CTA choice: "Book A Free Demo" vs "Partner With Us"
 
-### 2D. Evaluation Checklist (Attach to every draft)
+### 2D. Evaluation Checklist (Attach to every draft artifact)
 - [ ] Simple English / No Jargon?
 - [ ] Competitor Neutral?
 - [ ] Legally Compliant (No Commission/Rev-Share)?
@@ -80,10 +86,15 @@ Collect everything that needs user input before injection:
 
 ---
 
-## Phase 3: Injection
-1. Apply approved changes to TSX/TS files — one section at a time.
+## Phase 3: Injection & Confirmation
+
+> [!IMPORTANT]
+> **Update First, Then Move On:** Do not proceed to analyze the next section until the current section's changes are approved, injected into the code, and confirmed by the user.
+
+1. Apply approved changes for the **current section** to the relevant TSX/TS/Data files.
 2. Preserve all existing component logic, animations, and styling — this is a content change only.
-3. Verify the build runs without errors after changes.
+3. Verify the build runs without errors.
+4. Ask the user for confirmation and their next section choice.
 
 ---
 

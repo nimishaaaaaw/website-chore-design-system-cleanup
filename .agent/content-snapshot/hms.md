@@ -1,5 +1,5 @@
 # Hospital Management System (HMS)
-> **URL**: `/products/hospital-management-system` | **Snapshot**: 2026-04-12 02:06
+> **URL**: `/products/hospital-management-system` | **Snapshot**: 2026-04-12 18:53
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 

@@ -34,7 +34,7 @@ export const ClinicInsightShift = () => {
           </div>
           
           <h2 className="premium-h2 !text-white">
-            Turn your clinic into a <span className="text-indigo-400">full-service care hub.</span>
+            Medicines you prescribe, <span className="text-indigo-400">delivered before your patient leaves.</span>
           </h2>
         </motion.div>
         
@@ -42,26 +42,22 @@ export const ClinicInsightShift = () => {
           {[
             { 
               icon: ClipboardCheck, 
-              title: "1. You Prescribe", 
-              desc: "Write prescriptions normally. Our software seamlessly routes the digital order to our secure fulfillment network."
+              title: "1. Seamless Prescription", 
+              desc: "You consult and prescribe as you normally do. Our system instantly handles the digital routing, ensuring the exact brand you chose is secured."
             },
             { 
               icon: PackageCheck, 
-              title: "2. Invisible Logistics", 
-              desc: "We act as your backend. Our dark pharmacies pick, pack, and dispatch authentic medicines on your behalf."
+              title: "2. 10 min delivery", 
+              desc: "MediKloud Hubs act as your invisible backend. Authentic medicines are dispatched from local hubs to reach your clinic waiting room in just 10 minutes."
             },
             { 
               icon: HeartPulse, 
-              title: "3. Care Loop Closed", 
-              desc: "Patients receive treatment at their doorstep. Adherence goes up, and your clinic monetizes its digital workflow."
+              title: "3. Recovery Begins at Consultation", 
+              desc: "Your patients receive their medicines instantly at your clinic. This ensures they start their treatment immediately, improving recovery rates and clinical outcomes."
             }
           ].map((item, i) => (
-            <motion.div 
+            <div 
               key={i} 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: i * 0.1, duration: 0.5, ease: premiumEase }}
               className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 hover:border-indigo-500/50 transition-all duration-500 group group-hover:z-20"
             >
               <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-8 shadow-inner group-hover:bg-indigo-500/20 group-hover:border-indigo-500/30 transition-all duration-500">
@@ -71,7 +67,7 @@ export const ClinicInsightShift = () => {
               <p className="premium-p !text-slate-400">
                 {item.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

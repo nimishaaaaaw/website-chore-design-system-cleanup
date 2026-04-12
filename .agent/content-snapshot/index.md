@@ -1,5 +1,5 @@
 # MediKloud Content Snapshot — Index
-> Generated: 2026-04-12 02:06
+> Generated: 2026-04-12 18:53
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh.
 

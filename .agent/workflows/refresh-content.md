@@ -16,10 +16,10 @@ Run the Python extractor to crawl all pages and update the markdown snapshots in
 python3 .agent/scripts/extract_content.py
 ```
 
-## Step 2: Load the Index
-Once refreshed, read the master index to see the current state of all pages.
+## Step 2: Read All Extracted Content
+Once refreshed, read the **master index** and **all individual page snapshots** in the `.agent/content-snapshot/` directory completely. This ensures you have a 360-degree view of the project's current state and narrative flow before making any localized changes.
 
-- [Snapshot Index](file:///Users/yeswanth/Documents/Medikloud_Tech/Website_Part2/.agent/content-snapshot/index.md)
+- [Snapshot Index](file:///Users/yeswanth/Documents/Medikloud_Tech/Website/Website_Part2/.agent/content-snapshot/index.md)
 
 ## Step 3: Verify Target Page
 If you are working on a specific page, open its snapshot immediately to ensure you are working from the **latest extracted copy**, not raw TSX files.
@@ -30,4 +30,5 @@ If you are working on a specific page, open its snapshot immediately to ensure y
 ---
 
 ## Step 4: Update Inventory (Optional)
-Check the [Content Revamp Inventory](file:///Users/yeswanth/Documents/Medikloud_Tech/Website_Part2/.agent/content-revamp-inventory.md) to see if the page you are working on has been "Certified".
+Check the [Content Revamp Inventory](file:///Users/yeswanth/Documents/Medikloud_Tech/Website/Website_Part2/.agent/content-revamp-inventory.md) to see if the page you are working on has been "Certified".
+

@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Store, Activity, RefreshCw, ShieldCheck, Sparkles, Monitor, FileText, Receipt, Users2, Repeat, Package } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Store, Activity, RefreshCw, ShieldCheck, Sparkles, Monitor, FileText, Receipt, Users2, Repeat, Package, Truck } from 'lucide-react';
 import { WhatsAppMockup } from './WhatsAppMockup';
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 
@@ -63,62 +63,57 @@ export const HospitalPharmacyProducts = () => {
             </div>
             
             {/* ADVANCED VISUAL 1: Live Inventory Dashboard */}
-            <div className="order-1 lg:order-2 rounded-[2.5rem] p-8 lg:p-12 relative overflow-hidden aspect-[4/3] flex items-center justify-center shadow-2xl">
-              <DarkAtmosphere withMouseEffect={false} />
-
-              {/* Central Glassy Dashboard */}
-              <div className="w-full max-w-[340px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-2xl relative z-10 group">
-                <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
+            {/* ADVANCED VISUAL 1: Live Inventory Dashboard (Premium Dark Theme) */}
+            <div className="order-1 lg:order-2 p-4 lg:p-8 relative flex items-center justify-center">
+              {/* Central Premium Dark Dashboard */}
+              <div className="w-full max-w-[360px] bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl relative z-10 group overflow-hidden">
+                <DarkAtmosphere withMouseEffect={false} />
+                
+                <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4 relative z-10">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.8)]"></div>
-                    <span className="text-white text-[12px] font-bold tracking-tight">Live Inventory Sync</span>
+                    <span className="text-white text-[12px] font-bold tracking-tight uppercase">Live Pharmacy Inventory</span>
                   </div>
-                  <Activity className="w-4 h-4 text-blue-300" />
+                  <Activity className="w-4 h-4 text-blue-400" />
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-3 relative z-10">
                   {/* Stock Item 1 */}
-                  <div className="bg-white/5 hover:bg-white/10 transition-colors rounded-2xl p-3.5 flex items-center justify-between border border-white/5">
+                  <div className="bg-white/5 hover:bg-white/10 transition-all rounded-2xl p-4 flex items-center justify-between border border-white/5 hover:border-blue-500/30">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
                         <Package className="w-5 h-5 text-blue-400"/>
                       </div>
                       <div>
-                        <div className="text-slate-200 text-sm font-bold tracking-tight">Amoxicillin 500mg</div>
+                        <div className="text-white text-sm font-bold tracking-tight">Amoxicillin 500mg</div>
                         <div className="text-blue-300/70 text-[11px] font-medium mt-0.5 flex items-center gap-1">
-                          <RefreshCw className="w-3 h-3" /> Auto-replenishing
+                          <RefreshCw className="w-3 h-3 text-emerald-400" /> Auto-replenishing
                         </div>
                       </div>
                     </div>
-                    <div className="text-emerald-400 text-sm font-bold bg-emerald-400/10 px-2 py-1 rounded-lg">98%</div>
+                    <div className="text-emerald-400 text-sm font-bold bg-emerald-400/10 px-2 py-1 rounded-lg border border-emerald-400/20">98%</div>
                   </div>
                   
                   {/* Stock Item 2 */}
-                  <div className="bg-white/5 hover:bg-white/10 transition-colors rounded-2xl p-3.5 flex items-center justify-between border border-white/5">
+                  <div className="bg-white/5 hover:bg-white/10 transition-all rounded-2xl p-4 flex items-center justify-between border border-white/5 hover:border-indigo-500/30">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
                         <ShieldCheck className="w-5 h-5 text-indigo-400"/>
                       </div>
                       <div>
-                        <div className="text-slate-200 text-sm font-bold tracking-tight">Audit Status</div>
-                        <div className="text-slate-400 text-[11px] font-medium mt-0.5">Last checked: Just now</div>
+                        <div className="text-white text-sm font-bold tracking-tight">Audit Status</div>
+                        <div className="text-slate-400 text-[11px] font-medium mt-0.5">Verified 2m ago</div>
                       </div>
                     </div>
-                    <div className="bg-indigo-500/20 p-1.5 rounded-lg">
+                    <div className="bg-indigo-500/20 p-1.5 rounded-lg border border-indigo-500/30">
                       <CheckCircle2 className="w-4 h-4 text-indigo-300" />
                     </div>
                   </div>
                 </div>
-
-                {/* Floating element */}
-                <motion.div 
-                  animate={{ y: [0, -8, 0] }} 
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} 
-                  className="absolute -right-4 -bottom-4 bg-emerald-500 text-white text-[12px] font-bold tracking-tight px-4 py-2 rounded-xl shadow-xl shadow-emerald-500/30 border border-emerald-400 flex items-center gap-2"
-                >
-                  <Sparkles className="w-3.5 h-3.5" /> Zero Variance
-                </motion.div>
               </div>
+              
+              {/* Background anchor glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-[80px] -z-10"></div>
             </div>
           </motion.div>
 
@@ -128,53 +123,85 @@ export const HospitalPharmacyProducts = () => {
             className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
           >
             {/* ADVANCED VISUAL 2: Full HMS Dashboard Mockup */}
-            <div className="rounded-[2.5rem] p-8 lg:p-12 relative overflow-hidden aspect-[4/3] flex items-center justify-center shadow-2xl">
-              <DarkAtmosphere withMouseEffect={false} />
-
-              <div className="w-full max-w-[380px] relative z-10 flex flex-col gap-4">
-                {/* Top Row: OPD & Billing Modules */}
-                <div className="flex gap-4">
-                  <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="flex-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-xl">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center"><Users2 className="w-3.5 h-3.5 text-emerald-400" /></div>
-                      <span className="text-[11px] font-bold text-slate-200">OPD Desk</span>
+            {/* ADVANCED VISUAL 2: HMS Enterprise Command Center (Unified Layout) */}
+            <div className="p-4 lg:p-12 flex items-center justify-center relative">
+              <div className="w-full max-w-[440px] bg-white border border-slate-200 rounded-[2.5rem] p-6 lg:p-8 shadow-card-lg relative">
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-2xl bg-cyan-50 flex items-center justify-center border border-cyan-100 shadow-sm">
+                      <Monitor className="w-5 h-5 text-cyan-500" />
                     </div>
-                    <div className="h-1.5 w-full bg-slate-700/50 rounded-full mb-1.5"></div>
-                    <div className="h-1.5 w-2/3 bg-slate-700/50 rounded-full"></div>
-                  </motion.div>
-                  
-                  <motion.div animate={{ y: [0, 4, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="flex-1 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-xl">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-7 h-7 rounded-lg bg-amber-500/20 flex items-center justify-center"><Receipt className="w-3.5 h-3.5 text-amber-400" /></div>
-                      <span className="text-[11px] font-bold text-slate-200">Billing</span>
+                    <div>
+                      <div className="text-sm font-bold text-slate-900 tracking-tight">Enterprise Command</div>
+                      <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Global Status: Active</div>
                     </div>
-                    <div className="text-[14px] font-mono font-bold text-white mb-0.5">₹42,450</div>
-                    <div className="text-[10px] font-medium text-amber-400">Daily Revenue</div>
-                  </motion.div>
+                  </div>
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="w-6 h-6 rounded-full border-2 border-white bg-slate-100 overflow-hidden">
+                        <div className={`w-full h-full ${i === 1 ? 'bg-cyan-500' : i === 2 ? 'bg-indigo-500' : 'bg-emerald-500'} opacity-40`} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                {/* Middle Row: EHR Dashboard */}
-                <motion.div animate={{ scale: [1, 1.02, 1] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="w-full bg-gradient-to-br from-cyan-900/60 to-blue-900/60 backdrop-blur-xl border border-cyan-500/30 rounded-2xl p-5 shadow-[0_0_30px_rgba(6,182,212,0.15)] relative">
-                  <div className="absolute top-0 right-0 px-3 py-1 bg-cyan-500/20 rounded-bl-xl rounded-tr-2xl text-[12px] font-bold text-cyan-300 tracking-tight">AI Scribe Active</div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center border border-cyan-500/30"><FileText className="w-5 h-5 text-cyan-400" /></div>
+                {/* Main Integrated Grid */}
+                <div className="grid grid-cols-2 gap-4">
+                  {/* OPD Status */}
+                  <div className="col-span-1 bg-slate-50/50 rounded-2xl p-4 border border-slate-100 flex flex-col justify-between min-h-[120px]">
+                    <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">
+                      <Users2 className="w-3.5 h-3.5" /> OPD Queue
+                    </div>
                     <div>
-                        <div className="text-[14px] font-bold text-white tracking-tight">Digital EHR</div>
-                        <div className="text-[11px] font-medium text-cyan-100/60 mt-0.5">Patient ID: #88241</div>
+                      <div className="text-xl font-bold text-slate-900 font-mono tracking-tighter">14 <span className="text-xs text-slate-400 font-sans">Active</span></div>
+                      <div className="flex gap-1 mt-2">
+                        <div className="h-1.5 flex-1 bg-cyan-500 rounded-full"></div>
+                        <div className="h-1.5 flex-1 bg-cyan-500/30 rounded-full"></div>
+                        <div className="h-1.5 flex-1 bg-slate-200 rounded-full"></div>
+                      </div>
                     </div>
                   </div>
-                  <div className="space-y-2.5">
-                    <div className="h-2 w-full bg-cyan-950/60 rounded-full"></div>
-                    <div className="h-2 w-5/6 bg-cyan-950/60 rounded-full"></div>
-                  </div>
-                  <div className="mt-5 flex justify-between items-center border-t border-cyan-500/20 pt-4">
-                    <div className="text-[11px] font-bold text-slate-300 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></div> Auto-syncing to Pharmacy
+
+                  {/* EHR / AI Scribe status */}
+                  <div className="col-span-1 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl p-4 shadow-md flex flex-col justify-between min-h-[120px]">
+                    <div className="flex items-center gap-2 text-[10px] font-bold text-white/70 uppercase tracking-wider">
+                      <Activity className="w-3.5 h-3.5" /> AI Scribe
                     </div>
-                    <ArrowRight className="w-4 h-4 text-cyan-400" />
+                    <div>
+                      <div className="flex items-center gap-2">
+                         <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                         <span className="text-[13px] font-bold text-white tracking-tight">Syncing EHR...</span>
+                      </div>
+                      <div className="mt-2 h-1 w-full bg-white/20 rounded-full overflow-hidden">
+                        <motion.div animate={{ x: ['-100%', '100%'] }} transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }} className="h-full w-1/2 bg-white/60" />
+                      </div>
+                    </div>
                   </div>
-                </motion.div>
+
+                  {/* Revenue / Billing */}
+                  <div className="col-span-2 bg-slate-50/50 rounded-2xl p-5 border border-slate-100 flex items-center justify-between">
+                    <div className="space-y-1">
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Smart Billing (Daily)</div>
+                      <div className="text-2xl font-bold text-slate-900 font-mono tracking-tight">₹1,24,450</div>
+                    </div>
+                    <div className="text-right">
+                       <div className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-100">+12% vs avg</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Integrated Pharmacy Link */}
+                <div className="mt-6 p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100 flex items-center justify-between border-dashed">
+                    <div className="flex items-center gap-3">
+                       <Store className="w-4 h-4 text-indigo-500" />
+                       <span className="text-[12px] font-bold text-indigo-700">Unified Pharmacy Bridge</span>
+                    </div>
+                    <CheckCircle2 className="w-5 h-5 text-indigo-500" />
+                </div>
               </div>
+              
+              {/* Animated background blob to replace the generic DarkAtmosphere box */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-100/30 rounded-full blur-[80px] -z-10 animate-float-slow"></div>
             </div>
 
             <div className="space-y-6">
@@ -208,14 +235,14 @@ export const HospitalPharmacyProducts = () => {
           >
             <div className="order-2 lg:order-1 space-y-6">
               <div className="w-12 h-12 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center border border-violet-100 mb-6">
-                <Repeat className="w-6 h-6" />
+                <Truck className="w-6 h-6" />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900 tracking-tight">Automated Refill Engine</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 tracking-tight">Medicine Deliveries to Patient's Doorsteps</h3>
               <p className="text-base text-slate-500 leading-relaxed">
-                When a diabetic or BP patient finishes their 30-day course, they usually buy their next batch from a local chemist. We track their dosage and automatically offer them home delivery from your clinic right before they run out.
+                When a diabetic or BP patient finishes their 30-day course, they usually buy their next batch from a local chemist. We track their dosage and automatically offer them home delivery from your hospital right before they run out.
               </p>
               <ul className="space-y-3 pt-2">
-                {["Automated WhatsApp delivery reminders", "Zero effort required from your clinic staff", "Turns one-time patients into recurring revenue"].map((item, i) => (
+                {["Automated WhatsApp delivery reminders", "Zero effort required from your staff", "Turns one-time patients into recurring revenue"].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
                     <CheckCircle2 className="w-5 h-5 text-violet-600 flex-shrink-0" /> {item}
                   </li>
@@ -223,18 +250,19 @@ export const HospitalPharmacyProducts = () => {
               </ul>
               <div className="pt-4">
                 <a href="/products/virtual-pharmacy" className="inline-flex items-center text-[15px] font-bold text-violet-600 hover:text-violet-800 transition-colors group">
-                  Explore Refill Engine & Delivery 
+                  Explore Medicine Delivery 
                   <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
             </div>
             
-            {/* ADVANCED VISUAL 3: Realistic WhatsApp Ordering Flow */}
-            <div className="order-1 lg:order-2 rounded-[2.5rem] p-6 lg:p-10 relative overflow-hidden flex items-center justify-center shadow-2xl group min-h-[550px]">
-              <DarkAtmosphere withMouseEffect={false} />
-
-              {/* Realistic Phone Chassis + Auto-scrolling Sequence */}
+            {/* ADVANCED VISUAL 3: Realistic WhatsApp Ordering Flow (Clean Backdrop) */}
+            <div className="order-1 lg:order-2 p-4 lg:p-8 relative flex items-center justify-center min-h-[550px]">
+              {/* Realistic Phone Chassis sitting directly on page */}
               <WhatsAppMockup />
+              
+              {/* Subtle brand glow to anchor the visual */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-violet-100/40 rounded-full blur-[70px] -z-10 animate-float-medium"></div>
             </div>
           </motion.div>
 

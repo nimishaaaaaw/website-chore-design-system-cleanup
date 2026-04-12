@@ -13,6 +13,7 @@ import { ClinicInsightShift } from '@/components/pages/solutions/clinic-without-
 import { ClinicHowItWorks } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicHowItWorks';
 import { ClinicWhatChanges } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicWhatChanges';
 import { ClinicEmotionalClose } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicEmotionalClose';
+import { ClinicPharmacyFAQ } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicPharmacyFAQ';
 import { ClinicCTA } from '@/components/pages/solutions/clinic-without-pharmacy/ClinicCTA';
 
 /**
@@ -79,7 +80,12 @@ export default function ClinicWithoutPharmacyPage() {
   const { openModal } = useContactModal();
 
   const handleBookDemo = () => {
-    openModal();
+    openModal({
+      badge: "Launch Your Clinic",
+      title: "Start your clinic transformation.",
+      description: "Talk to our experts to see how MediKloud can help you deliver medications instantly and grow your revenue.",
+      btnText: "Book My Free Demo"
+    });
   };
 
   const handleSeeHowItWorks = () => {
@@ -120,6 +126,9 @@ export default function ClinicWithoutPharmacyPage() {
           onBookDemo={handleBookDemo}
           onSeeHowItWorks={handleSeeHowItWorks}
         />
+
+        {/* Section 8 - FAQ Section */}
+        <ClinicPharmacyFAQ />
       </main>
 
       <Footer />

@@ -31,10 +31,10 @@ export const ClinicCTA = ({ onBookDemo }: ClinicCTAProps) => {
            className="header-lock mx-auto"
         >
           <h2 className="premium-h2 !text-white mb-8">
-            Ready to <span className="text-indigo-400">close the care loop?</span>
+            Ready to <span className="text-indigo-400">transform your clinic?</span>
           </h2>
           <p className="premium-p !text-slate-400 !text-xl intro-lock mx-auto">
-            Join the forward-thinking clinics scaling their patient outcomes and revenue with MediKloud&apos;s digital pharmacy infrastructure.
+            Join the clinics using MediKloud to deliver medications instantly and grow their revenue. Zero inventory, zero space, and zero financial risk.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
@@ -43,15 +43,6 @@ export const ClinicCTA = ({ onBookDemo }: ClinicCTAProps) => {
               className="btn px-10 py-5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-glow transition-all active:scale-[0.98] min-w-[200px]"
             >
               Book a Free Demo
-            </button>
-            <button 
-              onClick={() => {
-                const el = document.getElementById('how-it-works');
-                el?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="btn px-10 py-5 text-white font-bold border border-white/20 hover:bg-white/5 transition-all rounded-2xl min-w-[200px] active:scale-[0.98]"
-            >
-              See how it works
             </button>
           </div>
         </motion.div>
@@ -65,9 +56,9 @@ export const ClinicCTA = ({ onBookDemo }: ClinicCTAProps) => {
           className="mt-20 pt-10 border-t border-white/10 flex flex-wrap justify-center gap-x-10 gap-y-6"
         >
           {[
-            { label: "AI-Driven Logistics", color: "bg-indigo-500" },
-            { label: "Instant Setup", color: "bg-brand-500" },
-            { label: "Zero Inventory Required", color: "bg-emerald-500" }
+            { label: "10 Min Delivery Network", color: "bg-indigo-500" },
+            { label: "Instant Digital Setup", color: "bg-brand-500" },
+            { label: "Zero Space Required", color: "bg-emerald-500" }
           ].map((chip, i) => (
             <div key={i} className="trust-chip bg-white/5 border-white/10">
               <div className={`w-1.5 h-1.5 rounded-full ${chip.color} shadow-[0_0_8px_rgba(59,130,246,0.3)]`} />

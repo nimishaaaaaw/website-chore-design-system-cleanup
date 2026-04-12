@@ -83,13 +83,8 @@ export const MedicineDeliveriesImpact = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {impactBenefits.map((benefit, index) => (
-            <motion.div 
+            <div 
               key={benefit.id} 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: premiumEase, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
               className="bg-white/5 backdrop-blur-xl border border-white/10 p-7 lg:p-9 rounded-[2.5rem] hover:bg-white/10 hover:border-indigo-500/50 shadow-sm transition-all duration-500 relative group overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl -mr-16 -mt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -109,7 +104,7 @@ export const MedicineDeliveriesImpact = () => {
               <p className="text-sm font-medium text-slate-400 leading-relaxed">
                 {benefit.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

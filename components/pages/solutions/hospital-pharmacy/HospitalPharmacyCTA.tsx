@@ -13,18 +13,18 @@ export const HospitalPharmacyCTA = ({ onBookDemo, onContactSales }: { onBookDemo
       </div>
 
       <div className="container-page relative z-10">
-        <div className="max-w-[825px] mx-auto text-center space-y-10">
+        <div className="max-w-[850px] mx-auto text-center space-y-10">
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-5xl font-bold text-white leading-[1.3] tracking-tight">
-            Stop losing the revenue you already earned.
+            Ready for a truly integrated patient journey?
           </motion.h2>
 
-          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-body-lg md:text-xl text-indigo-100 max-w-[800px] mx-auto font-medium leading-relaxed">
-            Let our team run a free 30-minute audit on your current pharmacy. We will show you exactly how much cash is leaking, and how quickly we can fix it.
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-body-lg md:text-xl text-indigo-100 max-w-[850px] mx-auto font-medium leading-relaxed">
+            Schedule a free 30-minute diagnostic with our team. We'll show you how integrating your pharmacy and clinic operations can eliminate revenue leakage and secure long-term patient loyalty.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex justify-center pt-6">
             <button onClick={onBookDemo} className="btn-lg bg-white text-indigo-600 hover:bg-indigo-50 shadow-2xl shadow-indigo-900/20 active:scale-[0.98] transition-all font-bold text-[16px] px-10 py-4">
-              Schedule your free audit
+              Schedule your free diagnostic
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </button>
           </motion.div>

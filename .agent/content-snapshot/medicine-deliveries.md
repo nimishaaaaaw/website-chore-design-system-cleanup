@@ -1,5 +1,5 @@
 # Medicine Deliveries
-> **URL**: `/products/medicine-deliveries` | **Snapshot**: 2026-04-12 02:06
+> **URL**: `/products/medicine-deliveries` | **Snapshot**: 2026-04-12 18:53
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 
@@ -7,11 +7,11 @@
 
 ### `MedicineDeliveriesHero`
 **Eyebrow / Badge**
-- Digital Health Extension · Patient Retention
+- Continuous Care · Patient Retention
 - Routing
 
 **H1**
-- Medicine Deliveries From Hospital Pharmacies Directly to the patient's Doorstep.
+- Deliver Medicines From Your Hospital Pharmacy Directly to the Patient's Doorstep.
 
 **H4**
 - Live Dispatch Map
@@ -22,7 +22,7 @@
 - Schedule Live Demo
 
 **Body Copy**
-- We provide the technology and resources for patients to order directly from you and deliver them as well. Ensure 100% patient retention with automated chronic refills.
+- Stop losing revenue to retail aggregators. We handle the logistics to deliver medicines directly from your hospital to the patient's door, securing 100% retention with automated refills.
 - Real-time Routing
 - Status
 - 100% Retained
@@ -56,74 +56,71 @@
 **H2**
 - Your Expertise Travels Cities. Your Medicine Should Too.
 
+**H3**
+- Operational Leakage Points
+
 **H4**
 - Strategic Insight
 
 **Data Array Titles / Labels**
-- The 'Go Outside' Leak
-- The Caregiver’s Burden
-- Total Brand Integrity
-- Fragmented Clinical Records
-- Invisible Revenue Drift
+- Lost After the Consultation
+- Your Patient's Recovery Gets Complicated
+- Chemists Change What You Prescribed
+- No Visibility on Refills
 
 **Body Copy**
-- Patients will travel hundreds of miles to consult with a doctor they trust. But for their medicine? They choose the nearest, most convenient option—even if it compromises your care plan.
-- Close the service gap. Ensure the care you provide makes it all the way to the patient’s hands.
-- Every time staff says 'Get it from outside,' you're handing over a voucher for your competitors.
-- Recovering families shouldn't hunt for pharmacies. Don't force them to trust an aggregator.
-- Online apps swap your prescriptions for inventory. We deliver the exact trusted brand.
-- Refill loops break when patients buy elsewhere. You lose data on treatment adherence.
-- A single chronic patient lost to convenience is a ₹90,000+ drain on your hospital’s value.
+- Patients will travel across the city to consult with a doctor they trust. But for medicines, they choose the most convenient option—and their loyalty quietly shifts to third-party chemists and delivery apps.
+- Your care shouldn't stop at the hospital door. Patients need a seamless path from your prescription to their home.
+- When a patient leaves to find a pharmacy, they often don't come back to your hospital for refills.
+- Recovering families are forced to chase down pharmacies instead of focusing on rest and recovery.
+- External chemists regularly swap your prescribed brands for cheaper alternatives to maximise their margin.
+- You have no way of knowing if your chronic patients are actually taking the medicines you prescribed.
 
 
 
 ### `MedicineDeliveriesImpact`
 **Eyebrow / Badge**
-- The Modern Standard
+- Why It Matters
 
 **H2**
-- Why Delivering from Your Hospital Matters.
+- Deliver better care. Keep your patients.
 
 **Data Array Titles / Labels**
-- You Control the Quality
-- Stress-Free for Families
-- Patients Never Miss a Dose
-- A Modern Hospital Experience
+- Exact Brand Delivery
+- Patients Go Home Without the Hassle
+- Chronic Patients Never Fall Off
+- They Come Back to You
 
 **Body Copy**
-- When your hospital handles the delivery, the quality of care never stops. It’s better for your patients, easier for their families, and more reliable for your doctors.
-- No brand-swapping. The patient gets the exact medicine you prescribed, directly from your pharmacy.
-- Families don't have to leave the patient's side to hunt for medicines. We deliver it to their door.
-- Our system sends simple reminders for chronic refills, allowing patients to refill with one tap.
-- Doorstep delivery is the new standard of professional care that patients appreciate and remember.
+- When you control the delivery, you control the full treatment—from the prescription pad to the patient’s door.
+- The patient gets exactly what you wrote on the prescription. No swaps. No shortcuts.
+- Families focus entirely on patient recovery rather than hunting for medicines across the city.
+- A simple WhatsApp reminder brings them back to you every month, automatically.
+- A seamless delivery experience keeps patients loyal to your hospital for every future consultation and refill.
 
 
 
 ### `MedicineDeliveriesEconomics`
 **Eyebrow / Badge**
-- Financial Trust
+- How It Works
 
 **H2**
 - Transparent Pricing. Zero Setup Risk.
 
 **Data Array Titles / Labels**
 - ₹0 Initial Setup Cost
-- Flexible Delivery Fees
+- You Decide Who Pays for Delivery
 - No Fixed Staffing Costs
-- The Retention Bonus
+- Every Patient You Keep Is Worth More
 
 **Body Copy**
-- We provide the technology and the logistics at a model that is fair and clear. We only win when your hospital’s delivery network is capturing thousands of rupees in retained revenue.
-- Strategic Outcome
-- No hidden fees. No heavy capital investment. Just a smarter way to scale.
-- Impact Strategy
-- Retain High-Value Patients
-- Lifetime Value (LTV)
-- ₹90,000 +
+- We provide the technology and the logistics. You pay only per successful delivery—nothing upfront, no risk.
+- Our Promise
+- No hidden fees. No upfront investment. You only pay when a delivery is made.
 - There is no upfront fee to activate. We set up the technology and connect your pharmacy at no cost to you.
-- You have total control. Decide who pays the delivery fee based on your specific patient base.
+- Choose whether the patient pays the delivery fee or you absorb it. It's your call, every time.
 - Stop paying for dedicated riders. We provide the logistics for a transparent, per-order fee.
-- The real profit is retention. Every chronic patient you keep is worth ₹90,000+ in lifetime value.
+- Every chronic patient you keep delivering to is worth ₹90,000+ in lifetime prescription value.
 
 
 
@@ -145,26 +142,26 @@
 - How precise are the refill reminders?
 
 **FAQ — Answers**
-- We provide a dedicated telephone line for easy reorders via a clinical coordinator.
+- Patients can reorder by calling your front desk or our support line. No smartphone needed.
 - We provide real-time updates for every order and immediate support for any delivery issues.
 
 
 
 ### `MedicineDeliveriesCTA`
 **Eyebrow / Badge**
-- Next Steps
+- Get Started
 
 **H2**
-- Ready to enable Medicine Deliveries?
+- Ready to Deliver Medicines Directly From Your Hospital?
 
 **Data Array Titles / Labels**
 - Medicine Deliveries
-- Enable Direct Patient Delivery.
+- Start Delivering From Your Hospital.
 - Schedule Live Demo
 
 **Body Copy**
-- Experience India's easiest medicine delivery network. Reclaim your hospital's revenue and modernize patient care today.
-- Let us handle the logistics so you can recover lost prescription revenue.
+- Set up hospital-to-home medicine deliveries in days. No upfront cost. No new staff required.
+- Let us handle the logistics so your patients always get the right medicine, on time.
 
 
 

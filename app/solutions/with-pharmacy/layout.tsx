@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Solutions for Hospitals With Pharmacies | MediKloud",
-  description: "Operating an in-house hospital pharmacy? We take over operations, fully fund your inventory, and integrate automated delivery to stop revenue leakage.",
+  title: "Managed Pharmacy & HMS for Independent Hospitals | MediKloud",
+  description: "Upgrade your hospital pharmacy with a fully managed operations layer and free enterprise HMS. Stop revenue leakage and automate inventory with zero capex.",
 };
 
 export default function HospitalWithPharmacyLayout({

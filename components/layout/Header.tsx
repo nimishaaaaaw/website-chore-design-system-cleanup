@@ -43,12 +43,12 @@ export function Header() {
               onMouseEnter={() => setShowSolutions(true)}
               onMouseLeave={() => setShowSolutions(false)}
             >
-              <Link
-                href="/#solutions"
+              <button
+                type="button"
                 aria-expanded={showSolutions}
                 aria-haspopup="true"
                 aria-label="Solutions menu"
-                className="group inline-flex items-center px-3 py-2 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+                className="group inline-flex items-center px-3 py-2 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md bg-transparent border-none cursor-pointer"
               >
                 <span className="relative text-slate-700 group-hover:text-indigo-600 font-normal transition-colors duration-300 flex items-center gap-1.5">
                   Solutions
@@ -61,7 +61,7 @@ export function Header() {
                   </svg>
                   <span className="pointer-events-none absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 </span>
-              </Link>
+              </button>
 
               {/* Solutions Mega Menu */}
               <AnimatePresence>
@@ -101,12 +101,12 @@ export function Header() {
               onMouseEnter={() => setShowProducts(true)}
               onMouseLeave={() => setShowProducts(false)}
             >
-              <Link
-                href="/#products"
+              <button
+                type="button"
                 aria-expanded={showProducts}
                 aria-haspopup="true"
                 aria-label="Products menu"
-                className="group inline-flex items-center px-3 py-2 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+                className="group inline-flex items-center px-3 py-2 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md bg-transparent border-none cursor-pointer"
               >
                 <span className="relative text-slate-700 group-hover:text-indigo-600 font-normal transition-colors duration-300 flex items-center gap-1.5">
                   Products
@@ -119,7 +119,7 @@ export function Header() {
                   </svg>
                   <span className="pointer-events-none absolute left-0 -bottom-1 h-[2px] w-full bg-indigo-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 </span>
-              </Link>
+              </button>
 
               {/* Products Mega Menu */}
               <AnimatePresence>

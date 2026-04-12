@@ -18,7 +18,7 @@ Track the status of every page through the revamp pipeline.
 | :--- | :--- | :--- |
 | Hospital Management System | ✅ Certified | |
 | Managed Pharmacy | ⬜ Pending | |
-| Medicine Deliveries | ⬜ Pending | |
+| Medicine Deliveries | ✅ Certified | |
 | Virtual Pharmacy | ⬜ Pending | |
 
 ---

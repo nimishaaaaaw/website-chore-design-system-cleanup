@@ -1,5 +1,5 @@
 # Solutions: Hospital With Pharmacy
-> **URL**: `/solutions/with-pharmacy` | **Snapshot**: 2026-04-12 02:06
+> **URL**: `/solutions/with-pharmacy` | **Snapshot**: 2026-04-12 18:53
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 
@@ -12,14 +12,14 @@
 - MediKloud Shield
 
 **H1**
-- Upgrade Your Pharmacy. Capture Every Prescription. Retain Every Patient.
+- Tech-Driven Hospital Ops. Capture Every Prescription. Retain Every Patient.
 
 **H4**
 - MediKloud Routing
 - ₹42,500
 
 **Body Copy**
-- Every consultation ends with a prescription. But your revenue and patient control leave the moment they walk out. MediKloud helps you capture that value right at your clinic.
+- Every consultation ends with a prescription. But your revenue and care continuity leave the moment they walk out. MediKloud helps you capture that value right inside your hospital.
 - MediKloud Impact
 
 **CTAs / Buttons**
@@ -30,23 +30,24 @@
 ### `HospitalPharmacyPain`
 **Eyebrow / Badge**
 - Diagnostic: The Operations Trap
+- Unexplained Variance
 
 **H2**
-- Running a clinic is your job. Running a retail store shouldn't be.
+- Running a hospital is your job. Running a pharmacy shouldn't be.
 
 **H3**
 - "I'll just buy it near my house."
-- Money dying on the shelves.
+- Capital trapped on the shelves.
 - Managing the counter.
 - The one-time buyer.
 
 **Body Copy**
-- Most clinic pharmacies don't fail loudly. They leak money silently through a hundred small cracks that you simply don't have the time to monitor.
+- Most hospital pharmacies don't fail loudly. They leak money silently through a hundred small cracks that you simply don't have the time to monitor.
 - Patients leave because you don't offer home delivery, or your counter queue is simply too long. You did the clinical work, but a local retail chemist gets the revenue.
 - Medicines expire because no one is accurately tracking what moves and what doesn't. Your working capital is trapped in boxes sitting in the back room.
-- 124 units expiring in < 60 days
 - Pharmacists quitting without notice, manual billing mistakes, or worse—untracked inventory walking out the door undocumented.
-- Your diabetic and BP patients never come back for their month-two refills. They go to MedPlus or 1mg. You are losing out on years of compounding recurring revenue.
+- Your diabetic and BP patients never come back for their month-two refills. They go to online apps or corporate chains. You are losing out on years of compounding recurring revenue.
+- Patient is highly likely to switch doctors entirely if the app offers their own teleconsultation.
 
 
 

@@ -12,6 +12,7 @@ import { HospitalPharmacyPain } from '@/components/pages/solutions/hospital-phar
 import { HospitalPharmacyApproach } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyApproach';
 import { HospitalPharmacyProducts } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyProducts';
 import { HospitalPharmacyOutcomes } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyOutcomes';
+import { HospitalPharmacyFAQ } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyFAQ';
 import { HospitalPharmacyEmotionalClose } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyEmotionalClose';
 import { HospitalPharmacyCTA } from '@/components/pages/solutions/hospital-pharmacy/HospitalPharmacyCTA';
 
@@ -61,6 +62,9 @@ export default function HospitalPharmacyPage() {
           onBookDemo={handleBookDemo} 
           onContactSales={handleContactSales} 
         />
+
+        {/* FAQ Section - Operational Support & Clarity */}
+        <HospitalPharmacyFAQ />
       </main>
 
       <Footer />

@@ -54,7 +54,7 @@ export const HMSSecurity = () => {
           {/* Right Column: Features Grid (New Streamlined Layout) */}
           <div className="w-full lg:w-1/2">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {[
+              { [
                 {
                   icon: <Database className="w-5 h-5 text-brand-400" />,
                   title: "100% Data Ownership",
@@ -76,12 +76,8 @@ export const HMSSecurity = () => {
                   desc: "Granular controls ensure only authorized staff view sensitive data."
                 }
               ].map((item, idx) => (
-                <motion.div 
+                <div 
                    key={idx} 
-                   initial={{ opacity: 0, y: 20 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true, margin: "-100px" }}
-                   transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                    className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:bg-white/[0.08] transition-all group"
                 >
                   <div className="bg-white/5 w-11 h-11 rounded-xl flex items-center justify-center border border-white/10 mb-4 shadow-inner">
@@ -89,7 +85,7 @@ export const HMSSecurity = () => {
                   </div>
                   <h4 className="text-base font-bold text-white mb-2">{item.title}</h4>
                   <p className="text-xs text-slate-400 leading-relaxed font-medium">{item.desc}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

@@ -27,7 +27,7 @@ export const HospitalPharmacyEmotionalClose = () => {
             <span className="text-indigo-600">Keep them with you.</span>
           </h2>
           <p className="text-body-lg text-slate-500 font-medium max-w-[800px] mx-auto leading-relaxed">
-            A pharmacy is more than just a retail counter—it's the final mile of your clinical promise. By bringing your pharmacy operations under our expert care, you ensure that the trust your patients place in your hands never leaves your clinic walls.
+            A pharmacy is the final step in your patient's recovery. By bringing your pharmacy operations under our expert management, you ensure that your patients stay within your care, from the first consultation to the final dose.
           </p>
         </motion.div>
       </div>

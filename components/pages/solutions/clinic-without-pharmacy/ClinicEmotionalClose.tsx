@@ -36,11 +36,12 @@ export const ClinicEmotionalClose = () => {
            className="header-lock mx-auto"
         >
           <h2 className="premium-h2 mb-8">
-            A more capable clinic. Better <span className="text-indigo-600">recovery</span> for your patients.
+            A <span className="text-indigo-600">better experience</span> for your patients. <br className="hidden md:block" />
+            A better clinic for you.
           </h2>
           
           <p className="premium-p intro-lock mx-auto">
-            Doorstep delivery ensures treatment starts immediately. Automated refills drive better outcomes for chronic conditions. We help you close the care loop.
+            10 min delivery allows your patients to start treatment immediately. Home delivery ensures your patients never run out of medicine. We handle the logistics so you can focus on the care.
           </p>
         </motion.div>
       </div>
