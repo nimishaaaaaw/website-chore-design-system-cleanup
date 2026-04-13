@@ -13,7 +13,10 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.medikloud.com'),
-  title: 'HMS, Pharmacy Management & Medicine Delivery | MediKloud',
+  title: {
+    template: '%s | MediKloud',
+    default: 'HMS, Pharmacy Management & Medicine Delivery | MediKloud',
+  },
   description: 'Stop revenue leakage. MediKloud equips your hospital with a free HMS, fully managed pharmacy operations, and automated home medicine delivery.',
   manifest: '/manifest.webmanifest',
   keywords: [
@@ -72,7 +75,7 @@ export const metadata: Metadata = {
     images: ['/healthcare-hero-illustration.png'],
   },
   alternates: {
-    canonical: 'https://www.medikloud.com',
+    canonical: '/',
   },
 }
 
@@ -106,7 +109,7 @@ export default async function RootLayout({
         <Script 
           id="ld-org" 
           type="application/ld+json" 
-          strategy="afterInteractive"
+
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
@@ -129,7 +132,7 @@ export default async function RootLayout({
         <Script 
           id="ld-website" 
           type="application/ld+json" 
-          strategy="afterInteractive"
+
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',

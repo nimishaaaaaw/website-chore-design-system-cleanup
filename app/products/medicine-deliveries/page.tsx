@@ -6,16 +6,48 @@ import { MedicineDeliveriesEconomics } from '@/components/pages/products/medicin
 import { MedicineDeliveriesFAQ } from '@/components/pages/products/medicine-deliveries/MedicineDeliveriesFAQ'
 import { MedicineDeliveriesCTA } from '@/components/pages/products/medicine-deliveries/MedicineDeliveriesCTA'
 import { Footer } from '@/components/layout/Footer'
+import Script from 'next/script'
 
-export const metadata = {
-  title: "Hospital Pharmacy Medicine Delivery | MediKloud",
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Hospital Pharmacy Medicine Delivery",
   description: "Send medications from your hospital straight to your patients' homes. We handle the tracking and delivery to ensure zero drop-offs in chronic care.",
+  alternates: {
+    canonical: '/products/medicine-deliveries',
+  },
+  openGraph: {
+    title: "Hospital Pharmacy Medicine Delivery | MediKloud",
+    description: "Send medications from your hospital straight to your patients' homes. We handle the tracking and delivery to ensure zero drop-offs in chronic care.",
+    url: '/products/medicine-deliveries',
+  },
+  twitter: {
+    title: "Hospital Pharmacy Medicine Delivery | MediKloud",
+    description: "Send medications from your hospital straight to your patients' homes. We handle the tracking and delivery to ensure zero drop-offs in chronic care.",
+  },
 };
 
 export default function MedicineDeliveriesPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
+      <Script
+        id="ld-medicine-deliveries-service"
+        type="application/ld+json"
+
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            name: 'Hospital Pharmacy Medicine Delivery',
+            provider: {
+              '@type': 'Organization',
+              name: 'MediKloud'
+            },
+            description: "Send medications from your hospital straight to your patients' homes. We handle the tracking and delivery to ensure zero drop-offs in chronic care."
+          })
+        }}
+      />
       <main id="main">
         {/* Hero Section */}
         <MedicineDeliveriesHero />
