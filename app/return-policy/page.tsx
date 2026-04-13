@@ -43,9 +43,18 @@ const Section = ({ title, children }: SectionProps) => (
 );
 
 export const metadata: Metadata = {
-  title: 'Return Policy | MediKloud',
+  title: 'Return Policy',
   description: 'Review MediKloud’s return and refund policy for purchases and subscriptions.',
-  alternates: { canonical: 'https://www.medikloud.com/return-policy' },
+  alternates: { canonical: '/return-policy' },
+  openGraph: {
+    title: 'Return Policy | MediKloud',
+    description: 'Review MediKloud’s return and refund policy for purchases and subscriptions.',
+    url: '/return-policy',
+  },
+  twitter: {
+    title: 'Return Policy | MediKloud',
+    description: 'Review MediKloud’s return and refund policy for purchases and subscriptions.',
+  },
 }
 
 export default function ReturnPolicy() {
