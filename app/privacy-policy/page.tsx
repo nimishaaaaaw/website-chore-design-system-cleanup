@@ -5,10 +5,19 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | MediKloud',
+  title: 'Privacy Policy',
   description:
     'Learn how MediKloud collects, uses, and protects your data. Privacy practices for our website, apps, and services.',
-  alternates: { canonical: 'https://www.medikloud.com/privacy-policy' },
+  alternates: { canonical: '/privacy-policy' },
+  openGraph: {
+    title: 'Privacy Policy | MediKloud',
+    description: 'Learn how MediKloud collects, uses, and protects your data. Privacy practices for our website, apps, and services.',
+    url: '/privacy-policy',
+  },
+  twitter: {
+    title: 'Privacy Policy | MediKloud',
+    description: 'Learn how MediKloud collects, uses, and protects your data. Privacy practices for our website, apps, and services.',
+  },
 }
 
 const Header = () => (
