@@ -32,25 +32,27 @@ const solutionGroups = [
 
 export default function SolutionsMegaMenu() {
   return (
-    <div className="w-[410px] p-5">
-      <div className="space-y-7">
+    <div className="w-[440px] p-6">
+      <div className="space-y-8">
         {solutionGroups.map((group, groupIdx) => (
-          <div key={groupIdx} className="space-y-4">
+          <div key={groupIdx} className="space-y-5">
             {/* Group Header */}
-            <div className="px-1 flex flex-col gap-2.5">
+            <div className="px-1 flex flex-col gap-3">
               <div className="flex items-center gap-2">
                 <div className={cn(
                   "w-1 h-3 rounded-full",
-                  group.accent === 'indigo' ? 'bg-indigo-600' : 'bg-blue-600'
+                  group.accent === 'indigo' ? 'bg-brand-indigo-600' : 'bg-brand-500'
                 )} />
-                <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-[0.15em]">
                   {group.title}
                 </h3>
               </div>
               <div className="inline-flex">
                 <span className={cn(
-                    "text-[10px] font-bold px-3 py-1 rounded-xl leading-relaxed",
-                    group.accent === 'indigo' ? "bg-indigo-50 text-indigo-600" : "bg-blue-50 text-blue-600"
+                    "text-xs font-semibold px-3 py-1 rounded-full border leading-relaxed",
+                    group.accent === 'indigo' 
+                      ? "bg-brand-indigo-50 text-brand-indigo-600 border-brand-indigo-100" 
+                      : "bg-brand-50 text-brand-600 border-brand-100"
                 )}>
                     {group.desc}
                 </span>
@@ -58,7 +60,7 @@ export default function SolutionsMegaMenu() {
             </div>
             
             {/* Group Items */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               {group.items.map((item, itemIdx) => {
                 const Icon = item.icon
                 const isIndigo = (item.color || group.accent) === 'indigo'
@@ -70,30 +72,30 @@ export default function SolutionsMegaMenu() {
                     className="group block"
                   >
                     <div className={cn(
-                        "flex items-center justify-between p-4 rounded-[24px] transition-all duration-300 border",
-                        "relative overflow-hidden shadow-sm",
+                        "flex items-center justify-between p-5 rounded-3xl transition-all duration-300 border",
+                        "relative overflow-hidden shadow-card",
                         isIndigo 
-                          ? "bg-indigo-50/30 border-indigo-100/50 hover:bg-indigo-50 hover:border-indigo-200 hover:shadow-md" 
-                          : "bg-blue-50/30 border-blue-100/50 hover:bg-blue-50 hover:border-blue-200 hover:shadow-md",
-                        "hover:scale-[1.01] active:scale-[0.99]"
+                          ? "bg-white border-slate-100 hover:border-brand-indigo-200 hover:shadow-card-md" 
+                          : "bg-white border-slate-100 hover:border-brand-200 hover:shadow-card-md",
+                        "active:scale-[0.985]"
                     )}>
-                        <div className="flex items-center gap-4 relative z-10">
+                        <div className="flex items-center gap-5 relative z-10">
                             {/* Icon Container */}
                             <div className={cn(
-                                "w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm",
+                                "w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm",
                                 isIndigo 
-                                    ? "bg-indigo-600 text-white shadow-indigo-200" 
-                                    : "bg-blue-600 text-white shadow-blue-200"
+                                    ? "bg-brand-indigo-600 text-white" 
+                                    : "bg-brand-600 text-white"
                             )}>
-                                <Icon size={20} className="group-hover:scale-110 transition-transform duration-300" />
+                                <Icon size={22} className="group-hover:scale-110 transition-transform duration-500" />
                             </div>
                             
                             <div className="min-w-0">
-                                <p className="font-bold text-[15px] text-slate-900 tracking-tight leading-none mb-1.5 flex items-center gap-1.5">
+                                <p className="font-bold text-base text-slate-900 tracking-tight leading-none mb-2 flex items-center gap-2">
                                     {item.title}
-                                    {isIndigo && <span className="w-1 h-1 rounded-full bg-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity" />}
+                                    {isIndigo && <span className="w-1.5 h-1.5 rounded-full bg-brand-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity" />}
                                 </p>
-                                <p className="text-[12px] text-slate-500 font-medium tracking-tight opacity-80 group-hover:opacity-100 transition-opacity">
+                                <p className="text-sm text-slate-500 font-medium tracking-tight leading-relaxed">
                                     {item.desc}
                                 </p>
                             </div>
@@ -101,21 +103,21 @@ export default function SolutionsMegaMenu() {
 
                         {/* Interactive Arrow CTA */}
                         <div className={cn(
-                          "w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300",
+                          "w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300",
                           isIndigo 
-                            ? "border-indigo-200 text-indigo-500 bg-white group-hover:bg-indigo-600 group-hover:text-white group-hover:border-transparent" 
-                            : "border-blue-200 text-blue-500 bg-white group-hover:bg-blue-600 group-hover:text-white group-hover:border-transparent"
+                            ? "border-slate-200 text-slate-400 bg-white group-hover:bg-brand-indigo-600 group-hover:text-white group-hover:border-transparent group-hover:shadow-btn" 
+                            : "border-slate-200 text-slate-400 bg-white group-hover:bg-brand-600 group-hover:text-white group-hover:border-transparent group-hover:shadow-btn"
                         )}>
                           <ChevronRight 
-                              size={14} 
+                              size={16} 
                               className="transition-transform duration-300 group-hover:translate-x-0.5"
                           />
                         </div>
 
                         {/* Subtle background glow on hover */}
                         <div className={cn(
-                          "absolute -right-4 -bottom-4 w-24 h-24 rounded-full blur-3xl opacity-0 transition-opacity duration-500",
-                          isIndigo ? "bg-indigo-400/10 group-hover:opacity-100" : "bg-blue-400/10 group-hover:opacity-100"
+                          "absolute -right-4 -bottom-4 w-32 h-32 rounded-full blur-3xl opacity-0 transition-opacity duration-700",
+                          isIndigo ? "bg-brand-indigo-400/10 group-hover:opacity-100" : "bg-brand-400/10 group-hover:opacity-100"
                         )} />
                     </div>
                   </Link>
@@ -126,9 +128,10 @@ export default function SolutionsMegaMenu() {
         ))}
       </div>
 
-      <div className="mt-8 pt-4 border-t border-slate-50 px-2 flex items-center justify-center gap-2">
-        <p className="text-[10px] text-slate-400 font-medium italic tracking-tight">
-            AI-driven ops for modern healthcare.
+      <div className="mt-8 pt-5 border-t border-slate-100 px-2 flex items-center justify-center gap-2">
+        <div className="w-1 h-1 rounded-full bg-brand-500" />
+        <p className="text-xs text-slate-400 font-semibold uppercase tracking-widest">
+            AI-driven ops for modern healthcare
         </p>
       </div>
     </div>

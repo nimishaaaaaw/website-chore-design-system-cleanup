@@ -1,5 +1,5 @@
 # Home Page
-> **URL**: `/` | **Snapshot**: 2026-04-12 18:53
+> **URL**: `/` | **Snapshot**: 2026-04-13 11:20
 
 > ⚠️ Auto-generated. Run `python3 .agent/scripts/extract_content.py` to refresh after any content changes.
 

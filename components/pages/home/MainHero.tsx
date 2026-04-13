@@ -84,7 +84,7 @@ export function MainHero() {
                     description: "Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.",
                     btnText: "Book My Free Audit"
                   })}
-              className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-bold rounded-xl shadow-btn hover:opacity-90 active:scale-[.98] transition-all duration-200 text-[16px] md:text-[17px]"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-semibold rounded-xl shadow-btn hover:opacity-90 active:scale-[.98] transition-all duration-300 w-full sm:w-auto"
             >
               Book A Free Demo
               <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />

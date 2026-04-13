@@ -48,7 +48,7 @@ export function Header() {
                 aria-expanded={showSolutions}
                 aria-haspopup="true"
                 aria-label="Solutions menu"
-                className="group inline-flex items-center px-3 py-2 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md bg-transparent border-none cursor-pointer"
+                className="group inline-flex items-center px-3 py-2 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-lg bg-transparent border-none cursor-pointer"
               >
                 <span className="relative text-slate-700 group-hover:text-indigo-600 font-normal transition-colors duration-300 flex items-center gap-1.5">
                   Solutions
@@ -81,7 +81,7 @@ export function Header() {
                         opacity: { duration: 0.15 }
                       }}
                       style={{ originY: 0 }}
-                      className="relative bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-2xl ring-1 ring-slate-900/5"
+                      className="relative bg-white shadow-float rounded-2xl ring-1 ring-slate-900/5"
                     >
                       {/* Integrated Arrow - perfectly positioned below the blue line */}
                       <div className="absolute -top-1.5 left-6 w-3 h-3 bg-white rotate-45 border-l border-t border-slate-200 z-10" />
@@ -106,7 +106,7 @@ export function Header() {
                 aria-expanded={showProducts}
                 aria-haspopup="true"
                 aria-label="Products menu"
-                className="group inline-flex items-center px-3 py-2 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md bg-transparent border-none cursor-pointer"
+                className="group inline-flex items-center px-3 py-2 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-lg bg-transparent border-none cursor-pointer"
               >
                 <span className="relative text-slate-700 group-hover:text-indigo-600 font-normal transition-colors duration-300 flex items-center gap-1.5">
                   Products
@@ -139,7 +139,7 @@ export function Header() {
                         opacity: { duration: 0.15 }
                       }}
                       style={{ originY: 0 }}
-                      className="relative bg-white shadow-[0_30px_60px_rgba(0,0,0,0.12)] rounded-2xl ring-1 ring-slate-900/5"
+                      className="relative bg-white shadow-float rounded-2xl ring-1 ring-slate-900/5"
                     >
                       {/* Integrated Arrow - perfectly positioned below the blue line */}
                       <div className="absolute -top-1.5 left-6 w-3 h-3 bg-white rotate-45 border-l border-t border-slate-200 z-10" />
@@ -166,7 +166,7 @@ export function Header() {
                     description: "Book an audit with our experts to see how much margin you can recover.",
                     btnText: "Book My Free Audit"
                   })}
-              className="group inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white font-bold rounded-xl shadow-btn hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300 no-underline"
+              className="group inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-action text-white font-semibold rounded-xl shadow-btn hover:opacity-90 active:scale-[.98] transition-all duration-300 no-underline"
             >
               Book a Demo
             </button>
