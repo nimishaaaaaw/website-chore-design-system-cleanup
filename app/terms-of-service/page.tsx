@@ -43,9 +43,18 @@ const Section = ({ title, children }: SectionProps) => (
 );
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | MediKloud',
+  title: 'Terms of Service',
   description: 'Read the legal terms that govern your use of MediKloud products and services.',
-  alternates: { canonical: 'https://www.medikloud.com/terms-of-service' },
+  alternates: { canonical: '/terms-of-service' },
+  openGraph: {
+    title: 'Terms of Service | MediKloud',
+    description: 'Read the legal terms that govern your use of MediKloud products and services.',
+    url: '/terms-of-service',
+  },
+  twitter: {
+    title: 'Terms of Service | MediKloud',
+    description: 'Read the legal terms that govern your use of MediKloud products and services.',
+  },
 }
 
 export default function TermsOfService() {
