@@ -87,6 +87,16 @@ export default function MobileMenu() {
 							)}
 						</AnimatePresence>
 					</div>
+					{/* About Link */}
+					<div>
+						<Link 
+							href="/about" 
+							className="block text-blue-600 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md py-1"
+							onClick={() => setOpen(false)}
+						>
+							About
+						</Link>
+					</div>
 
 
 
