@@ -63,6 +63,10 @@ export const SETUP_GROUPS = [
   },
 ] as const;
 
+export const SETUP_OPTIONS = Object.fromEntries(
+  SETUP_GROUPS.flatMap((g) => g.options.map((opt) => [opt.k, opt]))
+) as Record<PersonaKey, typeof SETUP_GROUPS[number]['options'][number]>;
+
 export const DEFAULTS: Record<PersonaKey, { footfall: number; aov: number; rev: number; invPct: number }> = {
   hw: { footfall: 100, aov: 900, rev: 12, invPct: 12 },
   ho: { footfall: 120, aov: 900, rev: 12, invPct: 12 },
