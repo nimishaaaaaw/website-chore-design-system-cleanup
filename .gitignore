@@ -32,9 +32,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Vibe Annotations Local Server
-.vibe-local/
-.vibe-isolated-server/
 # temporary files
 tmp/
 screenshots/
