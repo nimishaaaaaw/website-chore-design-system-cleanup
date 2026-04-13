@@ -11,6 +11,7 @@ import {
   formatMoneyUnit, 
   formatMoney, 
   SETUP_GROUPS, 
+  SETUP_OPTIONS,
   DEFAULTS 
 } from './ROIData';
 
@@ -55,12 +56,7 @@ export function PersonaROISection() {
   const getTileBand = (p: number) => p <= 8 ? 1 : p <= 16 ? 2 : 3;
   const currentBand = getTileBand(invPct);
 
-  let selectedSetup: typeof SETUP_GROUPS[number]['options'][number] | null = null;
-  for (const g of SETUP_GROUPS) {
-    for (const opt of g.options) {
-      if (opt.k === selected) { selectedSetup = opt; break; }
-    }
-  }
+  const selectedSetup = selected ? SETUP_OPTIONS[selected] : null;
 
   return (
     <section id="roi-section" className="bg-section-alt py-12 md:py-16 relative overflow-hidden">
