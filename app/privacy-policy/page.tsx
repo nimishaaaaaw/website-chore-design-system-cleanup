@@ -4,21 +4,13 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
+import { getMetadata } from '@/lib/seo'
+
+export const metadata = getMetadata({
   title: 'Privacy Policy',
-  description:
-    'Learn how MediKloud collects, uses, and protects your data. Privacy practices for our website, apps, and services.',
-  alternates: { canonical: '/privacy-policy' },
-  openGraph: {
-    title: 'Privacy Policy | MediKloud',
-    description: 'Learn how MediKloud collects, uses, and protects your data. Privacy practices for our website, apps, and services.',
-    url: '/privacy-policy',
-  },
-  twitter: {
-    title: 'Privacy Policy | MediKloud',
-    description: 'Learn how MediKloud collects, uses, and protects your data. Privacy practices for our website, apps, and services.',
-  },
-}
+  description: 'Learn how MediKloud collects, uses, and protects your data. Privacy practices for our website, apps, and services.',
+  path: '/privacy-policy'
+})
 
 const Header = () => (
   <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-md">
@@ -26,13 +18,11 @@ const Header = () => (
       <div className="flex justify-between items-center h-16">
         <div className="flex items-center group cursor-pointer">
           <Link href="/">
-            <Image
-              src="/medikloud-logo-primary.webp"
+            <img
+              src="/Logos/medikloud-logo-primary.webp"
               alt="MediKloud Logo"
-              width={140}
-              height={35}
-              priority
-              className="h-auto w-[120px] sm:w-[140px] transition-all duration-500 group-hover:scale-105"
+              className="w-[120px] sm:w-[140px] h-auto transition-all duration-500 group-hover:scale-105"
+              loading="eager"
             />
           </Link>
         </div>

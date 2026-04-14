@@ -1,4 +1,4 @@
-import { getMetadata } from '@/lib/seo'
+import { getMetadata, siteConfig } from '@/lib/seo'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { BackToTop } from '@/components/layout/BackToTop'
@@ -14,18 +14,68 @@ import { HomeFAQ } from '@/components/pages/home/HomeFAQ'
 import { MarqueeSection } from '@/components/pages/home/MarqueeSection'
 import { GetStartedCTA } from '@/components/pages/home/GetStartedCTA'
 
+import { faqData } from '@/lib/constants'
+
 export const metadata = getMetadata({
   title: 'Hospital Pharmacy Revenue Optimization & Managed Operations',
   description: 'MediKloud provides fully managed in-house pharmacy operations for independent hospitals. We handle staffing, inventory, and HMS integrations to stop revenue leakage.',
   path: '/',
 })
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: siteConfig.name,
+  description: siteConfig.description,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/Logos/medikloud-logo-primary.webp`,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+91-7702670993',
+    contactType: 'sales',
+    areaServed: 'IN',
+    availableLanguage: 'en',
+  },
+  sameAs: [
+    'https://twitter.com/MediKloud',
+    // Add LinkedIn or other socials if available
+  ],
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteConfig.name,
+  url: siteConfig.url,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteConfig.url}/search?q={search_term_string}`,
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqData.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}
+
 export default function Page() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
+      <JsonLd data={organizationSchema} id="org-schema" />
+      <JsonLd data={websiteSchema} id="ws-schema" />
+      <JsonLd data={faqSchema} id="faq-schema" />
       <Header />
 
-      <main id="main">
+      <main id="main" className="relative">
         {/* 1. Hero — Composition Pattern: Text is delivered in Initial HTML */}
         <MainHero>
           <div className="space-y-6 md:space-y-8">

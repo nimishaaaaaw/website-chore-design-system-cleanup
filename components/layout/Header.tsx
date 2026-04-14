@@ -23,14 +23,11 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0 w-48">
             <Link href="/">
-              <Image 
-                src="/medikloud-logo-primary.webp" 
+              <img 
+                src="/Logos/medikloud-logo-primary.webp" 
                 alt="MediKloud Logo" 
-                width={160} 
-                height={40} 
-                sizes="(max-width: 640px) 120px, (max-width: 768px) 140px, 160px" 
-                priority 
-                className="h-auto w-[120px] sm:w-[140px] md:w-[160px]" 
+                className="w-[120px] sm:w-[140px] md:w-[160px] h-auto"
+                loading="eager"
               />
             </Link>
           </div>
@@ -167,18 +164,19 @@ export function Header() {
             </Link>
           </nav>
           
-          {/* CTA Button */}
           <div className="hidden md:flex items-center w-48 justify-end">
             <button
               onClick={() => openModal({
                     badge: "Partnership",
-                    title: "Protect your clinic's revenue.",
-                    description: "Book an audit with our experts to see how much margin you can recover.",
-                    btnText: "Book My Free Audit"
+                    title: "Schedule Your Demo",
+                    description: "Learn how MediKloud can help you recover margins and automate your patient journey.",
+                    btnText: "Book My Free Demo",
+                    successTitle: "Demo Scheduled!",
+                    successDescription: "Our team will reach out within 24 hours to schedule your platform walkthrough."
                   })}
-              className="group inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-action text-white font-semibold rounded-xl shadow-btn hover:opacity-90 active:scale-[.98] transition-all duration-300 no-underline"
+              className="group relative inline-flex items-center gap-2 px-6 py-2.5 bg-[#4E46E5] text-white font-bold rounded-xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 active:scale-[.98] transition-all duration-300 no-underline"
             >
-              Book a Demo
+              <span className="relative z-10">Book a Demo</span>
             </button>
           </div>
 

@@ -18,12 +18,13 @@ const staggerContainer = {
 };
 
 interface HospitalWithoutPharmacyCTAProps {
-  onBookDemo?: () => void;
   onTalkToExpert?: () => void;
 }
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+import { useContactModal } from '@/hooks/use-contact-modal';
 
-export const HospitalWithoutPharmacyCTA = ({ onBookDemo, onTalkToExpert }: HospitalWithoutPharmacyCTAProps) => {
+export const HospitalWithoutPharmacyCTA = ({ onTalkToExpert }: HospitalWithoutPharmacyCTAProps) => {
+  const { openModal } = useContactModal();
   return (
     <section className="section-py relative overflow-hidden">
       <DarkAtmosphere />
@@ -91,10 +92,17 @@ export const HospitalWithoutPharmacyCTA = ({ onBookDemo, onTalkToExpert }: Hospi
             className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10"
           >
             <button 
-              onClick={onBookDemo}
+              onClick={() => openModal({
+                    badge: "Hospital Pharmacy",
+                    title: "Initiate Hospital Pharmacy Launch",
+                    description: "Schedule a demo to see how we can set up your digital pharmacy layer with zero inventory and zero staffing.",
+                    btnText: "Launch My Pharmacy",
+                    successTitle: "Launch Plan Initiated!",
+                    successDescription: "Our team will reach out within 24 hours to start your hospital's transition to the MediKloud network."
+                  })}
               className="btn-dark-cta min-w-[280px] group shadow-2xl shadow-cyan-500/30 active:scale-[0.98] transition-all"
             >
-              Launch your pharmacy layer
+              Partner With Us
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </button>
             <button 

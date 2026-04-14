@@ -79,8 +79,15 @@ export const ClinicHero = ({ children }: ClinicHeroProps) => {
               {/* CTA & BADGES */}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2 lg:pt-4">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
-                  <button onClick={handleBookDemo} className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-semibold rounded-xl shadow-btn hover:opacity-90 active:scale-[.98] transition-all duration-300 w-full sm:w-auto">
-                    Book A Free Demo <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <button onClick={() => openModal({
+                    badge: "Clinic Transformation",
+                    title: "Start Your Clinic Transformation",
+                    description: "Schedule a demo to see how MediKloud can help you fulfill every prescription instantly and recover hidden revenue.",
+                    btnText: "Schedule Your Demo",
+                    successTitle: "Consultation Scheduled!",
+                    successDescription: "Our specialists will reach out within 24 hours to schedule your clinic's transformation consult."
+                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4E46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
+                    Join The Network <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">

@@ -18,14 +18,6 @@ const fadeInUp = {
 export const ClinicCTA = ({}: ClinicCTAProps) => {
   const { openModal } = useContactModal();
 
-  const handleBookDemo = () => {
-    openModal({
-      badge: "Launch Your Clinic",
-      title: "Start your clinic transformation.",
-      description: "Talk to our experts to see how MediKloud can help you deliver medications instantly and grow your revenue.",
-      btnText: "Book My Free Demo"
-    });
-  };
   return (
     <section className="section-py-lg relative overflow-hidden">
       <DarkAtmosphere />
@@ -47,10 +39,18 @@ export const ClinicCTA = ({}: ClinicCTAProps) => {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
             <button 
-              onClick={handleBookDemo}
-              className="btn px-10 py-5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-glow transition-all active:scale-[0.98] min-w-[200px]"
+              onClick={() => openModal({
+                    badge: "Clinic Transformation",
+                    title: "Start Your Clinic Transformation",
+                    description: "Schedule a demo to see how MediKloud can help you fulfill every prescription instantly and recover hidden revenue.",
+                    btnText: "Schedule Your Demo",
+                    successTitle: "Consultation Scheduled!",
+                    successDescription: "Our specialists will reach out within 24 hours to schedule your clinic's transformation consult."
+                  })}
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-[#4E46E5] rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all active:scale-95 border border-white/10"
             >
-              Book a Free Demo
+              <span>Join The Network</span>
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-500" />
             </button>
           </div>
         </motion.div>

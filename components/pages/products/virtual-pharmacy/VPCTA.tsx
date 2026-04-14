@@ -108,14 +108,16 @@ const VPCTA = () => {
               <button 
                 onClick={() => openModal({
                     badge: "Virtual Pharmacy",
-                    title: "Launch your 10-Min Pharmacy.",
+                    title: "Start Your Virtual Pharmacy Launch",
                     description: "Schedule a demo to see how we can fulfill your exact prescriptions with zero space required.",
-                    btnText: "Schedule Live Demo"
+                    btnText: "Schedule Your Demo",
+                    successTitle: "Launch Initiated!",
+                    successDescription: "Our team will be in touch within 24 hours to map your local fulfillment grid."
                   })} 
-                className="btn-primary w-full sm:w-auto px-10 h-14 lg:h-16 text-base lg:text-[17px] font-bold flex items-center justify-center shadow-btn hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-2 px-10 h-14 lg:h-16 bg-[#4E46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto group whitespace-nowrap"
               >
                 <Phone size={16} strokeWidth={1.5} className="mr-3 opacity-80" />
-                Partner With Us
+                Launch My Pharmacy
                 <ArrowUpRight size={18} strokeWidth={1.5} className="ml-2 opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
             </motion.div>

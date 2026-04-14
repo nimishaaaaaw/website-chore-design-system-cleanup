@@ -61,7 +61,7 @@ export const HospitalWithoutPharmacyBenefits = () => {
               index: "02",
               icon: ShieldCheck,
               title: "Zero compliance load",
-              desc: "License management, drug storage norms, and regulatory audits are entirely our responsibility."
+              desc: "License management, drug storage norms, and regulatory compliance are entirely our responsibility."
             },
             {
               index: "03",

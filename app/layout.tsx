@@ -39,6 +39,13 @@ export const metadata: Metadata = {
       follow: true,
       'max-image-preview': 'large',
       'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  alternates: {
+    canonical: siteConfig.url,
+    languages: {
+      'en-IN': siteConfig.url,
     },
   },
   icons: {
@@ -49,7 +56,7 @@ export const metadata: Metadata = {
     apple: [
       { url: '/favicon-192x192.png', sizes: '192x192' },
     ],
-    shortcut: ['/favicon.png'],
+    shortcut: ['/favicon.png'], // Standard PNG fallback
   },
   openGraph: {
     title: `${siteConfig.name} | Smart Hospital Operations`,
@@ -97,9 +104,9 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="relative" suppressHydrationWarning>
       <head />
-      <body className={poppins.className} suppressHydrationWarning>
+      <body className={`${poppins.className} relative`} suppressHydrationWarning>
         <a
           href="#main"
           className="sr-only focus:not-sr-only fixed top-2 left-2 z-[60] bg-blue-600 text-white px-3 py-2 rounded"
@@ -117,8 +124,8 @@ export default async function RootLayout({
             url: siteConfig.url,
             logo: `${siteConfig.url}/favicon-512x512.png`,
             sameAs: [
-              'https://www.linkedin.com/company/medikloud',
-              // Add other social links here
+              'https://www.linkedin.com/company/medikloud/',
+              'https://x.com/MediKloud'
             ],
             contactPoint: [{
               '@type': 'ContactPoint',
@@ -146,17 +153,18 @@ export default async function RootLayout({
           }}
         />
 
-        {/* 3. LocalBusiness Schema */}
+        {/* 3. LocalBusiness Schema — Dual Identity: HMS SaaS + Managed Ops */}
         <JsonLd
           id="ld-local-biz"
           data={{
             '@context': 'https://schema.org',
-            '@type': 'HealthAndBeautyBusiness', // Closest relevant type for pharmacy ops
+            '@type': ['MedicalBusiness', 'Pharmacy'], 
             name: siteConfig.name,
             image: siteConfig.ogImage,
             '@id': siteConfig.url,
             url: siteConfig.url,
             telephone: '+91-7702670993',
+            description: 'India\'s first tech-driven managed hospital pharmacy operator. We provide free HMS SaaS and fully managed pharmacy operations.',
             address: {
               '@type': 'PostalAddress',
               addressLocality: 'Hyderabad',

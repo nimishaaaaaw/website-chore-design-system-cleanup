@@ -122,9 +122,11 @@ export const MedicineDeliveriesHero = ({ children }: MedicineDeliveriesHeroProps
                     badge: "Medicine Deliveries",
                     title: "Enable Direct Patient Delivery.",
                     description: "Let us handle the logistics so you can recover lost prescription revenue.",
-                    btnText: "Schedule Live Demo"
+                    btnText: "Schedule Your Demo",
+                    successTitle: "Delivery Plan Booked!",
+                    successDescription: "Our team will be in touch within 24 hours to map your infrastructure."
                   })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
-                    Partner With Us <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    Enable Medicine Deliveries <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">

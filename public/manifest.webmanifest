@@ -1,0 +1,21 @@
+{
+  "name": "MediKloud",
+  "short_name": "MediKloud",
+  "description": "India's first tech-driven managed hospital pharmacy operator. Stop revenue leakage with free HMS, managed staff, and automated delivery.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

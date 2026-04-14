@@ -71,16 +71,18 @@ export function AboutCTA() {
         >
           <button 
             onClick={() => openModal({
-              badge: "Partnership",
-              title: "Let's build together.",
-              description: "Speak with our founding team about how MediKloud managed operations can transform your hospital's pharmaceutical infrastructure.",
-              btnText: "Talk to our Team"
+              badge: "Team",
+              title: "Join the MediKloud Mission",
+              description: "Interested in revolutionizing healthcare with us? Send us your details for a exploratory chat.",
+              btnText: "Submit Interest",
+              successTitle: "Message Received!",
+              successDescription: "Thank you for your interest! Our team will reach out to you shortly."
             })}
             className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-brand-600 rounded-2xl shadow-glow hover:shadow-glow-lg hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95 overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-brand-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
             <div className="relative z-10 flex items-center gap-3">
-              <span>Talk to our Team</span>
+              <span>Join the Mission</span>
               <ArrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-2" />
             </div>
           </button>

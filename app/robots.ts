@@ -43,13 +43,16 @@ export default function robots(): MetadataRoute.Robots {
           'Applebot-Extended',
           'FacebookBot',
           'meta-externalagent',
-          'cohere-ai'
+          'cohere-ai',
+          'GPTBot-Extended',
+          'Claude-SearchBot'
         ],
         allow: renderingAllow,
         disallow: commonDisallow,
       },
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
+    host: siteConfig.url,
   }
 }
 

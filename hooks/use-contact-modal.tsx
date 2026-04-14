@@ -7,6 +7,8 @@ export interface ModalOverrides {
   title?: string;
   description?: string;
   btnText?: string;
+  successTitle?: string;
+  successDescription?: string;
 }
 
 interface ContactModalContextType {

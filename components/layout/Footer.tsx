@@ -10,13 +10,14 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-5 space-y-6">
             <Link href="/" className="inline-block transition-transform hover:scale-105 active:scale-95 duration-200">
-              <Image 
-                src="/medikloud-logo-primary.webp" 
-                alt="MediKloud Logo" 
-                width={180} 
-                height={36} 
-                className="h-auto w-[180px]" 
-              />
+              <div className="w-[180px]">
+                <img 
+                  src="/Logos/medikloud-logo-primary.webp" 
+                  alt="MediKloud Logo" 
+                  className="w-[180px] h-auto"
+                  loading="lazy"
+                />
+              </div>
             </Link>
             <p className="text-sm md:text-base text-slate-500 leading-relaxed max-w-sm">
               India's first tech-driven fully managed hospital pharmacy. Building the operating backbone for independent hospital and clinic pharmacies across India.

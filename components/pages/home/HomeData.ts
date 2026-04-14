@@ -60,7 +60,7 @@ export const WHY_IT_WORKS_REASONS: ReasonItem[] = [
     icon: TrendingUp,
     comparison: {
       key: "30-40% avg. pharmacy revenue recovered",
-      without: "Losses go undetected until the audit. By then, it's gone.",
+      without: "Losses go undetected until it is too late. By then, it's gone.",
       with: "Billing, inventory, and dispense are reconciled automatically — every day."
     }
   },

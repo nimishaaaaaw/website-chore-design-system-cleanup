@@ -46,14 +46,15 @@ export const MedicineDeliveriesCTA = () => {
             <button 
               onClick={() => openModal({
                     badge: "Medicine Deliveries",
-                    title: "Start Delivering From Your Hospital.",
+                    title: "Enable Direct Patient Delivery.",
                     description: "Let us handle the logistics so your patients always get the right medicine, on time.",
-                    btnText: "Schedule Live Demo"
+                    btnText: "Schedule Your Demo",
+                    successTitle: "Deployment Plan Initiated!",
+                    successDescription: "Our team will be in touch within 24 hours to map your infrastructure."
                   })}
-              className="group relative inline-flex items-center justify-center gap-4 px-10 h-16 text-lg font-bold text-white bg-indigo-600 rounded-2xl overflow-hidden shadow-glow hover:bg-indigo-500 hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto active:scale-95 ring-1 ring-white/10"
+              className="group relative inline-flex items-center justify-center gap-4 px-10 h-16 text-lg font-bold text-white bg-[#4E46E5] rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto active:scale-95 ring-1 ring-white/10"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              <span>Book a Free Demo</span>
+              <span>Enable Medicine Deliveries</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
             </button>
           </div>

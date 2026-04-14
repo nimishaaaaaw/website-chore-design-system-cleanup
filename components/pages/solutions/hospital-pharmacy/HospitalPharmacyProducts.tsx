@@ -101,7 +101,7 @@ export const HospitalPharmacyProducts = () => {
                         <ShieldCheck className="w-5 h-5 text-indigo-400"/>
                       </div>
                       <div>
-                        <div className="text-white text-sm font-bold tracking-tight">Audit Status</div>
+                        <div className="text-white text-sm font-bold tracking-tight">Diagnostic Status</div>
                         <div className="text-slate-400 text-[11px] font-medium mt-0.5">Verified 2m ago</div>
                       </div>
                     </div>

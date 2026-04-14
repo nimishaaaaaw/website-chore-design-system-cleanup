@@ -1,21 +1,12 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
+import { getMetadata } from '@/lib/seo'
+
+export const metadata = getMetadata({
   title: "Solutions for Clinics Without Pharmacies",
   description: "Operating a clinic without an in-house pharmacy? We provide a free HMS and integrate automated medicine delivery to close your patient care loop.",
-  alternates: {
-    canonical: '/solutions/without-pharmacy',
-  },
-  openGraph: {
-    title: "Solutions for Clinics Without Pharmacies | MediKloud",
-    description: "Operating a clinic without an in-house pharmacy? We provide a free HMS and integrate automated medicine delivery to close your patient care loop.",
-    url: '/solutions/without-pharmacy',
-  },
-  twitter: {
-    title: "Solutions for Clinics Without Pharmacies | MediKloud",
-    description: "Operating a clinic without an in-house pharmacy? We provide a free HMS and integrate automated medicine delivery to close your patient care loop.",
-  },
-};
+  path: '/solutions/without-pharmacy'
+})
 
 export default function ClinicWithoutPharmacyLayout({
   children,

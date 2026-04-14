@@ -36,12 +36,11 @@ export function GetStartedCTA() {
             onClick={() => openModal({
                     badge: "Partnership",
                     title: "Stop your pharmacy leakage.",
-                    description: "Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.",
-                    btnText: "Book My Free Audit"
+                    description: "Schedule a diagnostic walkthrough to see exactly how much revenue your hospital is losing to external chain pharmacies.",
+                    btnText: "Start Diagnostic"
                   })}
-            className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-indigo-600 rounded-2xl shadow-glow hover:shadow-glow-lg hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95 border-1.5 border-white/10"
+            className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-[#4E46E5] rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95 border-1.5 border-white/10"
           >
-            <div className="absolute inset-0 bg-gradient-action opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
             <div className="relative z-10 flex items-center gap-3">
               <span>Book a Demo</span>
               <svg className="w-6 h-6 relative z-10 transition-transform duration-500 group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

@@ -107,14 +107,16 @@ export default function MobileMenu() {
 							setOpen(false)
 							openModal({
                     badge: "Partnership",
-                    title: "Protect your clinic's revenue.",
-                    description: "Book an audit with our experts to see how much margin you can recover.",
-                    btnText: "Book My Free Audit"
+                    title: "Schedule Your Demo",
+                    description: "Learn how MediKloud can help you recover margins and automate your patient journey.",
+                    btnText: "Book My Free Demo",
+                    successTitle: "Demo Scheduled!",
+                    successDescription: "Our team will reach out within 24 hours to schedule your platform walkthrough."
                   })
 						}}
 						className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white font-semibold rounded-2xl shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2"
 					>
-						Talk to us
+						Book a Demo
 					</button>
 				</nav>
 			</SheetContent>

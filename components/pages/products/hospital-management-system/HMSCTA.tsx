@@ -36,15 +36,16 @@ export const HMSCTA = () => {
             <button 
               onClick={() => openModal({
                 badge: "Clinic OS",
-                title: "Migrate your clinic to MediKloud HMS.",
-                description: "Schedule your free 24-hour setup walkthrough with our implementation experts.",
-                btnText: "Schedule Live Demo",
+                title: "Experience The Hospital OS",
+                description: "Schedule a demo to see how our AI-driven Clinic OS can modernize every touchpoint of your patient journey.",
+                btnText: "Schedule Your Demo",
+                successTitle: "HMS Demo Scheduled!",
+                successDescription: "Our team will reach out within 24 hours to schedule your Hospital OS demo."
               })}
-              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-indigo-600 rounded-2xl shadow-glow hover:shadow-glow-lg hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95 border-1.5 border-white/10"
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-[#4E46E5] rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95 border-1.5 border-white/10"
             >
-              <div className="absolute inset-0 bg-gradient-action opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
               <div className="relative z-10 flex items-center gap-3">
-                <span>See It Live</span>
+                <span>Experience HMS</span>
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-500" />
               </div>
             </button>

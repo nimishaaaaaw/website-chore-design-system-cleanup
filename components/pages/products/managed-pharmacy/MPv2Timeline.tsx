@@ -67,7 +67,7 @@ export function MPv2Timeline() {
   const processSteps = [
     {
       step: "Day 01",
-      title: "Clinic Audit",
+      title: "Clinic Blueprint",
       highlight: "We find the leaks.",
       points: [
         "Check your current stock and billing systems.",

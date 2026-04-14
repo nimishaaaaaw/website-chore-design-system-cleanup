@@ -66,7 +66,7 @@ export function FulfillmentEcosystem() {
             className="premium-h2 text-white mb-4"
           >
             Complete the{' '}
-            <span className="bg-gradient-accent bg-clip-text text-transparent" style={{ color: '#06B6D4' }}>
+            <span className="text-brand-indigo-600" style={{ color: '#4F46E5' }}>
               care loop.
             </span>
           </motion.h2>

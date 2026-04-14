@@ -25,11 +25,11 @@ const faqData = [
   },
   {
     question: "How do you prevent medicine pilferage?",
-    answer: <><span className="text-slate-900 font-bold font-sans">Total Transparency.</span> Our AI-synced inventory system ensures every single tablet is accounted for, from the loading dock to the patient's hand, with real-time audit logs.</>
+    answer: <><span className="text-slate-900 font-bold font-sans">Total Transparency.</span> Our AI-synced inventory system ensures every single tablet is accounted for, from the loading dock to the patient's hand, with real-time activity logs focus.</>
   },
   {
     question: "How long does it take to transition?",
-    answer: <><span className="text-slate-900 font-bold font-sans">Under 7 days.</span> Our clinical onboarding team handles the physical inventory audit and software sync while your hospital remains fully operational and serving patients.</>
+    answer: <><span className="text-slate-900 font-bold font-sans">Under 7 days.</span> Our clinical onboarding team handles the physical inventory diagnostic and software sync while your hospital remains fully operational and serving patients.</>
   },
   {
     question: "How do my pharmacy margins improve?",

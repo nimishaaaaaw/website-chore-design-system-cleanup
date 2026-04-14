@@ -71,11 +71,13 @@ export function MainHero({ children }: MainHeroProps) {
             <button
               onClick={() => openModal({
                     badge: "Partnership",
-                    title: "Stop your pharmacy leakage.",
-                    description: "Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.",
-                    btnText: "Book My Free Audit"
+                    title: "Schedule Your Demo",
+                    description: "Learn how MediKloud can help you recover margins and automate your patient journey.",
+                    btnText: "Book My Free Demo",
+                    successTitle: "Demo Scheduled!",
+                    successDescription: "Our team will reach out within 24 hours to schedule your platform walkthrough."
                   })}
-              className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-action text-white font-semibold rounded-xl shadow-btn hover:opacity-90 active:scale-[.98] transition-all duration-300 w-full sm:w-auto"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4E46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto"
             >
               Book A Free Demo
               <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />

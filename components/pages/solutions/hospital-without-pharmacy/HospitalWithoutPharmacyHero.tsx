@@ -9,8 +9,10 @@ import {
   ShieldCheck,
   ArrowRight,
   TrendingDown,
-  Sparkles
+  Sparkles,
+  ChevronRight
 } from 'lucide-react';
+import { useContactModal } from '@/hooks/use-contact-modal';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -26,12 +28,11 @@ const staggerContainerLocal = {
 };
 
 export const HospitalWithoutPharmacyHero = ({ 
-  onBookDemo, 
   onTalkToExpert 
 }: { 
-  onBookDemo?: () => void;
   onTalkToExpert?: () => void;
 }) => {
+  const { openModal } = useContactModal();
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-40 overflow-hidden bg-section-hero">
       {/* Abstract Background Blobs */}
@@ -126,9 +127,16 @@ export const HospitalWithoutPharmacyHero = ({
                 </div>
               </div>
               <div className="w-full md:w-auto flex-shrink-0 flex flex-col gap-4">
-                <button onClick={onBookDemo} className="btn-primary w-full group shadow-btn-brand active:scale-[0.97] transition-all">
-                  Launch your pharmacy engine
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                <button onClick={() => openModal({
+                    badge: "Hospital Pharmacy",
+                    title: "Initiate Hospital Pharmacy Launch",
+                    description: "Schedule a demo to see how we can set up your digital pharmacy layer with zero inventory and zero staffing.",
+                    btnText: "Launch My Pharmacy",
+                    successTitle: "Launch Plan Initiated!",
+                    successDescription: "Our team will reach out within 24 hours to start your hospital's transition to the MediKloud network."
+                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4E46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full">
+                  Partner With Us
+                  <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button onClick={onTalkToExpert} className="btn-ghost w-full active:scale-[0.97] transition-all">
                   Talk to our hospital experts

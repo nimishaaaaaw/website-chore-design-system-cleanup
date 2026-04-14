@@ -9,13 +9,11 @@ const Header = () => (
       <div className="flex justify-between items-center h-16">
         <div className="flex items-center group cursor-pointer">
           <Link href="/">
-            <Image
-              src="/medikloud-logo-primary.webp"
+            <img
+              src="/Logos/medikloud-logo-primary.webp"
               alt="MediKloud Logo"
-              width={140}
-              height={35}
-              priority
-              className="h-auto w-[120px] sm:w-[140px] transition-all duration-500 group-hover:scale-105"
+              className="w-[120px] sm:w-[140px] h-auto transition-all duration-500 group-hover:scale-105"
+              loading="eager"
             />
           </Link>
         </div>
@@ -42,20 +40,13 @@ const Section = ({ title, children }: SectionProps) => (
   </section>
 );
 
-export const metadata: Metadata = {
+import { getMetadata } from '@/lib/seo'
+
+export const metadata = getMetadata({
   title: 'Return Policy',
   description: 'Review MediKloud’s return and refund policy for purchases and subscriptions.',
-  alternates: { canonical: '/return-policy' },
-  openGraph: {
-    title: 'Return Policy | MediKloud',
-    description: 'Review MediKloud’s return and refund policy for purchases and subscriptions.',
-    url: '/return-policy',
-  },
-  twitter: {
-    title: 'Return Policy | MediKloud',
-    description: 'Review MediKloud’s return and refund policy for purchases and subscriptions.',
-  },
-}
+  path: '/return-policy'
+})
 
 export default function ReturnPolicy() {
   return (

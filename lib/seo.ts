@@ -48,6 +48,19 @@ export function getMetadata({
     metadataBase: new URL(siteConfig.url),
     alternates: {
       canonical: url,
+      languages: {
+        'en-IN': url, // Explicitly target Indian market for 2026 SEO
+      },
+    },
+    icons: {
+      icon: [
+        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+        { url: '/favicon-64x64.png', sizes: '64x64', type: 'image/png' },
+      ],
+      apple: [
+        { url: '/favicon-192x192.png', sizes: '192x192' },
+      ],
+      shortcut: ['/favicon.png'], // Standard PNG fallback
     },
     openGraph: {
       title: fullTitle,
@@ -79,8 +92,9 @@ export function getMetadata({
       googleBot: {
         index: !noIndex,
         follow: !noIndex,
-        'max-image-preview': 'large',
+        'max-image-preview': 'large', // Essential for 2026 AI Search previews
         'max-snippet': -1,
+        'max-video-preview': -1,
       },
     },
   }

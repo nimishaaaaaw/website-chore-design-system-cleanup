@@ -64,15 +64,16 @@ export function MPv2PersonaCTA() {
             <button 
               onClick={() => openModal({
                     badge: "Managed Pharmacy",
-                    title: "Start your pharmacy recovery plan.",
-                    description: "Fill out the form below to book a free pharmacy audit with our experts.",
-                    btnText: "Book My Free Audit"
+                    title: "Plan Your Managed Pharmacy Upgrade",
+                    description: "Schedule a demo to see how MediKloud takes the complexity out of inventory, staffing, and compliance.",
+                    btnText: "Schedule Your Demo",
+                    successTitle: "Optimization Plan Initiated!",
+                    successDescription: "Our team will reach out within 24 hours to start your pharmacy optimization plan."
                   })}
-              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-indigo-600 rounded-2xl shadow-glow hover:shadow-glow-lg hover:-translate-y-1 transition-all active:scale-95 border border-white/10"
+              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-[#4E46E5] rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all active:scale-95 border border-white/10"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
               <div className="relative z-10 flex items-center gap-3">
-                <span>Book a Demo</span>
+                <span>Optimize My Pharmacy</span>
                 <ArrowRight size={22} className="transition-transform duration-500 group-hover:translate-x-2" strokeWidth={2.5} />
               </div>
             </button>

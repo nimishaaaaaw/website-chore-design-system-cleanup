@@ -398,7 +398,7 @@ function BlueprintView({
       headline: "Let's co-design your operational blueprint.",
       description: 'Your setup needs a tailored assessment to map fulfillment and technology roadmap.',
       modules: [
-        { icon: Users, title: 'Operational Audit', features: 'Workflow Mapping • Leakage Discovery' },
+        { icon: Users, title: 'Operational Blueprint', features: 'Workflow Mapping • Leakage Discovery' },
         { icon: Building2, title: 'Setup Design', features: 'Modular Layouts • ROI Projection • Tech' },
         { icon: Sparkles, title: 'Go-to-Market', features: 'Patient Launch • Staff Kits • Manuals' },
         { icon: Handshake, title: 'Tech Strategy', features: 'EMR Migration • Scaling Roadmap' },
@@ -461,13 +461,15 @@ function BlueprintView({
       <div className="max-w-xl mx-auto space-y-6 pt-2">
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button onClick={() => openModal({
-                    badge: "Partnership",
-                    title: "Stop your pharmacy leakage.",
-                    description: "Book a free audit to see exactly how much revenue your hospital is losing to external chain pharmacies.",
-                    btnText: "Book My Free Audit"
-                  })} className="btn-primary !px-8 !py-3 group text-sm">
+                    badge: "Clinic OS",
+                    title: "Finalize Your Setup",
+                    description: "You've configured your facility blueprint. Schedule a final walkthrough to go live in 24 hours.",
+                    btnText: "Go Live Now",
+                    successTitle: "Setup Synchronized!",
+                    successDescription: "Our implementation team will reach out within 24 hours to finalize your facility's launch."
+                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#4E46E5] text-white font-bold rounded-xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-sm">
             <Phone size={16} />
-            Schedule Implementation Call
+            Get Started
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </button>
           
@@ -481,7 +483,7 @@ function BlueprintView({
         </div>
 
         <p className="text-center text-[10px] text-slate-400 font-medium italic">
-          *Initial diagnostic. Facility audit recommended before deployment.
+          *Initial diagnostic. Facility walkthrough recommended before deployment.
         </p>
       </div>
     </motion.div>
@@ -709,7 +711,7 @@ export function SetupWizard() {
                   <button
                     onClick={goForward}
                     disabled={state.priorities.length === 0}
-                    className="btn-primary group !px-12 !py-3.5 text-sm shadow-card-lg w-full sm:w-auto"
+                    className="group inline-flex items-center justify-center gap-2 px-12 py-3.5 bg-[#4E46E5] text-white font-bold rounded-xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-sm w-full sm:w-auto"
                   >
                     View Recommendations
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

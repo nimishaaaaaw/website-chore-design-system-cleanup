@@ -10,13 +10,11 @@ const Header = () => (
       <div className="flex justify-between items-center h-16">
         <div className="flex items-center group cursor-pointer">
           <Link href="/">
-            <Image
-              src="/medikloud-logo-primary.webp"
+            <img
+              src="/Logos/medikloud-logo-primary.webp"
               alt="MediKloud Logo"
-              width={140}
-              height={35}
-              priority
-              className="h-auto w-[120px] sm:w-[140px] transition-all duration-500 group-hover:scale-105"
+              className="w-[120px] sm:w-[140px] h-auto transition-all duration-500 group-hover:scale-105"
+              loading="eager"
             />
           </Link>
         </div>
@@ -42,20 +40,13 @@ const Section = ({ title, children }: SectionProps) => (
   </section>
 );
 
-export const metadata: Metadata = {
+import { getMetadata } from '@/lib/seo'
+
+export const metadata = getMetadata({
   title: 'Terms of Service',
   description: 'Read the legal terms that govern your use of MediKloud products and services.',
-  alternates: { canonical: '/terms-of-service' },
-  openGraph: {
-    title: 'Terms of Service | MediKloud',
-    description: 'Read the legal terms that govern your use of MediKloud products and services.',
-    url: '/terms-of-service',
-  },
-  twitter: {
-    title: 'Terms of Service | MediKloud',
-    description: 'Read the legal terms that govern your use of MediKloud products and services.',
-  },
-}
+  path: '/terms-of-service'
+})
 
 export default function TermsOfService() {
   return (

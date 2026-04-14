@@ -85,7 +85,7 @@ export const ClinicWithPharmacyHero = ({ onBookDemo, onTalkToExpert }: ClinicWit
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center gap-6 pt-4">
                 <button 
                   onClick={onBookDemo}
-                  className="btn-primary min-w-[240px] group shadow-xl shadow-blue-500/20 active:scale-[0.98] transition-all"
+                  className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4E46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] min-w-[240px]"
                 >
                   Book a free demo
                   <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />

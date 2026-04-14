@@ -30,8 +30,8 @@ export const HospitalPharmacyHero = ({ children, onViewDemo }: HospitalPharmacyH
     openModal({
       badge: "Managed Pharmacy",
       title: "Start your pharmacy recovery plan.",
-      description: "Fill out the form below to book a free pharmacy audit with our experts.",
-      btnText: "Book My Free Audit"
+      description: "Fill out the form below to book a free pharmacy diagnostic with our experts.",
+      btnText: "Start Diagnostic"
     });
   };
 
@@ -71,8 +71,15 @@ export const HospitalPharmacyHero = ({ children, onViewDemo }: HospitalPharmacyH
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2 lg:pt-4">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
-                  <button onClick={handleBookDemo} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4E46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
-                    Partner With Us <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <button onClick={() => openModal({
+                    badge: "Hospital Recovery",
+                    title: "Build Your Recovery Plan",
+                    description: "Schedule a demo to see how our expert-led management can help you recover 100% of your pharmacy margins.",
+                    btnText: "Schedule Your Demo",
+                    successTitle: "Recovery Plan Initiated!",
+                    successDescription: "Our team will reach out within 24 hours to start your hospital's revenue recovery plan."
+                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4E46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
+                    Partner With Us <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">

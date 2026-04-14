@@ -165,7 +165,7 @@ const VPProblem = () => {
                   </div>
                   <div>
                      <h4 className="text-slate-300 font-bold text-sm mb-1 uppercase tracking-wider">Vendor Headaches</h4>
-                     <p className="premium-p !text-[13px] !text-slate-400 leading-relaxed">Your staff is forced to manage distributors, licenses, and expiry audits instead of patients.</p>
+                     <p className="premium-p !text-[13px] !text-slate-400 leading-relaxed">Your staff is forced to manage distributors, licenses, and expiry tracking instead of patients.</p>
                   </div>
                 </div>
 
