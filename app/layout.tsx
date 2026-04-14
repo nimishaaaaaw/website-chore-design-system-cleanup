@@ -90,6 +90,7 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import { WebVitals } from '@/app/web-vitals'
 import { ClientProviders } from '@/components/shared/ClientProviders'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/next'
 
 export default async function RootLayout({
   children,
@@ -155,6 +156,7 @@ export default async function RootLayout({
         </ClientProviders>
         <WebVitals />
         <SpeedInsights />
+        <Analytics />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ''} />
       </body>
     </html>
