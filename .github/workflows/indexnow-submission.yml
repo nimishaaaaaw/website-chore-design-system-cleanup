@@ -1,0 +1,33 @@
+name: IndexNow Submission
+
+on:
+  push:
+    branches:
+      - main
+  # Also trigger on successful Vercel deployments
+  deployment_status:
+
+jobs:
+  submit-indexnow:
+    # Trigger only if it's a push to main OR a successful deployment status
+    if: github.event_name == 'push' || (github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Submit to IndexNow
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          # Wait a few seconds to ensure DNS/CDN has propagates if triggered by push
+          if [ "${{ github.event_name }}" == "push" ]; then
+            echo "Waiting 30 seconds for Vercel deployment..."
+            sleep 30
+          fi
+          node scripts/submit-indexnow.mjs
