@@ -14,7 +14,7 @@ export const ClinicWhatChanges = () => {
   return (
     <section className="section-py bg-slate-50 relative overflow-hidden border-t border-slate-100">
       <div className="tech-grid-overlay !opacity-[0.03]" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
       
       <div className="container-page relative z-10">
         <motion.div 

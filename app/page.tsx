@@ -1,38 +1,50 @@
-"use client"
-
-import dynamic from 'next/dynamic'
-import { BackToTop } from '@/components/layout/BackToTop'
+import { getMetadata } from '@/lib/seo'
 import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
+import { BackToTop } from '@/components/layout/BackToTop'
+import { JsonLd } from '@/components/seo/JsonLd'
 
-// ── Regular imports for above-the-fold + lightweight sections ──────────────────
-// These render immediately — no blank flash while JS chunk downloads.
+// Page Components
 import { MainHero } from '@/components/pages/home/MainHero'
 import { Stats } from '@/components/pages/home/Stats'
 import { ProblemSection } from '@/components/pages/home/ProblemSection'
 import { FulfillmentEcosystem } from '@/components/pages/home/FulfillmentEcosystem'
-// import { SetupWizard } from '@/components/pages/home/SetupWizard'
 import { AdvantageSection } from '@/components/pages/home/AdvantageSection'
 import { HomeFAQ } from '@/components/pages/home/HomeFAQ'
 import { MarqueeSection } from '@/components/pages/home/MarqueeSection'
+import { GetStartedCTA } from '@/components/pages/home/GetStartedCTA'
 
-// ── Dynamic imports only for heavy below-fold sections with loading skeletons ──
-const GetStartedCTA = dynamic(
-  () => import('@/components/pages/home/GetStartedCTA').then(m => ({ default: m.GetStartedCTA })),
-  { loading: () => <div className="w-full py-16 bg-slate-900" /> }
-)
-const Footer = dynamic(
-  () => import('@/components/layout/Footer').then(m => ({ default: m.Footer })),
-  { loading: () => <div className="w-full py-12 bg-slate-900" /> }
-)
+export const metadata = getMetadata({
+  title: 'Hospital Pharmacy Revenue Optimization & Managed Operations',
+  description: 'MediKloud provides fully managed in-house pharmacy operations for independent hospitals. We handle staffing, inventory, and HMS integrations to stop revenue leakage.',
+  path: '/',
+})
 
-export default function PageV2() {
+export default function Page() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
       <Header />
 
       <main id="main">
-        {/* 1. Hero */}
-        <MainHero />
+        {/* 1. Hero — Composition Pattern: Text is delivered in Initial HTML */}
+        <MainHero>
+          <div className="space-y-6 md:space-y-8">
+            <h1 className="mb-5 md:mb-8 text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl">
+              <span
+                className="block font-bold leading-[1.1] tracking-tighter bg-gradient-display bg-clip-text text-transparent pb-3 mb-2 md:mb-4"
+                style={{ color: '#4F46E5' }}
+              >
+                Building Fully Managed In-House Pharmacies
+              </span>
+              <span className="block text-h2 sm:text-h1 font-bold leading-[1.1] tracking-tight text-slate-700">
+                for Independent Hospitals &amp; Clinics
+              </span>
+            </h1>
+            <p className="hero-subtitle max-w-[800px] mx-auto mb-8 md:mb-10">
+              We set up, staff, and run your hospital pharmacy with zero capital investment. You focus on patients — we turn lost prescriptions into steady revenue.
+            </p>
+          </div>
+        </MainHero>
 
         {/* 2. Stats strip */}
         <Stats />
@@ -45,10 +57,6 @@ export default function PageV2() {
 
         {/* 5. Bridge — Continuous Care */}
         <FulfillmentEcosystem />
-
-        {/* 6. Interactive — Find Your Setup (Removed for now)
-        <SetupWizard />
-        */}
 
         {/* 7. Social proof marquee */}
         <MarqueeSection />

@@ -1,53 +1,55 @@
 import type { MetadataRoute } from 'next'
+import { siteConfig } from '@/lib/seo'
 
 export default function robots(): MetadataRoute.Robots {
+  const commonDisallow = ['/api/', '/_next/', '/cdn-cgi/']
+  const renderingAllow = ['/', '/_next/static/']
+
   return {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
+        allow: renderingAllow,
+        disallow: commonDisallow,
       },
-      // OpenAI (ChatGPT)
-      {
-        userAgent: ['GPTBot', 'ChatGPT-User', 'OAI-SearchBot'],
-        allow: '/',
-      },
-      // Anthropic (Claude)
-      {
-        userAgent: ['ClaudeBot', 'claude-web', 'anthropic-ai'],
-        allow: '/',
-      },
-      // Google AI (Gemini)
-      {
-        userAgent: ['Google-Extended', 'GoogleOther'],
-        allow: '/',
-      },
-      // Perplexity
-      {
-        userAgent: 'PerplexityBot',
-        allow: '/',
-      },
-      // Meta AI
-      {
-        userAgent: ['FacebookBot', 'meta-externalagent'],
-        allow: '/',
-      },
-      // Other AI Crawlers
+      // 1. AI Search & Answer Engines (Explicitly allowed for better visibility in AI results)
       {
         userAgent: [
+          'OAI-SearchBot', 
+          'PerplexityBot', 
+          'Claude-SearchBot',
+          'Bravebot',
+          'iaskbot',
+          'YouBot', 
+          'AndiBot', 
+          'PhindBot', 
+          'GoogleOther'
+        ],
+        allow: renderingAllow,
+        disallow: commonDisallow,
+      },
+      // 2. AI Training & Utility Bots (Allowed for brand footprint in LLMs)
+      {
+        userAgent: [
+          'GPTBot',
+          'ChatGPT-User',
+          'ClaudeBot',
+          'claude-web',
+          'anthropic-ai',
+          'Google-Extended',
           'CCBot',
           'Amazonbot',
           'Applebot',
           'Applebot-Extended',
-          'YouBot',
-          'PhindBot',
-          'AndiBot',
+          'FacebookBot',
+          'meta-externalagent',
           'cohere-ai'
         ],
-        allow: '/',
+        allow: renderingAllow,
+        disallow: commonDisallow,
       },
     ],
-    sitemap: 'https://www.medikloud.com/sitemap.xml',
+    sitemap: `${siteConfig.url}/sitemap.xml`,
   }
 }
 

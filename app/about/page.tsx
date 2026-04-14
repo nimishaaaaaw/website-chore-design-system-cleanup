@@ -1,35 +1,55 @@
-"use client"
-
-import React from 'react'
-import dynamic from 'next/dynamic'
+import { getMetadata, getBreadcrumbSchema } from '@/lib/seo'
 import { Header } from '@/components/layout/Header'
+import { Footer } from '@/components/layout/Footer'
 import { BackToTop } from '@/components/layout/BackToTop'
+import { JsonLd } from '@/components/seo/JsonLd'
 
-// Import About Sections
+// About Sections
 import { AboutHero } from '@/components/pages/about/AboutHero'
 import { OriginStory } from '@/components/pages/about/OriginStory'
 import { UrgencySection } from '@/components/pages/about/UrgencySection'
 import { VisionMission } from '@/components/pages/about/VisionMission'
 import { TeamSection } from '@/components/pages/about/TeamSection'
+import { AboutCTA } from '@/components/pages/about/AboutCTA'
 
-// Dynamic imports for below-fold heavy sections
-const AboutCTA = dynamic(
-  () => import('@/components/pages/about/AboutCTA').then(m => ({ default: m.AboutCTA })),
-  { loading: () => <div className="w-full py-24 bg-brand-950" /> }
-)
-const Footer = dynamic(
-  () => import('@/components/layout/Footer').then(m => ({ default: m.Footer })),
-  { loading: () => <div className="w-full py-12 bg-slate-900" /> }
-)
+export const metadata = getMetadata({
+  title: 'About MediKloud | India\'s First Tech-Driven Managed Pharmacy Operator',
+  description: 'Learn how MediKloud was founded to solve revenue leakage in Indian hospitals. We partner with clinics and hospitals to run their pharmacy operations with zero capex.',
+  path: '/about',
+})
 
 export default function AboutPage() {
+  const breadcrumbData = getBreadcrumbSchema([
+    { name: 'Home', item: '/' },
+    { name: 'About', item: '/about' },
+  ]);
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
+      <JsonLd id="ld-breadcrumb" data={breadcrumbData} />
+      
       <Header />
 
       <main id="main">
-        {/* 1. Hero */}
-        <AboutHero />
+        {/* 1. Hero — Composition Pattern */}
+        <AboutHero>
+          <div className="space-y-6 md:space-y-8">
+            <h1 className="mb-20 text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl">
+              <span
+                className="block font-bold leading-[1.1] tracking-tighter bg-gradient-display bg-clip-text text-transparent pb-3 mb-4 md:mb-8"
+                style={{ color: '#4F46E5' }}
+              >
+                Elevating hospitals & clinics in India with tech & Ops infrastructure
+              </span>
+              <span className="block text-h2 sm:text-h1 font-bold leading-[1.1] tracking-tight text-slate-700">
+                so patients become the true beneficiaries
+              </span>
+            </h1>
+            <p className="hero-subtitle max-w-[800px] mx-auto">
+              We provide the managed operations and tech that allow independent providers to bypass the supply chain struggle and focus entirely on healing their patients.
+            </p>
+          </div>
+        </AboutHero>
 
         {/* 2. Origin Story — Personal Narrative */}
         <OriginStory />
@@ -44,11 +64,10 @@ export default function AboutPage() {
         <TeamSection />
       </main>
 
-      {/* Dedicated About CTA */}
       <AboutCTA />
 
       <Footer />
       <BackToTop />
     </div>
-  )
+  );
 }

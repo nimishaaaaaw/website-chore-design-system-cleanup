@@ -1,23 +1,32 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
+import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Phone, ChevronRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
+import dynamic from 'next/dynamic'
 import { HERO_TRUST_BADGES } from '@/components/pages/home/HomeData'
 import { useContactModal } from '@/hooks/use-contact-modal'
 
-import { ParticleNetwork } from '@/components/shared/ParticleNetwork'
+// Lazy load ParticleNetwork as it is a heavy canvas component
+const ParticleNetwork = dynamic(
+  () => import('@/components/shared/ParticleNetwork').then((mod) => mod.ParticleNetwork),
+  { ssr: false }
+)
 
-export function MainHero() {
+interface MainHeroProps {
+  children?: React.ReactNode
+}
+
+export function MainHero({ children }: MainHeroProps) {
   const { openModal } = useContactModal()
+  
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-section-lg pb-section-sm">
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
 
-      {/* Interactive Medical Particle Canvas */}
-      <ParticleNetwork />
+      {/* Interactive Medical Particle Canvas - Client-side Only */}
+      <ParticleNetwork showParticles={true} />
 
       {/* Ambient glow orbs — staggered animations for premium feel */}
       <div className="absolute top-[10%] left-[15%] w-72 h-72 bg-brand-100/30 rounded-full blur-[80px] animate-float-slow" aria-hidden="true" />
@@ -42,33 +51,15 @@ export function MainHero() {
             <span className="eyebrow-line-r" />
           </motion.div>
 
-          {/* ── H1 ── */}
-          <motion.h1
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.08 }}
-            className="mb-5 md:mb-8 text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl"
+          {/* ── Main Content Block (Passed from Server) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.08 }}
+            className="mb-8"
           >
-            <span
-              className="block font-bold leading-[1.1] tracking-tighter bg-gradient-display bg-clip-text text-transparent pb-3 mb-2 md:mb-4"
-              style={{ color: '#4F46E5' }}
-            >
-              Building Fully Managed In-House Pharmacies
-            </span>
-            <span className="block text-h2 sm:text-h1 font-bold leading-[1.1] tracking-tight text-slate-700">
-              for Independent Hospitals &amp; Clinics
-            </span>
-          </motion.h1>
-
-          {/* ── SUBTITLE ── */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="hero-subtitle max-w-[800px] mx-auto mb-8 md:mb-10"
-          >
-            We set up, staff, and run your hospital pharmacy with zero capital investment. You focus on patients — we turn lost prescriptions into steady revenue.
-          </motion.p>
+            {children}
+          </motion.div>
 
           {/* ── CTAs ── */}
           <motion.div
@@ -113,11 +104,6 @@ export function MainHero() {
               })}
             </div>
           </motion.div>
-
-          {/* SEO hidden content */}
-          <p className="sr-only">
-            MediKloud offers fully managed in-house pharmacies for independent hospitals and clinics in India. We provide the staff, inventory, and technology to run your hospital pharmacy with zero capex risk. Stop pharmacy leakage, automate procurement, and capture your full Rx value. Free hospital management software (HMS) included.
-          </p>
         </div>
       </div>
     </section>

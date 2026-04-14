@@ -9,25 +9,27 @@ import {
   Package,
   HeartPulse,
   UserPlus,
-  ArrowDownRight,
-  Sparkles,
-  CheckCircle,
   LayoutGrid,
   Clock,
-  TrendingDown
+  TrendingDown,
+  CheckCircle
 } from 'lucide-react';
 import { HERO_TRUST_BADGES } from '@/components/pages/home/HomeData';
 import { useContactModal } from '@/hooks/use-contact-modal';
-import { ParticleNetwork } from '@/components/shared/ParticleNetwork';
 import { AvatarSVG } from '@/components/shared/HeroIcons';
 
-export const HMSHero = () => {
+interface HMSHeroProps {
+  children?: React.ReactNode
+}
+
+export const HMSHero = ({ children }: HMSHeroProps) => {
   const { openModal } = useContactModal();
 
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-start overflow-hidden pt-[75px] pb-12 md:pt-[110px] md:pb-20">
       <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
-      <ParticleNetwork showParticles={false} />
+      
+
       <div className="absolute top-[10%] left-[15%] w-60 h-60 bg-blue-100/25 rounded-full blur-[60px]" aria-hidden="true" />
       <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-indigo-100/20 rounded-full blur-[60px]" aria-hidden="true" />
 
@@ -36,7 +38,7 @@ export const HMSHero = () => {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           
           {/* STANDARDIZED LEFT COLUMN (Refined High-Fidelity Spacing) */}
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="lg:col-span-7 text-center lg:text-left">
+          <div className="lg:col-span-7 text-center lg:text-left">
             
             {/* Eyebrow - Keep Airy */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start mb-10 md:mb-14 pt-6">
@@ -47,28 +49,14 @@ export const HMSHero = () => {
             
             {/* Content Group - Tighter Spacing for Better Conversion Flow */}
             <div className="space-y-8 md:space-y-10">
-              <div className="space-y-6 md:space-y-8">
-                {/* STANDARDIZED 3-LINE HEADLINE (Uneven Spacing) */}
-                <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-center lg:text-left text-balance">
-                  <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
-                    <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight text-slate-900">
-                      Hospital Management.
-                    </span>
-                    <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>
-                      Fast, Smart & Simple.
-                    </span>
-                  </div>
-                  <div className="mt-8 md:mt-10">
-                    <span className="block text-[1.25rem] sm:text-[1.5rem] md:text-[1.75rem] lg:text-[1.875rem] font-semibold leading-relaxed tracking-tight text-slate-700/90 italic">
-                      For Independent Clinics.
-                    </span>
-                  </div>
-                </motion.h1>
-                
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-                  Run your entire facility from any device. Built exclusively for doctor-owned clinics, MediKloud connects your reception, OPD, and pharmacy into one zero-friction workflow.
-                </motion.p>
-              </div>
+              {/* ── Main Content Block (Passed from Server) ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.08 }}
+              >
+                {children}
+              </motion.div>
 
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2 lg:pt-4">
@@ -95,7 +83,7 @@ export const HMSHero = () => {
                 </div>
               </motion.div>
             </div>
-          </motion.div>
+          </div>
 
           {/* STANDARDIZED RIGHT COLUMN (PREMIUM GLASS WRAPPER + HIGH-FIDELITY PATIENT JOURNEY) */}
           <motion.div 

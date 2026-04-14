@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react';
 import { useContactModal } from '@/hooks/use-contact-modal';
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';

@@ -10,14 +10,13 @@ import {
   Package, 
   Activity, 
   HeartPulse, 
-  Clock, 
   TrendingUp, 
   Smile, 
   Zap 
 } from 'lucide-react';
 import { HERO_TRUST_BADGES } from '@/components/pages/home/HomeData';
 import { useContactModal } from '@/hooks/use-contact-modal';
-import { ParticleNetwork } from '@/components/shared/ParticleNetwork';
+
 
 const deployItems = [
   { icon: Users, label: 'Licensed Pharmacists' },
@@ -33,13 +32,18 @@ const secureItems = [
   { icon: CheckCircle2, label: 'Zero Admin Work' }
 ];
 
-export const MPHero = () => {
+interface MPHeroProps {
+  children?: React.ReactNode
+}
+
+export const MPHero = ({ children }: MPHeroProps) => {
   const { openModal } = useContactModal();
 
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-start overflow-hidden pt-[75px] pb-12 md:pt-[110px] md:pb-20">
       <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
-      <ParticleNetwork showParticles={false} />
+      
+
       <div className="absolute top-[10%] left-[15%] w-60 h-60 bg-blue-100/25 rounded-full blur-[60px]" aria-hidden="true" />
       <div className="absolute bottom-[20%] right-[10%] w-64 h-64 bg-indigo-100/20 rounded-full blur-[60px]" aria-hidden="true" />
 
@@ -48,7 +52,7 @@ export const MPHero = () => {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           
           {/* STANDARDIZED LEFT COLUMN (Refined High-Fidelity Spacing) */}
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }} className="lg:col-span-7 text-center lg:text-left">
+          <div className="lg:col-span-7 text-center lg:text-left">
             
             {/* Eyebrow - Keep Airy */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start mb-10 md:mb-14 pt-6">
@@ -59,28 +63,14 @@ export const MPHero = () => {
             
             {/* Content Group - Tighter Spacing for Better Conversion Flow */}
             <div className="space-y-8 md:space-y-10">
-              <div className="space-y-6 md:space-y-8">
-                {/* STANDARDIZED 3-LINE HEADLINE (Uneven Spacing) */}
-                <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-center lg:text-left text-balance max-w-[750px] mx-auto lg:mx-0">
-                  <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
-                    <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight text-slate-900">
-                      Capture 100% of Your Rx Value.
-                    </span>
-                    <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>
-                      With a Managed Pharmacy.
-                    </span>
-                  </div>
-                  <div className="mt-8 md:mt-10">
-                    <span className="block text-[1.25rem] sm:text-[1.5rem] md:text-[1.75rem] lg:text-[1.875rem] font-semibold leading-relaxed tracking-tight text-slate-700/90 italic">
-                      Without Touching a Single Box of Stock.
-                    </span>
-                  </div>
-                </motion.h1>
-                
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-                  Stop losing prescriptions to external retail chains. We provide the capital, tech, and pharmacists to capture that revenue internally—with zero operational load.
-                </motion.p>
-              </div>
+              {/* ── Main Content Block (Passed from Server) ── */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.08 }}
+              >
+                {children}
+              </motion.div>
 
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2 lg:pt-4">
@@ -90,7 +80,7 @@ export const MPHero = () => {
                     title: "Start your pharmacy recovery plan.",
                     description: "Fill out the form below to book a free pharmacy audit with our experts.",
                     btnText: "Book My Free Audit"
-                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
+                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4E46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
                     Book a Demo <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -107,7 +97,7 @@ export const MPHero = () => {
                 </div>
               </motion.div>
             </div>
-          </motion.div>
+          </div>
 
           {/* STANDARDIZED RIGHT COLUMN (PREMIUM GLASS WRAPPER + INTERACTIVE CONDUIT) */}
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }} className="lg:col-span-5 relative lg:pl-4 mt-12 lg:mt-0 self-center">

@@ -1,9 +1,20 @@
 "use client"
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useContactModal } from '@/hooks/use-contact-modal';
 
-export const HospitalPharmacyCTA = ({ onBookDemo, onContactSales }: { onBookDemo: () => void, onContactSales?: () => void }) => {
+export const HospitalPharmacyCTA = () => {
+  const { openModal } = useContactModal();
+
+  const handleBookDemo = () => {
+    openModal({
+      badge: "Partnership",
+      title: "Protect your clinic's revenue.",
+      description: "Book an audit with our experts to see how much margin you can recover.",
+      btnText: "Book My Free Audit"
+    });
+  };
   return (
     <section className="section-py bg-indigo-600 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -23,7 +34,7 @@ export const HospitalPharmacyCTA = ({ onBookDemo, onContactSales }: { onBookDemo
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex justify-center pt-6">
-            <button onClick={onBookDemo} className="btn-lg bg-white text-indigo-600 hover:bg-indigo-50 shadow-2xl shadow-indigo-900/20 active:scale-[0.98] transition-all font-bold text-[16px] px-10 py-4">
+            <button onClick={handleBookDemo} className="btn-lg bg-white text-indigo-600 hover:bg-indigo-50 shadow-2xl shadow-indigo-900/20 active:scale-[0.98] transition-all font-bold text-[16px] px-10 py-4">
               Schedule your free diagnostic
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </button>

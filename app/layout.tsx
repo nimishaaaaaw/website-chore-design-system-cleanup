@@ -3,6 +3,7 @@ import Script from 'next/script'
 import { Poppins } from 'next/font/google'
 import './globals.css'
 import { ScrollIndicator } from '@/components/layout/scroll-indicator'
+import { siteConfig } from '@/lib/seo'
 
 const poppins = Poppins({
   weight: ['400', '600', '700', '900'],
@@ -12,35 +13,32 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.medikloud.com'),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    template: '%s | MediKloud',
-    default: 'HMS, Pharmacy Management & Medicine Delivery | MediKloud',
+    template: `%s | ${siteConfig.name}`,
+    default: siteConfig.name,
   },
-  description: 'Stop revenue leakage. MediKloud equips your hospital with a free HMS, fully managed pharmacy operations, and automated home medicine delivery.',
+  description: siteConfig.description,
   manifest: '/manifest.webmanifest',
   keywords: [
     'Hospital Management System',
-    'HMS software',
-    'Pharmacy management',
-    'AI for hospitals',
-    'Healthcare automation',
-    'Patient self-service kiosk',
-    'Medicine delivery',
-    'Healthcare IT India',
-    'MediKloud'
+    'HMS software India',
+    'Managed pharmacy operations',
+    'Stop pharmacy revenue leakage',
+    'Automated medicine delivery',
+    'Pharmacy inventory management',
+    'AI for hospital procurement',
+    'MediKloud healthcare IT'
   ],
-  applicationName: 'MediKloud',
+  applicationName: siteConfig.name,
   robots: {
     index: true,
     follow: true,
-    nocache: false,
     googleBot: {
       index: true,
       follow: true,
       'max-image-preview': 'large',
       'max-snippet': -1,
-      'max-video-preview': -1,
     },
   },
   icons: {
@@ -54,28 +52,28 @@ export const metadata: Metadata = {
     shortcut: ['/favicon.png'],
   },
   openGraph: {
-    title: 'HMS, Pharmacy Management & Medicine Delivery | MediKloud',
-    description: 'Stop revenue leakage. MediKloud equips your hospital with a free HMS, fully managed pharmacy operations, and automated home medicine delivery.',
-    url: 'https://www.medikloud.com',
-    siteName: 'MediKloud',
+    title: `${siteConfig.name} | Smart Hospital Operations`,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     images: [
       {
-        url: '/healthcare-hero-illustration.png',
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: 'AI-powered hospital operations by MediKloud',
+        alt: `${siteConfig.name} Managed Hospital Pharmacy`,
       },
     ],
+    locale: siteConfig.locale,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HMS, Pharmacy Management & Medicine Delivery | MediKloud',
-    description: 'Stop revenue leakage. MediKloud equips your hospital with a free HMS, fully managed pharmacy operations, and automated home medicine delivery.',
-    images: ['/healthcare-hero-illustration.png'],
-  },
-  alternates: {
-    canonical: '/',
+    title: `${siteConfig.name} | Smart Hospital Operations`,
+    description: 'Zero Capex Managed Pharmacies for Independent Hospitals.',
+    images: [siteConfig.ogImage],
+    site: siteConfig.twitterHandle,
+    creator: siteConfig.twitterHandle,
   },
 }
 
@@ -83,7 +81,7 @@ export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#ffffff',
+  themeColor: '#4F46E5',
 } satisfies import('next').Viewport
 
 import { GoogleAnalytics } from '@next/third-parties/google'
@@ -91,6 +89,7 @@ import { WebVitals } from '@/app/web-vitals'
 import { ClientProviders } from '@/components/shared/ClientProviders'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from '@vercel/analytics/next'
+import { JsonLd } from '@/components/seo/JsonLd'
 
 export default async function RootLayout({
   children,
@@ -107,47 +106,82 @@ export default async function RootLayout({
         >
           Skip to content
         </a>
-        {/* Schema.org structured data for Organization */}
-        <Script 
-          id="ld-org" 
-          type="application/ld+json" 
 
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'MediKloud',
-              url: 'https://www.medikloud.com',
-              logo: 'https://www.medikloud.com/favicon-512x512.png',
-              sameAs: [],
-              contactPoint: [{
-                '@type': 'ContactPoint',
-                telephone: '+91-7702670993',
-                contactType: 'sales',
-                areaServed: 'IN',
-                availableLanguage: ['English', 'Hindi']
-              }]
-            })
-          }} 
+        {/* 1. Organization Schema */}
+        <JsonLd
+          id="ld-org"
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: siteConfig.name,
+            url: siteConfig.url,
+            logo: `${siteConfig.url}/favicon-512x512.png`,
+            sameAs: [
+              'https://www.linkedin.com/company/medikloud',
+              // Add other social links here
+            ],
+            contactPoint: [{
+              '@type': 'ContactPoint',
+              telephone: '+91-7702670993',
+              contactType: 'sales',
+              areaServed: 'IN',
+              availableLanguage: ['English', 'Hindi']
+            }]
+          }}
         />
-        {/* Schema.org structured data for WebSite with potentialAction */}
-        <Script 
-          id="ld-website" 
-          type="application/ld+json" 
 
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              name: 'MediKloud',
-              url: 'https://www.medikloud.com',
-              potentialAction: {
-                '@type': 'SearchAction',
-                target: 'https://www.google.com/search?q={search_term_string}+site:medikloud.com',
-                'query-input': 'required name=search_term_string'
-              }
-            })
-          }} 
+        {/* 2. WebSite Schema */}
+        <JsonLd
+          id="ld-website"
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: siteConfig.name,
+            url: siteConfig.url,
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: `${siteConfig.url}/search?q={search_term_string}`,
+              'query-input': 'required name=search_term_string'
+            }
+          }}
+        />
+
+        {/* 3. LocalBusiness Schema */}
+        <JsonLd
+          id="ld-local-biz"
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'HealthAndBeautyBusiness', // Closest relevant type for pharmacy ops
+            name: siteConfig.name,
+            image: siteConfig.ogImage,
+            '@id': siteConfig.url,
+            url: siteConfig.url,
+            telephone: '+91-7702670993',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: 'Hyderabad',
+              addressRegion: 'Telangana',
+              addressCountry: 'IN'
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: 17.3850,
+              longitude: 78.4867
+            },
+            openingHoursSpecification: {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: [
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday'
+              ],
+              opens: '09:00',
+              closes: '19:00'
+            }
+          }}
         />
 
         <ScrollIndicator />

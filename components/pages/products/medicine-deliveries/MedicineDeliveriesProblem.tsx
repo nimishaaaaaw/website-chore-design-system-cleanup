@@ -42,7 +42,7 @@ export const MedicineDeliveriesProblem = () => {
     <section id="insights" className="bg-section-alt border-y border-slate-100 section-py relative overflow-hidden">
       {/* Gold Atmospheric Primitives */}
       <div className="tech-grid-overlay !opacity-[0.03]" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
       
       <div className="container-page relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">

@@ -49,7 +49,7 @@ const VPCTA = () => {
     <section className="relative bg-white pt-10 pb-20 md:pb-32 overflow-hidden">
       {/* Forensic Background Textures */}
       <div className="tech-grid-overlay !opacity-[0.03]" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
 
       {/* ── ATMOSPHERIC DEPTH (HERO STYLE) ── */}
       <div className="blob-layer">

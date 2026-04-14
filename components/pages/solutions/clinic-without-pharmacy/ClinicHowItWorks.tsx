@@ -45,7 +45,7 @@ const RefillMicroDemo = () => {
 
   return (
     <div className="w-[280px] h-[380px] rounded-[3rem] border-[8px] border-slate-900 shadow-2xl relative overflow-hidden flex flex-col z-10 group-hover:-translate-y-2 transition-transform duration-500 bg-[#0B141A]">
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] pointer-events-none" />
       
       {/* ── PHONE HEADER ── */}
       <div className="relative h-14 w-full bg-[#202C33] border-b border-white/5 flex items-center px-4 pt-4 gap-3">
@@ -331,7 +331,7 @@ export const ClinicHowItWorks = () => {
   return (
     <section className="section-py bg-white relative overflow-hidden border-t border-slate-100" id="how-it-works">
       <div className="tech-grid-overlay !opacity-[0.03]" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
       
       <div className="container-page relative z-10">
         <motion.div 

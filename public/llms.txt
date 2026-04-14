@@ -1,0 +1,15 @@
+# MediKloud
+
+MediKloud is India’s first tech-driven managed hospital pharmacy operator. We help independent hospitals optimize their pharmacy operations, eliminate revenue leakage, and improve patient care through our zero-capex managed pharmacy model.
+
+## Core Services
+- **Managed Pharmacy Operations**: Specialized end-to-end pharmacy management for hospitals.
+- **Free HMS (Hospital Management System)**: A comprehensive, tech-enabled hospital management solution.
+- **Automated Medicine Deliveries**: Efficient and tech-driven medicine fulfillment.
+- **Virtual Pharmacy Solutions**: Remote pharmacy management and digital integration.
+
+## Contact Information
+- **Website**: https://medikloud.com
+- **Phone**: +91-7702670993
+- **Email**: sales@medikloud.com
+- **Location**: Hyderabad, Telangana, India

@@ -4,11 +4,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+import { useContactModal } from '@/hooks/use-contact-modal';
 
-interface ClinicCTAProps {
-  onBookDemo?: () => void;
-  onSeeHowItWorks?: () => void;
-}
+interface ClinicCTAProps {}
 
 const premiumEase = [0.16, 1, 0.3, 1] as any;
 
@@ -17,7 +15,17 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: premiumEase } }
 };
 
-export const ClinicCTA = ({ onBookDemo }: ClinicCTAProps) => {
+export const ClinicCTA = ({}: ClinicCTAProps) => {
+  const { openModal } = useContactModal();
+
+  const handleBookDemo = () => {
+    openModal({
+      badge: "Launch Your Clinic",
+      title: "Start your clinic transformation.",
+      description: "Talk to our experts to see how MediKloud can help you deliver medications instantly and grow your revenue.",
+      btnText: "Book My Free Demo"
+    });
+  };
   return (
     <section className="section-py-lg relative overflow-hidden">
       <DarkAtmosphere />
@@ -39,7 +47,7 @@ export const ClinicCTA = ({ onBookDemo }: ClinicCTAProps) => {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
             <button 
-              onClick={onBookDemo}
+              onClick={handleBookDemo}
               className="btn px-10 py-5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-glow transition-all active:scale-[0.98] min-w-[200px]"
             >
               Book a Free Demo

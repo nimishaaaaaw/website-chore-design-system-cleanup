@@ -11,7 +11,7 @@ export function TeamSection() {
       role: "Founder & CEO",
       category: "Founding Team",
       bio: "10+ years into building brands, processes, automations & Tech. Ex Skima.ai, Fraazo. Ex-Founder - Green Leaf Stores, Rawder.",
-      image: "/founder.jpg"
+      image: "/founder.webp"
     },
     {
       name: "Guru Nikhil Mangaraju",
@@ -25,21 +25,21 @@ export function TeamSection() {
       role: "Talent Guru",
       category: "People & Culture",
       bio: "Sourcing and retaining the high-velocity technical talent necessary to maintain MediKloud's automation-first culture.",
-      image: null
+      image: "/Anuha_Medikloud.webp"
     },
     {
       name: "Haseeth Vardhan",
       role: "Code Ninja",
       category: "Engineering Unit",
       bio: "Focusing on rapid iteration and technical execution for the MediKloud product suite.",
-      image: null
+      image: "/Haseeth_Medikloud.webp"
     },
     {
       name: "Aditya Pratap Singh",
       role: "Automation Hacker",
       category: "Engineering Unit",
       bio: "Designing the automation layers and logic engines that drive efficiency in hospital pharmacy operations.",
-      image: null
+      image: "/AdityaSingh_Medikloud.webp"
     }
   ]
 
@@ -70,7 +70,7 @@ export function TeamSection() {
             transition={{ delay: 0.1 }}
             className="premium-h2 mb-6 text-slate-900"
           >
-            The <span className="text-brand-600">Team</span>
+            The <span className="text-brand-indigo-600">Team</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -122,7 +122,7 @@ export function TeamSection() {
 
               {/* Title & Role */}
               <h3 className="premium-h3 !text-2xl mb-1">{member.name}</h3>
-              <p className="text-brand-600 font-bold text-[11px] uppercase tracking-[0.2em] mb-6">{member.role}</p>
+              <p className="text-brand-indigo-600 font-bold text-[11px] uppercase tracking-[0.2em] mb-6">{member.role}</p>
               
               {/* Bio */}
               <p className="premium-p !text-sm leading-relaxed">
