@@ -18,7 +18,8 @@ export function TeamSection() {
       role: "Tech Mastermind",
       category: "Engineering Unit",
       bio: "Building the core technical infrastructure that powers the MediKloud fulfillment network and HMS ecosystem.",
-      image: null
+      image: "/GuruNikhil_Medikloud.webp",
+      objectPosition: "center 20%"
     },
     {
       name: "Anuha Kancharana",
@@ -100,7 +101,8 @@ export function TeamSection() {
                       alt={member.name}
                       fill
                       unoptimized={true}
-                      className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      style={{ objectPosition: member.objectPosition || 'top' }}
                       priority={i === 0}
                     />
                   ) : (
