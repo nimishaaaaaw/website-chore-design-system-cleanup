@@ -12,8 +12,8 @@ const SITEMAP_URL = `https://${HOST}/sitemap.xml`;
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY;
 
 if (!INDEXNOW_KEY) {
-  console.error('Error: INDEXNOW_KEY environment variable is required.');
-  process.exit(1);
+  console.warn('Warning: INDEXNOW_KEY environment variable is not set. Skipping submission.');
+  process.exit(0);
 }
 
 async function run() {
