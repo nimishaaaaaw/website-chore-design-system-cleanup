@@ -12,7 +12,7 @@ const VPProblem = () => {
     <section className="bg-section-alt border-y border-slate-100 section-py relative overflow-hidden" id="challenge">
       
       {/* Abstract Backgrounds */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-50/40 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       
       <div className="container-page relative z-10">

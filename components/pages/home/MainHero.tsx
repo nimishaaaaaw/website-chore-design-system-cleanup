@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react'
-import { motion } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { HERO_TRUST_BADGES } from '@/components/pages/home/HomeData'
@@ -40,34 +39,19 @@ export function MainHero({ children }: MainHeroProps) {
         <div className="text-center max-w-[1000px] mx-auto">
 
           {/* Eyebrow — above the h1, not inside it */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.06 }}
-            className="eyebrow-wrap justify-center"
-          >
+          <div className="eyebrow-wrap justify-center animate-fade-in opacity-0 [animation-delay:60ms] [animation-fill-mode:forwards]">
             <span className="eyebrow-line-l" />
             <span className="eyebrow-text">Zero Capex · AI-Driven · End-to-End</span>
             <span className="eyebrow-line-r" />
-          </motion.div>
+          </div>
 
           {/* ── Main Content Block (Passed from Server) ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.08 }}
-            className="mb-8"
-          >
+          <div className="mb-8 animate-fade-in-up opacity-0 [animation-delay:80ms] [animation-fill-mode:forwards]">
             {children}
-          </motion.div>
+          </div>
 
           {/* ── CTAs ── */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.45 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-10 md:mb-12"
-          >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-10 md:mb-12 animate-fade-in opacity-0 [animation-delay:450ms] [animation-fill-mode:forwards]">
             <button
               onClick={() => openModal({
                     badge: "Partnership",
@@ -82,16 +66,10 @@ export function MainHero({ children }: MainHeroProps) {
               Book A Free Demo
               <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
-          </motion.div>
+          </div>
 
           {/* Social Proof Signal */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.55 }}
-            className="flex flex-col items-center justify-center gap-3 mb-12"
-          >
-
+          <div className="flex flex-col items-center justify-center gap-3 mb-12 animate-fade-in opacity-0 [animation-delay:550ms] [animation-fill-mode:forwards]">
             <div className="flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 gap-y-4">
               {HERO_TRUST_BADGES.map((badge, idx) => {
                 const Icon = badge.icon;
@@ -105,7 +83,7 @@ export function MainHero({ children }: MainHeroProps) {
                 );
               })}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

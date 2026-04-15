@@ -27,13 +27,7 @@ export const HMSComparison = () => {
       <div className="noise-texture !opacity-[0.02]" />
 
       <div className="container-page relative z-10">
-        <header className="header-lock text-center mb-16 md:mb-24">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
+        <header className="header-lock text-center mb-16 md:mb-24 animate-fade-in-up opacity-0 [animation-fill-mode:forwards]">
             <div className="eyebrow-wrap">
               <span className="eyebrow-line-l" />
               <span className="eyebrow-text">Modern Standard</span>
@@ -42,23 +36,16 @@ export const HMSComparison = () => {
             <h2 className="premium-h2 mb-6 text-balance">
               The Modern <span className="text-brand-indigo-600">Clinical Standard.</span>
             </h2>
-          </motion.div>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="premium-p intro-lock"
-          >
-            Traditional Hospital Management Systems were built for accounting. <strong>MediKloud HMS</strong> is built for care, speed, and clinical precision.
-          </motion.p>
+            <p className="premium-p intro-lock !max-w-3xl mx-auto">
+              Traditional Hospital Management Systems were built for accounting. <strong>MediKloud HMS</strong> is built for care, speed, and clinical precision.
+            </p>
         </header>
 
         {/* Comparison Matrix */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-20px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-5xl mx-auto overflow-hidden rounded-[2rem] border border-slate-200 shadow-float-brand bg-white"
         >

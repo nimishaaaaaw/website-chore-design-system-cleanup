@@ -51,27 +51,24 @@ export const HospitalWithoutPharmacyHero = ({
           className="space-y-12"
         >
           {/* Eyebrow */}
-          <motion.div variants={fadeInUp} className="eyebrow-wrap">
+          <div className="eyebrow-wrap animate-fade-in-up opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards]">
             <span className="eyebrow-line-l"></span>
             <span className="eyebrow-text">Integrated Pharmacy Engine</span>
             <span className="eyebrow-line-r"></span>
-          </motion.div>
+          </div>
 
           {/* Headline */}
           <div className="space-y-6">
-            <motion.h1 
-              variants={fadeInUp} 
-              className="text-display-xl font-black leading-[1.05] tracking-tighter max-w-5xl mx-auto"
-            >
+            <h1 className="text-display-xl font-black leading-[1.05] tracking-tighter max-w-5xl mx-auto animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
               <span className="text-slate-900 inline-block">You heal the patient.</span> <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600 inline-block overflow-visible pb-2">
                 Why does the revenue leave?
               </span>
-            </motion.h1>
+            </h1>
             
-            <motion.p variants={fadeInUp} className="max-w-2xl mx-auto text-body-lg text-slate-600 leading-relaxed font-medium">
+            <p className="max-w-2xl mx-auto text-body-lg text-slate-600 leading-relaxed font-medium animate-fade-in-up opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
               Every day, your hospital creates clinical value — only to hand over a prescription fulfilled elsewhere. MediKloud helps you capture that value instantly.
-            </motion.p>
+            </p>
           </div>
 
           {/* Leakage Grid with Pulse Markers */}

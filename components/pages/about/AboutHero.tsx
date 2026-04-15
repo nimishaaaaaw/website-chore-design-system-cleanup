@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { motion } from 'framer-motion'
+
 
 interface AboutHeroProps {
   children?: React.ReactNode
@@ -20,25 +20,15 @@ export function AboutHero({ children }: AboutHeroProps) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
         <div className="max-w-[1000px] mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.06 }}
-            className="eyebrow-wrap justify-center mb-8"
-          >
+          <div className="eyebrow-wrap justify-center mb-8 animate-fade-in opacity-0 [animation-delay:60ms] [animation-fill-mode:forwards]">
             <span className="eyebrow-line-l" />
             <span className="eyebrow-text">Our Story · Our Mission</span>
             <span className="eyebrow-line-r" />
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.08 }}
-            className="mb-8"
-          >
+          <div className="mb-8 animate-fade-in-up opacity-0 [animation-delay:80ms] [animation-fill-mode:forwards]">
             {children}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

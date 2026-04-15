@@ -55,25 +55,21 @@ export const MPHero = ({ children }: MPHeroProps) => {
           <div className="lg:col-span-7 text-center lg:text-left">
             
             {/* Eyebrow - Keep Airy */}
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.05 }} className="eyebrow-wrap lg:justify-start mb-10 md:mb-14 pt-6">
+            <div className="eyebrow-wrap lg:justify-start mb-10 md:mb-14 pt-6 animate-fade-in opacity-0 [animation-delay:60ms] [animation-fill-mode:forwards]">
               <span className="eyebrow-line-l"></span>
               <span className="eyebrow-text">Zero Upfront Cost · Fully Managed</span>
               <span className="eyebrow-line-r"></span>
-            </motion.div>
+            </div>
             
             {/* Content Group - Tighter Spacing for Better Conversion Flow */}
             <div className="space-y-8 md:space-y-10">
               {/* ── Main Content Block (Passed from Server) ── */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.08 }}
-              >
+              <div className="animate-fade-in-up opacity-0 [animation-delay:80ms] [animation-fill-mode:forwards]">
                 {children}
-              </motion.div>
+              </div>
 
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.3 }} className="flex flex-col gap-10 pt-2 lg:pt-4">
+              <div className="flex flex-col gap-10 pt-2 lg:pt-4 animate-fade-in opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
                   <button onClick={() => openModal({
                     badge: "Managed Recovery",
@@ -97,7 +93,7 @@ export const MPHero = ({ children }: MPHeroProps) => {
                     );
                   })}
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
 

@@ -102,7 +102,7 @@ export const VPComparison = () => {
     <div className="bg-white relative pt-12 pb-0 flex flex-col justify-center">
       {/* Forensic Background Textures */}
       <div className="tech-grid-overlay !opacity-[0.03]" />
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
 
       <section className="section-py relative overflow-hidden w-full">
         <div className="container-page relative z-10">

@@ -93,10 +93,25 @@ export const HospitalPharmacyApproach = () => {
           </div>
 
           {/* Card 4: Retention (Gradient Card) */}
-          <div className="md:col-span-2 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-[2.5rem] p-10 lg:p-12 relative overflow-hidden group shadow-xl shadow-indigo-600/20 flex flex-col justify-end">
-            <div className="absolute right-[-40px] bottom-[-20px] md:right-8 md:top-1/2 md:-translate-y-1/2 w-[280px] bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-5 shadow-2xl transform rotate-3 transition-all duration-500 hidden sm:block">
+          <div className="md:col-span-2 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-[2.5rem] p-8 md:p-10 lg:p-12 relative overflow-hidden group shadow-xl shadow-indigo-600/20 flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-12">
+            
+            {/* Text Content */}
+            <div className="relative z-10 flex flex-col h-full flex-1">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/20 border border-white/20 flex items-center justify-center mb-6 md:mb-8 backdrop-blur-sm">
+                <Truck className="w-6 h-6 md:w-7 md:h-7 text-white" />
+              </div>
+              <div className="mt-auto">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 tracking-tight">Medicine Deliveries to Doorsteps</h3>
+                <p className="text-indigo-100 text-base leading-relaxed md:max-w-md lg:max-w-lg">
+                  We send automatic WhatsApp reminders and handle the home delivery for you under your hospital's brand. Chronic patients stay yours, forever.
+                </p>
+              </div>
+            </div>
+
+            {/* Delivery Assistant Chat Bubble */}
+            <div className="relative z-10 w-full sm:w-[320px] shrink-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-5 shadow-2xl transform rotate-[2deg] hover:rotate-0 transition-transform duration-500">
                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shadow-inner">
+                  <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shadow-inner shrink-0">
                      <MessageCircle className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -104,21 +119,9 @@ export const HospitalPharmacyApproach = () => {
                     <span className="text-indigo-200 text-xs">Just now</span>
                   </div>
                </div>
-               <div className="bg-white text-slate-800 text-[14px] p-4 rounded-2xl rounded-tl-sm leading-relaxed shadow-sm font-medium">
+               <div className="bg-white text-slate-800 text-[13px] sm:text-[14px] p-4 rounded-2xl rounded-tl-sm leading-relaxed shadow-sm font-medium">
                   "Hi! Your monthly BP medicine is ready from <span className="text-indigo-600 font-bold">Your Clinic</span>. Reply 'YES' to confirm home delivery."
                </div>
-            </div>
-
-            <div className="relative z-10 flex flex-col h-full max-w-[50%]">
-              <div className="w-14 h-14 rounded-2xl bg-white/20 border border-white/20 flex items-center justify-center mb-8 backdrop-blur-sm">
-                <Truck className="w-7 h-7 text-white" />
-              </div>
-              <div className="mt-auto">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 tracking-tight">Medicine Deliveries to Doorsteps</h3>
-                <p className="text-indigo-100 text-base leading-relaxed">
-                  We send automatic WhatsApp reminders and handle the home delivery for you under your hospital's brand. Chronic patients stay yours, forever.
-                </p>
-              </div>
             </div>
           </div>
         </div>

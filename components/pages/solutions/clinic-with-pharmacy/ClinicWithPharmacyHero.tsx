@@ -39,29 +39,23 @@ export const ClinicWithPharmacyHero = ({ onBookDemo, onTalkToExpert }: ClinicWit
           className="max-w-6xl mx-auto"
         >
           {/* Eyebrow */}
-          <motion.div variants={fadeInUp} className="eyebrow-wrap justify-start mb-8">
+          <div className="eyebrow-wrap justify-start mb-8 animate-fade-in-up opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards]">
             <span className="eyebrow-line-l bg-blue-600/30" />
             <span className="eyebrow-text text-blue-600">Built for high-volume clinics</span>
-          </motion.div>
+          </div>
 
           <div className="grid lg:grid-cols-[1.2fr,0.8fr] gap-16 lg:gap-24 items-start">
             <div className="space-y-10">
-              <motion.h1 
-                variants={fadeInUp}
-                className="text-display-xl font-black text-slate-900 leading-[1.05] tracking-tight"
-              >
+              <h1 className="text-display-xl font-black text-slate-900 leading-[1.05] tracking-tight animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
                 You already have a pharmacy.<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600">
                   Why are patients buying outside?
                 </span>
-              </motion.h1>
+              </h1>
 
-              <motion.p 
-                variants={fadeInUp}
-                className="text-body-lg text-slate-600 max-w-2xl font-medium leading-relaxed"
-              >
+              <p className="text-body-lg text-slate-600 max-w-2xl font-medium leading-relaxed animate-fade-in-up opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
                 Every consultation ends with a prescription. But your revenue, your patient, and your clinical control leave the moment they walk out the door.
-              </motion.p>
+              </p>
 
               <motion.div variants={fadeInUp} className="space-y-5">
                 <p className="font-bold text-slate-900 text-lg">MediKloud stops the leakage instantly:</p>

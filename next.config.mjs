@@ -8,13 +8,12 @@ const isDev = process.env.NODE_ENV !== 'production'
 
 const cspDirectives = [
   "default-src 'self'",
-  // Next dev tooling requires 'unsafe-eval'; strip in production
-  isDev
-    ? `script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'unsafe-eval' https://*.googletagmanager.com`
-    : `script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://*.googletagmanager.com`,
+  isDev 
+    ? "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com"
+    : "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net",
-  "connect-src 'self' https://formspree.io https://lottie.host https://unpkg.com https://cdn.jsdelivr.net https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.contentful.com https://*.ctfassets.net",
+  "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net https://*.vercel.app",
+  "connect-src 'self' https://formspree.io https://lottie.host https://unpkg.com https://cdn.jsdelivr.net https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.contentful.com https://*.ctfassets.net https://va.vercel-scripts.com",
   "font-src 'self' data: https://fonts.gstatic.com",
   "frame-ancestors 'self' https://app.contentful.com https://*.contentful.com",
   "object-src 'none'",

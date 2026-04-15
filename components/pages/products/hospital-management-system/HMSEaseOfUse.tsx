@@ -29,7 +29,7 @@ export const HMSEaseOfUse = () => {
             <motion.div 
               initial={{ opacity: 0, x: -30, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "-20px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-[300px] h-[600px] bg-slate-900 rounded-[3rem] p-3 shadow-card-lg border-[6px] border-slate-800"
             >
@@ -114,12 +114,7 @@ export const HMSEaseOfUse = () => {
           {/* Right Column: Copy & Bullet Points */}
           <div className="lg:col-span-7">
             <header className="header-lock text-center lg:text-left mb-12">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              >
+              <div className="animate-fade-in-up opacity-0 [animation-fill-mode:forwards]">
                 <div className="flex items-center justify-center lg:justify-start gap-3 mb-6">
                   <span className="eyebrow-line-l" />
                   <span className="eyebrow-text">Clinician First</span>
@@ -129,17 +124,11 @@ export const HMSEaseOfUse = () => {
                   Built for Modern Clinics, <br className="hidden md:block" />
                   <span className="text-brand-indigo-600">Not for IT Teams.</span>
                 </h2>
-              </motion.div>
+              </div>
               
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="premium-p intro-lock"
-              >
+              <p className="premium-p intro-lock animate-fade-in-up opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards]">
                 If you can use a smartphone, you can use MediKloud HMS. We've eliminated the steep learning curve of traditional healthcare software with a clean, clinical interface that requires <strong className="text-slate-900 font-bold uppercase tracking-tight">Zero Training.</strong>
-              </motion.p>
+              </p>
             </header>
 
             <div className="space-y-10 mb-12">
@@ -169,7 +158,7 @@ export const HMSEaseOfUse = () => {
                   key={idx} 
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ once: true, margin: "-20px" }}
                   transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="flex items-start gap-6 group"
                 >

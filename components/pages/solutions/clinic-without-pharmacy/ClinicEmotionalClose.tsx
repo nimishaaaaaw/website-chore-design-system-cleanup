@@ -15,7 +15,7 @@ export const ClinicEmotionalClose = () => {
   return (
     <section className="section-py bg-white relative overflow-hidden">
       <div className="tech-grid-overlay !opacity-[0.02]" />
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.015] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.015] mix-blend-overlay pointer-events-none" />
 
       <div className="container-page relative z-10 text-center">
         <motion.div 

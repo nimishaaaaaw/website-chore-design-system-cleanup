@@ -21,35 +21,17 @@ export const HMSSecurity = () => {
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           
           {/* Left Column: Copy & Features */}
-          <div className="w-full lg:w-1/2">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
+            <div className="w-full lg:w-1/2 animate-fade-in-up opacity-0 [animation-fill-mode:forwards]">
               <div className="flex items-center gap-3 mb-8">
                 <span className="eyebrow-line-l" />
                 <span className="eyebrow-text !text-brand-400">Bank-Grade Security</span>
                 <span className="eyebrow-line-r" />
               </div>
               
-              <h2 className="premium-h2 mb-8 lowercase sm:normal-case">
-                <span className="text-white">Absolute Patient</span> <br className="hidden md:block" />
-                <span className="text-indigo-400">Data Security.</span>
-              </h2>
-            </motion.div>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-lg font-medium text-slate-400 leading-relaxed max-w-xl"
-            >
-              Patient records are your facility's most valuable asset. MediKloud protects them with advanced encryption and an architecture designed for total privacy. We handle the security overhead so you can focus entirely on care.
-            </motion.p>
-          </div>
+              <p className="text-lg font-medium text-slate-400 leading-relaxed max-w-xl animate-fade-in-up opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards]">
+                Patient records are your facility&apos;s most valuable asset. MediKloud protects them with advanced encryption and an architecture designed for total privacy. We handle the security overhead so you can focus entirely on care.
+              </p>
+            </div>
 
           {/* Right Column: Features Grid (New Streamlined Layout) */}
           <div className="w-full lg:w-1/2">

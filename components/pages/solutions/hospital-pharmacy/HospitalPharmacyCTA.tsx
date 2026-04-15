@@ -10,7 +10,7 @@ export const HospitalPharmacyCTA = () => {
   return (
     <section className="section-py bg-indigo-600 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-10 mix-blend-overlay" />
         <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-white/10 rounded-full blur-[100px] -mr-48 -mt-48" />
         <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-blue-900/30 rounded-full blur-[80px] -ml-24 -mb-24" />
       </div>
