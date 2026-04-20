@@ -2,12 +2,14 @@ import { Metadata } from 'next'
 
 export const siteConfig = {
   name: 'MediKloud',
-  description: 'India\'s first tech-driven managed hospital pharmacy operator. Stop revenue leakage with free HMS, managed staff, and automated delivery.',
+  description: 'MediKloud is India\'s first tech-driven managed hospital pharmacy operator. Stop revenue leakage with MediKloud HMS, managed staff, and automated delivery.',
   url: 'https://www.medikloud.com',
   ogImage: 'https://www.medikloud.com/healthcare-hero-illustration.png',
   twitterHandle: '@MediKloud',
   locale: 'en_IN',
   keywords: [
+    'MediKloud',
+    'MediKloud HMS',
     'Hospital Management System',
     'HMS software India',
     'Managed pharmacy operations',
@@ -96,6 +98,12 @@ export function getMetadata({
         'max-snippet': -1,
         'max-video-preview': -1,
       },
+    },
+    other: {
+      'geo.region': 'IN-TG',
+      'geo.placename': 'Hyderabad',
+      'geo.position': '17.3850;78.4867',
+      'ICBM': '17.3850, 78.4867',
     },
   }
 }

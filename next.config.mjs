@@ -8,6 +8,7 @@ const isDev = process.env.NODE_ENV !== 'production'
 
 const cspDirectives = [
   "default-src 'self'",
+  "upgrade-insecure-requests",
   isDev 
     ? "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com"
     : "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com",
@@ -25,6 +26,10 @@ const securityHeaders = [
   {
     key: 'Content-Security-Policy',
     value: csp,
+  },
+  {
+    key: 'Alt-Svc',
+    value: 'h3=":443"; ma=86400, h3-29=":443"; ma=86400',
   },
   {
     key: 'Referrer-Policy',
