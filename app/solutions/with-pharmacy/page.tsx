@@ -18,6 +18,21 @@ export const metadata = getMetadata({
   path: '/solutions/with-pharmacy'
 });
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Do I have to fire my current pharmacy staff?', acceptedAnswer: { '@type': 'Answer', text: 'We integrate them. Your trusted staff remains; we provide professional management, specialized training, and software to make them 2x more efficient without any friction.' } },
+    { '@type': 'Question', name: 'Who pays for the initial medicine stock?', acceptedAnswer: { '@type': 'Answer', text: 'MediKloud handles it. We buy your existing inventory at fair market value and fund 100% of all future medicine stock and recurring expansion.' } },
+    { '@type': 'Question', name: 'Can I keep using my current billing software?', acceptedAnswer: { '@type': 'Answer', text: 'We offer a better way. We provide our premium Enterprise HMS for free, migrating all your clinical and billing data with zero data loss or downtime.' } },
+    { '@type': 'Question', name: 'Who takes the loss for expired medicines?', acceptedAnswer: { '@type': 'Answer', text: '100% MediKloud responsibility. You will never pay for an expired strip of medicine again. We manage the full lifecycle of the inventory.' } },
+    { '@type': 'Question', name: 'How do you handle home deliveries?', acceptedAnswer: { '@type': 'Answer', text: 'Full logistics support. We provide the riders, the WhatsApp automated tracking, and the complete delivery infrastructure for your hospital patients.' } },
+    { '@type': 'Question', name: 'How do you prevent medicine pilferage?', acceptedAnswer: { '@type': 'Answer', text: 'Total Transparency. Our AI-synced inventory system ensures every single tablet is accounted for, from the loading dock to the patient\'s hand, with real-time activity logs focus.' } },
+    { '@type': 'Question', name: 'How long does it take to transition?', acceptedAnswer: { '@type': 'Answer', text: 'Under 7 days. Our clinical onboarding team handles the physical inventory diagnostic and software sync while your hospital remains fully operational and serving patients.' } },
+    { '@type': 'Question', name: 'How do my pharmacy margins improve?', acceptedAnswer: { '@type': 'Answer', text: 'Group Buying Power. By joining our network, your hospital gets corporate-level pricing on medicines that standalone pharmacies simply cannot access, boosting your profitability.' } }
+  ]
+};
+
 export default function HospitalPharmacyPage() {
   const breadcrumbData = getBreadcrumbSchema([
     { name: 'Home', item: '/' },
@@ -27,6 +42,7 @@ export default function HospitalPharmacyPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      <JsonLd data={faqSchema} id="faq-schema" />
       <JsonLd id="ld-breadcrumb" data={breadcrumbData} />
       <JsonLd 
         id="ld-service" 

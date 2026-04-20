@@ -17,10 +17,29 @@ export const metadata = getMetadata({
   path: '/products/medicine-deliveries'
 });
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Do I need to hire my own riders?', acceptedAnswer: { '@type': 'Answer', text: 'No. MediKloud provides the riders and handles all logistics for you.' } },
+    { '@type': 'Question', name: 'How do you guarantee the exact brand?', acceptedAnswer: { '@type': 'Answer', text: 'We pick from your hospital’s pharmacy, ensuring the patient gets exactly what you prescribed.' } },
+    { '@type': 'Question', name: 'How long does it take to set up?', acceptedAnswer: { '@type': 'Answer', text: 'Your hospital can be live and delivering to patients in less than 24 hours.' } },
+    { '@type': 'Question', name: 'Who pays for the delivery fee?', acceptedAnswer: { '@type': 'Answer', text: 'You have total control. You can have the patient pay a small fee or the hospital can cover it.' } },
+    { '@type': 'Question', name: 'What if a patient doesn\'t have a smartphone?', acceptedAnswer: { '@type': 'Answer', text: 'Patients can reorder by calling your front desk or our support line. No smartphone needed.' } },
+    { '@type': 'Question', name: 'Who owns the patient data?', acceptedAnswer: { '@type': 'Answer', text: 'You do. All prescription and delivery data remains with your hospital and can be exported at any time.' } },
+    { '@type': 'Question', name: 'Is the billing GST-compliant?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every transaction is fully GST-compliant and integrated into your billing system.' } },
+    { '@type': 'Question', name: 'What is the support response time?', acceptedAnswer: { '@type': 'Answer', text: 'We provide real-time updates for every order and immediate support for any delivery issues.' } },
+    { '@type': 'Question', name: 'Is patient privacy protected?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All patient and prescription data is encrypted and stored securely. Your patients\' information is never shared with third parties.' } },
+    { '@type': 'Question', name: 'Does it cover specialty medicines?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We deliver directly from your hospital\'s pharmacy, so any specialty medicine you stock is automatically covered.' } },
+    { '@type': 'Question', name: 'How precise are the refill reminders?', acceptedAnswer: { '@type': 'Answer', text: 'We calculate when each patient is likely to run out and send them a WhatsApp reminder at the right time.' } }
+  ],
+};
+
 export default function MedicineDeliveriesPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
+      <JsonLd data={faqSchema} id="faq-schema" />
       <JsonLd 
         id="ld-breadcrumb" 
         data={getBreadcrumbSchema([

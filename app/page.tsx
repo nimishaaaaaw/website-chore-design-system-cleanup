@@ -22,35 +22,22 @@ export const metadata = getMetadata({
   path: '/',
 })
 
-const organizationSchema = {
+const softwareApplicationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: siteConfig.name,
-  description: siteConfig.description,
-  url: siteConfig.url,
-  logo: `${siteConfig.url}/Logos/medikloud-logo-primary.webp`,
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+91-7702670993',
-    contactType: 'sales',
-    areaServed: 'IN',
-    availableLanguage: 'en',
+  '@type': 'SoftwareApplication',
+  name: 'MediKloud HMS',
+  applicationCategory: 'HealthApplication',
+  operatingSystem: 'Any',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'INR',
   },
-  sameAs: [
-    'https://twitter.com/MediKloud',
-    // Add LinkedIn or other socials if available
-  ],
-}
-
-const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: siteConfig.name,
-  url: siteConfig.url,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${siteConfig.url}/search?q={search_term_string}`,
-    'query-input': 'required name=search_term_string',
+  description: 'Free HMS SaaS and fully managed pharmacy operations for independent hospitals.',
+  author: {
+    '@type': 'Organization',
+    name: 'MediKloud',
+    url: siteConfig.url,
   },
 }
 
@@ -70,8 +57,8 @@ const faqSchema = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
-      <JsonLd data={organizationSchema} id="org-schema" />
-      <JsonLd data={websiteSchema} id="ws-schema" />
+      {/* Note: Organization and WebSite schemas are already included globally in layout.tsx */}
+      <JsonLd data={softwareApplicationSchema} id="software-app-schema" />
       <JsonLd data={faqSchema} id="faq-schema" />
       <Header />
 
