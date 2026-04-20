@@ -9,11 +9,14 @@ const Header = () => (
       <div className="flex justify-between items-center h-16">
         <div className="flex items-center group cursor-pointer">
           <Link href="/">
-            <img
+            <Image
               src="/Logos/medikloud-logo-primary.webp"
               alt="MediKloud Logo"
               className="w-[120px] sm:w-[140px] h-auto transition-all duration-500 group-hover:scale-105"
-              loading="eager"
+              priority
+              width={1536}
+              height={1024}
+              sizes="(max-width: 640px) 120px, 140px"
             />
           </Link>
         </div>

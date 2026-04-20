@@ -23,11 +23,14 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0 w-48">
             <Link href="/">
-              <img 
+              <Image
                 src="/Logos/medikloud-logo-primary.webp" 
                 alt="MediKloud Logo" 
                 className="w-[120px] sm:w-[140px] md:w-[160px] h-auto"
-                loading="eager"
+                priority
+                width={1536}
+                height={1024}
+                sizes="(max-width: 640px) 120px, (max-width: 768px) 140px, 160px"
               />
             </Link>
           </div>

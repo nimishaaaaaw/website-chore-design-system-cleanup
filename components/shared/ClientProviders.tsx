@@ -1,8 +1,13 @@
 "use client"
 
 import { ContactModalProvider } from "@/hooks/use-contact-modal"
-import { ContactModal } from "@/components/shared/ContactModal"
+import dynamic from "next/dynamic"
 import { Toaster } from "sonner"
+
+const ContactModal = dynamic(
+  () => import("@/components/shared/ContactModal").then((mod) => mod.ContactModal),
+  { ssr: false }
+)
 
 export function ClientProviders({ children }: { children: React.ReactNode }) {
   return (
