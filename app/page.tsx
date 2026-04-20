@@ -90,7 +90,7 @@ export default function Page() {
                 for Independent Hospitals &amp; Clinics
               </span>
             </h1>
-            <p className="hero-subtitle w-full max-w-[900px] mx-auto mb-8 md:mb-10 lg:text-[1.2rem]">
+            <p className="hero-subtitle w-full max-w-[1100px] mx-auto mb-8 md:mb-10">
               MediKloud sets up, staffs, and runs your hospital pharmacy with zero capital investment. You focus on patients — MediKloud HMS turns lost prescriptions into steady revenue.
             </p>
           </div>
