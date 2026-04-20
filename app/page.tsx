@@ -18,7 +18,7 @@ import { faqData } from '@/lib/constants'
 
 export const metadata = getMetadata({
   title: 'Hospital Pharmacy Revenue Optimization & Managed Operations',
-  description: 'MediKloud provides fully managed in-house pharmacy operations for independent hospitals. We handle staffing, inventory, and HMS integrations to stop revenue leakage.',
+  description: 'MediKloud provides managed in-house pharmacy operations for independent hospitals. We handle staffing, inventory, and HMS to stop revenue leakage.',
   path: '/',
 })
 

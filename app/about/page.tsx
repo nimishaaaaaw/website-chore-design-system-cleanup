@@ -14,7 +14,7 @@ import { AboutCTA } from '@/components/pages/about/AboutCTA'
 
 export const metadata = getMetadata({
   title: 'About MediKloud | India\'s First Tech-Driven Managed Pharmacy Operator',
-  description: 'Learn how MediKloud was founded to solve revenue leakage in Indian hospitals. We partner with clinics and hospitals to run their pharmacy operations with zero capex.',
+  description: 'Learn how MediKloud was founded to solve revenue leakage in Indian hospitals. We partner with clinics to run their pharmacy operations with zero capex.',
   path: '/about',
 })
 
