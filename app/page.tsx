@@ -17,7 +17,7 @@ import { GetStartedCTA } from '@/components/pages/home/GetStartedCTA'
 import { faqData } from '@/lib/constants'
 
 export const metadata = getMetadata({
-  title: 'Hospital Pharmacy Revenue Optimization & Managed Operations',
+  title: 'Hospital Pharmacy Revenue Optimization',
   description: 'MediKloud provides managed in-house pharmacy operations for independent hospitals. We handle staffing, inventory, and HMS to stop revenue leakage.',
   path: '/',
 })
