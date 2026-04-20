@@ -81,7 +81,7 @@ export default function ClinicWithoutPharmacyPage() {
             </h1>
             
             <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-              Ensure your patients get the exact medicines you prescribe, delivered to your waiting room in just 10 minutes. No substitutions, zero inventory risk, and 100% operational clarity.
+              Ensure your patients get the exact medicines you prescribe, delivered by MediKloud to your waiting room in just 10 minutes. No substitutions, zero inventory risk, and 100% operational clarity.
             </p>
           </div>
         </ClinicHero>

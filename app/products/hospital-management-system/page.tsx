@@ -92,7 +92,7 @@ export default function HMSPage() {
             </h1>
             
             <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-              Run your entire facility from any device. Built exclusively for doctor-owned clinics, MediKloud connects your reception, OPD, and pharmacy into one zero-friction workflow.
+              Run your entire facility from any device. Built exclusively for doctor-owned clinics, MediKloud HMS connects your reception, OPD, and pharmacy into one zero-friction workflow.
             </p>
           </div>
         </HMSHero>

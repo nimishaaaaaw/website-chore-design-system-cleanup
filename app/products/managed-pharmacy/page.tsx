@@ -87,7 +87,7 @@ export default function ManagedPharmacyPage() {
             </h1>
             
             <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-              Stop losing prescriptions to external retail chains. We provide the capital, tech, and pharmacists to capture that revenue internally—with zero operational load.
+              Stop losing prescriptions to external retail chains. MediKloud provides the capital, HMS, and pharmacists to capture revenue internally with zero operational load.
             </p>
           </div>
         </MPHero>

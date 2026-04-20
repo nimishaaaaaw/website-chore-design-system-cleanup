@@ -14,7 +14,7 @@ import { HospitalPharmacyCTA } from '@/components/pages/solutions/hospital-pharm
 
 export const metadata = getMetadata({
   title: 'Managed Pharmacy & HMS for Independent Hospitals',
-  description: 'Upgrade your hospital pharmacy with a fully managed operations layer and free enterprise HMS. Stop revenue leakage and automate inventory with zero capex.',
+  description: 'Upgrade your hospital pharmacy with a fully managed ops layer and free enterprise MediKloud HMS. Stop revenue leakage with zero capex.',
   path: '/solutions/with-pharmacy'
 });
 
@@ -81,7 +81,7 @@ export default function HospitalPharmacyPage() {
             </h1>
             
             <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-              Every consultation ends with a prescription. But your revenue and care continuity leave the moment they walk out. MediKloud helps you capture that value right inside your hospital.
+              Every consultation ends with a prescription. But your revenue and care continuity leave the moment they walk out. MediKloud and our HMS help you capture that value right inside your hospital.
             </p>
           </div>
         </HospitalPharmacyHero>

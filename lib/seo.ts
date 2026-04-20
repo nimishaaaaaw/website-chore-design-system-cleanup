@@ -2,12 +2,14 @@ import { Metadata } from 'next'
 
 export const siteConfig = {
   name: 'MediKloud',
-  description: 'India\'s first tech-driven managed hospital pharmacy operator. Stop revenue leakage with free HMS, managed staff, and automated delivery.',
+  description: 'MediKloud is India\'s first tech-driven managed hospital pharmacy operator. Stop revenue leakage with MediKloud HMS, managed staff, and automated delivery.',
   url: 'https://www.medikloud.com',
   ogImage: 'https://www.medikloud.com/healthcare-hero-illustration.png',
   twitterHandle: '@MediKloud',
   locale: 'en_IN',
   keywords: [
+    'MediKloud',
+    'MediKloud HMS',
     'Hospital Management System',
     'HMS software India',
     'Managed pharmacy operations',

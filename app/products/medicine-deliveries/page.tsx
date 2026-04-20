@@ -90,7 +90,7 @@ export default function MedicineDeliveriesPage() {
             </h1>
             
             <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-              Stop losing revenue to retail aggregators. We handle the logistics to deliver medicines directly from your hospital to the patient's door, securing 100% retention with automated refills.
+              Stop losing revenue to retail aggregators. MediKloud handles the logistics to deliver medicines directly from your hospital to the patient's door, securing 100% retention with automated refills.
             </p>
           </div>
         </MedicineDeliveriesHero>
