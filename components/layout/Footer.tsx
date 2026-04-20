@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           
           {/* Brand Column */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-4 space-y-6">
             <Link href="/" className="inline-block transition-transform hover:scale-105 active:scale-95 duration-200">
               <div className="w-[180px]">
                 <Image
@@ -27,8 +27,8 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Solutions Column */}
-          <div className="lg:col-span-3 space-y-5">
+          {/* Offerings Column */}
+          <div className="lg:col-span-2 space-y-5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Offerings</h3>
             <ul className="space-y-3">
               {[
@@ -46,8 +46,37 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Solutions Column */}
+          <div className="lg:col-span-2 space-y-5">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Solutions</h3>
+            <ul className="space-y-3">
+              {[
+                { name: 'With Pharmacy', href: '/solutions/with-pharmacy' },
+                { name: 'Without Pharmacy', href: '/solutions/without-pharmacy' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div className="lg:col-span-1 space-y-5">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Company</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/about" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
+                  About
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Locations Column */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-3 space-y-5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Locations</h3>
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               <ul className="space-y-3">
