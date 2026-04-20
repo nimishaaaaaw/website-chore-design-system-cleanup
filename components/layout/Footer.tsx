@@ -11,11 +11,14 @@ export function Footer() {
           <div className="lg:col-span-5 space-y-6">
             <Link href="/" className="inline-block transition-transform hover:scale-105 active:scale-95 duration-200">
               <div className="w-[180px]">
-                <img 
+                <Image
                   src="/Logos/medikloud-logo-primary.webp" 
                   alt="MediKloud Logo" 
                   className="w-[180px] h-auto"
                   loading="lazy"
+                  width={1536}
+                  height={1024}
+                  sizes="180px"
                 />
               </div>
             </Link>
