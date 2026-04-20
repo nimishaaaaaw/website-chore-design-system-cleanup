@@ -91,7 +91,7 @@ export default function Page() {
               </span>
             </h1>
             <p className="hero-subtitle max-w-[800px] mx-auto mb-8 md:mb-10">
-              We set up, staff, and run your hospital pharmacy with zero capital investment. You focus on patients — we turn lost prescriptions into steady revenue.
+              MediKloud sets up, staffs, and runs your hospital pharmacy with zero capital investment. You focus on patients — MediKloud HMS turns lost prescriptions into steady revenue.
             </p>
           </div>
         </MainHero>

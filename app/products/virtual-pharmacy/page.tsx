@@ -72,7 +72,7 @@ export default function VirtualPharmacyPage() {
             </h1>
             
             <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-              Deliver medicines straight to your patients at the clinic door in 10 minutes. Eliminate the overhead of inventory, physical space, and hiring pharmacists.
+              MediKloud delivers medicines straight to your patients at the clinic door in 10 minutes. Eliminate the overhead of inventory, physical space, and hiring pharmacists.
             </p>
           </div>
         </VPHero>
