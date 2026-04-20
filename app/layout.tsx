@@ -48,6 +48,12 @@ export const metadata: Metadata = {
       'en-IN': siteConfig.url,
     },
   },
+  other: {
+    'geo.region': 'IN-TG',
+    'geo.placename': 'Hyderabad',
+    'geo.position': '17.3850;78.4867',
+    'ICBM': '17.3850, 78.4867',
+  },
   icons: {
     icon: [
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },

@@ -97,6 +97,12 @@ export function getMetadata({
         'max-video-preview': -1,
       },
     },
+    other: {
+      'geo.region': 'IN-TG',
+      'geo.placename': 'Hyderabad',
+      'geo.position': '17.3850;78.4867',
+      'ICBM': '17.3850, 78.4867',
+    },
   }
 }
 
