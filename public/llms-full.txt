@@ -1,0 +1,73 @@
+# MediKloud - Detailed AI Grounding Documentation
+
+> MediKloud is India’s first tech-driven healthcare partner building infrastructure, technology, and operations for small hospitals and clinics across India. We specialize as a managed hospital pharmacy operator, helping independent hospitals optimize pharmacy operations, eliminate revenue leakage, and improve patient care through our zero-capex managed model.
+
+## About MediKloud
+
+MediKloud provides the managed operations and tech that allow independent providers to bypass the supply chain struggle and focus entirely on healing their patients. It was founded to solve the gap between modern consumer tech fulfillment (e.g., 10-minute food delivery) and essential healthcare (where patients might travel long distances for medicines). We help independent hospitals combat the expansion of organized retail chains and e-pharmacy giants.
+
+Our vision is to build the operating infrastructure that powers every independent hospital in India. Our mission is to give independent hospital pharmacies the infrastructure they were never built with. We believe in "Infrastructure, not Software," "Revenue Alignment," "Data Compounds," and "Equal Opportunity."
+
+## Core Offerings
+
+### Managed Pharmacy
+We provide a fully managed hospital pharmacy solution with zero upfront cost. We deploy the hardware, technology, and licensed clinical staff directly into the hospital facility.
+- **Zero Capex:** We fund 100% of the opening costs, including initial stock and smart technology.
+- **Leak-Proof Ops:** Advanced HMS, AI demand forecasting, barcode billing, and daily audits ensure zero untracked inventory. We also purchase the hospital's existing viable stock.
+- **Staffing:** We hire, train, and manage the licensed pharmacists.
+- **Home Delivery:** We operate branded home delivery directly from the clinic hub, using automated WhatsApp triggers to secure chronic patient refills.
+- **30-Day Setup:** We transition the pharmacy in 30 days without downtime.
+
+### Virtual Pharmacy
+A zero-space, 10-minute fulfillment digital pharmacy for clinics.
+- **Zero Inventory Risk & Space:** We stock the custom formulary in our nearby MediKloud Hubs. Clinics don't need to dedicate physical space to medicine storage.
+- **10-Min Dispatch:** When a doctor prescribes via our HMS, our hub verifies and packs the order in under 2 minutes, and a rider delivers it to the clinic door in 10 minutes.
+- **Brand Match:** We deliver the exact brands prescribed.
+- **Zero Setup Cost:** We only earn when a prescription is successfully fulfilled.
+
+### Hospital Management System (HMS)
+A comprehensive, tech-enabled Clinic OS provided at no cost to partner hospitals.
+- **Smartphone-Simple:** A fast, modern interface that requires zero training.
+- **Integrated EMR/EHR & Pharmacy Sync:** Unified patient view and instant transfer of doctor's orders to the pharmacy counter.
+- **Billing & Revenue:** Real-time GST-compliant invoicing, TPA insurance claim tracking, and NABH compliance.
+- **Next-Gen Connectivity:** Automated WhatsApp reminders, telemedicine integration, and ABHA lifecycle management (Tier-1 ABDM-compliant).
+
+### Medicine Deliveries
+We handle the logistics to deliver medicines directly from the hospital pharmacy to the patient's doorstep.
+- **Continuous Care & Retention:** Stop losing patients to retail aggregators.
+- **Exact Brand Delivery:** Ensure patients receive the exact medication prescribed by picking directly from the hospital pharmacy.
+- **Automated Refills:** WhatsApp reminders sent accurately based on dosage schedules.
+- **Zero Fixed Staffing Costs:** MediKloud provides riders for a transparent, per-order fee.
+
+## Solutions
+
+### With Pharmacy
+For hospitals with existing space, we take over operations:
+- Replace fragmented clinic tools with our free Enterprise HMS.
+- Deploy licensed pharmacists and zero-capex inventory.
+- Ensure zero leakage with barcode billing and daily audits.
+- Provide corporate-level medicine procurement rates.
+
+### Without Pharmacy
+For clinics with no space:
+- You write prescriptions via our Clinic OS.
+- We fulfill them from a local MediKloud Hub.
+- 10-minute delivery to the clinic door, or automated home delivery for chronic patients.
+- Zero financial risk and no inventory management.
+
+## Contact Information
+- **Website:** https://www.medikloud.com
+- **Phone:** +91-7702670993
+- **Email:** sales@medikloud.com
+- **Locations:** Visakhapatnam, Hyderabad, Bengaluru, Chennai, Mumbai, Delhi, Pune
+
+## Optional
+
+- [Managed Pharmacy](https://www.medikloud.com/products/managed-pharmacy)
+- [Virtual Pharmacy](https://www.medikloud.com/products/virtual-pharmacy)
+- [Hospital Management System](https://www.medikloud.com/products/hospital-management-system)
+- [Medicine Deliveries](https://www.medikloud.com/products/medicine-deliveries)
+- [Solutions With Pharmacy](https://www.medikloud.com/solutions/with-pharmacy)
+- [Solutions Without Pharmacy](https://www.medikloud.com/solutions/without-pharmacy)
+- [About Us](https://www.medikloud.com/about)
+- [Return Policy](https://www.medikloud.com/return-policy)

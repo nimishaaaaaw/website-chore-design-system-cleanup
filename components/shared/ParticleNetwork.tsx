@@ -14,6 +14,7 @@ interface Particle {
   angle: number
   rotSpeed: number
   color: string
+  hoverOpacityBoost: number
 }
 
 export function ParticleNetwork({ showParticles = true }: { showParticles?: boolean }) {
@@ -68,6 +69,7 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
           angle: Math.random() * Math.PI * 2,
           rotSpeed: (Math.random() - 0.5) * 0.03,
           color,
+          hoverOpacityBoost: 0,
         })
       }
     }
@@ -111,36 +113,17 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
 
       ctx.clearRect(0, 0, w, h)
 
-      // 1. Draw Network Connections FIRST (so they sit behind particles)
       if (showParticles) {
-        ctx.lineWidth = 1
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const pA = particles[i]
-            const pB = particles[j]
-            const dx = pA.x - pB.x
-            const dy = pA.y - pB.y
-            const distSq = dx * dx + dy * dy
-            
-            if (distSq < CONNECT_DIST * CONNECT_DIST) {
-              const dist = Math.sqrt(distSq)
-              const opacity = (1 - (dist / CONNECT_DIST)) * 0.25 // Faint network lines
-              ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})` // Slate-400
-              ctx.beginPath()
-              ctx.moveTo(pA.x, pA.y)
-              ctx.lineTo(pB.x, pB.y)
-              ctx.stroke()
-            }
-          }
-        }
-      }
-
-      // 2. Update and draw particles
-      if (showParticles) {
+        // 1. Update particle positions first
         const centerX = w / 2
         const centerY = h / 2
         const REPEL_RADIUS_X = w * 0.35 // Large horizontal avoidance
         const REPEL_RADIUS_Y = h * 0.45 // Even larger vertical avoidance for long text
+        const pad = 50
+
+        // Use a grid for spatial partitioning to optimize connection checks from O(N^2) to O(N)
+        const grid = new Map<number, Particle[]>()
+        const cellSize = CONNECT_DIST
 
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i]
@@ -153,33 +136,31 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
           if (Math.abs(p.vx) < 0.15) p.vx += p.vx > 0 ? 0.02 : -0.02
           if (Math.abs(p.vy) < 0.15) p.vy += p.vy > 0 ? 0.02 : -0.02
 
-          // --- NEW: Central Repulsion (Keep text area clear) ---
+          // Central Repulsion (Keep text area clear)
           const dxCenter = p.x - centerX
           const dyCenter = p.y - centerY
-          // Elliptical distance check
           const normX = dxCenter / REPEL_RADIUS_X
           const normY = dyCenter / REPEL_RADIUS_Y
           const distCenterSq = normX * normX + normY * normY
           
           if (distCenterSq < 1) {
             const distCenter = Math.sqrt(distCenterSq)
-            const force = (1 - distCenter) * 0.12 // Subtle outwards push
+            const force = (1 - distCenter) * 0.12
             p.vx += (dxCenter / (distCenter * REPEL_RADIUS_X || 1)) * force
             p.vy += (dyCenter / (distCenter * REPEL_RADIUS_Y || 1)) * force
           }
-          // -----------------------------------------------------
 
-          // Mouse Interaction (Crisper organic push)
-          const dx = p.x - mouse.x
-          const dy = p.y - mouse.y
-          const dist = Math.sqrt(dx * dx + dy * dy)
+          // Mouse Interaction
+          const dxMouse = p.x - mouse.x
+          const dyMouse = p.y - mouse.y
+          const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse)
           
-          let hoverOpacityBoost = 0
-          if (dist < MOUSE_RADIUS) {
-            const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS
-            p.vx += (dx / dist) * force * 0.3
-            p.vy += (dy / dist) * force * 0.3
-            hoverOpacityBoost = force * 0.4 
+          p.hoverOpacityBoost = 0
+          if (distMouse < MOUSE_RADIUS) {
+            const force = (MOUSE_RADIUS - distMouse) / MOUSE_RADIUS
+            p.vx += (dxMouse / distMouse) * force * 0.3
+            p.vy += (dyMouse / distMouse) * force * 0.3
+            p.hoverOpacityBoost = force * 0.4
           }
 
           // Apply velocity & rotation
@@ -188,24 +169,98 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
           p.angle += p.rotSpeed
 
           // Smooth screen wrapping
-          const pad = 50
           if (p.x < -pad) p.x = w + pad
           if (p.x > w + pad) p.x = -pad
           if (p.y < -pad) p.y = h + pad
           if (p.y > h + pad) p.y = -pad
 
-          // Draw Medical/Health Shapes
+          // Register particle in grid for connection checks
+          const gx = Math.floor((p.x + pad) / cellSize)
+          const gy = Math.floor((p.y + pad) / cellSize)
+          const key = (gx << 16) | gy
+          let cell = grid.get(key)
+          if (!cell) {
+            cell = []
+            grid.set(key, cell)
+          }
+          cell.push(p)
+        }
+
+        // 2. Draw Network Connections (behind particles)
+        ctx.lineWidth = 1
+        const distLimitSq = CONNECT_DIST * CONNECT_DIST
+
+        for (const [key, cellParticles] of grid) {
+          const gx = key >> 16
+          const gy = key & 0xFFFF
+
+          // Same cell connections
+          for (let i = 0; i < cellParticles.length; i++) {
+            const pA = cellParticles[i]
+            for (let j = i + 1; j < cellParticles.length; j++) {
+              const pB = cellParticles[j]
+              const dx = pA.x - pB.x
+              const dy = pA.y - pB.y
+              const d2 = dx * dx + dy * dy
+              if (d2 < distLimitSq) {
+                const dist = Math.sqrt(d2)
+                const opacity = (1 - (dist / CONNECT_DIST)) * 0.25
+                ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})`
+                ctx.beginPath()
+                ctx.moveTo(pA.x, pA.y)
+                ctx.lineTo(pB.x, pB.y)
+                ctx.stroke()
+              }
+            }
+          }
+
+          // Neighbor cell connections (only check forward to avoid duplicates)
+          const neighbors = [
+            ((gx + 1) << 16) | (gy - 1),
+            ((gx + 1) << 16) | gy,
+            ((gx + 1) << 16) | (gy + 1),
+            (gx << 16) | (gy + 1)
+          ]
+
+          for (let n = 0; n < neighbors.length; n++) {
+            const nKey = neighbors[n]
+            const neighborParticles = grid.get(nKey)
+            if (neighborParticles) {
+              for (let i = 0; i < cellParticles.length; i++) {
+                const pA = cellParticles[i]
+                for (let j = 0; j < neighborParticles.length; j++) {
+                  const pB = neighborParticles[j]
+                  const dx = pA.x - pB.x
+                  const dy = pA.y - pB.y
+                  const d2 = dx * dx + dy * dy
+                  if (d2 < distLimitSq) {
+                    const dist = Math.sqrt(d2)
+                    const opacity = (1 - (dist / CONNECT_DIST)) * 0.25
+                    ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})`
+                    ctx.beginPath()
+                    ctx.moveTo(pA.x, pA.y)
+                    ctx.lineTo(pB.x, pB.y)
+                    ctx.stroke()
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // 3. Draw particles
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i]
+
           ctx.save()
           ctx.translate(p.x, p.y)
           ctx.rotate(p.angle)
 
-          const finalOpacity = Math.min(1, p.baseOpacity + hoverOpacityBoost)
-          
+          const finalOpacity = Math.min(1, p.baseOpacity + p.hoverOpacityBoost)
           ctx.fillStyle = `rgba(${p.color}, ${finalOpacity})`
           ctx.strokeStyle = `rgba(${p.color}, ${finalOpacity})`
 
           if (p.type === 'cross') {
-            // Sharp medical cross ✚
             const s = p.size * 0.8
             const thick = p.size * 0.4
             ctx.beginPath()
@@ -213,19 +268,16 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
             ctx.rect(-thick/2, -s, thick, s*2)
             ctx.fill()
           } else if (p.type === 'capsule') {
-            // Solid Pill / Capsule shape
             const width = p.size * 2.2
             const height = p.size * 1.1
             ctx.beginPath()
             ctx.roundRect(-width/2, -height/2, width, height, height/2)
             ctx.fill()
           } else {
-            // Solid node (Circle)
             ctx.beginPath()
             ctx.arc(0, 0, p.size, 0, Math.PI * 2)
             ctx.fill()
           }
-
           ctx.restore()
         }
       }

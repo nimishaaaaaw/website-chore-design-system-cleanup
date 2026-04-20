@@ -19,10 +19,28 @@ export const metadata = getMetadata({
   path: '/products/hospital-management-system'
 });
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How do I migrate my existing patient data?', acceptedAnswer: { '@type': 'Answer', text: 'We handle everything. Our clinical onboarding team will batch-import your records from your legacy systems or Excel sheets with zero data loss.' } },
+    { '@type': 'Question', name: 'Is MediKloud HMS ABDM compliant?', acceptedAnswer: { '@type': 'Answer', text: '100% Compliant. MediKloud is Tier-1 ABDM-compliant. Create ABHA IDs and link health records natively right from the dashboard.' } },
+    { '@type': 'Question', name: 'What happens if the internet goes down?', acceptedAnswer: { '@type': 'Answer', text: 'You stay operational. Our offline-resilient architecture lets you continue charting without interruption. Data syncs automatically the second you are back online.' } },
+    { '@type': 'Question', name: 'Can it be customized for my specialty?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. We provide pre-built templates for 15+ specialties (Cardio, Ortho, etc.) and customizable SOAP notes to match your exact workflow.' } },
+    { '@type': 'Question', name: 'Are there any hidden maintenance AMC fees?', acceptedAnswer: { '@type': 'Answer', text: 'Zero. We use a transparent subscription model. All over-the-air updates, security protocols, and system maintenance are included for free.' } },
+    { '@type': 'Question', name: 'How much training does my staff need?', acceptedAnswer: { '@type': 'Answer', text: 'Under 2 hours. The interface is as intuitive as a smartphone app. Most reception staff are fully proficient after a single onboarding session.' } },
+    { '@type': 'Question', name: 'Does it support multi-doctor clinics?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can instantly add new doctors, set up specialized department desks, and configure strict role-based access for your entire staff.' } },
+    { '@type': 'Question', name: 'What are the hardware requirements?', acceptedAnswer: { '@type': 'Answer', text: 'Anything with a browser. Because we are a cloud-native OS, there are no bulky local servers required. It runs flawlessly on your existing laptops or tablets.' } },
+    { '@type': 'Question', name: 'Who owns my clinical data?', acceptedAnswer: { '@type': 'Answer', text: 'You retain 100% ownership. MediKloud acts strictly as a secure custodian. You own your data and can export your complete records at any time.' } },
+    { '@type': 'Question', name: 'Does it handle GST and TPA automatically?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Generate real-time GST-compliant invoices and track TPA insurance claims and pending settlements in one unified financial dashboard.' } }
+  ]
+};
+
 export default function HMSPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
+      <JsonLd data={faqSchema} id="faq-schema" />
       <JsonLd 
         id="ld-breadcrumb" 
         data={getBreadcrumbSchema([
@@ -74,7 +92,7 @@ export default function HMSPage() {
             </h1>
             
             <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-              Run your entire facility from any device. Built exclusively for doctor-owned clinics, MediKloud connects your reception, OPD, and pharmacy into one zero-friction workflow.
+              Run your entire facility from any device. Built exclusively for doctor-owned clinics, MediKloud HMS connects your reception, OPD, and pharmacy into one zero-friction workflow.
             </p>
           </div>
         </HMSHero>

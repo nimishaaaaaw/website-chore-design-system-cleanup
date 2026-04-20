@@ -19,6 +19,19 @@ export const metadata = getMetadata({
   path: '/solutions/without-pharmacy'
 });
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How fast is the delivery to my clinic?', acceptedAnswer: { '@type': 'Answer', text: '10 Minutes. We deliver medicines to your clinic door in just 10 minutes. Our routing system automatically dispatches the rider from the nearest MediKloud Hub the moment you sign the prescription.' } },
+    { '@type': 'Question', name: 'Do I have to pay for or store the medicines?', acceptedAnswer: { '@type': 'Answer', text: 'Zero Inventory. You don\'t buy or store any medicine in your clinic. MediKloud manages the entire lifecycle of the stock, tracking, and expiries for you.' } },
+    { '@type': 'Question', name: 'How do I earn margin through this?', acceptedAnswer: { '@type': 'Answer', text: 'Transparent Earnings. You earn a professional margin on every prescription fulfilled through the MediKloud network. All earnings are tracked in real-time on your dashboard.' } },
+    { '@type': 'Question', name: 'What if my patient needs a refill at home?', acceptedAnswer: { '@type': 'Answer', text: 'Home Delivery Included. For chronic medicines, our system sends a WhatsApp reminder to the patient and manages home delivery automatically, ensuring they never miss a dose.' } },
+    { '@type': 'Question', name: 'Does it work with my existing patient software?', acceptedAnswer: { '@type': 'Answer', text: 'Full Integration. MediKloud works perfectly alongside your existing setups or as a standalone Clinical OS on desktop, tablet, and mobile devices.' } },
+    { '@type': 'Question', name: 'How long does it take to get started?', acceptedAnswer: { '@type': 'Answer', text: 'Under 24 Hours. We can get your clinic live and routing medicines in less than a day with zero setup fees and zero disruption to your daily practice.' } }
+  ]
+};
+
 export default function ClinicWithoutPharmacyPage() {
   const breadcrumbData = getBreadcrumbSchema([
     { name: 'Home', item: '/' },
@@ -29,6 +42,7 @@ export default function ClinicWithoutPharmacyPage() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
       <StorytellingStyles />
+      <JsonLd data={faqSchema} id="faq-schema" />
       <JsonLd id="ld-breadcrumb" data={breadcrumbData} />
       <JsonLd 
         id="ld-service" 
@@ -67,7 +81,7 @@ export default function ClinicWithoutPharmacyPage() {
             </h1>
             
             <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
-              Ensure your patients get the exact medicines you prescribe, delivered to your waiting room in just 10 minutes. No substitutions, zero inventory risk, and 100% operational clarity.
+              Ensure your patients get the exact medicines you prescribe, delivered by MediKloud to your waiting room in just 10 minutes. No substitutions, zero inventory risk, and 100% operational clarity.
             </p>
           </div>
         </ClinicHero>
