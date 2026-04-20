@@ -1,5 +1,4 @@
 import React from 'react'
-import Script from 'next/script'
 
 type JsonLdProps = {
   data: Record<string, any>
@@ -8,7 +7,7 @@ type JsonLdProps = {
 
 export function JsonLd({ data, id }: JsonLdProps) {
   return (
-    <Script
+    <script
       id={id}
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}

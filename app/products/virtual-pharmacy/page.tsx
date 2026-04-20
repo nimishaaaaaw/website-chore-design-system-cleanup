@@ -18,10 +18,27 @@ export const metadata = getMetadata({
   path: '/products/virtual-pharmacy'
 });
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'What happens if the 10-minute delivery is delayed?', acceptedAnswer: { '@type': 'Answer', text: 'If our rider is delayed, we automatically provide Free Same-Day Home Delivery for the patient. Accuracy and patient satisfaction are our top priorities.' } },
+    { '@type': 'Question', name: 'Is this legal and compliant?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. MediKloud operates its own licensed retail pharmacies. We assume 100% of the legal and regulatory liability. All fulfillment happens through authorized channels.' } },
+    { '@type': 'Question', name: 'How much does it cost the clinic to start?', acceptedAnswer: { '@type': 'Answer', text: 'Establishing a Virtual Pharmacy node costs ₹0. There are no setup fees, inventory investment, or monthly software charges. We only earn when we fulfill prescriptions successfully.' } },
+    { '@type': 'Question', name: 'How long does the setup take?', acceptedAnswer: { '@type': 'Answer', text: 'We can go live in 7 days. This includes mapping your preferred brands, setting up your custom stock in our hub, and a quick training for your staff.' } },
+    { '@type': 'Question', name: 'Does this increase my staff’s workload?', acceptedAnswer: { '@type': 'Answer', text: 'No. Operationally, it is Zero-Touch. Your staff simply issues the Rx via our HMS—our hub handles the packing, delivery, and payments automatically.' } },
+    { '@type': 'Question', name: 'What medicines do you stock in my local hub?', acceptedAnswer: { '@type': 'Answer', text: 'We stock the exact brands you prefer. We build a custom formulary mapped to your clinic\'s prescribing patterns to ensure 100% brand accuracy.' } },
+    { '@type': 'Question', name: 'Do I need to hire a pharmacist for the clinic?', acceptedAnswer: { '@type': 'Answer', text: 'No. MediKloud provides licensed pharmacists within our local fulfillment hubs to verify and fulfill all your clinic\'s orders. No additional payroll is required.' } },
+    { '@type': 'Question', name: 'How are patient payments handled?', acceptedAnswer: { '@type': 'Answer', text: 'MediKloud collects all payments directly via UPI or cash handled by our riders. The clinic does not handle cash, eliminating financial overhead and reconciliation.' } },
+    { '@type': 'Question', name: 'Is my patient data private and secure?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. All data is 100% encrypted and private. You own the patient relationship; we simply provide the technology and fulfillment infrastructure.' } }
+  ]
+};
+
 export default function VirtualPharmacyPage() {
   return (
     <div className="min-h-screen bg-[#FDFDFF] font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-700">
       <Header />
+      <JsonLd data={faqSchema} id="faq-schema" />
       <JsonLd 
         id="ld-breadcrumb" 
         data={getBreadcrumbSchema([
