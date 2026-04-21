@@ -51,8 +51,8 @@ export function Footer() {
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Solutions</h3>
             <ul className="space-y-3">
               {[
-                { name: 'With Pharmacy', href: '/solutions/with-pharmacy' },
-                { name: 'Without Pharmacy', href: '/solutions/without-pharmacy' }
+                { name: 'Have In-House Pharmacy', href: '/solutions/with-pharmacy' },
+                { name: 'No Pharmacy Yet', href: '/solutions/without-pharmacy' }
               ].map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
