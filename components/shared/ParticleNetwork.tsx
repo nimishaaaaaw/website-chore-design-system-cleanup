@@ -74,10 +74,15 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
       }
     }
 
+    let containerW = 0
+    let containerH = 0
+
     const resizeCanvas = () => {
       // Use offsetWidth to get exact pixel dimensions of the container
-      const w = container.offsetWidth
-      const h = container.offsetHeight
+      containerW = container.offsetWidth
+      containerH = container.offsetHeight
+      const w = containerW
+      const h = containerH
 
       // Handle ResizeObserver 0-dimension edge case
       if (w === 0 || h === 0) return
@@ -106,8 +111,8 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
 
     // Draw frame
     const draw = () => {
-      const w = container.offsetWidth
-      const h = container.offsetHeight
+      const w = containerW
+      const h = containerH
 
       if (w === 0 || h === 0) {
         animationFrameId = requestAnimationFrame(draw)

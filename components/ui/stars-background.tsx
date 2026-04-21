@@ -72,15 +72,18 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
 
-      const { width, height } = canvas.getBoundingClientRect();
-      if (width === 0 || height === 0) {
+      const parent = canvas.parentElement;
+      const cw = parent ? parent.clientWidth : canvas.clientWidth;
+      const ch = parent ? parent.clientHeight : canvas.clientHeight;
+
+      if (cw === 0 || ch === 0) {
         // Try again on next frame if layout not ready yet
         requestAnimationFrame(updateStars);
         return;
       }
-      canvas.width = width;
-      canvas.height = height;
-      setStars(generateStars(width, height));
+      canvas.width = cw;
+      canvas.height = ch;
+      setStars(generateStars(cw, ch));
     };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
