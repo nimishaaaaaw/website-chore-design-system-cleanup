@@ -28,6 +28,7 @@ export function Header() {
                 alt="MediKloud Logo" 
                 className="w-[120px] sm:w-[140px] md:w-[160px] h-auto"
                 priority
+                fetchPriority="high"
                 width={1536}
                 height={1024}
                 sizes="(max-width: 640px) 120px, (max-width: 768px) 140px, 160px"

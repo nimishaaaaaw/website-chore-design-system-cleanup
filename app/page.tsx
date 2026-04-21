@@ -4,15 +4,18 @@ import { Footer } from '@/components/layout/Footer'
 import { BackToTop } from '@/components/layout/BackToTop'
 import { JsonLd } from '@/components/seo/JsonLd'
 
+import dynamic from 'next/dynamic'
+
 // Page Components
 import { MainHero } from '@/components/pages/home/MainHero'
 import { Stats } from '@/components/pages/home/Stats'
-import { ProblemSection } from '@/components/pages/home/ProblemSection'
-import { FulfillmentEcosystem } from '@/components/pages/home/FulfillmentEcosystem'
-import { AdvantageSection } from '@/components/pages/home/AdvantageSection'
-import { HomeFAQ } from '@/components/pages/home/HomeFAQ'
-import { MarqueeSection } from '@/components/pages/home/MarqueeSection'
-import { GetStartedCTA } from '@/components/pages/home/GetStartedCTA'
+
+const ProblemSection = dynamic(() => import('@/components/pages/home/ProblemSection').then(mod => mod.ProblemSection))
+const AdvantageSection = dynamic(() => import('@/components/pages/home/AdvantageSection').then(mod => mod.AdvantageSection))
+const FulfillmentEcosystem = dynamic(() => import('@/components/pages/home/FulfillmentEcosystem').then(mod => mod.FulfillmentEcosystem))
+const MarqueeSection = dynamic(() => import('@/components/pages/home/MarqueeSection').then(mod => mod.MarqueeSection))
+const GetStartedCTA = dynamic(() => import('@/components/pages/home/GetStartedCTA').then(mod => mod.GetStartedCTA))
+const HomeFAQ = dynamic(() => import('@/components/pages/home/HomeFAQ').then(mod => mod.HomeFAQ))
 
 import { faqData } from '@/lib/constants'
 
