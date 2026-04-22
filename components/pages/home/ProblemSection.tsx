@@ -23,10 +23,10 @@ export function ProblemSection() {
           100% { transform: translateY(200%); opacity: 0; }
         }
         @keyframes leak-right {
-          0% { left: -10px; opacity: 0; }
+          0% { transform: translateX(-10px); opacity: 0; }
           20% { opacity: 1; }
           80% { opacity: 1; }
-          100% { left: 100%; opacity: 0; }
+          100% { transform: translateX(100px); opacity: 0; }
         }
         .animate-pipe-flow { animation: flow-down 2s linear infinite; }
         .animate-leak-1 { animation: leak-right 1.5s linear infinite; }

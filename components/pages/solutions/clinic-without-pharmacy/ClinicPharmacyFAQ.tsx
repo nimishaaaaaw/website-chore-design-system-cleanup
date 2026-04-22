@@ -62,7 +62,7 @@ export const ClinicPharmacyFAQ = () => {
                 key={index}
                 className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-card-md transition-all duration-300"
               >
-                <h4 className="text-lg font-bold text-slate-900 mb-4 tracking-tight">{faq.question}</h4>
+                <h3 className="text-lg font-bold text-slate-900 mb-4 tracking-tight">{faq.question}</h3>
                 <div className="text-[15px] text-slate-600 leading-relaxed font-sans">
                   {faq.answer}
                 </div>

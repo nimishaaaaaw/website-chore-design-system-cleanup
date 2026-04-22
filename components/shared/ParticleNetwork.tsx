@@ -74,10 +74,15 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
       }
     }
 
+    let containerW = 0
+    let containerH = 0
+
     const resizeCanvas = () => {
       // Use offsetWidth to get exact pixel dimensions of the container
-      const w = container.offsetWidth
-      const h = container.offsetHeight
+      containerW = container.offsetWidth
+      containerH = container.offsetHeight
+      const w = containerW
+      const h = containerH
 
       // Handle ResizeObserver 0-dimension edge case
       if (w === 0 || h === 0) return
@@ -101,10 +106,13 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
     // Initial sizing
     resizeCanvas()
 
+    // Reusable grid to prevent GC pauses
+    const grid = new Map<number, Particle[]>()
+
     // Draw frame
     const draw = () => {
-      const w = container.offsetWidth
-      const h = container.offsetHeight
+      const w = containerW
+      const h = containerH
 
       if (w === 0 || h === 0) {
         animationFrameId = requestAnimationFrame(draw)
@@ -122,7 +130,10 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
         const pad = 50
 
         // Use a grid for spatial partitioning to optimize connection checks from O(N^2) to O(N)
-        const grid = new Map<number, Particle[]>()
+        // Clear grid without reallocating
+        for (const [key, cell] of grid.entries()) {
+          cell.length = 0
+        }
         const cellSize = CONNECT_DIST
 
         for (let i = 0; i < particles.length; i++) {
