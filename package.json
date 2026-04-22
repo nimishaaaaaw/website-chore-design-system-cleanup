@@ -74,6 +74,11 @@
     "vaul": "^1.1.2",
     "zod": "^4.0.15"
   },
+  "browserslist": [
+    ">0.3%",
+    "defaults",
+    "supports es6-module"
+  ],
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^22",
