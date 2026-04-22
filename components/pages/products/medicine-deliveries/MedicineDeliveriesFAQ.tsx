@@ -71,7 +71,7 @@ export const MedicineDeliveriesFAQ = () => {
                 key={index}
                 className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-card-sm transition-all duration-300"
               >
-                <h4 className="text-lg font-bold text-slate-900 mb-4">{faq.q}</h4>
+                <h3 className="text-lg font-bold text-slate-900 mb-4">{faq.q}</h3>
                 <div className="premium-p !text-slate-600 leading-relaxed font-sans">
                   {faq.a}
                 </div>
