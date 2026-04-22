@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
           
           {/* Brand Column */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-4 space-y-6">
             <Link href="/" className="inline-block transition-transform hover:scale-105 active:scale-95 duration-200">
               <div className="w-[180px]">
                 <Image
@@ -27,8 +27,8 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Solutions Column */}
-          <div className="lg:col-span-3 space-y-5">
+          {/* Offerings Column */}
+          <div className="lg:col-span-2 space-y-5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Offerings</h3>
             <ul className="space-y-3">
               {[
@@ -46,8 +46,37 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* Solutions Column */}
+          <div className="lg:col-span-2 space-y-5">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Solutions</h3>
+            <ul className="space-y-3">
+              {[
+                { name: 'Have In-House Pharmacy', href: '/solutions/with-pharmacy' },
+                { name: 'No Pharmacy Yet', href: '/solutions/without-pharmacy' }
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div className="lg:col-span-1 space-y-5">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Company</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/about" className="text-slate-600 hover:text-blue-600 transition-colors text-sm font-normal">
+                  About
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Locations Column */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-3 space-y-5">
             <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400">Locations</h3>
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               <ul className="space-y-3">
@@ -84,12 +113,12 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="https://www.linkedin.com/company/medikloud" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors">
+            <Link href="https://www.linkedin.com/company/medikloud" target="_blank" rel="noopener noreferrer" aria-label="Visit MediKloud on LinkedIn" className="text-slate-400 hover:text-blue-600 transition-colors">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.778-.773 1.778-1.729V1.729C24 .774 23.204 0 22.225 0z" />
               </svg>
             </Link>
-            <Link href="https://x.com/MediKloud" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors">
+            <Link href="https://x.com/MediKloud" target="_blank" rel="noopener noreferrer" aria-label="Visit MediKloud on X" className="text-slate-400 hover:text-blue-600 transition-colors">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
               </svg>

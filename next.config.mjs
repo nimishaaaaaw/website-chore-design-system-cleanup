@@ -10,15 +10,17 @@ const cspDirectives = [
   "default-src 'self'",
   "upgrade-insecure-requests",
   isDev 
-    ? "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com"
-    : "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com",
-  "style-src 'self' 'unsafe-inline'",
+    ? "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://vitals.vercel-analytics.com"
+    : "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://vitals.vercel-analytics.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net https://*.vercel.app",
-  "connect-src 'self' https://formspree.io https://lottie.host https://unpkg.com https://cdn.jsdelivr.net https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.contentful.com https://*.ctfassets.net https://va.vercel-scripts.com",
+  "connect-src 'self' https://formspree.io https://lottie.host https://unpkg.com https://cdn.jsdelivr.net https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.contentful.com https://*.ctfassets.net https://va.vercel-scripts.com https://vitals.vercel-insights.com https://vitals.vercel-analytics.com",
   "font-src 'self' data: https://fonts.gstatic.com",
   "frame-ancestors 'self' https://app.contentful.com https://*.contentful.com",
   "object-src 'none'",
   "worker-src 'self' blob:",
+  "base-uri 'self'",
+  "form-action 'self' https://formspree.io",
 ]
 const csp = cspDirectives.join('; ')
 
@@ -45,7 +47,6 @@ const securityHeaders = [
   },
   {
     key: 'Permissions-Policy',
-    // Only allow what is typically needed; expand as features are added
     value:
       'camera=(), microphone=(), geolocation=(), interest-cohort=()',
   },
@@ -82,6 +83,7 @@ const nextConfig = {
   },
   experimental: {
     turbopackFileSystemCacheForDev: true,
+    optimizeCss: true,
   },
   turbopack: {
     root: __dirname,

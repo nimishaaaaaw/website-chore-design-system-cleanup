@@ -44,6 +44,17 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
     let disposed = false;
 
+    let boundsWidth = 0;
+    let boundsHeight = 0;
+
+    const updateBounds = () => {
+      if (svg) {
+        const b = svg.getBoundingClientRect();
+        boundsWidth = b.width;
+        boundsHeight = b.height;
+      }
+    };
+
     const getRandomStartPoint = (w: number, h: number) => {
       const side = Math.floor(Math.random() * 4);
       if (side === 0) return { x: Math.random() * w, y: 0, angle: 45 };
@@ -54,12 +65,11 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
 
     const spawnStar = () => {
       if (disposed) return;
-      const bounds = svg.getBoundingClientRect();
-      if (!bounds.width || !bounds.height) {
+      if (!boundsWidth || !boundsHeight) {
         timeoutId = setTimeout(spawnStar, 300);
         return;
       }
-      const start = getRandomStartPoint(bounds.width, bounds.height);
+      const start = getRandomStartPoint(boundsWidth, boundsHeight);
       starRef.current = {
         ...start,
         scale: 1,
@@ -75,13 +85,12 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
       if (disposed) return;
       const star = starRef.current;
       if (star && star.active) {
-        const bounds = svg.getBoundingClientRect();
         star.x += star.speed * Math.cos((star.angle * Math.PI) / 180);
         star.y += star.speed * Math.sin((star.angle * Math.PI) / 180);
         star.distance += star.speed;
         star.scale = 1 + star.distance / 100;
 
-        if (star.x < -20 || star.x > bounds.width + 20 || star.y < -20 || star.y > bounds.height + 20) {
+        if (star.x < -20 || star.x > boundsWidth + 20 || star.y < -20 || star.y > boundsHeight + 20) {
           star.active = false;
           rect.setAttribute('opacity', '0');
           // Schedule next star
@@ -100,12 +109,22 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
       animFrameId = requestAnimationFrame(tick);
     };
 
+    updateBounds();
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateBounds();
+    });
+    if (svg.parentElement) {
+      resizeObserver.observe(svg.parentElement);
+    }
+
     spawnStar();
     tick();
 
     return () => {
       disposed = true;
       cancelAnimationFrame(animFrameId);
+      resizeObserver.disconnect();
       if (timeoutId) clearTimeout(timeoutId);
     };
   }, [minSpeed, maxSpeed, minDelay, maxDelay, starWidth, starHeight]);
