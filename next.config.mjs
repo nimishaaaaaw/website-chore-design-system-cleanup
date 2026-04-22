@@ -82,6 +82,7 @@ const nextConfig = {
   },
   experimental: {
     turbopackFileSystemCacheForDev: true,
+    optimizeCss: true,
   },
   turbopack: {
     root: __dirname,
