@@ -71,7 +71,7 @@ export function HeaderVariant({ variant, title }: HeaderProps) {
 
             {/* Navigation - Centered */}
             <nav className="hidden md:flex flex-1 justify-center items-center gap-8">
-              {['Solutions', 'Compare', 'Blogs', 'About Us'].map((item) => (
+              {['Products', 'Solutions', 'About Us', 'Blogs'].map((item) => (
                 <Link
                   key={item}
                   href="#"

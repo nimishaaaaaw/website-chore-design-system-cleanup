@@ -1,107 +1,161 @@
-import { Entry, Asset, EntryFieldTypes, EntrySkeletonType } from 'contentful'
-import { Document } from '@contentful/rich-text-types'
-import { contentfulClient, contentfulPreviewClient } from './contentful'
+import fs from 'fs'
+import path from 'path'
 
-export interface BlogPost {
+const contentDirectory = path.join(process.cwd(), 'content/blogs')
+
+export type PostMetadata = {
+  title: string
+  slug: string
+  author: string
+  publishedDate: string
+  subtitle?: string
+  role?: string
+  draft?: boolean
+  mainImage?: {
+    url: string
+    alt: string
+  }
+  seo: {
     title: string
-    slug: string
-    author: string
-    publishedDate: string
-    body: Document
-    subtitle: string
-    role: string
-    mainImage: {
-        url: string
-        alt: string
-    } | null
-    seo: {
-        title: string
-        description: string
-        keywords: string[]
+    description: string
+    keywords?: string[]
+  }
+  theme?: {
+    color?: string
+    font?: string
+  }
+}
+
+export type BlogPost = PostMetadata & {
+  body: string
+  readTime: number
+}
+
+export function calculateReadTime(markdownText: string): number {
+  if (!markdownText) return 1
+  const words = markdownText.trim().split(/\s+/).length
+  return Math.max(1, Math.ceil(words / 225)) // 225 wpm is a good standard
+}
+
+// Custom lightweight frontmatter parser to avoid dependency issues
+function parseMDX(fileContents: string) {
+    const lines = fileContents.split('\n')
+    const data: any = { seo: {} }
+    let content = ''
+    
+    if (lines[0] && lines[0].trim() === '---') {
+        let i = 1
+        let currentParent: string | null = null
+        
+        while (i < lines.length && lines[i].trim() !== '---') {
+            const line = lines[i]
+            if (line.trim()) {
+                const indentMatch = line.match(/^(\s+)/)
+                const isIndented = indentMatch !== null
+                const colonIndex = line.indexOf(':')
+                
+                if (colonIndex !== -1) {
+                    const key = line.slice(0, colonIndex).trim()
+                    let value = line.slice(colonIndex + 1).trim()
+                    
+                    // Better unquoting: handles quotes and trailing spaces
+                    value = value.replace(/^['"](.*)['"]$/, '$1')
+                    
+                    if (!isIndented) {
+                        currentParent = key
+                        if (!value) {
+                            data[key] = {}
+                        } else {
+                            if (value.startsWith('[') && value.endsWith(']')) {
+                                const items = value.slice(1, -1).split(',').map(s => s.trim().replace(/^['"]|['"]$/g, ''))
+                                data[key] = items
+                            } else {
+                                const boolValue = value.toLowerCase()
+                                if (boolValue === 'true') data[key] = true
+                                else if (boolValue === 'false') data[key] = false
+                                else data[key] = value
+                            }
+                        }
+                    } else if (currentParent && data[currentParent] && typeof data[currentParent] === 'object') {
+                        // Support arrays in nested objects
+                        if (value.startsWith('[') && value.endsWith(']')) {
+                            const items = value.slice(1, -1).split(',').map(s => s.trim().replace(/^['"]|['"]$/g, ''))
+                            data[currentParent][key] = items
+                        } else {
+                            data[currentParent][key] = value
+                        }
+                    }
+                }
+            }
+            i++
+        }
+        content = lines.slice(i + 1).join('\n').trim()
+    } else {
+        content = fileContents.trim()
     }
-    theme: {
-        color: string
-        font: string
-    }
-}
-
-interface BlogPostFields {
-    title: EntryFieldTypes.Text
-    slug: EntryFieldTypes.Text
-    author: EntryFieldTypes.Text
-    publishedDate: EntryFieldTypes.Date
-    body: EntryFieldTypes.RichText
-    subtitle: EntryFieldTypes.Text
-    role: EntryFieldTypes.Text
-    mainImage?: EntryFieldTypes.AssetLink
-    seoTitle: EntryFieldTypes.Text
-    seoDescription: EntryFieldTypes.Text
-    keywords: EntryFieldTypes.Array<EntryFieldTypes.Symbol>
-    themeColor?: EntryFieldTypes.Text
-    fontStyle?: EntryFieldTypes.Text
-}
-
-interface BlogPostSkeleton extends EntrySkeletonType {
-    contentTypeId: 'blogPost'
-    fields: BlogPostFields
-}
-
-function parseContentfulPost(item: Entry<BlogPostSkeleton, undefined, string>): BlogPost {
-    return {
-        title: item.fields.title as string,
-        slug: item.fields.slug as string,
-        author: item.fields.author as string,
-        publishedDate: item.fields.publishedDate as string,
-        body: item.fields.body as Document,
-        subtitle: item.fields.subtitle as string,
-        role: item.fields.role as string,
-        mainImage: (item.fields.mainImage && (item.fields.mainImage as Asset).fields.file) ? {
-            url: 'https:' + ((item.fields.mainImage as Asset).fields.file!.url as string),
-            alt: ((item.fields.mainImage as Asset).fields.title as string) || ''
-        } : null,
+    
+    // Map to our strict metadata type
+    const metadata: PostMetadata = {
+        title: data.title || '',
+        slug: data.slug || '',
+        author: data.author || 'MediKloud Team',
+        publishedDate: data.publishedDate || new Date().toISOString().split('T')[0],
+        subtitle: data.subtitle,
+        role: data.role,
+        draft: data.draft === true,
+        mainImage: data.mainImage && (typeof data.mainImage === 'string' || data.mainImage.url) ? {
+            url: typeof data.mainImage === 'string' ? data.mainImage : data.mainImage.url,
+            alt: data.mainImage.alt || data.title || ''
+        } : undefined,
         seo: {
-            title: item.fields.seoTitle as string,
-            description: item.fields.seoDescription as string,
-            keywords: item.fields.keywords as string[]
+            title: data.seo?.title || data.seoTitle || data.title || '',
+            description: data.seo?.description || data.seoDescription || data.subtitle || '',
+            keywords: data.seo?.keywords || data.keywords || []
         },
-        theme: {
-            color: item.fields.themeColor || 'blue',
-            font: item.fields.fontStyle || 'sans'
-        }
+        theme: data.theme || { color: 'blue', font: 'sans' }
     }
+    
+    return { metadata, content }
 }
 
-export async function getAllPosts(isDraftMode = false): Promise<BlogPost[]> {
-    const client = isDraftMode ? contentfulPreviewClient : contentfulClient
-    if (!client) return []
-    try {
-        const entries = await client.getEntries<BlogPostSkeleton>({
-            content_type: 'blogPost',
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            order: ['-fields.publishedDate'] as any,
-        })
-        return entries.items.map(parseContentfulPost)
-    } catch (error) {
-        console.error('[Contentful] Error fetching posts:', error)
-        return []
-    }
+export async function getAllPosts(includeDrafts = false): Promise<BlogPost[]> {
+  try {
+    if (!fs.existsSync(contentDirectory)) return []
+    
+    const fileNames = fs.readdirSync(contentDirectory)
+    const allPostsData = fileNames
+      .filter((fileName) => fileName.endsWith('.mdx') || fileName.endsWith('.md'))
+      .map((fileName) => {
+        const slugFromFile = fileName.replace(/\.mdx?$/, '')
+        const fullPath = path.join(contentDirectory, fileName)
+        const fileContents = fs.readFileSync(fullPath, 'utf8')
+        
+        const { metadata, content } = parseMDX(fileContents)
+        
+        if (!metadata.slug) metadata.slug = slugFromFile
+        
+        return {
+          ...metadata,
+          body: content,
+          readTime: calculateReadTime(content)
+        }
+      })
+      
+    const filteredPosts = includeDrafts ? allPostsData : allPostsData.filter(post => !post.draft)
+
+    return filteredPosts.sort((a, b) => {
+      const dateA = new Date(a.publishedDate).getTime()
+      const dateB = new Date(b.publishedDate).getTime()
+      return dateB - dateA
+    })
+  } catch (error) {
+    console.error('Error reading local MDX files:', error)
+    return []
+  }
 }
 
-export async function getPostBySlug(slug: string, isDraftMode = false): Promise<BlogPost | null> {
-    const client = isDraftMode ? contentfulPreviewClient : contentfulClient
-    if (!client) return null
-    try {
-        const entries = await client.getEntries<BlogPostSkeleton>({
-            content_type: 'blogPost',
-            'fields.slug': slug,
-            limit: 1,
-        })
-        if (entries.items.length > 0) {
-            return parseContentfulPost(entries.items[0])
-        }
-        return null
-    } catch (error) {
-        console.error('[Contentful] Error fetching post by slug:', error)
-        return null
-    }
+export async function getPostBySlug(slug: string, includeDrafts = false): Promise<BlogPost | null> {
+    const posts = await getAllPosts(includeDrafts)
+    const post = posts.find((p) => p.slug === slug)
+    return post || null
 }

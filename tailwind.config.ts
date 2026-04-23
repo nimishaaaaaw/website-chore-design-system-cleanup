@@ -367,10 +367,84 @@ const config: Config = {
         'spring': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
         'premium': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
+      // ─────────────────────────────────────────────────────────
+      // TYPOGRAPHY (prose)
+      // Customising the @tailwindcss/typography plugin to match
+      // the MediKloud Design System tokens.
+      // ─────────────────────────────────────────────────────────
+      typography: ({ theme }: { theme: any }) => ({
+        slate: {
+          css: {
+            '--tw-prose-body': theme('colors.slate.600'),
+            '--tw-prose-headings': theme('colors.slate.900'),
+            '--tw-prose-lead': theme('colors.slate.500'),
+            '--tw-prose-links': theme('colors.brand.600'),
+            '--tw-prose-bold': theme('colors.slate.900'),
+            '--tw-prose-counters': theme('colors.brand.500'),
+            '--tw-prose-bullets': theme('colors.brand.500'),
+            '--tw-prose-hr': theme('colors.slate.100'),
+            '--tw-prose-quotes': theme('colors.slate.900'),
+            '--tw-prose-quote-borders': theme('colors.brand.500'),
+            '--tw-prose-captions': theme('colors.slate.400'),
+            '--tw-prose-code': theme('colors.slate.900'),
+            '--tw-prose-pre-code': theme('colors.slate.100'),
+            '--tw-prose-pre-bg': theme('colors.slate.900'),
+            '--tw-prose-th-borders': theme('colors.slate.200'),
+            '--tw-prose-td-borders': theme('colors.slate.100'),
+          },
+        },
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: theme('colors.slate.600'),
+            fontSize: theme('fontSize.body-lg[0]'),
+            lineHeight: theme('fontSize.body-lg[1].lineHeight'),
+            fontFamily: theme('fontFamily.sans').join(', '),
+            a: {
+              color: theme('colors.brand.600'),
+              fontWeight: '700',
+              textDecoration: 'underline',
+              textDecorationColor: theme('colors.brand.100'),
+              textUnderlineOffset: '4px',
+              transition: 'all 0.2s',
+              '&:hover': {
+                color: theme('colors.brand.700'),
+                textDecorationColor: theme('colors.brand.500'),
+              },
+            },
+            h1: { fontWeight: '700', letterSpacing: theme('fontSize.h1[1].letterSpacing') },
+            h2: { fontWeight: '700', letterSpacing: theme('fontSize.h2[1].letterSpacing') },
+            h3: { fontWeight: '700', letterSpacing: theme('fontSize.h3[1].letterSpacing') },
+            strong: { fontWeight: '700', color: theme('colors.slate.900') },
+            blockquote: {
+              borderLeftWidth: '4px',
+              borderLeftColor: theme('colors.brand.500'),
+              backgroundColor: theme('colors.slate.50'),
+              paddingTop: theme('spacing.4'),
+              paddingBottom: theme('spacing.4'),
+              paddingLeft: theme('spacing.8'),
+              paddingRight: theme('spacing.8'),
+              borderRadius: '0 16px 16px 0',
+              fontStyle: 'italic',
+              color: theme('colors.slate.700'),
+            },
+            code: {
+              backgroundColor: theme('colors.slate.100'),
+              padding: '2px 6px',
+              borderRadius: '6px',
+              fontWeight: '600',
+            },
+            'code::before': { content: 'none' },
+            'code::after': { content: 'none' },
+          },
+        },
+      }),
     },
   },
-
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwindcss-animate'),
+  ],
 };
 
 export default config;
