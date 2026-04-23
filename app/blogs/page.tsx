@@ -56,7 +56,7 @@ export default async function BlogsPage() {
                                     className="group flex flex-col h-full bg-white rounded-[24px] border border-slate-100 overflow-hidden hover:border-indigo-200 hover:shadow-card-lg transition-all duration-500"
                                 >
                                     {/* Image Container */}
-                                    <Link href={`/blogs/${post.slug}`} className="relative h-64 w-full overflow-hidden block">
+                                    <Link href={`/blogs/${post.slug}`} className="relative aspect-video w-full overflow-hidden block">
                                         {post.mainImage?.url ? (
                                             <Image
                                                 src={post.mainImage.url}

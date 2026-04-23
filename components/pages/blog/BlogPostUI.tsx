@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react'
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, Calendar, Clock, Share2, Linkedin, Twitter, Facebook, CheckCircle2, ChevronRight, Menu, ChevronUp, Check, Hash } from 'lucide-react'
+import { ArrowLeft, Calendar, Clock, Share2, Linkedin, Twitter, Facebook, CheckCircle2, ChevronRight, Menu, ChevronUp, Check, Hash, Link as LinkIcon } from 'lucide-react'
 import { trackEvent } from '@/lib/analytics'
+import { useContactModal } from '@/hooks/use-contact-modal'
 import { getArticleSchema, getBreadcrumbSchema, siteConfig } from '@/lib/seo'
 import { JsonLd } from '@/components/seo/JsonLd'
 
@@ -41,6 +42,7 @@ interface BlogPostUIProps {
 
 export function BlogPostUI({ post, readTime, toc, mdxContent }: BlogPostUIProps) {
     const { scrollYProgress } = useScroll()
+    const { openModal } = useContactModal()
     const scaleX = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,
@@ -192,12 +194,12 @@ export function BlogPostUI({ post, readTime, toc, mdxContent }: BlogPostUIProps)
                                 </div>
                             </div>
 
-                            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4 leading-tight">
+                            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900 mb-3 leading-tight">
                                 {post.title}
                             </h1>
 
                             {post.subtitle && (
-                                <p className="text-lg md:text-xl text-slate-500 leading-relaxed mb-6 font-medium">
+                                <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-4 font-medium">
                                     {post.subtitle}
                                 </p>
                             )}
@@ -212,7 +214,7 @@ export function BlogPostUI({ post, readTime, toc, mdxContent }: BlogPostUIProps)
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.1 }}
-                            className="relative aspect-[21/9] w-full rounded-[32px] overflow-hidden shadow-card-lg bg-slate-100 ring-4 ring-white mb-8"
+                            className="relative aspect-video w-full rounded-[32px] overflow-hidden shadow-card-lg bg-slate-100 ring-4 ring-white mb-8"
                         >
                             <Image
                                 src={post.mainImage.url}
@@ -228,16 +230,75 @@ export function BlogPostUI({ post, readTime, toc, mdxContent }: BlogPostUIProps)
                     <div className="pt-4 pb-12">
                         {/* --- MAIN CONTENT (Expanded Width) --- */}
                         <div className="max-w-6xl mx-auto">
-                            <div className="prose prose-xl prose-slate max-w-none 
-                                prose-headings:tracking-tight prose-headings:font-bold prose-headings:text-slate-900
-                                prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4
-                                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-                                prose-p:text-slate-600 prose-p:leading-[1.65] prose-p:mb-5
-                                prose-li:text-slate-600 prose-li:my-1.5
-                                prose-strong:text-slate-900 prose-strong:font-bold
-                                prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-slate-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:italic prose-blockquote:text-slate-700
-                            ">
-                                {mdxContent}
+                            <div className="relative">
+                                {/* Sticky Share Sidebar (Desktop Only) */}
+                                <div className="hidden xl:block absolute -left-32 top-0 h-full w-24 z-[50]">
+                                    <div className="sticky top-32 flex flex-col items-center gap-5">
+                                        <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-[0.2em] [writing-mode:vertical-lr] rotate-180 mb-4">Share Story</span>
+                                        <button 
+                                            onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}&text=${encodeURIComponent(post.title)}`, '_blank')}
+                                            className="w-11 h-11 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-400 hover:border-blue-200 hover:bg-blue-50 transition-all shadow-sm"
+                                        >
+                                            <Twitter className="w-4 h-4" />
+                                        </button>
+                                        <button 
+                                            onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`, '_blank')}
+                                            className="w-11 h-11 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:text-blue-700 hover:border-blue-300 hover:bg-blue-50 transition-all shadow-sm"
+                                        >
+                                            <Linkedin className="w-4 h-4" />
+                                        </button>
+                                        <button 
+                                            onClick={handleCopyLink}
+                                            className="w-11 h-11 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-slate-300 hover:bg-slate-50 transition-all shadow-sm relative group"
+                                        >
+                                            {copied ? <Check className="w-4 h-4 text-green-600" /> : <LinkIcon className="w-4 h-4" />}
+                                            <span className="absolute left-full ml-3 px-2 py-1 bg-slate-900 text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-[60]">
+                                                {copied ? 'Copied!' : 'Copy Link'}
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className="prose prose-slate max-w-none">
+                                    {mdxContent}
+                                </div>
+                            </div>
+
+                             {/* Author Bio Section */}
+                            <div className="mt-16 bg-slate-50 rounded-[32px] p-8 md:p-10 flex flex-col md:flex-row gap-8 items-center border border-slate-100 shadow-sm">
+                                <div className="relative">
+                                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
+                                        <Image
+                                            src="/founder.webp" 
+                                            alt={post.author || "Author"}
+                                            width={128}
+                                            height={128}
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                    <div className="absolute -bottom-2 -right-2 bg-blue-600 text-white p-2 rounded-full shadow-lg border-2 border-white">
+                                        <CheckCircle2 className="w-4 h-4" />
+                                    </div>
+                                </div>
+                                <div className="flex-1 text-center md:text-left">
+                                    <div className="flex flex-col md:flex-row md:items-center gap-2 mb-3">
+                                        <h3 className="text-xl font-bold text-slate-900">Written by {post.author}</h3>
+                                        <span className="hidden md:block text-slate-300">|</span>
+                                        <span className="text-blue-600 font-bold text-sm uppercase tracking-wider">{post.role}</span>
+                                    </div>
+                                    <p className="text-slate-600 text-[15px] leading-relaxed mb-6">
+                                        Yeswanth is on a mission to bridge the infrastructure gap in India's healthcare system. Through MediKloud, he is helping independent hospitals modernize their pharmacy operations, reduce revenue bleed, and provide seamless medicine access to patients.
+                                    </p>
+                                    <div className="flex items-center justify-center md:justify-start gap-4">
+                                        <Link 
+                                            href="https://www.linkedin.com/in/yeswanthasapu/" 
+                                            target="_blank"
+                                            className="text-slate-400 hover:text-blue-700 transition-colors"
+                                        >
+                                            <Linkedin className="w-5 h-5" />
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* Tags / Keywords */}
@@ -261,17 +322,28 @@ export function BlogPostUI({ post, readTime, toc, mdxContent }: BlogPostUIProps)
                             <div className="mt-12 p-8 md:p-12 rounded-[32px] bg-gradient-to-br from-slate-900 to-indigo-950 text-white relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px] -mr-32 -mt-32 transition-transform duration-700 group-hover:scale-110" />
                                 <div className="relative z-10 text-center max-w-2xl mx-auto">
-                                    <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to transform your hospital operations?</h3>
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">Ready to transform your hospital operations?</h3>
                                     <p className="text-indigo-200/80 mb-8 text-lg leading-relaxed">
                                         Join forward-thinking healthcare leaders using MediKloud to optimize clinical workflows and improve patient care.
                                     </p>
                                     <div className="flex flex-wrap justify-center gap-4">
-                                        <button className="px-8 py-4 bg-white text-indigo-900 font-bold rounded-2xl hover:bg-indigo-50 transition-all shadow-lg hover:shadow-indigo-500/20">
+                                        <button 
+                                            onClick={() => openModal({
+                                                badge: "Blog CTA",
+                                                title: "Transform your hospital pharmacy.",
+                                                description: "Schedule a walkthrough to see how MediKloud can manage your pharmacy operations and stop revenue leakage.",
+                                                btnText: "Schedule My Demo"
+                                            })}
+                                            className="px-8 py-4 bg-white text-indigo-900 font-bold rounded-2xl hover:bg-indigo-50 transition-all shadow-lg hover:shadow-indigo-500/20 active:scale-95"
+                                        >
                                             Book a Demo
                                         </button>
-                                        <button className="px-8 py-4 bg-indigo-800/30 text-white font-bold rounded-2xl border border-indigo-500/30 hover:bg-indigo-800/50 transition-all">
-                                            Explore Products
-                                        </button>
+                                        <Link 
+                                            href="/#products"
+                                            className="px-8 py-4 bg-indigo-800/30 text-white font-bold rounded-2xl border border-indigo-500/30 hover:bg-indigo-800/50 transition-all active:scale-95 flex items-center justify-center"
+                                        >
+                                            View Our Solutions
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

@@ -480,6 +480,73 @@
   .noise-texture {
     @apply absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay pointer-events-none;
   }
+
+  /* ── FORCED PROSE OVERRIDES (Editorial Density) ──────────── */
+  /* This ensures the blog is readable and professional.       */
+  .prose p {
+    margin-top: 0 !important;
+    margin-bottom: 1.125rem !important;
+    color: #1e293b !important; /* slate-800 */
+    line-height: 1.65 !important;
+  }
+
+  /* Drop Cap — the 'New York Times' feel for the first paragraph */
+  .prose > p:first-of-type::first-letter {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    float: left;
+    margin-right: 0.15em;
+    margin-top: 0.05em;
+    color: var(--brand-600);
+    font-family: inherit;
+  }
+
+  /* Stat Highlights — automatically makes bold stats pop */
+  .prose p strong {
+    color: var(--brand-700) !important;
+    background-color: var(--brand-50);
+    padding: 0 4px;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+
+  .prose h2 {
+    margin-top: 2.5rem !important;
+    margin-bottom: 0.75rem !important;
+    color: #0f172a !important; /* slate-900 */
+  }
+  .prose h3 {
+    margin-top: 1.75rem !important;
+    margin-bottom: 0.5rem !important;
+    color: #0f172a !important; /* slate-900 */
+  }
+  .prose li {
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.4rem !important;
+    color: #1e293b !important; /* slate-800 */
+  }
+  .prose blockquote {
+    position: relative;
+    padding-left: 2rem !important;
+    border-left: 4px solid #4f46e5 !important; /* brand-600 */
+    background-color: #f5f3ff; /* brand-50 */
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    border-radius: 0 1rem 1rem 0;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+  .prose blockquote p {
+    margin-bottom: 0 !important;
+    font-style: normal !important;
+    color: #0f172a !important; /* slate-900 */
+    font-weight: 500;
+    line-height: 1.5 !important;
+  }
 }
 
 
