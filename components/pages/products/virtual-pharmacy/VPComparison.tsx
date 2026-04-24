@@ -9,8 +9,8 @@ import {
   TrendingUp
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { premiumEase } from '@/lib/animation';
 
-const premiumEase = [0.16, 1, 0.3, 1] as const;
 
 export const VPComparison = () => {
   // Enhanced data structure with 'status' to drive semantic colors and icons

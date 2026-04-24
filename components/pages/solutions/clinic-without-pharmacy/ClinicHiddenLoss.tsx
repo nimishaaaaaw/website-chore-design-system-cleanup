@@ -3,8 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, ArrowUpRight, UserMinus } from 'lucide-react';
+import { premiumEase } from '@/lib/animation';
 
-const premiumEase = [0.16, 1, 0.3, 1] as any;
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },

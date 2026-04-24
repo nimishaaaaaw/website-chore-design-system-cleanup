@@ -16,8 +16,8 @@ import {
 import { motion } from 'framer-motion';
 
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+import { premiumEase } from '@/lib/animation';
 
-const premiumEase = [0.16, 1, 0.3, 1] as const;
 
 const VPSolution = () => {
   return (

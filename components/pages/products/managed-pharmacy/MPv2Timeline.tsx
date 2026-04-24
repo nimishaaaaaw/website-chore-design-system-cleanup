@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
+import { premiumEase } from '@/lib/animation';
   CheckCircle2,
   RefreshCcw,
   Search,
@@ -11,7 +12,6 @@ import {
   TrendingUp,
 } from 'lucide-react';
 
-const premiumEase = [0.16, 1, 0.3, 1] as any;
 
 export function MPv2Timeline() {
   const processRef = useRef(null);
