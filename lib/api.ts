@@ -77,8 +77,7 @@ export async function getAllPosts(isDraftMode = false): Promise<BlogPost[]> {
     try {
         const entries = await client.getEntries<BlogPostSkeleton>({
             content_type: 'blogPost',
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            order: ['-fields.publishedDate'] as any,
+            order: ['-fields.publishedDate'],
         })
         return entries.items.map(parseContentfulPost)
     } catch (error) {
