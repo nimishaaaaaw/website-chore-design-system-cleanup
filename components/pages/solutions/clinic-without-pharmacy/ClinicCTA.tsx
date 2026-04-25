@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 import { useContactModal } from '@/hooks/use-contact-modal';
+import { premiumEase } from '@/lib/animation';
 
 interface ClinicCTAProps {}
 
-const premiumEase = [0.16, 1, 0.3, 1] as any;
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },

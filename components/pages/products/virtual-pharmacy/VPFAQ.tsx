@@ -1,8 +1,8 @@
 "use client"
 
 import React from 'react';
+import { premiumEase } from '@/lib/animation';
 
-const premiumEase = [0.16, 1, 0.3, 1] as const;
 
 const faqData = [
   {
