@@ -106,11 +106,6 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
     // Initial sizing
     resizeCanvas()
 
-    // Reusable flat array grid to prevent GC pauses and Map lookup overhead
-    let grid: Particle[][] = []
-    let gridCols = 0
-    let gridRows = 0
-
     // Draw frame
     const draw = () => {
       const w = containerW
@@ -131,25 +126,7 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
         const REPEL_RADIUS_Y = h * 0.45 // Even larger vertical avoidance for long text
         const pad = 50
 
-        // Use a 1D flat array for spatial partitioning to optimize connection checks from O(N^2) to O(N)
-        const cellSize = CONNECT_DIST
-        const cols = Math.ceil((w + pad * 2) / cellSize)
-        const rows = Math.ceil((h + pad * 2) / cellSize)
-        const totalCells = cols * rows
-
-        // Reallocate only if dimensions change significantly
-        if (gridCols !== cols || gridRows !== rows) {
-          grid = new Array(totalCells)
-          for (let i = 0; i < totalCells; i++) grid[i] = []
-          gridCols = cols
-          gridRows = rows
-        } else {
-          // Clear grid without reallocating
-          for (let i = 0; i < totalCells; i++) {
-            grid[i].length = 0
-          }
-        }
-
+        // Update particle positions first and use a simple O(N^2) loop with distance heuristic
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i]
 
@@ -198,93 +175,32 @@ export function ParticleNetwork({ showParticles = true }: { showParticles?: bool
           if (p.x > w + pad) p.x = -pad
           if (p.y < -pad) p.y = h + pad
           if (p.y > h + pad) p.y = -pad
-
-          // Register particle in grid for connection checks
-          let gx = Math.floor((p.x + pad) / cellSize)
-          let gy = Math.floor((p.y + pad) / cellSize)
-          if (gx < 0) gx = 0; if (gx >= cols) gx = cols - 1
-          if (gy < 0) gy = 0; if (gy >= rows) gy = rows - 1
-          const key = gx + gy * cols
-          grid[key].push(p)
         }
 
         // 2. Draw Network Connections (behind particles)
         ctx.lineWidth = 1
         const distLimitSq = CONNECT_DIST * CONNECT_DIST
 
-        // Helper to check connections between two sets of particles
-        const connectParticles = (particlesA: Particle[], lenA: number, particlesB: Particle[], lenB: number) => {
-          for (let i = 0; i < lenA; i++) {
-            const pA = particlesA[i]
-            for (let j = 0; j < lenB; j++) {
-              const pB = particlesB[j]
-              const dx = pA.x - pB.x
-              const dy = pA.y - pB.y
-              const d2 = dx * dx + dy * dy
-              if (d2 < distLimitSq) {
-                const dist = Math.sqrt(d2)
-                const opacity = (1 - (dist / CONNECT_DIST)) * 0.25
-                ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})`
-                ctx.beginPath()
-                ctx.moveTo(pA.x, pA.y)
-                ctx.lineTo(pB.x, pB.y)
-                ctx.stroke()
-              }
+        for (let i = 0; i < particles.length; i++) {
+          const pA = particles[i]
+          for (let j = i + 1; j < particles.length; j++) {
+            const pB = particles[j]
+            const dx = pA.x - pB.x
+            if (Math.abs(dx) > CONNECT_DIST) continue
+
+            const dy = pA.y - pB.y
+            if (Math.abs(dy) > CONNECT_DIST) continue
+
+            const distSq = dx * dx + dy * dy
+            if (distSq < distLimitSq) {
+              const dist = Math.sqrt(distSq)
+              const opacity = (1 - (dist / CONNECT_DIST)) * 0.25
+              ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})`
+              ctx.beginPath()
+              ctx.moveTo(pA.x, pA.y)
+              ctx.lineTo(pB.x, pB.y)
+              ctx.stroke()
             }
-          }
-        }
-
-        for (let key = 0; key < totalCells; key++) {
-          const cellParticles = grid[key]
-          const len = cellParticles.length
-          if (len === 0) continue
-
-          const gx = key % cols
-          const gy = Math.floor(key / cols)
-
-          // Same cell connections
-          for (let i = 0; i < len; i++) {
-            const pA = cellParticles[i]
-            for (let j = i + 1; j < len; j++) {
-              const pB = cellParticles[j]
-              const dx = pA.x - pB.x
-              const dy = pA.y - pB.y
-              const d2 = dx * dx + dy * dy
-              if (d2 < distLimitSq) {
-                const dist = Math.sqrt(d2)
-                const opacity = (1 - (dist / CONNECT_DIST)) * 0.25
-                ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})`
-                ctx.beginPath()
-                ctx.moveTo(pA.x, pA.y)
-                ctx.lineTo(pB.x, pB.y)
-                ctx.stroke()
-              }
-            }
-          }
-
-          // Neighbor cell connections (only check forward to avoid duplicates)
-          if (gx + 1 < cols && gy - 1 >= 0) {
-            const neighborParticles = grid[(gx + 1) + (gy - 1) * cols]
-            const nLen = neighborParticles.length
-            if (nLen > 0) connectParticles(cellParticles, len, neighborParticles, nLen)
-          }
-
-          if (gx + 1 < cols) {
-            const neighborParticles = grid[(gx + 1) + gy * cols]
-            const nLen = neighborParticles.length
-            if (nLen > 0) connectParticles(cellParticles, len, neighborParticles, nLen)
-          }
-
-          if (gx + 1 < cols && gy + 1 < rows) {
-            const neighborParticles = grid[(gx + 1) + (gy + 1) * cols]
-            const nLen = neighborParticles.length
-            if (nLen > 0) connectParticles(cellParticles, len, neighborParticles, nLen)
-          }
-
-          if (gy + 1 < rows) {
-            const neighborParticles = grid[gx + (gy + 1) * cols]
-            const nLen = neighborParticles.length
-            if (nLen > 0) connectParticles(cellParticles, len, neighborParticles, nLen)
           }
         }
 
