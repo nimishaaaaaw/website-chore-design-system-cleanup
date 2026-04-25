@@ -86,8 +86,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
       setStars(generateStars(cw, ch));
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const idleId = (window as any).requestIdleCallback ? (window as any).requestIdleCallback(updateStars) : requestAnimationFrame(updateStars);
+    const idleId = window.requestIdleCallback ? window.requestIdleCallback(updateStars) : requestAnimationFrame(updateStars);
 
     const resizeObserver = new ResizeObserver(() => updateStars());
     const target = canvasRef.current?.parentElement ?? canvasRef.current;
@@ -102,8 +101,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
         resizeObserver.unobserve(target);
       }
       window.removeEventListener("resize", onWindowResize);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      if ((window as any).cancelIdleCallback) (window as any).cancelIdleCallback(idleId);
+      if (window.cancelIdleCallback) window.cancelIdleCallback(idleId);
     };
   }, [
     starDensity,
