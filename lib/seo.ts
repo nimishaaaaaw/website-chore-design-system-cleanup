@@ -109,6 +109,48 @@ export function getMetadata({
 }
 
 /**
+ * Generates Article structured data for blog posts
+ */
+export function getArticleSchema(post: {
+  title: string
+  description: string
+  url: string
+  datePublished: string
+  authorName?: string
+  image?: string
+  category?: string
+  keywords?: string[]
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    image: post.image || siteConfig.ogImage,
+    datePublished: post.datePublished,
+    author: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteConfig.url}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': post.url,
+    },
+    articleSection: post.category,
+    keywords: Array.isArray(post.keywords) ? post.keywords.join(', ') : post.keywords,
+  }
+}
+
+/**
  * Generates BreadcrumbList structured data
  */
 export function getBreadcrumbSchema(items: { name: string; item: string }[]) {

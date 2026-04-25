@@ -26,6 +26,37 @@ export default function MobileMenu() {
 					<SheetTitle>Mobile Menu</SheetTitle>
 				</SheetHeader>
 				<nav className="mt-8 space-y-4">
+					{/* Products Nested Menu */}
+					<div className="space-y-2">
+						<button
+							onClick={() => setShowProducts(!showProducts)}
+							aria-expanded={showProducts}
+							aria-label="Toggle Products submenu"
+							className="flex items-center justify-between w-full text-left text-blue-600 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+						>
+							<span>Products</span>
+							<svg className={`w-4 h-4 transition-transform ${showProducts ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+						
+						<AnimatePresence>
+							{showProducts && (
+								<motion.div
+									initial={{ height: 0, opacity: 0 }}
+									animate={{ height: 'auto', opacity: 1 }}
+									exit={{ height: 0, opacity: 0 }}
+									className="pl-4 space-y-3 overflow-hidden"
+								>
+									<Link href="/products/managed-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Managed Pharmacy</Link>
+									<Link href="/products/virtual-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Virtual Pharmacy</Link>
+									<Link href="/products/hospital-management-system" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Hospital Management System</Link>
+									<Link href="/products/medicine-deliveries" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Medicine Deliveries</Link>
+								</motion.div>
+							)}
+						</AnimatePresence>
+					</div>
+
 					{/* Solutions Nested Menu */}
 					<div className="space-y-2">
 						<button
@@ -57,36 +88,6 @@ export default function MobileMenu() {
 						</AnimatePresence>
 					</div>
 
-					{/* Products Nested Menu */}
-					<div className="space-y-2">
-						<button
-							onClick={() => setShowProducts(!showProducts)}
-							aria-expanded={showProducts}
-							aria-label="Toggle Products submenu"
-							className="flex items-center justify-between w-full text-left text-blue-600 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
-						>
-							<span>Products</span>
-							<svg className={`w-4 h-4 transition-transform ${showProducts ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-								<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-							</svg>
-						</button>
-						
-						<AnimatePresence>
-							{showProducts && (
-								<motion.div
-									initial={{ height: 0, opacity: 0 }}
-									animate={{ height: 'auto', opacity: 1 }}
-									exit={{ height: 0, opacity: 0 }}
-									className="pl-4 space-y-3 overflow-hidden"
-								>
-									<Link href="/products/managed-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Managed Pharmacy</Link>
-									<Link href="/products/virtual-pharmacy" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Virtual Pharmacy</Link>
-									<Link href="/products/hospital-management-system" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Hospital Management System</Link>
-									<Link href="/products/medicine-deliveries" className="block text-sm text-slate-600" onClick={() => setOpen(false)}>Medicine Deliveries</Link>
-								</motion.div>
-							)}
-						</AnimatePresence>
-					</div>
 					{/* About Link */}
 					<div>
 						<Link 
@@ -95,6 +96,17 @@ export default function MobileMenu() {
 							onClick={() => setOpen(false)}
 						>
 							About
+						</Link>
+					</div>
+
+					{/* Blogs Link */}
+					<div>
+						<Link 
+							href="/blogs" 
+							className="block text-blue-600 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md py-1"
+							onClick={() => setOpen(false)}
+						>
+							Blogs
 						</Link>
 					</div>
 
