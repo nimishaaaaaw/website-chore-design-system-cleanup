@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, UserPlus, Pill, CheckCircle2, Activity, Home, PackageCheck, Sparkles, Monitor, Truck, TrendingUp, Warehouse, Bike, Search, FileText, Stethoscope, Smartphone, Repeat, Building2, Package } from 'lucide-react';
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
 import { DeliveryScooterSVG } from '@/components/shared/HeroIcons';
+import { premiumEase } from '@/lib/animation';
 
-const premiumEase = [0.16, 1, 0.3, 1] as any;
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },

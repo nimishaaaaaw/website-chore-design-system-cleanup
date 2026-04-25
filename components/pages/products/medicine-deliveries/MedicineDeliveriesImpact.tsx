@@ -9,7 +9,6 @@ import {
   BellRing 
 } from 'lucide-react'
 
-const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const impactBenefits = [
   {
@@ -39,6 +38,7 @@ const impactBenefits = [
 ];
 
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+import { premiumEase } from '@/lib/animation';
 
 export const MedicineDeliveriesImpact = () => {
   return (
