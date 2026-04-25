@@ -13,7 +13,7 @@ const cspDirectives = [
     ? "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://vitals.vercel-analytics.com"
     : "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://va.vercel-scripts.com https://vitals.vercel-insights.com https://vitals.vercel-analytics.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net https://*.vercel.app",
+  "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net https://*.vercel.app https://images.unsplash.com",
   "connect-src 'self' https://formspree.io https://lottie.host https://unpkg.com https://cdn.jsdelivr.net https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.contentful.com https://*.ctfassets.net https://va.vercel-scripts.com https://vitals.vercel-insights.com https://vitals.vercel-analytics.com",
   "font-src 'self' data: https://fonts.gstatic.com",
   "frame-ancestors 'self' https://app.contentful.com https://*.contentful.com",
@@ -70,6 +70,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.ctfassets.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
       },
     ],
   },

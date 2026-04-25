@@ -16,8 +16,8 @@ import {
 } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 import { useContactModal } from '@/hooks/use-contact-modal';
+import { premiumEase } from '@/lib/animation';
 
-const premiumEase = [0.16, 1, 0.3, 1] as const;
 
 const VPCTA = () => {
   const { openModal } = useContactModal();

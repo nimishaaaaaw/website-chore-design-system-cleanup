@@ -4,8 +4,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { useContactModal } from '@/hooks/use-contact-modal'
+import { premiumEase } from '@/lib/animation';
 
-const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 export const MedicineDeliveriesCTA = () => {
   const { openModal } = useContactModal();

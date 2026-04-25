@@ -111,7 +111,7 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="relative" suppressHydrationWarning>
+    <html lang="en" className="relative" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head />
       <body className={`${poppins.className} relative`} suppressHydrationWarning>
         <a
