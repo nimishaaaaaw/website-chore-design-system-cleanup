@@ -69,7 +69,7 @@ const resolver: Resolver<ContactFormData> = (values) => {
         message: current.message,
       }
       return acc
-    }, {} as any)
+    }, {} as Record<string, { type: string; message: string }>)
 
     return { values: {}, errors }
   } catch (err) {
@@ -96,7 +96,7 @@ const COUNTRIES = [
 export function ContactModal() {
   const { isOpen, closeModal, overrides } = useContactModal()
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const nameInputRef = useRef<HTMLInputElement>(null)
+  const nameInputRef = useRef<HTMLInputElement | null>(null)
 
   const {
     register,
@@ -182,7 +182,7 @@ export function ContactModal() {
                         <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-1 pointer-events-none">Full Name *</label>
                         <div className="relative group">
                           <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-600 transition-colors"><User size={16} strokeWidth={2.5} /></div>
-                          <input {...register('name')} ref={(e) => { register('name').ref(e); (nameInputRef as any).current = e; }} type="text" placeholder="John Doe" className={cn("w-full pl-11 pr-4 py-3 bg-slate-50/50 border rounded-xl text-slate-900 text-sm font-medium transition-all outline-none", errors.name ? "border-red-200 bg-red-50/50 focus:border-red-500 focus:ring-4 focus:ring-red-500/10" : "border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 hover:border-slate-300")} />
+                          <input {...register('name')} ref={(e) => { register('name').ref(e); nameInputRef.current = e; }} type="text" placeholder="John Doe" className={cn("w-full pl-11 pr-4 py-3 bg-slate-50/50 border rounded-xl text-slate-900 text-sm font-medium transition-all outline-none", errors.name ? "border-red-200 bg-red-50/50 focus:border-red-500 focus:ring-4 focus:ring-red-500/10" : "border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 hover:border-slate-300")} />
                         </div>
                         {errors.name && <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="text-[10px] font-bold text-red-500 ml-1 overflow-hidden">{errors.name.message}</motion.p>}
                       </div>
