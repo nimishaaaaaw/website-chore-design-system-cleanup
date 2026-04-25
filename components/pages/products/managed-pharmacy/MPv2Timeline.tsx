@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { 
 import { premiumEase } from '@/lib/animation';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import {
   CheckCircle2,
   RefreshCcw,
   Search,
