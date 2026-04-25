@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Building2, Plus, Clock, Package, ShieldCheck, Activity, MapPin, Zap, Bike } from 'lucide-react';
 
-const premiumEase = [0.16, 1, 0.3, 1] as const;
 
 const clinics = [
   { 
@@ -31,6 +30,7 @@ const clinics = [
 ];
 
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+import { premiumEase } from '@/lib/animation';
 
 export const VPNerveCenter = () => {
   return (

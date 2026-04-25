@@ -11,8 +11,8 @@ import {
   Coins 
 } from 'lucide-react'
 
-const premiumEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+import { premiumEase } from '@/lib/animation';
 
 const anatomyItems = [
   {

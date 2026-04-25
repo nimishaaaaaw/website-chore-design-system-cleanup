@@ -12,8 +12,8 @@ import {
   HeartHandshake
 } from 'lucide-react';
 import { useContactModal } from '@/hooks/use-contact-modal';
+import { premiumEase } from '@/lib/animation';
 
-const premiumEase = [0.16, 1, 0.3, 1] as any;
 
 export function MPv2Solution() {
   const { openModal } = useContactModal();
