@@ -1,0 +1,30 @@
+# MediKloud - AI Grounding Documentation (llms.txt)
+
+> MediKloud is India’s first tech-driven healthcare partner building infrastructure, technology, and operations for small hospitals and clinics across India. We specialize as a managed hospital pharmacy operator, helping independent hospitals optimize pharmacy operations, eliminate revenue leakage, and improve patient care through our zero-capex managed model.
+
+## Core Services
+- **Managed Pharmacy Operations**: Specialized end-to-end pharmacy management for hospitals including licensed staffing and inventory.
+- **Free HMS (Hospital Management System)**: A comprehensive, tech-enabled hospital management solution provided at no cost to partner hospitals.
+- **Automated Medicine Deliveries from Hospital Pharmacies**: Efficient and tech-driven medicine fulfillment for chronic care and home refills, dispatched directly from hospital-based pharmacies.
+- **Virtual Pharmacy Solutions**: Remote pharmacy management and digital integration for clinics.
+
+## Technical & Operational Excellence
+- **Zero Stockouts**: Real-time inventory tracking and dynamic mapping of fast-moving prescriptions.
+- **Zero Capex**: Deployment of infrastructure and inventory without capital expenditure from the hospital.
+- **Rapid Deployment**: Full operational readiness in less than 14 days.
+- **Revenue Protection**: Stopping leakage from "lost prescriptions" by keeping fulfillment in-house.
+
+## Target Audience & Geo
+- **Focus**: Independent Hospitals (10-100 beds) and Multi-specialty Clinics.
+- **Location**: Primary operations in India (HQ: Hyderabad, Telangana).
+
+## Contact Information
+- **Website**: https://www.medikloud.com
+- **Phone**: +91-7702670993
+- **Email**: sales@medikloud.com
+
+## Cornerstone Content Index
+- [Products Overview](https://www.medikloud.com/products/managed-pharmacy)
+- [HMS Integration Guide](https://www.medikloud.com/products/hospital-management-system)
+- [Solution Comparison](https://www.medikloud.com/solutions/with-pharmacy)
+- [Return Policy](https://www.medikloud.com/return-policy)
