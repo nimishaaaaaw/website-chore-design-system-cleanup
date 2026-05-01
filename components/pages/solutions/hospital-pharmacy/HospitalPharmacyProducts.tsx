@@ -247,7 +247,7 @@ export const HospitalPharmacyProducts = () => {
                 ))}
               </ul>
               <div className="pt-4">
-                <a href="/products/virtual-pharmacy" className="inline-flex items-center text-base font-bold text-violet-600 hover:text-violet-800 transition-colors group">
+                <a href="/products/virtual-pharmacy" className="group btn-primary">
                   Explore Medicine Delivery 
                   <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
                 </a>

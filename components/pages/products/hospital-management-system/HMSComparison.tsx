@@ -53,9 +53,13 @@ export const HMSComparison = () => {
             <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>
                 <tr>
-                  <th className="p-8 bg-slate-50 font-bold text-xs uppercase tracking-widest w-1/3 border-b border-muted" style={{ color: 'var(--text-primary)' }}>Feature</th>
-                  <th className="p-8 bg-slate-50 font-bold text-xs uppercase tracking-widest w-1/3 border-b border-muted text-center" style={{ color: 'var(--text-primary)' }}>Legacy HMS Systems</th>
-                  <th className="p-8 font-bold text-xs uppercase tracking-widest w-1/3 border-b text-center relative overflow-hidden text-white" style={{ borderColor: 'var(--brand-700)' }}>
+                  <th className="p-8 bg-section-alt font-bold text-xs uppercase tracking-widest w-1/3 border-b border-muted text-primary">
+                    Feature
+                  </th>
+                  <th className="p-8 bg-section-alt font-bold text-xs uppercase tracking-widest w-1/3 border-b border-muted text-center text-primary">
+                    Legacy HMS Systems
+                  </th>
+                  <th className="p-8 font-bold text-xs uppercase tracking-widest w-1/3 border-b border-brand-700 text-center relative overflow-hidden text-white">
                     <div className="relative z-10 flex items-center justify-center gap-2">
                       <CheckCircle2 strokeWidth={1.5} className="w-4 h-4 text-white" />
                       MediKloud HMS
@@ -67,17 +71,17 @@ export const HMSComparison = () => {
               <tbody className="divide-y divide-slate-50">
                 {comparisonData.map((row, idx) => (row && (
                   <tr key={idx} className="hover:bg-slate-50/50 transition-colors group">
-                    <td className="p-6 font-bold text-sm" style={{ color: 'var(--text-primary)' }}>{row.feature}</td>
+                    <td className="p-6 font-bold text-sm text-primary">{row.feature}</td>
                     <td className="p-6 text-center">
                       <div className="flex items-center justify-center gap-3">
                         <X strokeWidth={1.5} className="w-4 h-4 text-danger hidden sm:block" />
-                        <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>{row.legacy}</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-muted">{row.legacy}</span>
                       </div>
                     </td>
-                    <td className="p-6 text-center border-x border-brand-100/50" style={{ background: 'var(--brand-50)', opacity: 0.3 + 0.7 }}>
+                    <td className="p-6 text-center bg-brand-50 border-x border-brand-100/50">
                       <div className="flex items-center justify-center gap-3">
                         <Check strokeWidth={2} className="w-5 h-5 text-success hidden sm:block" />
-                        <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--indigo-600)' }}>{row.modern}</span>
+                        <span className="text-xs font-bold uppercase tracking-widest text-brand-indigo-600">{row.modern}</span>
                       </div>
                     </td>
                   </tr>
@@ -92,10 +96,10 @@ export const HMSComparison = () => {
           <DarkAtmosphere showStars={false} />
 
           <div className="relative z-10 flex flex-col items-center">
-            <div className="w-16 h-1 rounded-full mb-12 opacity-60" style={{ background: 'var(--brand-600)' }} />
+            <div className="w-16 h-1 rounded-full mb-12 opacity-60 bg-brand-600" />
             <h3 className="text-display-sm sm:text-display-md md:text-display-lg font-bold text-white max-w-4xl mx-auto leading-[1.1] tracking-tight text-balance mb-8">
               Engineered for clinical speed. <br className="hidden md:block" />
-              <span style={{ color: 'var(--indigo-200)' }}>Not just hospital accounting.</span>
+              <span className="text-indigo-400">Not just hospital accounting.</span>
             </h3>
 
             <div className="mt-4 flex items-center gap-6">

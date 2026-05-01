@@ -167,11 +167,11 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
                     {item.subtitle}
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-200" />
-                  <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--border-default)' }}>
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted">
                     0{index + 1}
                   </span>
                 </div>
-                <h3 className="text-h1 font-bold tracking-tighter leading-tight" style={{ color: 'var(--text-primary)' }}>
+                <h3 className="text-h1 font-bold tracking-tighter leading-tight text-primary">
                   {item.title}
                 </h3>
                 <p className="premium-p--sm font-medium leading-relaxed pt-1">
@@ -192,14 +192,14 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="group relative p-6 rounded-3xl border shadow-card transition-colors hover:bg-slate-200/50" style={{ background: 'var(--bg-surface-alt)', borderColor: 'var(--border-default)' }}>
+            <div className="group relative p-6 rounded-3xl border border-default bg-surface-alt shadow-card transition-colors hover:bg-slate-200/50">
               <div className="flex items-center gap-2 mb-4">
-                <div className="p-1 px-2.5 rounded-md border text-xs font-bold uppercase tracking-widest shadow-card" style={{ background: 'var(--bg-surface)', borderColor: 'var(--border-default)', color: 'var(--text-muted)' }}>
+                <div className="p-1 px-2.5 rounded-md border border-default bg-surface text-xs font-bold uppercase tracking-widest shadow-card text-muted">
                   Traditional
                 </div>
                 <AlertCircle className="w-3.5 h-3.5 text-slate-300 group-hover:text-brand-400 transition-colors" />
               </div>
-              <p className="text-base font-medium leading-[1.6] italic pr-4" style={{ color: 'var(--text-body)' }}>
+              <p className="text-base font-medium leading-[1.6] italic pr-4 text-body">
                 &quot;{item.traditional}&quot;
               </p>
             </div>
@@ -304,15 +304,15 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
                   {item.icon}
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest leading-none block mb-1" style={{ color: 'var(--text-muted)' }}>
+                  <span className="text-xs font-bold uppercase tracking-widest leading-none block mb-1 text-muted">
                     {item.tagline}
                   </span>
-                  <h4 className="text-h4 font-bold leading-tight" style={{ color: 'var(--text-primary)' }}>
+                  <h4 className="text-h4 font-bold leading-tight text-primary">
                     {item.title} {item.subtitle}
                   </h4>
                 </div>
               </div>
-              <Plus className={cn("w-5 h-5 transition-transform duration-300", openId === item.id ? 'rotate-45' : '')} style={{ color: 'var(--text-muted)' }} />
+              <Plus className={cn("w-5 h-5 transition-transform duration-300 text-muted", openId === item.id ? 'rotate-45' : '')} />
             </button>
 
             <AnimatePresence>
@@ -329,11 +329,11 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
                     </p>
 
                     <div className="grid grid-cols-1 gap-3">
-                      <div className="p-4 rounded-2xl border" style={{ background: 'var(--bg-surface-alt)', borderColor: 'var(--border-muted)' }}>
-                        <div className="text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5" style={{ color: 'var(--text-muted)' }}>
+                      <div className="p-4 rounded-2xl border bg-surface-alt border-muted-color">
+                        <div className="text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5 text-muted">
                           <AlertCircle size={10} /> Traditional
                         </div>
-                        <p className="text-sm font-medium italic leading-relaxed" style={{ color: 'var(--text-subtitle)' }}>&quot;{item.traditional}&quot;</p>
+                        <p className="text-sm font-medium italic leading-relaxed text-subtitle">&quot;{item.traditional}&quot;</p>
                       </div>
 
                       <div className={cn(
@@ -349,7 +349,7 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
                     </div>
 
                     <div className="flex items-center justify-between pt-2 border-t border-muted">
-                      <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--text-muted)' }}>Efficiency Impact</span>
+                      <span className="text-xs font-bold uppercase tracking-widest text-muted">Efficiency Impact</span>
                       <span className={cn(
                         "text-sm font-bold px-4 py-2 rounded-full border flex items-center gap-1.5",
                         theme.text, theme.bg, theme.border
@@ -418,7 +418,7 @@ export function AdvantageSection() {
                 <div className="eyebrow-line-r" />
               </motion.div>
 
-              <h2 className="text-h1 lg:text-display-sm font-bold leading-[1.1] tracking-tighter" style={{ color: 'var(--text-primary)' }}>
+              <h2 className="text-display-sm md:text-display-md lg:text-display-lg font-bold leading-[1.1] tracking-tighter text-center lg:text-left text-primary">
                 <span className="heading-accent">The advantage</span><br />
                 corporate chains have.<br />
                 <span className="heading-accent italic px-1 pb-1 pr-2 inline-block">
@@ -426,7 +426,7 @@ export function AdvantageSection() {
                 </span>
               </h2>
 
-              <p className="hero-subtitle max-w-sm mx-auto lg:mx-0">
+              <p className="hero-subtitle max-w-sm mx-auto lg:mx-0 text-center lg:text-left">
                 Corporate pharmacy chains win because of scale, not luck. We give independent hospitals the exact same operating infrastructure.
               </p>
             </div>
