@@ -32,7 +32,7 @@ Use this map to subtly cross-reference articles, products, and solutions across 
 | :--- | :--- | :--- |
 | **The 600km Journey** | `/blogs/why-hospital-pharmacies-fail` | Personal story of medicine access, systemic operations gap, and why software alone doesn't fix it. |
 | **AI vs. Manual Mode** | `/blogs/ai-wont-replace-your-clinic` | AI in healthcare, ABDM interoperability, and replacing admin burden with clinical capacity. |
-| **The 3-Hour Drain** | `/blogs/the-3-hour-drain` | Doctor burnout, hospital pharmacy management, decision fatigue, operational chaos. |
+| **Doctor, Not a Distributor** | `/blogs/the-3-hour-drain` | Doctor burnout, hospital pharmacy management, decision fatigue, operational chaos. |
 
 ## Legal & Support
 
