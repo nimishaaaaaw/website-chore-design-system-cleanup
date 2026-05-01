@@ -50,7 +50,7 @@ export default async function BlogsPage() {
 
                     {posts.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                            {posts.map((post) => (
+                            {posts.map((post, index) => (
                                 <article
                                     key={post.slug}
                                     className="group flex flex-col h-full bg-white rounded-[24px] border border-slate-100 overflow-hidden hover:border-indigo-200 hover:shadow-card-lg transition-all duration-500"
@@ -64,6 +64,7 @@ export default async function BlogsPage() {
                                                 fill
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                                priority={index < 3}
                                             />
                                         ) : (
                                             <div className="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center">
