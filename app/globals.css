@@ -47,7 +47,7 @@
   --gradient-eyebrow-r: linear-gradient(to right, transparent, #3B82F6);
   --gradient-eyebrow-l: linear-gradient(to left, transparent, #3B82F6);
   --gradient-fade-bottom: linear-gradient(to top, #FFFFFF, rgba(255,255,255,0.8), transparent);
-  --gradient-dark: linear-gradient(to bottom right, #0F172A, #1E1B4B);
+  
 
   /* ── BRAND COLOUR TOKENS ─────────────────────────────────── */
   /* Primary interactive */
@@ -345,18 +345,28 @@
 @layer components {
   /* ── DISPLAY HEADLINE (Flat & Solid) ── */
   .display-headline {
-    @apply block font-bold leading-[1.1] tracking-tighter;
+    display: block;
+    @apply font-bold leading-[1.1] tracking-tighter;
     color: var(--indigo-600); /* Your primary solid brand color */
-    padding-bottom: 0;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
 
     .display-headline--sub {
-    @apply block text-h3 sm:text-h2 md:text-h1 font-bold leading-[1.1] tracking-tight;
-    color: var(--text-secondary);
-    margin-top: 1rem;
+  display: block;
+
+  @apply text-h2 sm:text-h1; 
   
-    
-  }
+  font-weight: 700; /* font-bold */
+  line-height: 1.1;
+  
+  letter-spacing: -0.025em; /* tracking-tight */
+  
+  color: var(--text-secondary); /* Ensure this variable is #334155 */
+  
+  
+  margin-top: 1.5rem;
+}
 }
 
 
@@ -392,10 +402,21 @@
   /* ── HERO SUBTITLE ────────────────────────────────────────── */
   /* Replaces ad-hoc text-slate-500/600 with the Gold Standard.  */
   .hero-subtitle {
-    color: var(--text-subtitle) !important;
-    @apply text-[22px] font-medium leading-[1.6];
-  }
-
+  /* Use the semantic color variable from your :root */
+  color: var(--text-subtitle) !important;
+  
+  /* Standardized Hero Size */
+  @apply text-[20px] md:text-[20px] font-medium leading-[1.6] mx-auto;
+  
+  /* Geometric Lock: Limits width so lines aren't too long to read */
+  max-width: 110px; 
+  
+  /* Vertical spacing */
+  @apply mb-8 md:mb-12;
+  
+  /* Modern typography trick */
+  text-wrap: balance; 
+}
   /* ── BUTTONS ─────────────────────────────────────────────── */
   /* Base — shared across all button variants */
   .btn {
@@ -660,6 +681,7 @@
   .premium-p {
     
     @apply text-base leading-relaxed;
+    color: var(--text-subtitle)
   }
   
   /* Geometric Locks — Industry Standard (Full on Mobile, Max on Desktop) */
@@ -758,15 +780,15 @@
   }
 }
 
-  /* Gradient text — use on display headline only */
+ /* Gradient text — use on display headline only 
   .text-gradient {
     background: var(--gradient-display);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
-  
+  */
+   
   /* Indigo-tinted shadow utilities */
   .shadow-card-brand { box-shadow: var(--shadow-card-md); }
   .shadow-btn-brand  { box-shadow: var(--shadow-btn); }

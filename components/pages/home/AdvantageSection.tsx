@@ -85,8 +85,8 @@ const ADVANTAGES: AdvantageItem[] = [
     subtitle: "Revenue that compounds",
     description: "Chronic patients refilling monthly are worth 12x more than standard one-time visits.",
     tags: [
-      { label: "Retention", dir: "up", color: "text-metric-dark bg-metric-light ring-1 ring-metric-dark/10" },
-      { label: "Refill Revenue", dir: "up", color: "text-metric-dark bg-metric-light ring-1 ring-metric-dark/10" }
+      { label: "Retention", dir: "up", color: "text-violet-600 bg-metric-light ring-1 ring-metric-dark/10" },
+      { label: "Refill Revenue", dir: "up", color: "text-violet-600 bg-metric-light ring-1 ring-metric-dark/10" }
     ],
     metric: "3x increase in chronic retention",
     traditional: "Chronic patients drift to the nearest retail chemist after discharge. You get absolutely nothing.",
@@ -100,7 +100,7 @@ const THEME_MAP = {
     solid: "bg-brand-600",
     text: "text-brand-600",
     bg: "bg-brand-50",
-    border: "border-brand-200",
+    border: "border-brand-600/20",
     hex: '#2563eb',
   },
   emerald: {
@@ -114,14 +114,14 @@ const THEME_MAP = {
     solid: "bg-brand-indigo-600",
     text: "text-brand-indigo-600",
     bg: "bg-brand-indigo-50",
-    border: "border-brand-indigo-200",
+    border: "border-brand-indigo-600/20",
     hex: '#4f46e5',
   },
   purple: {
     solid: "bg-violet-600",
     text: "text-violet-600",
     bg: "bg-metric-light",
-    border: "border-metric-dark/20",
+    border: "border-violet-600/20",
     hex: '#7c3aed',
   },
 } as const;
@@ -163,11 +163,11 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
 
               <div className="space-y-1 flex-1">
                 <div className="flex items-center gap-2">
-                  <span className={cn("text-xs font-bold uppercase tracking-widest", theme.text)}>
+                  <span className={cn("text-xs font-bold uppercase tracking-wide", theme.text)}>
                     {item.subtitle}
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-200" />
-                  <span className="text-xs font-bold uppercase tracking-widest text-muted">
+                  <span className="text-base font-bold uppercase tracking-wide text-slate-300">
                     0{index + 1}
                   </span>
                 </div>
@@ -192,12 +192,12 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="group relative p-6 rounded-3xl border border-default bg-surface-alt shadow-card transition-colors hover:bg-slate-200/50">
+            <div className="group relative p-6 rounded-3xl border border-default bg-surface-alt bg-slate-50 shadow-card transition-colors hover:bg-slate-200/50">
               <div className="flex items-center gap-2 mb-4">
-                <div className="p-1 px-2.5 rounded-md border border-default bg-surface text-xs font-bold uppercase tracking-widest shadow-card text-muted">
+                <div className="p-1 px-2.5 rounded-md border border-default bg-surface text-base font-bold uppercase tracking-wide shadow-card text-muted">
                   Traditional
                 </div>
-                <AlertCircle className="w-3.5 h-3.5 text-slate-300 group-hover:text-brand-400 transition-colors" />
+                <AlertCircle className="w-3.5 h-3.5 text-slate-300 group-hover:text-orange-500 transition-colors" />
               </div>
               <p className="text-base font-medium leading-[1.6] italic pr-4 text-body">
                 &quot;{item.traditional}&quot;
@@ -211,7 +211,7 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
             )}>
               <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
               <div className="flex items-center gap-2 mb-4 relative z-10">
-                <div className="p-1 px-2.5 rounded-md bg-white/20 text-xs font-bold text-white uppercase tracking-widest border border-white/20">
+                <div className="p-1 px-2.5 rounded-md bg-white/20 text-base font-bold text-white uppercase tracking-wide border border-white/20">
                   MediKloud
                 </div>
                 <CheckCircle2 className="w-3.5 h-3.5 text-white animate-pulse" />
@@ -228,7 +228,7 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
           <div className="flex flex-wrap items-center gap-3 pt-6 border-t border-muted">
             {item.tags.map((tag, i) => (
               <div key={i} className={cn(
-                "flex items-center gap-2 px-3 py-1.5 rounded-full border shadow-card",
+                "flex items-center gap-2 px-3 py-1.5 rounded-full border shadow-sm",
                 tag.color
               )}>
                 {tag.dir === 'up' ? <ArrowUpRight size={12} strokeWidth={3} /> : <ArrowDownRight size={12} strokeWidth={3} />}
@@ -304,7 +304,7 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
                   {item.icon}
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-widest leading-none block mb-1 text-muted">
+                  <span className="text-xs font-bold uppercase tracking-wide leading-none block mb-1 text-muted">
                     {item.tagline}
                   </span>
                   <h4 className="text-h4 font-bold leading-tight text-primary">
@@ -330,7 +330,7 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
 
                     <div className="grid grid-cols-1 gap-3">
                       <div className="p-4 rounded-2xl border bg-surface-alt border-muted-color">
-                        <div className="text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5 text-muted">
+                        <div className="text-base font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5 text-muted">
                           <AlertCircle size={10} /> Traditional
                         </div>
                         <p className="text-sm font-medium italic leading-relaxed text-subtitle">&quot;{item.traditional}&quot;</p>
@@ -340,7 +340,7 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
                         "p-4 rounded-2xl text-white shadow-card-md relative overflow-hidden",
                         theme.solid
                       )}>
-                        <div className="text-xs font-bold text-white/70 uppercase tracking-widest mb-2 flex items-center gap-1.5 relative z-10">
+                        <div className="text-base font-bold text-white/70 uppercase tracking-wide mb-2 flex items-center gap-1.5 relative z-10">
                           <CheckCircle2 size={10} /> MediKloud
                         </div>
                         <p className="text-sm font-medium text-white/95 leading-relaxed relative z-10">{item.medikloud}</p>
@@ -349,7 +349,7 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
                     </div>
 
                     <div className="flex items-center justify-between pt-2 border-t border-muted">
-                      <span className="text-xs font-bold uppercase tracking-widest text-muted">Efficiency Impact</span>
+                      <span className="text-xs font-bold uppercase tracking-wide text-muted">Efficiency Impact</span>
                       <span className={cn(
                         "text-sm font-bold px-4 py-2 rounded-full border flex items-center gap-1.5",
                         theme.text, theme.bg, theme.border
@@ -411,22 +411,23 @@ export function AdvantageSection() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="eyebrow-wrap justify-center lg:justify-start !mb-0"
+                className="eyebrow-wrap justify-start"
               >
                 <div className="eyebrow-line-l" />
                 <span className="eyebrow-text">The Advantage</span>
                 <div className="eyebrow-line-r" />
               </motion.div>
 
-              <h2 className="text-display-sm md:text-display-md lg:text-display-lg font-bold leading-[1.1] tracking-tighter text-center lg:text-left text-primary">
+              <h2 className="text-display font-bold leading-[1.05] tracking-tighter text-center lg:text-left text-slate-900">
                 <span className="heading-accent">The advantage</span><br />
                 corporate chains have.<br />
-                <span className="heading-accent italic px-1 pb-1 pr-2 inline-block">
-                  Available to you.
+                <span className="heading-accent italic">
+                  Available to<br />
+                  you.
                 </span>
               </h2>
 
-              <p className="hero-subtitle max-w-sm mx-auto lg:mx-0 text-center lg:text-left">
+              <p className="text-body-lg max-w-sm mx-auto lg:mx-0 text-center lg:text-left text-slate-500">
                 Corporate pharmacy chains win because of scale, not luck. We give independent hospitals the exact same operating infrastructure.
               </p>
             </div>

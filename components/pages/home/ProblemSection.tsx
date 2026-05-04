@@ -45,7 +45,7 @@ export function ProblemSection() {
       {/* --- LEFT COLUMN: Typography & Story --- */}
       <div className="w-full lg:w-5/12 h-full flex flex-col justify-center px-6 sm:px-12 lg:pl-16 xl:pl-24 z-10 shrink-0 py-12 lg:py-0">
         
-        <div className="eyebrow-wrap justify-start">
+        <div className="eyebrow-wrap justify-start mt-1">
           <div className="eyebrow-line-l" />
           <span className="eyebrow-text">The Revenue Leakage</span>
           <div className="eyebrow-line-r" />
@@ -55,7 +55,7 @@ export function ProblemSection() {
           You generate<br />
           100%<br />
           of the Rx value.<br />
-          <span className="heading-accent">
+          <span className="text-brand-indigo-600 drop-shadow-sm pr-2">
             But capture <span className="whitespace-nowrap">&lt; 50%.</span>
           </span>
         </h2>
@@ -82,8 +82,8 @@ export function ProblemSection() {
           {/* 1. TOP NODE: 100% Generated */}
           <div className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 sm:py-3 sm:px-4 flex justify-between items-center relative z-30 shadow-card-lg">
             <div>
-              <p className="text-xxs sm:text-xs font-bold uppercase tracking-widest text-brand-indigo-600 mb-0.5">Doctor Writes</p>
-              <p className="text-xl sm:text-h2 font-bold text-slate-900 tracking-tight">100% Rx Value</p>
+              <p className="text-xxs sm:text-xs font-bold uppercase tracking-widest text-brand-indigo-600 mb-1">Doctor Writes</p>
+              <p className="text-h6 sm:text-h6 font-bold text-slate-900 tracking-tight">100% Rx Value</p>
             </div>
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-brand-indigo-100 flex items-center justify-center bg-brand-indigo-50 shrink-0">
               <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-brand-indigo-600" />
@@ -186,8 +186,8 @@ export function ProblemSection() {
           {/* 3. BOTTOM NODE: < 50% Captured */}
           <div className="w-[95%] ml-auto bg-brand-indigo-600 border border-brand-indigo-400/30 rounded-xl py-2 px-3 sm:py-3 sm:px-4 flex justify-between items-center relative z-30 shadow-glow">
             <div>
-              <p className="text-xxs sm:text-xs font-bold uppercase tracking-widest text-white/90 mb-0.5">Revenue Captured</p>
-              <p className="text-xl sm:text-h2 font-bold text-white tracking-tight">&lt; 50% Final Value</p>
+              <p className="text-xxs sm:text-xs font-bold uppercase tracking-widest text-white/90 mb-1">Revenue Captured</p>
+              <p className="text-h6 sm:text-h6 font-bold text-white tracking-tight">&lt; 50% Final Value</p>
             </div>
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-brand-indigo-200 flex items-center justify-center bg-white shadow-card shrink-0">
               <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-brand-indigo-600" />

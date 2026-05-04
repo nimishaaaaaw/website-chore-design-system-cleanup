@@ -1,12 +1,26 @@
 "use client"
 
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere'
-import { VISION_STATS as visionStats } from '@/components/pages/home/HomeData'
+import { VISION_STATS as visionStats,
+        STATS_PARTICLE_POSITIONS
+ } from '@/components/pages/home/HomeData'
 
 export function Stats() {
   return (
     <section id="stats" className="py-8 md:py-10 relative overflow-hidden">
       <DarkAtmosphere withMouseEffect={false} />
+      <div className="absolute inset-0 pointer-events-none">
+        {STATS_PARTICLE_POSITIONS.map((pos, index) => (
+          <div
+            key={index}
+            className="absolute w-0.5 h-0.5 rounded-full bg-white opacity-30"
+            style={{
+              left: pos.left,
+              top: pos.top,
+            }}
+          />
+        ))}
+      </div>
       <div className="container-page relative">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {visionStats.map((stat, index) => (
@@ -17,10 +31,10 @@ export function Stats() {
                   <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 rounded-2xl" />
                 </div>
                 <div>
-                  <div className="text-h4 font-bold text-white group-hover:text-indigo-400 leading-tight">
+                  <div className="text-h5 font-bold text-white group-hover:text-indigo-400 leading-tight">
                     {stat.title}
                   </div>
-                  <div className="text-xs font-bold uppercase tracking-widest mt-1.5 group-hover:text-brand-indigo-200 text-muted">
+                  <div className="text-xs font-bold uppercase tracking-widest mt-2 mb-0.5 group-hover:text-brand-indigo-200 text-muted">
                     {stat.label}
                   </div>
                 </div>
