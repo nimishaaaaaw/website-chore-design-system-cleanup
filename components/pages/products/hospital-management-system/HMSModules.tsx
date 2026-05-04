@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -64,20 +64,19 @@ export const HMSModules = () => {
   const [activeModule, setActiveModule] = useState<number | null>(0);
 
   return (
-    <section className="relative overflow-hidden bg-section-alt section-py-premium">
+    <section className="relative overflow-hidden bg-slate-50 section-py-premium">
       <div className="tech-grid-overlay !opacity-[0.02]" />
       <div className="noise-texture !opacity-[0.02]" />
 
       <div className="container-page relative z-10">
 
-        {/* Header */}
         <header className="header-lock text-center mb-16 md:mb-24 animate-fade-in-up opacity-0 [animation-fill-mode:forwards]">
           <div className="eyebrow-wrap">
             <span className="eyebrow-line-l" />
             <span className="eyebrow-text">The Clinic OS</span>
             <span className="eyebrow-line-r" />
           </div>
-          <h2 className="premium-h2 mb-6">
+          <h2 className="premium-h2 mb-6 text-slate-900">
             Every Department Consolidated. <br className="hidden md:block" />
             <span className="heading-accent">Built for Absolute Control.</span>
           </h2>
@@ -85,23 +84,22 @@ export const HMSModules = () => {
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 max-w-6xl mx-auto items-start">
 
-          {/* Left Column — Tab Navigation */}
-          <div className="w-full lg:w-380px flex flex-col gap-4">
+          <div className="w-full lg:w-[380px] flex flex-col gap-4">
             {modulesData.map((module, idx) => (
               <div key={idx} className="flex flex-col">
                 <button
                   onClick={() => setActiveModule(activeModule === idx ? null : idx)}
-                  className={`w-full flex items-center justify-between p-5 rounded-[1.5rem] text-left transition-colors duration-300 group border ${
+                  className={`w-full flex items-center justify-between p-5 rounded-[1.5rem] text-left transition-all duration-300 group border ${
                     activeModule === idx
-                      ? 'bg-gradient-action text-white shadow-card-lg lg:scale-[1.02] border-transparent'
-                      : 'bg-white text-slate-500 hover:bg-white hover:text-brand-600 border-slate-200 shadow-card hover:shadow-card-md hover:border-brand-indigo-100'
+                      ? 'bg-gradient-to-r from-brand-600 to-brand-700 text-white shadow-xl lg:scale-[1.02] border-transparent'
+                      : 'bg-white text-slate-500 hover:bg-white hover:text-brand-600 border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-100'
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-colors duration-300 ${
                       activeModule === idx
                         ? 'bg-white/20 border-white/20 text-white'
-                        : 'bg-slate-50 border-slate-100 text-slate-400 group-hover:bg-brand-50 group-hover:border-brand-100 group-hover:text-brand-600'
+                        : 'bg-slate-50 border-slate-100 text-slate-400 group-hover:bg-indigo-50 group-hover:border-indigo-100 group-hover:text-brand-600'
                     }`}>
                       {React.cloneElement(module.icon as React.ReactElement, { strokeWidth: 1.5 } as any)}
                     </div>
@@ -119,22 +117,21 @@ export const HMSModules = () => {
                   />
                 </button>
 
-                {/* Mobile Accordion */}
                 <div className={`lg:hidden grid transition-all duration-300 ease-in-out ${
                   activeModule === idx ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                 }`}>
                   <div className="overflow-hidden">
-                    <div className="flex flex-col gap-6 pb-6 pt-5 px-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:pt-5 sm:px-2">
+                    <div className="flex flex-col gap-6 pb-6 pt-5 px-4 sm:grid sm:grid-cols-2 sm:gap-4">
                       {module.features.map((feature, fIdx) => (
                         <div key={fIdx} className="flex items-start gap-4">
-                          <div className="w-10 h-10 rounded-[10px] bg-brand-50 border border-brand-100/60 flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                          <div className="w-10 h-10 rounded-[10px] bg-indigo-50 border border-indigo-100/60 flex items-center justify-center shrink-0 shadow-sm mt-0.5">
                             <CheckCircle2 strokeWidth={2} className="w-5 h-5 text-brand-600" />
                           </div>
                           <div>
-                            <h4 className="text-base font-bold mb-1.5 leading-tight tracking-tight" style={{ color: 'var(--text-primary)' }}>
+                            <h4 className="text-lg font-bold mb-1.5 leading-tight tracking-tight text-slate-900">
                               {feature.name}
                             </h4>
-                            <p className="text-sm font-medium leading-relaxed" style={{ color: 'var(--text-subtitle)' }}>
+                            <p className="text-sm font-medium leading-relaxed text-slate-500">
                               {feature.desc}
                             </p>
                           </div>
@@ -148,7 +145,6 @@ export const HMSModules = () => {
             ))}
           </div>
 
-          {/* Right Column — Desktop Feature Grid */}
           <div className="hidden lg:block flex-1 min-h-[460px]">
             <AnimatePresence mode="wait">
               {activeModule !== null && (
@@ -163,18 +159,18 @@ export const HMSModules = () => {
                   {modulesData[activeModule].features.map((feature, idx) => (
                     <div
                       key={idx}
-                      className="bg-white p-7 rounded-[2rem] shadow-card border border-slate-200/60 hover:shadow-card-lg hover:border-brand-indigo-100 transition-all duration-300 group relative overflow-hidden"
+                      className="bg-white p-7 rounded-[2rem] shadow-sm border border-slate-200/60 hover:shadow-xl hover:border-indigo-100 transition-all duration-300 group relative overflow-hidden"
                     >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-50/40 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-100/50 transition-colors duration-500" />
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50/40 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-indigo-100/50 transition-colors duration-500" />
 
                       <div className="relative z-10">
                         <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-5 group-hover:bg-brand-600 group-hover:border-brand-600 transition-all duration-300">
                           <CheckCircle2 strokeWidth={1.5} className="w-6 h-6 text-brand-600 group-hover:text-white transition-colors" />
                         </div>
-                        <h4 className="text-h3 font-bold mb-2 leading-tight tracking-tight" style={{ color: 'var(--text-primary)' }}>
+                        <h4 className="text-xl font-bold mb-2 leading-tight tracking-tight text-slate-900">
                           {feature.name}
                         </h4>
-                        <p className="premium-p--sm font-medium leading-relaxed">
+                        <p className="text-sm font-medium leading-relaxed text-slate-500">
                           {feature.desc}
                         </p>
                       </div>

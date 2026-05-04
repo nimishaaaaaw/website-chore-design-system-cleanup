@@ -30,7 +30,7 @@ export function OriginStory() {
               </h2>
 
               <div className="space-y-6">
-                <p className="premium-p">
+                <p className="text-h3 leading-relaxed text-slate-500">
                   MediKloud was born from our founder's family's 6-year struggle: traveling 600km back
                   to the hospital just to find medicines unavailable locally.
                 </p>
@@ -64,7 +64,7 @@ export function OriginStory() {
                   </div>
                   <div>
                     <div className="flex items-center gap-3 mb-1">
-                      <h4 className="text-h4 font-bold text-slate-900">Consumer Tech</h4>
+                      <h4 className="text-h3 font-bold text-slate-900">Consumer Tech</h4>
                       <span className="badge badge-brand">Solved</span>
                     </div>
                     <p className="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">
@@ -83,7 +83,7 @@ export function OriginStory() {
                   </div>
                   <div>
                     <div className="flex items-center gap-3 mb-1">
-                      <h4 className="text-h4 font-bold text-slate-800">Essential Healthcare</h4>
+                      <h4 className="text-h3 font-bold text-slate-800">Essential Healthcare</h4>
                       <span className="badge badge-slate">Broken</span>
                     </div>
                     <p className="text-xs font-bold uppercase tracking-widest text-muted mb-2">
@@ -97,7 +97,7 @@ export function OriginStory() {
 
                 {/* Founder Quote */}
                 <motion.div className="card-dark--solid p-8 rounded-2xl relative overflow-hidden">
-                  <p className="relative z-10 text-h4 font-bold leading-tight text-white">
+                  <p className="relative z-10 text-h3 font-bold leading-tight text-white">
                     "We built MediKloud to solve this—giving hospitals the infrastructure to fulfill
                     their own prescriptions, anywhere."
                   </p>

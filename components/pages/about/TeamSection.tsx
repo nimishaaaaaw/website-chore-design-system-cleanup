@@ -120,13 +120,13 @@ export function TeamSection() {
 
               {/* Category Badge */}
               <div className="mb-4">
-                <span className={`badge ${member.category === 'Founding Team' ? 'badge-brand' : 'badge-slate'} uppercase tracking-wider`}>
+                <span className={`badge ${member.category === 'Founding Team' ? 'badge-brand' : 'badge-slate'} text-xxs uppercase tracking-wider`}>
                   {member.category}
                 </span>
               </div>
 
               {/* Name & Role */}
-              <h3 className="text-h2 font-bold text-slate-900 tracking-tight mb-1">{member.name}</h3>
+              <h3 className="text-h6 font-bold text-slate-900 tracking-tight mb-1">{member.name}</h3>
               <p className="text-indigo-600 font-bold text-xs uppercase tracking-[0.2em] mb-6">{member.role}</p>
 
               {/* Bio */}

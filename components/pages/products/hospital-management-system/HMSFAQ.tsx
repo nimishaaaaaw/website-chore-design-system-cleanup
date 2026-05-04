@@ -47,7 +47,7 @@ const faqData = [
 
 export const HMSFAQ = () => {
   return (
-    <section className="relative bg-section-alt section-py border-t border-muted overflow-hidden">
+    <section className="relative bg-section-alt section-py border-t border-slate-50/50 overflow-hidden">
       <div className="tech-grid-overlay opacity-5" />
 
       <div className="container-page relative z-10">
@@ -69,11 +69,11 @@ export const HMSFAQ = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-1">
             {faqData.map((faq, index) => (
-              <div key={index} className="card card--static rounded-[2rem]">
-                <h3 className="text-h3 font-bold mb-4">{faq.question}</h3>
-                <div className="premium-p leading-relaxed font-sans">
+              <div key={index} className="card card--static rounded-[2rem] ">
+                <h3 className="text-lg font-bold mb-4 text-slate-900">{faq.question}</h3>
+                <div className="premium-p leading-relaxed font-sans text-slate-600">
                   {faq.answer}
                 </div>
               </div>

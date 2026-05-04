@@ -20,20 +20,19 @@ export const HMSCTA = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="w-16 h-1 rounded-full mx-auto mb-10 opacity-60" style={{ background: 'var(--brand-600)' }} />
+          <div className="relative z-10 flex flex-col items-center">
+            <div className="w-16 h-1 rounded-full mb-12 opacity-60 bg-brand-600" />
+            <h3 className="text-display-md sm:text-display-lg md:text-display-xl font-bold text-white max-w-5xl mx-auto leading-[1.05] tracking-tight text-balance mb-8">
+              Ready to deploy the <br className="hidden md:block" />
+              <span className="text-indigo-400">Clinic OS?</span>
+            </h3>
 
-          <h2 className="text-display-sm md:text-display-md lg:text-display-lg font-bold text-white leading-[1.1] tracking-tight mb-12">
-            <span className="inline-block md:whitespace-nowrap">Ready to deploy the</span>
-            <br className="hidden md:block" />
-            <span className="text-indigo-400"> Clinic OS?</span>
-          </h2>
+            <p className="premium-p mb-12 max-w-2xl mx-auto text-slate-400">
+              Stop managing software and get back to patient care. Get a live walkthrough of the platform, and see how you can migrate your entire clinic in under 24 hours.
+            </p>
 
-          <p className="premium-p mb-12 max-w-2xl mx-auto text-muted">
-            Stop managing software and get back to patient care. Get a live walkthrough of the platform, and see how you can migrate your entire clinic in under 24 hours.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
-            <button
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
+              <button
                 onClick={() => openModal({
                   badge: "Medicine Deliveries",
                   title: "Enable Direct Patient Delivery.",
@@ -42,13 +41,18 @@ export const HMSCTA = () => {
                   successTitle: "Deployment Plan Initiated!",
                   successDescription: "Our team will be in touch within 24 hours to map your infrastructure."
                 })}
-                className="group btn-cta-dark px-10 py-5 text-lg w-full sm:w-auto"
+                className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-[#4E46E5] rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95 border border-white/10"
               >
-                <span>Enable Medicine Deliveries</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-500" strokeWidth={1.5} />
+                <div className="relative z-10 flex items-center gap-3">
+                  <span>Experience HMS</span>
+                  <ArrowRight 
+                    className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-500" 
+                    strokeWidth={2} 
+                  />
+                </div>
               </button>
-              </div>
-
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

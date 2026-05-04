@@ -97,7 +97,7 @@ export const HMSComparison = () => {
 
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-16 h-1 rounded-full mb-12 opacity-60 bg-brand-600" />
-            <h3 className="text-display-sm sm:text-display-md md:text-display-lg font-bold text-white max-w-4xl mx-auto leading-[1.1] tracking-tight text-balance mb-8">
+            <h3 className="text-display-md sm:text-display-lg md:text-display-xl font-bold text-white max-w-5xl mx-auto leading-[1.05] tracking-tight text-balance mb-8">
               Engineered for clinical speed. <br className="hidden md:block" />
               <span className="text-indigo-400">Not just hospital accounting.</span>
             </h3>
@@ -105,12 +105,12 @@ export const HMSComparison = () => {
             <div className="mt-4 flex items-center gap-6">
               <div className="trust-chip">
                 <span className="trust-chip-dot" />
-                <span className="trust-chip-text">Clinical Excellence</span>
+                <span className="trust-chip-text text-slate-400">Clinical Excellence</span>
               </div>
               <div className="w-px h-3 bg-slate-700" />
               <div className="trust-chip">
                 <span className="trust-chip-dot" />
-                <span className="trust-chip-text">Modern Architecture</span>
+                <span className="trust-chip-text text-slate-400">Modern Architecture</span>
               </div>
             </div>
           </div>

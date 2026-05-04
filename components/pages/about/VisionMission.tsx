@@ -54,7 +54,7 @@ export function VisionMission() {
                   Our Vision
                 </span>
               </div>
-              <h3 className="text-xl md:text-h2 font-semibold leading-snug text-slate-800">
+              <h3 className="text-h6 md:text-h6 font-semibold leading-loose text-slate-800">
                 To build the operating infrastructure that powers every independent hospital in India.
               </h3>
             </div>
@@ -79,7 +79,7 @@ export function VisionMission() {
                   Our Mission
                 </span>
               </div>
-              <h3 className="text-xl md:text-h2 font-semibold leading-snug text-slate-800">
+              <h3 className="text-h6 md:text-h6 font-semibold leading-loose text-slate-800">
                 To give independent hospital pharmacies the infrastructure they were never built with.
               </h3>
             </div>
@@ -95,7 +95,7 @@ export function VisionMission() {
               <span className="eyebrow-text">How We Think</span>
               <div className="eyebrow-line-r" />
             </div>
-            <h2 className="premium-h2 mb-4">Our Core Beliefs</h2>
+            <h2 className="premium-h3 mb-4">Our Core Beliefs</h2>
             <p className="premium-p max-w-2xl mx-auto">The principles that guide every operational decision at MediKloud.</p>
           </div>
 

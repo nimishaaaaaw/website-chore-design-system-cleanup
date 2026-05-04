@@ -20,7 +20,7 @@ export const HMSSecurity = () => {
               <span className="eyebrow-text text-brand-400">Bank-Grade Security</span>
               <span className="eyebrow-line-r" />
             </div>
-            <p className="text-body-lg font-medium leading-relaxed max-w-xl animate-fade-in-up opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards] text-muted">
+            <p className="text-h3 font-medium leading-relaxed max-w-xl animate-fade-in-up opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards] text-muted">
               Patient records are your facility&apos;s most valuable asset. MediKloud protects them with advanced encryption and an architecture designed for total privacy. We handle the security overhead so you can focus entirely on care.
             </p>
           </div>
@@ -50,8 +50,6 @@ export const HMSSecurity = () => {
               title: "Staff Access Controls",
               desc: "Granular controls ensure only authorized staff view sensitive data."
             }
-
-
               ].map((item, idx) => (
                 <div
                   key={idx}
@@ -60,7 +58,8 @@ export const HMSSecurity = () => {
                   <div className="bg-white/5 w-11 h-11 rounded-xl flex items-center justify-center border border-white/10 mb-4 shadow-inner">
                     {React.cloneElement(item.icon as React.ReactElement, { strokeWidth: 1.5 } as any)}
                   </div>
-                  <h4 className="text-h4 font-bold text-white mb-2">{item.title}</h4>
+                  {/* Increased from text-h4 to text-xl */}
+                  <h4 className="text-xl font-bold text-white mb-2">{item.title}</h4>
                   <p className="text-xs leading-relaxed font-medium text-muted">{item.desc}</p>
                 </div>
               ))}
@@ -74,7 +73,9 @@ export const HMSSecurity = () => {
 
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-16 h-1 rounded-full mb-12 opacity-60 bg-brand-600" />
-            <h3 className="text-display-sm sm:text-display-md md:text-display-lg font-bold text-white max-w-4xl mx-auto leading-[1.1] tracking-tight text-balance mb-8">
+            
+            {/* Increased from md:text-display-lg to md:text-display-xl */}
+            <h3 className="text-display-md sm:text-display-lg md:text-display-xl font-bold text-white max-w-5xl mx-auto leading-[1.05] tracking-tight text-balance mb-8">
               Absolute peace of mind. <br className="hidden md:block" />
               <span className="text-indigo-400">Absolute data integrity.</span>
             </h3>
@@ -82,12 +83,12 @@ export const HMSSecurity = () => {
             <div className="flex flex-wrap justify-center items-center gap-6 mt-4">
               <div className="flex items-center gap-2">
                 <ShieldCheck strokeWidth={1.5} className="w-5 h-5 text-brand-400" />
-                <span className="trust-chip-text">ABDM Compliant</span>
+                <span className="trust-chip-text font-bold text-slate-400 leading-relaxed">ABDM Compliant</span>
               </div>
               <div className="w-1 h-1 rounded-full bg-slate-700" />
               <div className="flex items-center gap-2">
                 <Lock strokeWidth={1.5} className="w-5 h-5 text-brand-400" />
-                <span className="trust-chip-text">AES-256 Encrypted</span>
+                <span className="trust-chip-text font-bold text-slate-400 leading-relaxed">AES-256 Encrypted</span>
               </div>
             </div>
           </div>

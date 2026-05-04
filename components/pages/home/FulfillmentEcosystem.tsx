@@ -64,7 +64,7 @@ export function FulfillmentEcosystem() {
             className="premium-h2 text-white mb-4"
           >
             Complete the{' '}
-            <span className="text-indigo-600">
+            <span className="text-indigo-400">
               care loop.
             </span>
           </motion.h2>

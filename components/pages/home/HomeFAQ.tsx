@@ -9,6 +9,7 @@ export const HomeFAQ = () => {
       <div className="tech-grid-overlay opacity-5" />
 
       <div className="container-page relative z-10">
+        <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <div className="flex flex-col items-center">
             <div className="eyebrow-wrap">
@@ -39,6 +40,7 @@ export const HomeFAQ = () => {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

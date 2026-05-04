@@ -26,7 +26,7 @@ const VPSolution = () => {
       
       <div className="container-page relative z-10">
         
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start max-w-6xl mx-auto w-full">
           
           {/* ── LEFT COLUMN: STICKY NARRATIVE ── */}
           <div className="lg:col-span-5 lg:sticky lg:top-[max(30vh,160px)] space-y-8">
@@ -36,20 +36,20 @@ const VPSolution = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: premiumEase }}
             >
-              <div className="eyebrow-wrap !justify-start mb-6">
+              <div className="eyebrow-wrap !justify-start ml-7 mb-6">
                 <span className="eyebrow-line-l"></span>
                 <span className="eyebrow-text flex items-center gap-2">
-                   <Layers size={14} className="text-blue-400" /> The Virtual Model
+                   <Layers size={14} className="text-indigo-400" /> The Virtual Model
                 </span>
                 <span className="eyebrow-line-r"></span>
               </div>
               
-              <h2 className="premium-h2 !text-white mb-6">
+              <h2 className="premium-h2 !text-white ml-7 mb-6">
                 Pharmacy,<br />
-                <span className="text-indigo-600">delivered as a service.</span>
+                <span className="text-indigo-400">delivered as a service.</span>
               </h2>
               
-              <p className="premium-p max-w-full lg:max-w-intro-lock !text-slate-400">
+              <p className="premium-p max-w-full lg:max-w-intro-lock !text-slate-400 ml-7">
                 We build your pharmacy entirely off-site. You keep all the clinical benefits, while we absorb the physical footprint, the inventory risk, and the regulatory burden.
               </p>
             </motion.div>
@@ -59,16 +59,16 @@ const VPSolution = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.2, ease: premiumEase }}
-              className="hidden lg:block pt-8 border-t border-slate-800"
+              className="hidden lg:block pt-8 border-t border-slate-800 ml-7"
             >
               <div className="flex items-center gap-10">
                 <div>
-                  <p className="stat-number text-indigo-600 text-3xl">0<span className="text-xl text-slate-500 font-bold ml-1">sq.ft</span></p>
-                  <p className="text-xxs font-bold text-slate-500 uppercase tracking-widest mt-1.5">Space Required</p>
+                  <p className="stat-number  !text-white text-3xl ml-7">0<span className="text-xl text-slate-500 font-bold ml-1">sq.ft</span></p>
+                  <p className="text-xxs font-bold text-slate-500 uppercase tracking-widest mt-1.5 ml-7">Space Required</p>
                 </div>
                 <div className="w-px h-10 bg-slate-800" />
                 <div>
-                  <p className="stat-number text-indigo-600 text-3xl">₹0</p>
+                  <p className="stat-number  !text-white text-3xl">₹0</p>
                   <p className="text-xxs font-bold text-slate-500 uppercase tracking-widest mt-1.5">Capital Invested</p>
                 </div>
               </div>
@@ -76,7 +76,7 @@ const VPSolution = () => {
           </div>
 
           {/* ── RIGHT COLUMN: INFRASTRUCTURE MODULES ── */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 mr-8">
             
             {/* Module 1: The Clinic OS */}
             <motion.div 

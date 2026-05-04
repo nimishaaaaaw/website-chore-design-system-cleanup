@@ -49,7 +49,7 @@ export function AboutCTA() {
           className="text-h2 md:text-display-sm lg:text-display-md text-white mb-8 leading-[1.1] tracking-tight font-bold"
         >
           Building a stronger foundation for <br className="hidden md:block" />
-          <span className="text-display-sm sm:text-display-md md:text-h1 display-headline">
+          <span className="text-display-sm sm:text-display-md md:text-h1 text-indigo-400">
             every independent hospital.
           </span>
         </motion.h2>

@@ -32,7 +32,7 @@ const VPProblem = () => {
           </div>
           
           <h2 className="premium-h2 text-balance lg:max-w-4xl mx-auto mb-6">
-            Your clinical expertise. <br className="hidden md:block" /> Someone else's <span className="text-indigo-600">revenue</span>.
+            Your clinical expertise. <br className="hidden md:block" /> Someone else’s <span className="text-indigo-600">revenue</span>.
           </h2>
           
           <p className="premium-p max-w-full lg:max-w-intro-lock mx-auto text-balance">
