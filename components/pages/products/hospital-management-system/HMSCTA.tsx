@@ -41,15 +41,13 @@ export const HMSCTA = () => {
                   successTitle: "Deployment Plan Initiated!",
                   successDescription: "Our team will be in touch within 24 hours to map your infrastructure."
                 })}
-                className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-[#4E46E5] rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95 border border-white/10"
+                className="group btn-cta-hero"
               >
-                <div className="relative z-10 flex items-center gap-3">
-                  <span>Experience HMS</span>
-                  <ArrowRight 
-                    className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-500" 
-                    strokeWidth={2} 
-                  />
-                </div>
+                <span>Experience HMS</span>
+                <ArrowRight 
+                  className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-2" 
+                  strokeWidth={2} 
+                />
               </button>
             </div>
           </div>

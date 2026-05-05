@@ -60,15 +60,22 @@ export const HospitalPharmacyHero = ({ children, onViewDemo }: HospitalPharmacyH
 
               <div className="flex flex-col gap-10 pt-2 lg:pt-4 animate-fade-in opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
-                  <button onClick={() => openModal({
-                    badge: "Hospital Recovery",
-                    title: "Build Your Recovery Plan",
-                    description: "Schedule a demo to see how our expert-led management can help you recover 100% of your pharmacy margins.",
-                    btnText: "Schedule Your Demo",
-                    successTitle: "Recovery Plan Initiated!",
-                    successDescription: "Our team will reach out within 24 hours to start your hospital's revenue recovery plan."
-                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-indigo-600 text-white font-bold rounded-2xl shadow-card-md hover:shadow-card-lg hover:-translate-y-0.5 transition-all duration-300 text-h4 md:text-body-lg w-full sm:w-auto">
-                    Partner With Us <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <button
+                    onClick={() => openModal({
+                      badge: "Hospital Recovery",
+                      title: "Build Your Recovery Plan",
+                      description: "Schedule a demo to see how our expert-led management can help you recover 100% of your pharmacy margins.",
+                      btnText: "Schedule Your Demo",
+                      successTitle: "Recovery Plan Initiated!",
+                      successDescription: "Our team will reach out within 24 hours to start your hospital's revenue recovery plan."
+                    })}
+                    className="group btn-second-cta"
+                  >
+                    <span>Partner With Us</span>
+                    <ChevronRight 
+                      size={18} 
+                      className="group-hover:translate-x-1 transition-transform duration-300" 
+                    />
                   </button>
                 </div>
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">

@@ -102,19 +102,22 @@ export const MedicineDeliveriesHero = ({ children }: MedicineDeliveriesHeroProps
               <div className="flex flex-col gap-10 pt-2 lg:pt-4 animate-fade-in opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
                   <button
-                    onClick={() => openModal({
-                      badge: "Medicine Deliveries",
-                      title: "Enable Direct Patient Delivery.",
-                      description: "Let us handle the logistics so you can recover lost prescription revenue.",
-                      btnText: "Schedule Your Demo",
-                      successTitle: "Delivery Plan Booked!",
-                      successDescription: "Our team will be in touch within 24 hours to map your infrastructure."
-                    })}
-                    className="group btn-primary text-base md:text-body-lg w-full sm:w-auto"
-                  >
-                    Enable Medicine Deliveries
-                    <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
+                      onClick={() => openModal({
+                        badge: "Medicine Deliveries",
+                        title: "Enable Direct Patient Delivery.",
+                        description: "Let us handle the logistics so you can recover lost prescription revenue.",
+                        btnText: "Schedule Your Demo",
+                        successTitle: "Delivery Plan Booked!",
+                        successDescription: "Our team will be in touch within 24 hours to map your infrastructure."
+                      })}
+                      className="group btn-second-cta"
+                    >
+                      <span>Enable Medicine Deliveries</span>
+                      <ChevronRight 
+                        size={20} 
+                        className="group-hover:translate-x-1 transition-transform duration-300" 
+                      />
+                    </button>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">

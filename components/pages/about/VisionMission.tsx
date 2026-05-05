@@ -95,7 +95,13 @@ export function VisionMission() {
               <span className="eyebrow-text">How We Think</span>
               <div className="eyebrow-line-r" />
             </div>
-            <h2 className="premium-h3 mb-4">Our Core Beliefs</h2>
+            <h2 className="text-center lg:text-left text-balance max-w-none mx-auto lg:mx-0">
+              <div className="mb-4 md:mb-6">
+                <span className="premium-h2 block whitespace-nowrap">
+                  Our Core Beliefs
+                </span>
+              </div>
+            </h2>
             <p className="premium-p max-w-2xl mx-auto">The principles that guide every operational decision at MediKloud.</p>
           </div>
 

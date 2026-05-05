@@ -40,6 +40,7 @@ export function MPv2Solution() {
                 <span className="eyebrow-line-r"></span>
               </motion.div>
               
+            
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -47,19 +48,15 @@ export function MPv2Solution() {
                 transition={{ duration: 0.8, ease: premiumEase }}
                 className="premium-h2"
               >
-                Your entire pharmacy, <br />
-                <span className="text-indigo-600">running on autopilot.</span>
-              </motion.h2>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1, duration: 0.8, ease: premiumEase }}
-                className="premium-p intro-lock"
-              >
-                We deploy the hardware, technology, and clinical staff directly into your facility. You retain full ownership of the revenue flow. <strong className="text-slate-900 font-bold italic">We handle the rest.</strong>
-              </motion.p>
+                <span className="whitespace-nowrap">Your entire pharmacy,</span><br />
+                <span className="text-brand-indigo-600 drop-shadow-sm whitespace-nowrap">
+                  running on autopilot.
+                </span>
+              </motion.h2>              
+              <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0">
+                We deploy the hardware, technology, and clinical staff directly into your facility. You retain full ownership of the revenue flow.<br />
+                <strong className="text-slate-900 font-bold italic">We handle the rest.</strong>
+              </p>
             </div>
           </div>
 

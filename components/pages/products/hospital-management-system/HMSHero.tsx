@@ -57,10 +57,13 @@ export const HMSHero = ({ children }: HMSHeroProps) => {
                       successTitle: "HMS Demo Scheduled!",
                       successDescription: "Our team will reach out within 24 hours to schedule your Hospital OS demo."
                     })}
-                    className="group btn-cta-dark w-full sm:w-auto px-8 py-4 text-base"
+                    className="group btn-second-cta"
                   >
-                    Experience HMS
-                    <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    <span>Experience HMS</span>
+                    <ChevronRight 
+                      size={20} 
+                      className="group-hover:translate-x-1 transition-transform duration-300" 
+                    />
                   </button>
                 </div>
 

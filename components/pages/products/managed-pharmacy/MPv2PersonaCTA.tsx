@@ -63,19 +63,21 @@ export function MPv2PersonaCTA() {
           >
             <button 
               onClick={() => openModal({
-                    badge: "Managed Pharmacy",
-                    title: "Plan Your Managed Pharmacy Upgrade",
-                    description: "Schedule a demo to see how MediKloud takes the complexity out of inventory, staffing, and compliance.",
-                    btnText: "Schedule Your Demo",
-                    successTitle: "Optimization Plan Initiated!",
-                    successDescription: "Our team will reach out within 24 hours to start your pharmacy optimization plan."
-                  })}
-              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-brand-1 rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all active:scale-95 border border-white/10"
+                badge: "Managed Pharmacy",
+                title: "Plan Your Managed Pharmacy Upgrade",
+                description: "Schedule a demo to see how MediKloud takes the complexity out of inventory, staffing, and compliance.",
+                btnText: "Schedule Your Demo",
+                successTitle: "Optimization Plan Initiated!",
+                successDescription: "Our team will reach out within 24 hours to start your pharmacy optimization plan."
+              })}
+              className="group btn-cta-hero"
             >
-              <div className="relative z-10 flex items-center gap-3">
-                <span>Optimize My Pharmacy</span>
-                <ArrowRight size={22} className="transition-transform duration-500 group-hover:translate-x-2" strokeWidth={2.5} />
-              </div>
+              <span>Optimize My Pharmacy</span>
+              <ArrowRight 
+                size={22} 
+                className="transition-transform duration-500 group-hover:translate-x-2" 
+                strokeWidth={2.5} 
+              />
             </button>
             
             <div className="mt-8 flex items-center justify-center gap-6 text-slate-500 text-xs font-bold uppercase tracking-widest">

@@ -18,7 +18,6 @@ import { motion, Variants } from 'framer-motion';
 import { useContactModal } from '@/hooks/use-contact-modal';
 import { premiumEase } from '@/lib/animation';
 
-
 const VPCTA = () => {
   const { openModal } = useContactModal();
 
@@ -100,18 +99,26 @@ const VPCTA = () => {
             <motion.div variants={itemVariants}>
               <button 
                 onClick={() => openModal({
-                    badge: "Virtual Pharmacy",
-                    title: "Start Your Virtual Pharmacy Launch",
-                    description: "Schedule a demo to see how we can fulfill your exact prescriptions with zero space required.",
-                    btnText: "Schedule Your Demo",
-                    successTitle: "Launch Initiated!",
-                    successDescription: "Our team will be in touch within 24 hours to map your local fulfillment grid."
-                  })} 
-                className="btn-cta-dark px-10 h-14 lg:h-16 text-h4 md:text-body-lg w-full sm:w-auto whitespace-nowrap"
+                  badge: "Virtual Pharmacy",
+                  title: "Start Your Virtual Pharmacy Launch",
+                  description: "Schedule a demo to see how we can fulfill your exact prescriptions with zero space required.",
+                  btnText: "Schedule Your Demo",
+                  successTitle: "Launch Initiated!",
+                  successDescription: "Our team will be in touch within 24 hours to map your local fulfillment grid."
+                })} 
+                className="group btn-second-cta whitespace-nowrap"
               >
-                <Phone size={16} strokeWidth={1.5} className="mr-3 opacity-80" />
-                Launch My Pharmacy
-                <ArrowUpRight size={18} strokeWidth={1.5} className="ml-2 opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <Phone 
+                  size={16} 
+                  strokeWidth={1.5} 
+                  className="opacity-80" 
+                />
+                <span>Launch My Pharmacy</span>
+                <ArrowUpRight 
+                  size={18} 
+                  strokeWidth={1.5} 
+                  className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" 
+                />
               </button>
             </motion.div>
           </motion.div>

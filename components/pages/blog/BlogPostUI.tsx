@@ -8,6 +8,7 @@ import { trackEvent } from '@/lib/analytics'
 import { useContactModal } from '@/hooks/use-contact-modal'
 import { getArticleSchema, getBreadcrumbSchema, siteConfig } from '@/lib/seo'
 import { JsonLd } from '@/components/seo/JsonLd'
+import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere' // Make sure this path matches your project structure
 
 export interface TocItem {
   id: string;
@@ -286,39 +287,35 @@ export function BlogPostUI({ post, readTime, toc, mdxContent }: BlogPostUIProps)
                 </div>
               )}
 
-             {/* CTA Section */}
-                <div className="mt-12 p-8 md:p-12 rounded-3xl bg-section-dark text-white relative overflow-hidden group">
-                <div className="blob-layer">
-                    <div className="blob-glow-blue w-64 h-64 -top-32 -right-32 group-hover:scale-110 transition-transform duration-700" />
-                </div>
+              {/* CTA Section */}
+              <div className="mt-12 p-8 md:p-12 rounded-3xl bg-section-dark text-white relative overflow-hidden group">
+                {/* 1. Add the DarkAtmosphere component here as the absolute background layer */}
+                <DarkAtmosphere />
+                
+                {/* 2. Ensure content sits on top using relative z-10 */}
                 <div className="relative z-10 text-center max-w-2xl mx-auto">
-                    <h3 className="text-h3 md:text-h2 font-bold mb-4 text-white">
+                  <h3 className="text-h3 md:text-h2 font-bold mb-4 text-white">
                     Ready to transform your hospital operations?
-                    </h3>
-                    <p className="text-slate-300 mb-8 text-body-lg leading-relaxed">
+                  </h3>
+                  <p className="text-slate-300 mb-8 text-body-lg leading-relaxed">
                     Join forward-thinking healthcare leaders using MediKloud to optimize clinical workflows and improve patient care.
-                    </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  </p>
+                  <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <button
-                        onClick={() => openModal({
+                      onClick={() => openModal({
                         badge: "Blog CTA",
                         title: "Transform your hospital pharmacy.",
                         description: "Schedule a walkthrough to see how MediKloud can manage your pharmacy operations and stop revenue leakage.",
                         btnText: "Schedule My Demo"
-                        })}
-                        className="btn-lg bg-white text-slate-900 rounded-2xl hover:bg-brand-50 shadow-btn transition-all duration-200 active:scale-95"
+                      })}
+                      className="btn-second-cta"
                     >
-                        Book a Demo
+                      <span>Talk to us</span>
                     </button>
-                    <Link
-                        href="/#products"
-                        className="btn-lg btn-dark-glass rounded-2xl flex items-center justify-center"
-                    >
-                        View Our Solutions
-                    </Link>
-                    </div>
+                  </div>
                 </div>
-                </div>
+              </div>
+
             </div>
           </div>
         </div>

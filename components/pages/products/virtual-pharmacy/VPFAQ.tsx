@@ -54,7 +54,7 @@ export function VPFAQ() {
           {/* Header Section */}
           <div className="text-center mb-16 md:mb-20">
             <h2 className="premium-h2">
-              Frequently Asked <span className="text-indigo-600">Questions</span>
+              Frequently Asked <span className="heading-accent">Questions</span>
             </h2>
           </div>
 

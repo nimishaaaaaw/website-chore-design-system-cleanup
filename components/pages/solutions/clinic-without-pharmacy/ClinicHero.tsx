@@ -72,9 +72,13 @@ export const ClinicHero = ({ children }: ClinicHeroProps) => {
                       successTitle: "Consultation Scheduled!",
                       successDescription: "Our specialists will reach out within 24 hours to schedule your clinic's transformation consult."
                     })}
-                    className="group btn-primary"
+                    className="group btn-second-cta"
                   >
-                    Join The Network <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    <span>Join The Network</span>
+                    <ChevronRight 
+                      size={18} 
+                      className="group-hover:translate-x-1 transition-transform duration-300" 
+                    />
                   </button>
                 </div>
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">

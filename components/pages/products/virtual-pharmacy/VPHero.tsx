@@ -109,18 +109,25 @@ export const VPHero = ({ children }: VPHeroProps) => {
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
               <div className="flex flex-col gap-10 pt-2 lg:pt-4 animate-fade-in opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
-                  <button onClick={() => openModal({
-                    badge: "Virtual Pharmacy",
-                    title: "Start Your Virtual Pharmacy Launch",
-                    description: "Schedule a demo to see how we can fulfill your exact prescriptions with zero space required.",
-                    btnText: "Schedule Your Demo",
-                    successTitle: "Launch Initiated!",
-                    successDescription: "Our team will be in touch within 24 hours to map your local fulfillment grid."
-                  })} className="btn-primary w-full sm:w-auto text-h4 md:text-body-lg">
-                    Launch My Pharmacy <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <button 
+                    onClick={() => openModal({
+                      badge: "Virtual Pharmacy",
+                      title: "Start Your Virtual Pharmacy Launch",
+                      description: "Schedule a demo to see how we can fulfill your exact prescriptions with zero space required.",
+                      btnText: "Schedule Your Demo",
+                      successTitle: "Launch Initiated!",
+                      successDescription: "Our team will be in touch within 24 hours to map your local fulfillment grid."
+                    })} 
+                    className="group btn-second-cta"
+                  >
+                    <span>Launch My Pharmacy</span>
+                    <ChevronRight 
+                      size={20} 
+                      className="group-hover:translate-x-1 transition-transform duration-300" 
+                    />
                   </button>
                 </div>
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">
+                              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">
                   {HERO_TRUST_BADGES.map((badge, idx) => {
                     const Icon = badge.icon;
                     return (

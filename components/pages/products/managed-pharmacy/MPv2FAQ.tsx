@@ -50,7 +50,7 @@ export function MPv2FAQ() {
           {/* Header */}
           <div className="header-lock text-center mb-16 space-y-4">
             <h2 className="premium-h2">
-              Frequently Asked <span className="text-indigo-600">Questions</span>
+              Frequently Asked <span className="heading-accent">Questions</span>
             </h2>
             <p className="premium-p mb-10 max-w-2xl mx-auto">
               Common questions about our managed pharmacy partnership.

@@ -83,7 +83,7 @@ export function ProblemSection() {
           <div className="w-full bg-white border border-slate-200 rounded-xl py-2 px-3 sm:py-3 sm:px-4 flex justify-between items-center relative z-30 shadow-card-lg">
             <div>
               <p className="text-xxs sm:text-xs font-bold uppercase tracking-widest text-brand-indigo-600 mb-1">Doctor Writes</p>
-              <p className="text-h6 sm:text-h6 font-bold text-slate-900 tracking-tight">100% Rx Value</p>
+              <p className="text-h3 sm:text-h3 font-bold text-slate-900 tracking-tight">100% Rx Value</p>
             </div>
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-brand-indigo-100 flex items-center justify-center bg-brand-indigo-50 shrink-0">
               <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-brand-indigo-600" />
@@ -187,7 +187,7 @@ export function ProblemSection() {
           <div className="w-[95%] ml-auto bg-brand-indigo-600 border border-brand-indigo-400/30 rounded-xl py-2 px-3 sm:py-3 sm:px-4 flex justify-between items-center relative z-30 shadow-glow">
             <div>
               <p className="text-xxs sm:text-xs font-bold uppercase tracking-widest text-white/90 mb-1">Revenue Captured</p>
-              <p className="text-h6 sm:text-h6 font-bold text-white tracking-tight">&lt; 50% Final Value</p>
+              <p className="text-h3 sm:text-h3 font-bold text-white tracking-tight">&lt; 50% Final Value</p>
             </div>
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-brand-indigo-200 flex items-center justify-center bg-white shadow-card shrink-0">
               <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-brand-indigo-600" />

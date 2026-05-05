@@ -171,7 +171,7 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
                     0{index + 1}
                   </span>
                 </div>
-                <h3 className="text-h1 font-bold tracking-tighter leading-tight text-primary">
+                <h3 className="text-h2 font-bold tracking-tighter leading-tight text-primary">
                   {item.title}
                 </h3>
                 <p className="premium-p--sm font-medium leading-relaxed pt-1">
@@ -194,7 +194,7 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="group relative p-6 rounded-3xl border border-default bg-surface-alt bg-slate-50 shadow-card transition-colors hover:bg-slate-200/50">
               <div className="flex items-center gap-2 mb-4">
-                <div className="p-1 px-2.5 rounded-md border border-default bg-surface text-base font-bold uppercase tracking-wide shadow-card text-muted">
+                <div className="p-1 px-2.5 rounded-md border border-slate-300 bg-surface text-xxs font-bold uppercase tracking-widest shadow-card text-slate-600">
                   Traditional
                 </div>
                 <AlertCircle className="w-3.5 h-3.5 text-slate-300 group-hover:text-orange-500 transition-colors" />
@@ -211,7 +211,7 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
             )}>
               <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
               <div className="flex items-center gap-2 mb-4 relative z-10">
-                <div className="p-1 px-2.5 rounded-md bg-white/20 text-base font-bold text-white uppercase tracking-wide border border-white/20">
+                <div className="p-1 px-2.5 rounded-md bg-white/20 text-xxs font-bold text-white uppercase tracking-widest border border-white/20">
                   MediKloud
                 </div>
                 <CheckCircle2 className="w-3.5 h-3.5 text-white animate-pulse" />
@@ -244,7 +244,6 @@ function AdvantageCard({ item, index }: { item: AdvantageItem; index: number }) 
 }
 
 function AdvantageStepIndicator({ activeIndex, total }: { activeIndex: number; total: number }) {
-  /* Raw hex required — framer-motion animate needs color strings, not class names */
   const themeHexes = ['#2563eb', '#059669', '#4f46e5', '#7c3aed'];
 
   return (
@@ -330,7 +329,7 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
 
                     <div className="grid grid-cols-1 gap-3">
                       <div className="p-4 rounded-2xl border bg-surface-alt border-muted-color">
-                        <div className="text-base font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5 text-muted">
+                        <div className="text-sm font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5 text-slate-500">
                           <AlertCircle size={10} /> Traditional
                         </div>
                         <p className="text-sm font-medium italic leading-relaxed text-subtitle">&quot;{item.traditional}&quot;</p>
@@ -340,7 +339,7 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
                         "p-4 rounded-2xl text-white shadow-card-md relative overflow-hidden",
                         theme.solid
                       )}>
-                        <div className="text-base font-bold text-white/70 uppercase tracking-wide mb-2 flex items-center gap-1.5 relative z-10">
+                        <div className="text-sm font-bold text-white/70 uppercase tracking-widest mb-2 flex items-center gap-1.5 relative z-10">
                           <CheckCircle2 size={10} /> MediKloud
                         </div>
                         <p className="text-sm font-medium text-white/95 leading-relaxed relative z-10">{item.medikloud}</p>
@@ -351,7 +350,7 @@ function MobileAdvantageAccordion({ items }: { items: AdvantageItem[] }) {
                     <div className="flex items-center justify-between pt-2 border-t border-muted">
                       <span className="text-xs font-bold uppercase tracking-wide text-muted">Efficiency Impact</span>
                       <span className={cn(
-                        "text-sm font-bold px-4 py-2 rounded-full border flex items-center gap-1.5",
+                        "text-sm px-4 py-2 rounded-full border flex items-center gap-1.5",
                         theme.text, theme.bg, theme.border
                       )}>
                         <Zap size={12} className="animate-pulse" />
@@ -418,15 +417,14 @@ export function AdvantageSection() {
                 <div className="eyebrow-line-r" />
               </motion.div>
 
-              <h2 className="text-display font-bold leading-[1.05] tracking-tighter text-center lg:text-left text-slate-900">
-                <span className="heading-accent">The advantage</span><br />
+              <h2 className="premium-h2 mb-4">
+                <span className="text-brand-indigo-600 drop-shadow-sm">The advantage</span><br />
                 corporate chains have.<br />
-                <span className="heading-accent italic">
+                <span className="text-brand-indigo-600 drop-shadow-sm pr-2 italic">
                   Available to<br />
-                  you.
+                  <span className="whitespace-nowrap not-italic">you.</span>
                 </span>
               </h2>
-
               <p className="text-body-lg max-w-sm mx-auto lg:mx-0 text-center lg:text-left text-slate-500">
                 Corporate pharmacy chains win because of scale, not luck. We give independent hospitals the exact same operating infrastructure.
               </p>

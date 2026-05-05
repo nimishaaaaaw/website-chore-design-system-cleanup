@@ -96,7 +96,7 @@ export default function ProductsMegaMenu() {
                         isBlue ? "bg-brand-400" : "bg-brand-indigo-400"
                       )} />
                     </p>
-                    <p className="premium-p--sm font-medium tracking-tight">
+                    <p className="text-sm text-subtitle">
                       {product.tagline}
                     </p>
                   </div>

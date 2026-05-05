@@ -71,15 +71,22 @@ export const MPHero = ({ children }: MPHeroProps) => {
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
               <div className="flex flex-col gap-10 pt-2 lg:pt-4 animate-fade-in opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
-                  <button onClick={() => openModal({
-                    badge: "Managed Recovery",
-                    title: "Launch Your Recovery Plan",
-                    description: "Schedule a walkthrough to see how our expert-led management can help you capture 100% of your pharmacy margins.",
-                    btnText: "Start Recovery Plan",
-                    successTitle: "Recovery Plan Initiated!",
-                    successDescription: "Our team will reach out within 24 hours to begin your revenue recovery plan."
-                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-2 text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-h4 md:text-body-lg w-full sm:w-auto">
-                    Optimize My Pharmacy <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <button 
+                    onClick={() => openModal({
+                      badge: "Managed Recovery",
+                      title: "Launch Your Recovery Plan",
+                      description: "Schedule a walkthrough to see how our expert-led management can help you capture 100% of your pharmacy margins.",
+                      btnText: "Start Recovery Plan",
+                      successTitle: "Recovery Plan Initiated!",
+                      successDescription: "Our team will reach out within 24 hours to begin your revenue recovery plan."
+                    })} 
+                    className="group btn-second-cta"
+                  >
+                    <span>Optimize My Pharmacy</span>
+                    <ChevronRight 
+                      size={20} 
+                      className="group-hover:translate-x-1 transition-transform duration-300" 
+                    />
                   </button>
                 </div>
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">

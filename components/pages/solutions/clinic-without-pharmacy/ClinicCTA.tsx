@@ -40,10 +40,13 @@ export const ClinicCTA = () => {
                 successTitle: "Consultation Scheduled!",
                 successDescription: "Our specialists will reach out within 24 hours to schedule your clinic's transformation consult."
               })}
-              className="group btn-primary"
+              className="group btn-cta-hero"
             >
               <span>Join The Network</span>
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-500" />
+              <ArrowRight 
+                className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-2" 
+                strokeWidth={2.5} 
+              />
             </button>
           </div>
         </motion.div>

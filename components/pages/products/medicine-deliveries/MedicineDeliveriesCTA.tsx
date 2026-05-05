@@ -50,11 +50,11 @@ export const MedicineDeliveriesCTA = () => {
                 successTitle: "Deployment Plan Initiated!",
                 successDescription: "Our team will be in touch within 24 hours to map your infrastructure."
               })}
-              className="group relative inline-flex items-center justify-center gap-4 px-10 h-16 text-lg font-bold text-white bg-[#4E46E5] rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto active:scale-95 ring-1 ring-white/10"
+              className="group btn-cta-hero"
             >
               <span>Enable Medicine Deliveries</span>
               <ArrowRight 
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform" 
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
                 strokeWidth={1.5} 
               />
             </button>

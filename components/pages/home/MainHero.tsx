@@ -57,18 +57,20 @@ export function MainHero({ children }: MainHeroProps) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-10 md:mb-12 animate-fade-in opacity-0 [animation-delay:450ms] [animation-fill-mode:forwards]">
             <button
               onClick={() => openModal({
-                    badge: "Partnership",
-                    title: "Schedule Your Demo",
-                    description: "Learn how MediKloud can help you recover margins and automate your patient journey.",
-                    btnText: "Book My Free Demo",
-                    successTitle: "Demo Scheduled!",
-                    successDescription: "Our team will reach out within 24 hours to schedule your platform walkthrough."
-                  })}
-              
-              className="btn-lg w-full sm:w-auto group flex items-center justify-center gap-2 bg-brand-1 text-white shadow-btn hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-transform"
+                badge: "Partnership",
+                title: "Schedule Your Demo",
+                description: "Learn how MediKloud can help you recover margins and automate your patient journey.",
+                btnText: "Book My Free Demo",
+                successTitle: "Demo Scheduled!",
+                successDescription: "Our team will reach out within 24 hours to schedule your platform walkthrough."
+              })}
+              className="group btn-cta-hero"
             >
-              Book A Free Demo
-              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <span>Book A Free Demo</span>
+              <ChevronRight 
+                size={20} 
+                className="group-hover:translate-x-1 transition-transform duration-300" 
+              />
             </button>
           </div>
 

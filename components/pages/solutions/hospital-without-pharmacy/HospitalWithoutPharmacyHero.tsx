@@ -55,7 +55,7 @@ export const HospitalWithoutPharmacyHero = ({
           <div className="space-y-6">
             <h1 className="text-display-xl font-bold leading-[1.05] tracking-tighter max-w-5xl mx-auto animate-fade-in-up opacity-0 [animation-delay:200ms] [animation-fill-mode:forwards]">
               <span className="text-slate-900 inline-block">You heal the patient.</span> <br className="hidden md:block" />
-              <span className="display-headline inline-block overflow-visible">
+              <span className="main-headinginline-block overflow-visible">
                 Why does the revenue leave?
               </span>
             </h1>

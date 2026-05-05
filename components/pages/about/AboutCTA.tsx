@@ -80,10 +80,13 @@ export function AboutCTA() {
               successTitle: "Message Received!",
               successDescription: "Thank you for your interest! Our team will reach out to you shortly."
             })}
-            className="group btn-primary"
+            className="group btn-cta-hero"
           >
             <span>Join the Mission</span>
-            <ArrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-2" />
+            <ArrowRight 
+              className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-2" 
+              strokeWidth={2.5} 
+            />
           </button>
         </motion.div>
 

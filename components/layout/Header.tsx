@@ -201,9 +201,9 @@ export function Header() {
                 successTitle: "Demo Scheduled!",
                 successDescription: "Our team will reach out within 24 hours to schedule your platform walkthrough."
               })}
-              className="btn-nav"
+              className="btn-header"
             >
-              Book a Demo
+              <span>Book a Demo</span>
             </button>
           </div>
 

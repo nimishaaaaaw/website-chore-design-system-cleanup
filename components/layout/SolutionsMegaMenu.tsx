@@ -88,7 +88,7 @@ export default function SolutionsMegaMenu() {
                               <span className="w-1.5 h-1.5 rounded-full bg-brand-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                             )}
                           </p>
-                          <p className="premium-p--sm font-medium tracking-tight">
+                          <p className="text-sm text-subtitle">
                             {item.desc}
                           </p>
                         </div>

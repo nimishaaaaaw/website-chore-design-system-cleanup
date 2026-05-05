@@ -118,9 +118,9 @@ export default function MobileMenu() {
                 successDescription: "Our team will reach out within 24 hours to schedule your platform walkthrough."
               })
             }}
-            className="btn-nav"
+            className="btn-mobile"
           >
-            Book a Demo
+            <span>Book a Demo</span>
           </button>
 
         </nav>

@@ -27,17 +27,19 @@ export const HospitalPharmacyCTA = () => {
 
           <button 
             onClick={() => openModal({
-                  badge: "Hospital Recovery",
-                  title: "Build Your Recovery Plan",
-                  description: "Schedule a demo to see how our expert-led management can help you recover 100% of your pharmacy margins.",
-                  btnText: "Schedule Your Demo",
-                  successTitle: "Recovery Plan Initiated!",
-                  successDescription: "Our team will reach out within 24 hours to start your hospital's revenue recovery plan."
-                })}
-            className="btn-lg bg-white text-[var(--indigo-600)] hover:bg-[var(--indigo-50)] shadow-float active:scale-[0.98] transition-all font-bold text-h4 px-10 py-4 group"
+              badge: "Hospital Recovery",
+              title: "Build Your Recovery Plan",
+              description: "Schedule a demo to see how our expert-led management can help you recover 100% of your pharmacy margins.",
+              btnText: "Schedule Your Demo",
+              successTitle: "Recovery Plan Initiated!",
+              successDescription: "Our team will reach out within 24 hours to start your hospital's revenue recovery plan."
+            })}
+            className="group btn-cta-hero"
           >
-            Partner With Us
-            <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+            <span>Partner With Us</span>
+            <ArrowRight 
+              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
+            />
           </button>
         </div>
       </div>

@@ -3,6 +3,7 @@
 import React from 'react';
 import { useContactModal } from '@/hooks/use-contact-modal';
 import { DarkAtmosphere } from '@/components/shared/DarkAtmosphere';
+import { ArrowRight } from 'lucide-react';
 
 export function GetStartedCTA() {
   const { openModal } = useContactModal();
@@ -38,15 +39,13 @@ export function GetStartedCTA() {
               description: "Schedule a diagnostic walkthrough to see exactly how much revenue your hospital is losing to external chain pharmacies.",
               btnText: "Start Diagnostic"
             })}
-            className="group btn-primary">
+            className="btn-cta-hero"
+          >
             <span>Book a Demo</span>
-            <svg
-              className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-2"
-              fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" strokeWidth={2.5}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
+            <ArrowRight 
+              className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-2" 
+              strokeWidth={2.5} 
+            />
           </button>
         </div>
 

@@ -13,6 +13,17 @@
 @tailwind utilities;
 
 @layer base {
+  /* Enforces a single font family globally */
+  body, html {
+    @apply font-sans antialiased;
+  }
+  
+  /* Overrides default heading styles to ensure they inherit the body's font-sans */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans;
+  }
+
+  /* Global border reset: Sets the default border color for all elements and pseudo-elements */
   *, *::before, *::after {
     border-color: theme('colors.slate.200');
   }
@@ -142,7 +153,6 @@
 }
 
 
-
 /* ═══════════════════════════════════════════════════════════════
    BASE LAYER — global resets and base element styles
    ═══════════════════════════════════════════════════════════════ */
@@ -266,7 +276,9 @@
 
   .page-main {
   @apply pt-24 pb-20;
-  } 
+  }
+  
+
 
   
   
@@ -419,6 +431,62 @@
 }
   /* ── BUTTONS ─────────────────────────────────────────────── */
   /* Base — shared across all button variants */
+
+  /* --- Hero CTA Button --- */
+  .btn-cta-hero {
+   
+    @apply relative inline-flex items-center justify-center gap-3 px-10 py-5 w-full sm:w-auto;
+    
+    @apply text-lg font-bold text-white bg-[var(--indigo-600)];
+
+    @apply rounded-2xl border border-white/10 shadow-lg;
+    
+    @apply transition-all duration-300 hover:shadow-indigo-500/25 hover:-translate-y-1 active:scale-95;
+  }
+
+  /* --- Secondary CTA Button --- */
+  .btn-second-cta {
+    
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-4 w-full sm:w-auto;
+    
+    @apply font-bold text-white bg-brand-2 text-h4 md:text-body-lg;
+    
+    @apply rounded-2xl shadow-lg;
+    
+    @apply transition-all duration-300 hover:shadow-indigo-500/25 hover:-translate-y-0.5 active:scale-95;
+  }
+
+  /* --- Header Navbar Button --- */
+  .btn-header {
+
+    @apply relative inline-flex items-center justify-center gap-2.5 px-5 py-2;
+    
+    @apply text-base font-bold text-white bg-[var(--indigo-600)];
+    
+    @apply rounded-xl border border-white/10 shadow-md;
+    
+    @apply transition-all duration-300 hover:shadow-indigo-500/25 hover:-translate-y-0.5 active:scale-95;
+  }
+
+/* --- Mobile Menu Button --- */
+  .btn-mobile {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3 
+           text-base font-bold text-white rounded-2xl
+           transition-all duration-200 active:scale-95 select-none
+           focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-indigo-500 focus-visible:ring-offset-2;
+    background: var(--indigo-600);
+    box-shadow: var(--shadow-btn);
+    border: 1.5px solid rgba(255, 255, 255, 0.10);
+  }
+  
+  .btn-mobile:hover {
+    background: var(--indigo-600);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px); 
+  }
+
+
   .btn {
     @apply inline-flex items-center justify-center gap-2 font-semibold
            rounded-xl transition-all duration-200
@@ -482,22 +550,6 @@
   box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.25);
 }
 
-  /* Nav CTA — smaller, same gradient */
-  .btn-nav {
-  @apply inline-flex items-center justify-center gap-2 px-6 py-2.5 
-         text-base font-bold text-white rounded-xl
-         transition-all duration-200 active:scale-95 select-none
-         focus-visible:outline-none focus-visible:ring-2
-         focus-visible:ring-indigo-500 focus-visible:ring-offset-2;
-  background: var(--indigo-600);
-  box-shadow: var(--shadow-btn);
-  border: 1.5px solid rgba(255, 255, 255, 0.10);
-}
-.btn-nav:hover {
-  background: var(--indigo-600);
-  box-shadow: var(--shadow-glow);
-  transform: translateY(-4px);
-}
   .btn-dark {
     @apply text-white text-xs font-bold rounded-l transition-all active:scale-[0.98] shadow-card;
     background: var(--text-primary);

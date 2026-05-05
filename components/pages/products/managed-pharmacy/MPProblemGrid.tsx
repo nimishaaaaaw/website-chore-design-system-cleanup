@@ -265,19 +265,21 @@ export function MPProblemGrid() {
             
             <button 
               onClick={() => openModal({
-                    badge: "Managed Operations",
-                    title: "Launch Your Recovery Plan",
-                    description: "Stop the leakage today with our fully managed operational layer.",
-                    btnText: "Start Recovery Plan",
-                    successTitle: "Recovery Plan Initiated!",
-                    successDescription: "Our team will reach out within 24 hours to begin your revenue recovery plan."
-                  })}
-              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-[#4E46E5] rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all active:scale-95 border border-white/10"
+                badge: "Managed Operations",
+                title: "Launch Your Recovery Plan",
+                description: "Stop the leakage today with our fully managed operational layer.",
+                btnText: "Start Recovery Plan",
+                successTitle: "Recovery Plan Initiated!",
+                successDescription: "Our team will reach out within 24 hours to begin your revenue recovery plan."
+              })}
+              className="group btn-cta-hero"
             >
-              <div className="flex items-center gap-3">
-                <span>Optimize My Pharmacy</span>
-                <ArrowRight size={22} className="transition-transform duration-500 group-hover:translate-x-2" strokeWidth={2.5} />
-              </div>
+              <span>Optimize My Pharmacy</span>
+              <ArrowRight 
+                size={22} 
+                className="transition-transform duration-500 group-hover:translate-x-2" 
+                strokeWidth={2.5} 
+              />
             </button>
           </div>
         </div>

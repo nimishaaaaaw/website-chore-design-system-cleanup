@@ -26,7 +26,9 @@ export function OriginStory() {
 
               <h2 className="premium-h2 mb-8">
                 A Moment of Frustration that <br className="hidden md:block" />
-                <span className="heading-accent">Millions Know.</span>
+                <span className="text-brand-indigo-600 drop-shadow-sm">
+                  Millions Know.
+                </span>
               </h2>
 
               <div className="space-y-6">
