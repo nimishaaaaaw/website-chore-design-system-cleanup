@@ -32,8 +32,8 @@ export default async function BlogsPage() {
                     {/* --- COMPACT HEADER --- */}
                     <header className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pb-8 border-b border-slate-100">
                         <div className="flex-1">
-                            <h1 className="text-h2 md:text-h1 font-bold tracking-tight text-slate-900 mb-2">
-                                Healthcare <span className="heading-accent inline-block">Perspectives</span>
+                            <h1 className="text-center lg:text-left text-balance max-w-none mx-auto lg:mx-0 premium-h2 mb-4 md:mb-6">
+                            Healthcare <span className="heading-accent drop-shadow-sm">Perspectives</span>
                             </h1>
                             <p className="premium-p max-w-2xl">
                                 Exploring the intersection of technology, hospital operations, and patient care.
