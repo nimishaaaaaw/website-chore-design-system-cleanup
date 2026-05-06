@@ -98,7 +98,7 @@ export function VisionMission() {
             <h2 className="text-center lg:text-left text-balance max-w-none mx-auto lg:mx-0">
               <div className="mb-4 md:mb-6">
                 <span className="premium-h2 block whitespace-nowrap">
-                  Our Core Beliefs
+                  Our Core <span className="text-indigo-600">Beliefs</span>
                 </span>
               </div>
             </h2>

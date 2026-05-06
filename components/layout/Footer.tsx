@@ -22,7 +22,7 @@ export function Footer() {
                 />
               </div>
             </Link>
-            <p className="premium-p--sm max-w-sm">
+            <p className="premium-p--sm text-slate-500 max-w-sm">
               India's first tech-driven fully managed hospital pharmacy. Building the operating backbone for independent hospital and clinic pharmacies across India.
             </p>
           </div>
