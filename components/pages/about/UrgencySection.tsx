@@ -61,18 +61,6 @@ export function UrgencySection() {
 
         <div className="relative w-full">
           
-          <div className="absolute inset-0 pointer-events-none">
-            {STATS_PARTICLE_POSITIONS.map((pos, index) => (
-              <div
-                key={index}
-                className="absolute w-0.5 h-0.5 rounded-full bg-white opacity-30"
-                style={{
-                  left: pos.left,
-                  top: pos.top,
-                }}
-              />
-            ))}
-          </div>
 
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             {points.map((point) => (
