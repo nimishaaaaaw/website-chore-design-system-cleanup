@@ -19,7 +19,7 @@
   }
   
   /* Overrides default heading styles to ensure they inherit the body's font-sans */
-  h1, h2, h3, h4, h5 {
+  h1, h2, h3, h4, h5, h6 {
     @apply font-sans;
   }
 
@@ -39,7 +39,11 @@
   /* ── BRAND GRADIENT STOPS ─────────────────────────────────
      The three points of the brand gradient.
      Never add new stops. Never change the hue direction.
-     The gradient moves warm (blue) → mid (indigo) → cool (violet). */   /* blue-600  — gradient start, links */   /* blue-700  — display gradient start */   /* indigo-600 — gradient end (buttons) */   /* violet-600 — display gradient end */
+     The gradient moves warm (blue) → mid (indigo) → cool (violet). */
+  --gradient-blue:    #2563EB;   /* blue-600  — gradient start, links */
+  --gradient-blue-dk: #1D4ED8;   /* blue-700  — display gradient start */
+  --gradient-indigo:  #4F46E5;   /* indigo-600 — gradient end (buttons) */
+  --gradient-violet:  #7C3AED;   /* violet-600 — display gradient end */
 
   /* ── GRADIENT DEFINITIONS ────────────────────────────────── */
   /* display  → text-clip only. One headline per page.         */
@@ -47,25 +51,35 @@
   /* accent   → CTA buttons inside the dark section ONLY       */
   --gradient-display: linear-gradient(to right, #1D4ED8, #4F46E5, #7C3AED);
   --gradient-action:  linear-gradient(to right, #2563EB, #4F46E5);
+  --gradient-accent:  linear-gradient(to right, #06B6D4, #2563EB);
   --gradient-hero:    linear-gradient(to bottom, #F8FAFC, rgba(239,246,255,0.5), #FFFFFF);
   --gradient-dark:    linear-gradient(135deg, #1E1B4B, #1E3A8A);
+  --gradient-tinted:  linear-gradient(135deg, #EFF6FF, #EEF2FF);
   --gradient-eyebrow-r: linear-gradient(to right, transparent, #3B82F6);
   --gradient-eyebrow-l: linear-gradient(to left, transparent, #3B82F6);
+  --gradient-fade-bottom: linear-gradient(to top, #FFFFFF, rgba(255,255,255,0.8), transparent);
   
 
   /* ── BRAND COLOUR TOKENS ─────────────────────────────────── */
   /* Primary interactive */
-  --brand-50:         #EFF6FF;   /* tinted section bg */   /* blob-blue */
-  --brand-200:        #BFDBFE;   /* light border */   /* eyebrow line, chip dot */
+  --brand-50:         #EFF6FF;   /* tinted section bg */
+  --brand-100:        #DBEAFE;   /* blob-blue */
+  --brand-200:        #BFDBFE;   /* light border */
+  --brand-500:        #3B82F6;   /* eyebrow line, chip dot */
   --brand-600:        #2563EB;   /* primary links, gradient start */
   --brand-700:        #1D4ED8;   /* display gradient start */
   /* Indigo */
   --indigo-50:        #EEF2FF;
   --indigo-100:       #E0E7FF;   /* blob-indigo approx */
   --indigo-200:       #C7D2FE;   /* badge border, focus ring */
-  --indigo-600:       #4F46E5;   /* gradient end, solid accent */   /* indigo hover */
-  /* Violet */   /* blob-violet */   /* display gradient end */
-  /* Dark backgrounds */   /* dark section bg start */
+  --indigo-600:       #4F46E5;   /* gradient end, solid accent */
+  --indigo-700:       #4338CA;   /* indigo hover */
+  /* Violet */
+  --violet-50:        #F5F3FF;
+  --violet-100:       #EDE9FE;   /* blob-violet */
+  --violet-600:       #7C3AED;   /* display gradient end */
+  /* Dark backgrounds */
+  --brand-900:        #1E1B4B;   /* dark section bg start */
 
   /* ── TEXT TOKENS ─────────────────────────────────────────── */
   --text-primary:     #0F172A;   /* slate-900 — h2, h1 */
@@ -73,23 +87,34 @@
   --text-heading:     #1E293B;   /* slate-800 — h3, h4 */
   --text-body:        #475569;   /* slate-600 — body copy */
   --text-subtitle:    #64748B;   /* slate-500 — hero sublines, secondary content */
-  --text-muted:       #94A3B8;   /* slate-400 — chips, eyebrow, captions */   /* brand-600 — links, eyebrow text */   /* on dark backgrounds */   /* indigo-600 — section accents */
+  --text-muted:       #94A3B8;   /* slate-400 — chips, eyebrow, captions */
+  --text-accent:      #2563EB;   /* brand-600 — links, eyebrow text */
+  --text-inverse:     #FFFFFF;   /* on dark backgrounds */
+  --text-indigo:      #4F46E5;   /* indigo-600 — section accents */
 
   /* ── BACKGROUND TOKENS ───────────────────────────────────── */
   --bg-surface:       #FFFFFF;   /* primary section bg */
-  --bg-surface-alt:   #F8FAFC;   /* slate-50 — alternating sections */   /* blue-50 — tinted areas */   /* indigo-50 — indigo tinted areas */
-  --bg-dark-start:    #1E1B4B;   /* dark section bg (indigo-950) */   /* dark section bg (blue-900) */
+  --bg-surface-alt:   #F8FAFC;   /* slate-50 — alternating sections */
+  --bg-tinted:        #EFF6FF;   /* blue-50 — tinted areas */
+  --bg-tinted-indigo: #EEF2FF;   /* indigo-50 — indigo tinted areas */
+  --bg-dark-start:    #1E1B4B;   /* dark section bg (indigo-950) */
+  --bg-dark-end:      #1E3A8A;   /* dark section bg (blue-900) */
 
   /* ── BORDER TOKENS ───────────────────────────────────────── */
   --border-default:   #E2E8F0;   /* slate-200 — default card border */
   --border-muted:     #F1F5F9;   /* slate-100 — subtle dividers */
-  --border-accent:    #C7D2FE;   /* indigo-200 — hover/focus borders */   /* indigo-600 — focus ring */
+  --border-accent:    #C7D2FE;   /* indigo-200 — hover/focus borders */
+  --border-focus:     #4F46E5;   /* indigo-600 — focus ring */
 
-  /* ── SEMANTIC TOKENS ─────────────────────────────────────── */   /* emerald-600 */
+  /* ── SEMANTIC TOKENS ─────────────────────────────────────── */
+  --success:          #059669;   /* emerald-600 */
   --success-light:    #D1FAE5;   /* emerald-100 */
-  --success-dark:     #065F46;   /* emerald-900 */   /* rose-600 */
+  --success-dark:     #065F46;   /* emerald-900 */
+  --danger:           #E11D48;   /* rose-600 */
   --danger-light:     #FFE4E6;   /* rose-100 */
-  --danger-dark:      #9F1239;   /* rose-900 */   /* violet-100 */   /* violet-900 */
+  --danger-dark:      #9F1239;   /* rose-900 */
+  --metric-light:     #EDE9FE;   /* violet-100 */
+  --metric-dark:      #4C1D95;   /* violet-900 */
 
   /* ── SHADOW TOKENS ───────────────────────────────────────── */
   /* All shadows use indigo-600 tint (#4F46E5), never grey.    */
@@ -100,19 +125,31 @@
   --shadow-float:   0 8px 32px -4px rgba(79,70,229,0.18), 0 2px 8px -2px rgba(15,23,42,0.08);
   --shadow-glow:    0 0 40px -8px rgba(79,70,229,0.40);
 
-  /* ── SPACING TOKENS ──────────────────────────────────────── */    /* mobile section padding */    /* desktop standard */   /* hero, CTA */
+  /* ── SPACING TOKENS ──────────────────────────────────────── */
+  --section-sm:     48px;    /* mobile section padding */
+  --section:        80px;    /* desktop standard */
+  --section-lg:     112px;   /* hero, CTA */
 
   /* ── BORDER RADIUS TOKENS ────────────────────────────────── */
-  --radius-md:      8px;    /* ← primary: buttons, cards */    /* large cards */    /* hero cards */  /* pills, badges */
+  --radius-sm:      4px;
+  --radius-md:      8px;
+  --radius-lg:      12px;
+  --radius-xl:      16px;    /* ← primary: buttons, cards */
+  --radius-2xl:     20px;    /* large cards */
+  --radius-3xl:     24px;    /* hero cards */
+  --radius-full:    9999px;  /* pills, badges */
 
   /* ── BLOB ATMOSPHERE ─────────────────────────────────────── */
   /* Exact values from the hero section                        */
   --blob-blue:      rgba(219, 234, 254, 0.30);   /* blue-100/30 */
   --blob-indigo:    rgba(224, 231, 255, 0.20);   /* indigo-100/20 */
   --blob-violet:    rgba(237, 233, 254, 0.25);   /* violet-100/25 */
+  --premium-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* ── ROGUE AUDIT COLOURS ─────────────────────────────────── */
   /* NO CONSOLIDATED OR MERGED ANY VALUES. 1:1 EXACT MAPPING. */
+  --color-brand-1: #4E46E5;
+  --color-brand-2: #4F46E5;
 }
 
 
@@ -162,6 +199,14 @@
     color: var(--text-body);
     line-height: 1.7;
   }
+  a:where(:not([class*="text-"])) {
+    color: var(--text-accent);
+    text-decoration: none;
+    transition: color 200ms ease;
+  }
+  a:where(:not([class*="text-"])):hover {
+    color: var(--gradient-blue-dk, #1D4ED8);
+  }
 
   /* Focus rings — indigo-tinted, not the default blue */
   *:focus-visible {
@@ -191,6 +236,7 @@
   /* ── SECTION PADDING ─────────────────────────────────────── */
   /* Always use these. Never write arbitrary py-[Npx] values.  */
   .section-py         { @apply py-12 md:py-20; }
+  .section-py-sm      { @apply py-8 md:py-12; }
   .section-py-lg      { @apply py-20 md:py-28; }
   .section-py-premium { @apply pt-16 md:pt-24 pb-24 md:pb-32; }
 
@@ -222,6 +268,11 @@
     background: var(--blob-violet);
     filter: blur(50px);
   }
+  .blob-glow-blue {
+  @apply absolute rounded-full;
+  background: rgba(59, 130, 246, 0.10);
+  filter: blur(80px);
+}
 
   .page-main {
   @apply pt-24 pb-20;
@@ -232,12 +283,45 @@
   
   
   /* ── FORM INPUTS ─────────────────────────────────────────── */
+.form-input {
+  @apply w-full py-3 bg-slate-50/50 border rounded-xl text-sm font-medium transition-all outline-none;
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+.form-input:hover {
+  border-color: var(--border-accent);
+}
+.form-input:focus {
+  border-color: var(--brand-500);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+.form-input--error {
+  @apply bg-slate-50/50 border rounded-xl;
+  background-color: var(--danger-light);
+  border-color: var(--danger-light);
+}
+.form-input--error:focus {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.1);
+}
 
 /* ── FORM LABELS ─────────────────────────────────────────── */
+.form-label {
+  @apply block text-xs font-bold uppercase tracking-widest ml-1 pointer-events-none;
+  color: var(--text-muted);
+}
 
 /* ── FORM ICONS ──────────────────────────────────────────── */
+.form-icon {
+  @apply absolute left-4 top-1/2 -translate-y-1/2 transition-colors;
+  color: var(--text-muted);
+}
 
 /* ── FORM ERROR MESSAGES ─────────────────────────────────── */
+.form-error {
+  @apply text-xs font-bold ml-1 overflow-hidden;
+  color: var(--danger);
+}
 
 
 .text-muted { color: var(--text-muted); }
@@ -324,6 +408,7 @@
   }
 
   /* ── TYPOGRAPHY UTILITIES ────────────────────────────────── */
+  .text-display  { @apply text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl; }
   .text-section  { @apply text-h2 font-bold text-slate-900 tracking-tight; }
   
   /* ── HERO SUBTITLE ────────────────────────────────────────── */
@@ -465,6 +550,23 @@
   box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.25);
 }
 
+  .btn-dark {
+    @apply text-white text-xs font-bold rounded-l transition-all active:scale-[0.98] shadow-card;
+    background: var(--text-primary);
+  }
+  .btn-dark:hover {
+    background: var(--indigo-700);
+    box-shadow: var(--shadow-float);
+  }
+  .btn-dark-glass {
+  @apply text-white font-bold transition-all duration-200 active:scale-95;
+  background: rgba(67, 56, 202, 0.30);
+  border: 1px solid rgba(99, 102, 241, 0.30);
+ }
+  .btn-dark-glass:hover {
+    background: rgba(67, 56, 202, 0.50);
+  }
+
   /* ── CARDS ───────────────────────────────────────────────── */
   /* Standard — white, subtle border */
   .card {
@@ -484,6 +586,11 @@
 }
 
   /* Tinted — brand gradient bg, indigo border */
+  .card-tinted {
+    @apply rounded-2xl p-6;
+    background-image: var(--gradient-tinted);
+    border: 1px solid var(--indigo-200);
+  }
 
   /* Glassmorphic — frosted glass over blob bg */
   .card-glass {
@@ -543,9 +650,11 @@
   .badge-brand  { background: var(--brand-50);   color: var(--brand-600);   border: 1px solid var(--brand-200); }
   .badge-indigo { background: var(--indigo-50);  color: var(--indigo-600);  border: 1px solid var(--indigo-200); }
   /* AI/tech */
+  .badge-violet { background: var(--violet-50);  color: var(--violet-600);  border: 1px solid rgba(124,58,237,0.2); }
   /* Semantic */
   .badge-success { background: var(--success-light); color: var(--success-dark); border: 1px solid rgba(5,150,105,0.2); }
   .badge-danger  { background: var(--danger-light);  color: var(--danger-dark);  border: 1px solid rgba(225,29,72,0.2); }
+  .badge-metric  { background: var(--metric-light);  color: var(--metric-dark);  border: 1px solid rgba(124,58,237,0.2); }
   /* Neutral */
   .badge-slate  { @apply bg-slate-100 text-slate-600 border border-slate-200; }
   
@@ -583,6 +692,9 @@
     @apply font-bold leading-none tracking-tight;
     color: var(--indigo-600);
   }
+  .stat-label {
+    @apply text-xs text-slate-400 mt-1;
+  }
 
   /* ── NAVIGATION ──────────────────────────────────────────── */
   .nav-link {
@@ -605,6 +717,11 @@
 }
 
   /* ── SECTION DIVIDER ─────────────────────────────────────── */
+  .section-divider {
+    @apply w-full;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-default), transparent);
+  }
 
   /* ── PREMIUM GOLD STANDARD COMPONENTS ────────────────────── */
   .premium-h2 {
@@ -726,6 +843,7 @@
    
   /* Indigo-tinted shadow utilities */
   .shadow-card-brand { box-shadow: var(--shadow-card-md); }
+  .shadow-btn-brand  { box-shadow: var(--shadow-btn); }
   .shadow-float-brand { box-shadow: var(--shadow-float); }
 
   /* Gradient backgrounds as utilities */
