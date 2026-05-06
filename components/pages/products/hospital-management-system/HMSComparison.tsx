@@ -93,14 +93,16 @@ export const HMSComparison = () => {
 
         {/* Strategic Outcome Banner */}
         <div className="mt-16 md:mt-24 rounded-[2.5rem] p-12 lg:p-20 text-center shadow-card-lg relative overflow-hidden border border-white/5">
-          <DarkAtmosphere showStars={false} />
+          <DarkAtmosphere/>
 
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-16 h-1 rounded-full mb-12 opacity-60 bg-brand-600" />
-            <h3 className="text-display-md sm:text-display-lg md:text-display-xl font-bold text-white max-w-5xl mx-auto leading-[1.05] tracking-tight text-balance mb-8">
+            <h2 className="premium-h2 text-white mb-6 leading-[1.1] tracking-tight mx-auto max-w-[900px]">
               Engineered for clinical speed. <br className="hidden md:block" />
-              <span className="text-indigo-400">Not just hospital accounting.</span>
-            </h3>
+              <span className="text-indigo-400 pr-2">
+                Not just hospital accounting.
+              </span>
+            </h2>
 
             <div className="mt-4 flex items-center gap-6">
               <div className="trust-chip">

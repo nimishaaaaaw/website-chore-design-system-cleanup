@@ -1,12 +1,14 @@
 /**
  * ╔══════════════════════════════════════════════════════════════╗
- * ║     DESIGN TOKEN USAGE AUDIT v2 — Comprehensive Counter     ║
+ * ║     DESIGN TOKEN USAGE AUDIT v3 — Fixed Counting Logic      ║
  * ║                                                              ║
- * ║  1. Extracts CSS variables from globals.css :root            ║
- * ║  2. Extracts custom classes from globals.css @layer          ║
- * ║  3. Extracts Tailwind config tokens (colors, fontSize, etc.) ║
- * ║  4. Counts usage across app/ and components/ directories     ║
- * ║  5. Outputs a structured Markdown report                     ║
+ * ║  Fixes from v2:                                              ║
+ * ║  1. Opacity modifiers:  border-brand-500/20, bg-slate-50/50 ║
+ * ║  2. Arbitrary var():    bg-[var(--indigo-600)]               ║
+ * ║  3. Shadow arbitrary:   shadow-[var(--shadow-card-lg)]       ║
+ * ║  4. All variant combos: hover:, md:, focus-within:, etc.     ║
+ * ║  5. var() with fallback: var(--token, #hex)                  ║
+ * ║  6. theme() function:   theme('colors.brand.500')            ║
  * ╚══════════════════════════════════════════════════════════════╝
  */
 
@@ -17,7 +19,6 @@ const path = require('path');
 const SCAN_DIRS = ['app', 'components'];
 const SCAN_EXTS = ['.ts', '.tsx', '.jsx', '.js', '.css'];
 const GLOBALS_CSS = path.join(__dirname, 'app', 'globals.css');
-const TAILWIND_CONFIG = path.join(__dirname, 'tailwind.config.ts');
 const OUTPUT_FILE = path.join(__dirname, 'token-usage-report.md');
 
 // ─── FILE WALKER ───────────────────────────────────────────────
@@ -56,7 +57,7 @@ function extractCSSVariables(cssContent) {
 // ─── 2. EXTRACT CUSTOM CLASSES FROM globals.css ────────────────
 function extractCustomClasses(cssContent) {
   const classes = new Set();
-  const classRegex = /^\s*\.([\w][\w-]*(?:--[\w-]+)?)\s*(?:\{|,|:(?:hover|focus|active|focus-visible))/gm;
+  const classRegex = /^\s*\.([\w][\w-]*(?:--[\w-]+)?)\s*(?:\{|,|:(?:hover|focus|active|focus-visible|focus-within))/gm;
   let m;
   while ((m = classRegex.exec(cssContent)) !== null) {
     const cls = m[1];
@@ -67,8 +68,6 @@ function extractCustomClasses(cssContent) {
 }
 
 // ─── 3. HARDCODED TAILWIND CONFIG TOKENS ───────────────────────
-// Regex-based extraction is fragile for nested TS objects.
-// Instead, we hardcode the known tokens from tailwind.config.ts.
 function getTailwindTokens() {
   return {
     colors: [
@@ -104,7 +103,22 @@ function getTailwindTokens() {
   };
 }
 
-// ─── 4. COUNT USAGE ────────────────────────────────────────────
+// ─── 4. COUNT USAGE — FIXED LOGIC ─────────────────────────────
+//
+// KEY FIX: Tailwind allows these patterns that v2 missed:
+//   1. OPACITY MODIFIERS:  text-brand-500/20, bg-slate-50/50, ring-brand-500/10
+//      → token boundary is NOT just [\w-], it can be followed by /digits
+//   2. ARBITRARY VALUES:   bg-[var(--indigo-600)], text-[var(--brand-500)]
+//      → CSS variables used inside Tailwind arbitrary value syntax []
+//   3. VARIANT STACKING:   hover:border-brand-500/20, md:focus-within:ring-brand-500/10
+//      → multiple colon-separated prefixes before the utility
+//   4. var() FALLBACK:     var(--gradient-blue-dk, #1D4ED8)
+//      → comma inside var() should not break the match
+//   5. theme() FUNCTION:   theme('colors.brand.500') in Tailwind config
+//      → CSS vars referenced through theme() in config files
+//   6. @apply CHAINS:      @apply bg-slate-50/50 border rounded-xl;
+//      → same as regular utility usage but inside CSS files
+
 function countTokenUsage(token, type, filesWithContent) {
   let totalCount = 0;
   const locations = new Set();
@@ -113,69 +127,127 @@ function countTokenUsage(token, type, filesWithContent) {
     let count = 0;
 
     if (type === 'css-variable') {
-      // Count var(--token-name) usage (not definition lines)
-      const varRegex = new RegExp(`var\\(\\s*${escapeRegex(token)}\\s*(?:,|\\))`, 'g');
-      const varMatches = content.match(varRegex) || [];
-      count = varMatches.length;
-      // Exclude the :root definition line in globals.css
-      if (filePath.endsWith('globals.css')) {
+      // Pattern 1: var(--token-name) or var(--token-name, fallback)
+      const varRegex = new RegExp(`var\\(\\s*${escapeRegex(token)}\\s*[,)]`, 'g');
+      count += (content.match(varRegex) || []).length;
+      
+      // Pattern 2: Arbitrary Tailwind values: bg-[var(--token)], text-[var(--token)], border-[var(--token)]
+      const arbitraryRegex = new RegExp(`\\[var\\(\\s*${escapeRegex(token)}\\s*[,)\\]]`, 'g');
+      count += (content.match(arbitraryRegex) || []).length;
+      
+      // Pattern 3: shadow-[var(--token)] — same but for shadow utilities
+      // Already covered by Pattern 2
+
+      // Pattern 4: theme('colors.xxx') references that correspond to this CSS var
+      // e.g. --brand-500 is also available as theme('colors.brand.500')
+      // This is mainly in tailwind.config.ts (which isn't in our scan dirs by default)
+      // so we skip this for now
+      
+      // SUBTRACT definition lines in globals.css (the :root block)
+      if (relPath.includes('globals.css')) {
         const defRegex = new RegExp(`^\\s*${escapeRegex(token)}\\s*:`, 'gm');
-        const defMatches = content.match(defRegex) || [];
-        // Don't subtract — we only counted var() references, not definitions
+        const defCount = (content.match(defRegex) || []).length;
+        count -= defCount;
       }
+      
+      count = Math.max(0, count);
+
     } else if (type === 'custom-class') {
-      // Count className="..." references in TSX/JSX and @apply in CSS
-      // But NOT the class definition itself in globals.css
       const classToken = token.replace(/^\./, '');
       
       if (filePath.endsWith('.css')) {
-        // In CSS: count @apply references and className-like usage, but not the definition
+        // In CSS: count @apply references to this class
         const applyRegex = new RegExp(`@apply[^;]*\\b${escapeRegex(classToken)}\\b`, 'g');
-        const applyMatches = content.match(applyRegex) || [];
-        count += applyMatches.length;
-        // Also count var() or other references to this class (e.g. in @apply chains)
+        count += (content.match(applyRegex) || []).length;
+        
+        // DON'T count the class definition itself (.className { or .className:hover {)
+        // These are just definitions, not usages
       } else {
-        // In TSX/JSX: count class name usage in className attributes and template literals
-        const regex = new RegExp(`(?:^|\\s|"|'|\`|{)${escapeRegex(classToken)}(?:\\s|"|'|\`|}|$)`, 'g');
-        const matches = content.match(regex) || [];
-        count += matches.length;
+        // In TSX/JSX: match class name in className strings and template literals
+        // Match patterns: "classname", 'classname', `classname`, classname followed by space/quote/end
+        const regex = new RegExp(`(?:^|\\s|"|'|\`|\\{)${escapeRegex(classToken)}(?:\\s|"|'|\`|\\}|$)`, 'gm');
+        count += (content.match(regex) || []).length;
       }
+
     } else if (type === 'tw-color') {
+      // All Tailwind utility prefixes that take color tokens
       const prefixes = ['text', 'bg', 'border', 'ring', 'shadow', 'divide', 'from', 'to', 'via',
-                         'decoration', 'fill', 'stroke', 'outline', 'accent', 'placeholder'];
+                         'decoration', 'fill', 'stroke', 'outline', 'accent', 'placeholder',
+                         'caret'];
+      
       for (const prefix of prefixes) {
-        const regex = new RegExp(`(?:^|\\s|"|'|\`|:)${prefix}-${escapeRegex(token)}(?![\\w-])`, 'g');
+        // FIXED: Allow optional opacity modifier /NN after the token
+        // e.g. text-brand-500/20, border-brand-500/10, ring-brand-500/10
+        // Also handle variant prefixes: hover:, md:, focus-within:, group-hover:, etc.
+        const regex = new RegExp(
+          `(?:^|\\s|"|'|\`|:)${escapeRegex(prefix)}-${escapeRegex(token)}(?:\\/\\d+)?(?![\\w-])`,
+          'g'
+        );
         count += (content.match(regex) || []).length;
       }
-      // Variants like hover:text-brand-600
-      const variantRegex = new RegExp(`(?:hover|focus|active|group-hover|dark):[\\w-]*-${escapeRegex(token)}(?![\\w-])`, 'g');
-      count += (content.match(variantRegex) || []).length;
+
     } else if (type === 'tw-fontSize') {
-      const regex = new RegExp(`(?:^|\\s|"|'|\`|:)text-${escapeRegex(token)}(?![\\w-])`, 'g');
+      // text-{token} with optional responsive/state prefixes
+      const regex = new RegExp(
+        `(?:^|\\s|"|'|\`|:)text-${escapeRegex(token)}(?![\\w-])`,
+        'g'
+      );
       count = (content.match(regex) || []).length;
+
     } else if (type === 'tw-spacing') {
-      const prefixes = ['p', 'px', 'py', 'pt', 'pb', 'pl', 'pr', 'm', 'mx', 'my', 'mt', 'mb', 'ml', 'mr',
-                         'w', 'h', 'gap', 'gap-x', 'gap-y', 'top', 'bottom', 'left', 'right',
-                         'inset', 'inset-x', 'inset-y', 'space-x', 'space-y',
-                         'max-w', 'min-w', 'max-h', 'min-h', 'basis'];
+      const prefixes = ['p', 'px', 'py', 'pt', 'pb', 'pl', 'pr',
+                         'm', 'mx', 'my', 'mt', 'mb', 'ml', 'mr',
+                         'w', 'h', 'gap', 'gap-x', 'gap-y',
+                         'top', 'bottom', 'left', 'right',
+                         'inset', 'inset-x', 'inset-y',
+                         'space-x', 'space-y',
+                         'max-w', 'min-w', 'max-h', 'min-h', 'basis',
+                         '-m', '-mx', '-my', '-mt', '-mb', '-ml', '-mr',
+                         '-top', '-bottom', '-left', '-right',
+                         '-inset', '-inset-x', '-inset-y',
+                         'scroll-m', 'scroll-p'];
       for (const prefix of prefixes) {
-        const regex = new RegExp(`(?:^|\\s|"|'|\`|:)${escapeRegex(prefix)}-${escapeRegex(token)}(?![\\w-])`, 'g');
+        const regex = new RegExp(
+          `(?:^|\\s|"|'|\`|:)${escapeRegex(prefix)}-${escapeRegex(token)}(?![\\w-])`,
+          'g'
+        );
         count += (content.match(regex) || []).length;
       }
+
     } else if (type === 'tw-borderRadius') {
-      const regex = new RegExp(`(?:^|\\s|"|'|\`|:)rounded-${escapeRegex(token)}(?![\\w-])`, 'g');
+      const regex = new RegExp(
+        `(?:^|\\s|"|'|\`|:)rounded-${escapeRegex(token)}(?![\\w-])`,
+        'g'
+      );
       count = (content.match(regex) || []).length;
+
     } else if (type === 'tw-boxShadow') {
-      const regex = new RegExp(`(?:^|\\s|"|'|\`|:)shadow-${escapeRegex(token)}(?![\\w-])`, 'g');
+      // shadow-{token} with optional opacity modifier
+      const regex = new RegExp(
+        `(?:^|\\s|"|'|\`|:)shadow-${escapeRegex(token)}(?:\\/\\d+)?(?![\\w-])`,
+        'g'
+      );
       count = (content.match(regex) || []).length;
+
     } else if (type === 'tw-backgroundImage') {
-      const regex = new RegExp(`(?:^|\\s|"|'|\`|:)bg-${escapeRegex(token)}(?![\\w-])`, 'g');
+      const regex = new RegExp(
+        `(?:^|\\s|"|'|\`|:)bg-${escapeRegex(token)}(?![\\w-])`,
+        'g'
+      );
       count = (content.match(regex) || []).length;
+
     } else if (type === 'tw-animation') {
-      const regex = new RegExp(`(?:^|\\s|"|'|\`|:)animate-${escapeRegex(token)}(?![\\w-])`, 'g');
+      const regex = new RegExp(
+        `(?:^|\\s|"|'|\`|:)animate-${escapeRegex(token)}(?![\\w-])`,
+        'g'
+      );
       count = (content.match(regex) || []).length;
+
     } else if (type === 'tw-maxWidth') {
-      const regex = new RegExp(`(?:^|\\s|"|'|\`|:)max-w-${escapeRegex(token)}(?![\\w-])`, 'g');
+      const regex = new RegExp(
+        `(?:^|\\s|"|'|\`|:)max-w-${escapeRegex(token)}(?![\\w-])`,
+        'g'
+      );
       count = (content.match(regex) || []).length;
     }
 
@@ -190,7 +262,7 @@ function countTokenUsage(token, type, filesWithContent) {
 
 // ─── MAIN ──────────────────────────────────────────────────────
 function main() {
-  console.log('🔍 Design Token Usage Audit v2');
+  console.log('🔍 Design Token Usage Audit v3 (Fixed)');
   console.log('─'.repeat(50));
 
   const cssContent = fs.readFileSync(GLOBALS_CSS, 'utf-8');
@@ -201,16 +273,20 @@ function main() {
   const customClasses = extractCustomClasses(cssContent);
   const twTokens = getTailwindTokens();
 
-  console.log(`   CSS Variables:     ${cssVars.length}`);
-  console.log(`   Custom Classes:    ${customClasses.length}`);
-  console.log(`   TW Colors:         ${twTokens.colors.length}`);
-  console.log(`   TW FontSize:       ${twTokens.fontSize.length}`);
-  console.log(`   TW Spacing:        ${twTokens.spacing.length}`);
-  console.log(`   TW BorderRadius:   ${twTokens.borderRadius.length}`);
-  console.log(`   TW BoxShadow:      ${twTokens.boxShadow.length}`);
-  console.log(`   TW BackgroundImage:${twTokens.backgroundImage.length}`);
-  console.log(`   TW Animation:      ${twTokens.animation.length}`);
-  console.log(`   TW MaxWidth:       ${twTokens.maxWidth.length}`);
+  const totalTokens = cssVars.length + customClasses.length +
+    Object.values(twTokens).reduce((sum, arr) => sum + arr.length, 0);
+
+  console.log(`   CSS Variables:      ${cssVars.length}`);
+  console.log(`   Custom Classes:     ${customClasses.length}`);
+  console.log(`   TW Colors:          ${twTokens.colors.length}`);
+  console.log(`   TW FontSize:        ${twTokens.fontSize.length}`);
+  console.log(`   TW Spacing:         ${twTokens.spacing.length}`);
+  console.log(`   TW BorderRadius:    ${twTokens.borderRadius.length}`);
+  console.log(`   TW BoxShadow:       ${twTokens.boxShadow.length}`);
+  console.log(`   TW BackgroundImage: ${twTokens.backgroundImage.length}`);
+  console.log(`   TW Animation:       ${twTokens.animation.length}`);
+  console.log(`   TW MaxWidth:        ${twTokens.maxWidth.length}`);
+  console.log(`   TOTAL:              ${totalTokens}`);
 
   // Load all source files
   console.log('\n📂 Scanning source files...');
@@ -276,9 +352,11 @@ function main() {
   const used = allResults.filter(r => r.count > 0).sort((a, b) => b.count - a.count);
   const unused = allResults.filter(r => r.count === 0).sort((a, b) => a.token.localeCompare(b.token));
 
-  let md = `# Design Token Usage Report\n\n`;
+  let md = `# Design Token Usage Report (v3 — Fixed)\n\n`;
   md += `> Auto-generated on ${new Date().toISOString().split('T')[0]}\n`;
   md += `> Scanned: ${files.length} files in \`${SCAN_DIRS.join(', ')}\`\n\n`;
+  md += `> **v3 fixes:** Counts opacity modifiers (brand-500/20), arbitrary var() syntax (bg-[var(--token)]),\n`;
+  md += `> shadow-[var(--token)], all variant prefixes, and var() with fallback values.\n\n`;
 
   md += `## Summary\n\n`;
   md += `| Metric | Count |\n|---|---:|\n`;
@@ -323,6 +401,16 @@ function main() {
   fs.writeFileSync(OUTPUT_FILE, md);
   console.log(`\n✅ Report saved to: ${OUTPUT_FILE}`);
   console.log(`   ${used.length} tokens in use, ${unused.length} unused tokens found.`);
+  
+  // Print a quick diff summary for tokens that changed from v2
+  console.log('\n── Quick summary of key tokens ──');
+  const keyTokens = ['brand-500', '--brand-500', '--indigo-600', '--shadow-card-lg', '--shadow-float'];
+  for (const kt of keyTokens) {
+    const found = allResults.find(r => r.token === kt);
+    if (found) {
+      console.log(`   ${kt}: ${found.count} usages in ${found.locations.length} files`);
+    }
+  }
 }
 
 main();

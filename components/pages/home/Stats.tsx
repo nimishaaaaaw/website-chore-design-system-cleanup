@@ -6,7 +6,7 @@ import { VISION_STATS as visionStats } from '@/components/pages/home/HomeData'
 export function Stats() {
   return (
     <section id="stats" className="py-8 md:py-10 relative overflow-hidden">
-      <DarkAtmosphere withMouseEffect={false} />
+      <DarkAtmosphere />
       <div className="container-page relative">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {visionStats.map((stat, index) => (

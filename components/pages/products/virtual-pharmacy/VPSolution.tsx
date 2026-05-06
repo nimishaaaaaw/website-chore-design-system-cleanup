@@ -38,7 +38,7 @@ const VPSolution = () => {
             >
               <div className="eyebrow-wrap !justify-start ml-7 mb-6">
                 <span className="eyebrow-line-l"></span>
-                <span className="eyebrow-text flex items-center gap-2">
+                <span className="eyebrow-text flex items-center gap-2 text-indigo-400">
                    <Layers size={14} className="text-indigo-400" /> The Virtual Model
                 </span>
                 <span className="eyebrow-line-r"></span>

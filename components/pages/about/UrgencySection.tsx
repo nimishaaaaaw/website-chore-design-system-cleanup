@@ -40,16 +40,18 @@ export function UrgencySection() {
             className="flex flex-col items-center"
           >
             <div className="eyebrow-wrap">
-              <div className="eyebrow-line-r" />
+              <div className="eyebrow-line-l" />
               <span className="text-xs font-semibold uppercase tracking-[0.15em] text-indigo-400">
                 The Compounding Crisis
               </span>
-              <div className="eyebrow-line-l" />
+              <div className="eyebrow-line-r" />
             </div>
 
-            <h2 className="premium-h2 text-white mb-6">
-              Why Inaction is a <br />
-              <span className="text-indigo-400 font-extrabold italic">Compounding Loss.</span>
+            <h2 className="premium-h2 text-white mb-6 leading-[1.1] tracking-tight mx-auto max-w-[900px]">
+              Why Inaction is a <br className="hidden md:block" />
+              <span className="text-indigo-400 pr-2 italic">
+                Compounding Loss.
+              </span>
             </h2>
             <p className="premium-p text-slate-300 font-medium max-w-2xl text-center">
               The problem isn't static. Three structural forces are accelerating every quarter, making it harder for independent hospitals to survive.

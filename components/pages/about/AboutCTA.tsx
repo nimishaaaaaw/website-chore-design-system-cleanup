@@ -35,8 +35,8 @@ export function AboutCTA() {
         >
           <span className="eyebrow-line-l" />
           <div className="flex items-center gap-2">
-            <Activity size={16} className="text-brand-500" />
-            <span className="eyebrow-text">Defining the Standard</span>
+            <Activity size={16} className="text-indigo-400" />
+            <span className="eyebrow-text text-indigo-400">Defining the Standard</span>
           </div>
           <span className="eyebrow-line-r" />
         </motion.div>

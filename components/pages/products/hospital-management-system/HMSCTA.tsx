@@ -22,10 +22,12 @@ export const HMSCTA = () => {
         >
           <div className="relative z-10 flex flex-col items-center">
             <div className="w-16 h-1 rounded-full mb-12 opacity-60 bg-brand-600" />
-            <h3 className="text-display-md sm:text-display-lg md:text-display-xl font-bold text-white max-w-5xl mx-auto leading-[1.05] tracking-tight text-balance mb-8">
+            <h2 className="premium-h2 text-white mb-6 leading-[1.1] tracking-tight mx-auto max-w-[900px]">
               Ready to deploy the <br className="hidden md:block" />
-              <span className="text-indigo-400">Clinic OS?</span>
-            </h3>
+              <span className="text-indigo-400 pr-2">
+                Clinic OS?
+              </span>
+            </h2>
 
             <p className="premium-p mb-12 max-w-2xl mx-auto text-slate-400">
               Stop managing software and get back to patient care. Get a live walkthrough of the platform, and see how you can migrate your entire clinic in under 24 hours.
