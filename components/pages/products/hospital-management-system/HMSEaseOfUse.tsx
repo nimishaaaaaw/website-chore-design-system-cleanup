@@ -168,7 +168,7 @@ export const HMSEaseOfUse = () => {
         </div>
 
         <div className="mt-16 md:mt-24 rounded-3xl p-12 lg:p-20 text-center shadow-card-lg relative overflow-hidden border border-white/5">
-          <DarkAtmosphere showStars={false} />
+          <DarkAtmosphere />
 
           <div className="absolute inset-0 pointer-events-none">
             {typeof STATS_PARTICLE_POSITIONS !== 'undefined' && STATS_PARTICLE_POSITIONS.slice(0, 20).map((pos, index) => (
