@@ -168,6 +168,7 @@ export const HMSEaseOfUse = () => {
         </div>
 
         <div className="mt-16 md:mt-24 rounded-3xl p-12 lg:p-20 text-center shadow-card-lg relative overflow-hidden border border-white/5">
+          {/* BUILD FIX: Removed the unsupported showStars prop */}
           <DarkAtmosphere />
 
           <div className="absolute inset-0 pointer-events-none">
