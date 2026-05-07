@@ -140,19 +140,16 @@ const config: Config = {
           DEFAULT: '#059669',  // emerald-600 — savings, live, positive
           light:   '#D1FAE5',  // emerald-100
           dark:    '#065F46',  // emerald-900
-          text:    '#065F46',
         },
         danger: {
           DEFAULT: '#E11D48',  // rose-600 — revenue loss, leakage
           light:   '#FFE4E6',  // rose-100
           dark:    '#9F1239',  // rose-900
-          text:    '#9F1239',
         },
         metric: {
           DEFAULT: '#7C3AED',  // violet-600 — the "metric" colour for charts and data viz
           light:   '#EDE9FE',  // violet-100
           dark:    '#4C1D95',  // violet-900
-          text:    '#4C1D95',
         },
         // ── ROGUE AUDIT COLOURS ──────────────────────────────
         'brand-1': 'var(--color-brand-1)',
@@ -177,12 +174,8 @@ const config: Config = {
 
       borderWidth: {
         'DEFAULT': '1px',
-        '0': '0',
         '2': '2px',
-        '3': '3px',
         '4': '4px',
-        '6': '6px',
-        '8': '8px',
         '1.5': '1.5px', // Premium standard
       },
 
@@ -206,7 +199,7 @@ const config: Config = {
         'glow':    '0 0 40px -8px rgba(79,70,229,0.40)',
         // Specialized decorative glows
         'glow-indigo': '0 0 12px 2px rgba(79, 70, 229, 0.40)',
-        'none':    'none',
+
       },
 
       // ─────────────────────────────────────────────────────────
@@ -251,12 +244,8 @@ const config: Config = {
         '600px': '600px',
         '800px': '800px',
         '28rem': '28rem',
-        '30rem': '30rem',
         '32rem': '32rem',
-        '24%': '24%',
-        '28%': '28%',
         '85%': '85%',
-        '92%': '92%',
       },
 
       // ─────────────────────────────────────────────────────────
