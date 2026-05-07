@@ -59,7 +59,7 @@ const RefillMicroDemo = () => {
               <CheckCircle2 size={8} className="text-white" strokeWidth={3} />
             </div>
           </div>
-          <span className="text-8px text-emerald-500 font-semibold uppercase tracking-wider">Verified Account</span>
+          <span className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">Verified Account</span>
         </div>
       </div>
 

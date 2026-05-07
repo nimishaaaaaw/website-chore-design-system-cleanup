@@ -28,10 +28,26 @@ export const ClinicWhatChanges = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 lg:mt-20">
           {[
-            { title: "Zero Inventory", desc: "We handle the stock, tracking, and expiries. You focus on your patients care." },
-            { title: "No Space Needed", desc: "You don't need to store a single bottle of medicine in your clinic." },
-            { title: "Zero Financial Risk", desc: "Start your pharmacy today without spending on any equipment or stock." },
-            { title: "Zero Daily Hassle", desc: "We handle all the delivery logistics, packaging, and support calls for you." }
+            { 
+              title: "Zero Inventory", 
+              accentText: "Inventory", 
+              desc: "We handle the stock, tracking, and expiries. You focus on your patients care." 
+            },
+            { 
+              title: "No Space Needed", 
+              accentText: "Space Needed", 
+              desc: "You don't need to store a single bottle of medicine in your clinic." 
+            },
+            { 
+              title: "Zero Financial Risk", 
+              accentText: "Financial Risk", 
+              desc: "Start your pharmacy today without spending on any equipment or stock." 
+            },
+            { 
+              title: "Zero Daily Hassle", 
+              accentText: "Daily Hassle", 
+              desc: "We handle all the delivery logistics, packaging, and support calls for you." 
+            }
           ].map((item, i) => (
             <div
               key={i}
@@ -41,7 +57,11 @@ export const ClinicWhatChanges = () => {
                 <span className="font-bold text-2xl line-through decoration-2">0</span>
               </div>
               <div className="text-center sm:text-left">
-                <h4 className="text-xl md:text-h2 font-bold tracking-tight text-slate-900 mb-2">{item.title}</h4>
+                {/* Dynamically splitting the title to wrap the accent text */}
+                <h4 className="text-xl md:text-h2 font-bold tracking-tight text-slate-900 mb-2">
+                  {item.title.split(item.accentText)[0]}
+                  <span className="heading-accent">{item.accentText}</span>
+                </h4>
                 <p className="text-base text-slate-500 leading-relaxed italic sm:not-italic">{item.desc}</p>
               </div>
             </div>

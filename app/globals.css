@@ -65,8 +65,6 @@
   --indigo-100:       #E0E7FF;   /* blob-indigo approx */
   --indigo-200:       #C7D2FE;   /* badge border, focus ring */
   --indigo-600:       #4F46E5;   /* gradient end, solid accent */   /* indigo hover */
-  /* Violet */   /* blob-violet */   /* display gradient end */
-  /* Dark backgrounds */   /* dark section bg start */
 
   /* ── TEXT TOKENS ─────────────────────────────────────────── */
   --text-primary:     #0F172A;   /* slate-900 — h2, h1 */
@@ -90,7 +88,6 @@
   --success-light:    #D1FAE5;   /* emerald-100 */
   --success-dark:     #065F46;   /* emerald-900 */   /* rose-600 */
   --danger-light:     #FFE4E6;   /* rose-100 */
-  --danger-dark:      #9F1239;   /* rose-900 */   /* violet-100 */   /* violet-900 */
 
   /* ── SHADOW TOKENS ───────────────────────────────────────── */
   /* All shadows use indigo-600 tint (#4F46E5), never grey.    */
@@ -110,7 +107,6 @@
   --blob-indigo:    rgba(224, 231, 255, 0.20);   /* indigo-100/20 */
   --blob-violet:    rgba(237, 233, 254, 0.25);   /* violet-100/25 */
 }
-
 
 /* ═══════════════════════════════════════════════════════════════
    BASE LAYER — global resets and base element styles
@@ -172,8 +168,6 @@
     color: var(--indigo-600);
   }
 }
-
-
 /* ═══════════════════════════════════════════════════════════════
    COMPONENT LAYER — reusable patterns
    ═══════════════════════════════════════════════════════════════ */
@@ -399,17 +393,6 @@
   .btn-primary:hover { 
     box-shadow: var(--shadow-glow); }
 
-  /* Secondary — white with border */
-  .btn-secondary {
-    @apply btn-lg bg-white font-semibold;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-default);
-  }
-  .btn-secondary:hover {
-    border-color: var(--border-accent);
-    color: var(--indigo-600);
-  }
-
   /* Ghost — transparent with indigo border */
   .btn-ghost {
     @apply btn-md;
@@ -420,20 +403,6 @@
   .btn-ghost:hover {
     background: var(--indigo-50);
   }
-
-  /* Dark section CTA */
-  .btn-cta-dark {
-  @apply relative inline-flex items-center justify-center gap-3
-         shadow-lg
-         font-bold text-white rounded-2xl
-         ring-1 ring-white/10
-         transition-all duration-300
-         hover:-translate-y-0.5 active:scale-95;    
-  background: var(--indigo-600); 
-}
-.btn-cta-dark:hover {
-  box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.25);
-}
 
   /* ── CARDS ───────────────────────────────────────────────── */
   /* Standard — white, subtle border */
@@ -452,8 +421,6 @@
   box-shadow: var(--shadow-card);
   border-color: var(--border-default);
 }
-
-  /* Tinted — brand gradient bg, indigo border */
 
   /* Glassmorphic — frosted glass over blob bg */
   .card-glass {
@@ -483,7 +450,6 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-  
   .card--blog {
     @apply flex flex-col h-full overflow-hidden rounded-3xl duration-500;
     /* group stays in JSX — it's a marker, not a style */
@@ -673,27 +639,15 @@
   }
 }
 
-
 /* ═══════════════════════════════════════════════════════════════
    UTILITY LAYER — one-off helpers
    ═══════════════════════════════════════════════════════════════ */
 @layer utilities {
-
-
   .border-muted {
     border-color: var(--border-muted);
   }
 }
 
- /* Gradient text — use on display headline only 
-  .text-gradient {
-    background: var(--gradient-display);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  */
-   
   /* Indigo-tinted shadow utilities */
   .shadow-card-brand { box-shadow: var(--shadow-card-md); }
   .shadow-float-brand { box-shadow: var(--shadow-float); }
@@ -715,8 +669,6 @@
   .animate-float-medium { animation: float-medium 6s ease-in-out infinite; }
   .animate-float-slower { animation: float-slower 10s ease-in-out infinite; }
   .animate-shimmer { animation: shimmer 2s infinite; }
-
-
 
 /* ═══════════════════════════════════════════════════════════════
    ANIMATION KEYFRAMES
@@ -766,7 +718,6 @@
     animation: none !important;
   }
 }
-
 
 /* ═══════════════════════════════════════════════════════════════
    LAYOUT.TSX SETUP — add this to your root layout file

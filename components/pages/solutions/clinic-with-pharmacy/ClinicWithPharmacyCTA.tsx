@@ -80,7 +80,7 @@ export const ClinicWithPharmacyCTA = ({ onBookDemo, onTalkToExpert }: ClinicWith
           >
             <button 
               onClick={onBookDemo}
-              className="btn-cta-dark min-w-[280px] group shadow-btn active:scale-[0.98] transition-all"
+              className="btn-cta-hero min-w-[280px] group shadow-btn active:scale-[0.98] transition-all"
             >
               Launch your clinic engine
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
