@@ -68,17 +68,17 @@ export const HMSHero = ({ children }: HMSHeroProps) => {
                 </div>
 
                 {/* Trust Badges */}
-                <div className="flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-start gap-4 md:gap-6 mt-4 w-full whitespace-nowrap">
-                  {HERO_TRUST_BADGES.map((badge, idx) => {
-                    const Icon = badge.icon;
-                    return (
-                      <div key={idx} className="trust-chip">
-                        <Icon size={16} className="text-brand-500" />
-                        <span className="trust-chip-text">{badge.label}</span>
-                      </div>
-                    );
-                  })}
-                </div>
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">
+                                  {HERO_TRUST_BADGES.map((badge, idx) => {
+                                    const Icon = badge.icon;
+                                    return (
+                                      <div key={idx} className="flex items-center gap-2.5">
+                                        <Icon size={16} className="text-blue-500" />
+                                        <span className="text-xs font-semibold text-slate-600 tracking-wider uppercase">{badge.label}</span>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
               </div>
             </div>
           </div>

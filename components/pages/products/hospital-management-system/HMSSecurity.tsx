@@ -15,11 +15,17 @@ export const HMSSecurity = () => {
 
           {/* Left Column */}
           <div className="w-full lg:w-1/2 animate-fade-in-up opacity-0 [animation-fill-mode:forwards]">
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-6">
               <span className="eyebrow-line-l" />
               <span className="eyebrow-text text-brand-400">Bank-Grade Security</span>
               <span className="eyebrow-line-r" />
             </div>
+
+            <h2 className="premium-h2 mb-6 !text-white">
+              Built to Protect <br />
+              <span className="text-brand-400">What Matters.</span>
+            </h2>
+
             <p className="text-h3 font-medium leading-relaxed max-w-xl animate-fade-in-up opacity-0 [animation-delay:100ms] [animation-fill-mode:forwards] text-muted">
               Patient records are your facility&apos;s most valuable asset. MediKloud protects them with advanced encryption and an architecture designed for total privacy. We handle the security overhead so you can focus entirely on care.
             </p>

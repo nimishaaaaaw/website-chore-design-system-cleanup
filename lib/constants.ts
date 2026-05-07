@@ -9,7 +9,7 @@ export const faqData = [
   },
   {
     question: "How do you guarantee zero stockouts?",
-    answer: "Our system uses dynamic mapping to track your fast-moving prescriptions in real-time. We automate batch procurement to ensure the exact medicines your doctors prescribe are always on the shelf."
+    answer: "Yes. Our system uses dynamic mapping to track your fast-moving prescriptions in real-time. We automate batch procurement to ensure the exact medicines your doctors prescribe are always on the shelf."
   },
   {
     question: "Can patients get home deliveries for refills?",
@@ -17,6 +17,6 @@ export const faqData = [
   },
   {
     question: "How quickly can you deploy in my hospital?",
-    answer: "Our standard deployment takes less than 14 days from contract signing to full operational readiness, without disrupting your current clinical flows."
+    answer: "Immediately. Our standard deployment takes less than 14 days from contract signing to full operational readiness, without disrupting your current clinical flows."
   }
 ];

@@ -12,7 +12,8 @@ import {
   ClipboardCheck,
   Phone,
   Bike,
-  Warehouse
+  Warehouse,
+  ChevronRight
 } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 import { useContactModal } from '@/hooks/use-contact-modal';
@@ -108,17 +109,11 @@ const VPCTA = () => {
                 })} 
                 className="group btn-second-cta whitespace-nowrap"
               >
-                <Phone 
-                  size={16} 
-                  strokeWidth={1.5} 
-                  className="opacity-80" 
-                />
                 <span>Launch My Pharmacy</span>
-                <ArrowUpRight 
-                  size={18} 
-                  strokeWidth={1.5} 
-                  className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" 
-                />
+                <ChevronRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-0.5"
+                  />
               </button>
             </motion.div>
           </motion.div>

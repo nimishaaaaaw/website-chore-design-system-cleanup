@@ -73,9 +73,12 @@ export const HospitalPharmacyFAQ = () => {
                   key={index}
                   className="card card--static p-8 rounded-[2rem] border-muted shadow-card-sm transition-all duration-300 hover:shadow-card"
                 >
-                  <h3 className="text-h3 font-bold text-primary mb-4 tracking-tight">{faq.question}</h3>
-                  <div className="premium-p text-subtitle leading-relaxed font-sans">
-                    <span className="font-bold text-primary">{firstPart}</span> {rest.join(' ')}
+                  <h3 className="text-h3 font-bold text-slate-900 mb-4 tracking-tight">{faq.question}</h3>
+                
+                  <div className="premium-p text-slate-500 leading-relaxed font-sans">
+                    
+                    <span className="font-bold text-slate-900">{firstPart}</span> {rest.join(' ')}
+                    
                   </div>
                 </div>
               );
