@@ -101,8 +101,6 @@
   --shadow-float:   0 8px 32px -4px rgba(79,70,229,0.18), 0 2px 8px -2px rgba(15,23,42,0.08);
   --shadow-glow:    0 0 40px -8px rgba(79,70,229,0.40);
 
-  /* ── SPACING TOKENS ──────────────────────────────────────── */    /* mobile section padding */    /* desktop standard */   /* hero, CTA */
-
   /* ── BORDER RADIUS TOKENS ────────────────────────────────── */
   --radius-md:      8px;    /* ← primary: buttons, cards */    /* large cards */    /* hero cards */  /* pills, badges */
 
@@ -111,9 +109,6 @@
   --blob-blue:      rgba(219, 234, 254, 0.30);   /* blue-100/30 */
   --blob-indigo:    rgba(224, 231, 255, 0.20);   /* indigo-100/20 */
   --blob-violet:    rgba(237, 233, 254, 0.25);   /* violet-100/25 */
-
-  /* ── ROGUE AUDIT COLOURS ─────────────────────────────────── */
-  /* NO CONSOLIDATED OR MERGED ANY VALUES. 1:1 EXACT MAPPING. */
 }
 
 
@@ -228,24 +223,7 @@
   @apply pt-24 pb-20;
   }
   
-
-
-  
-  
-  /* ── FORM INPUTS ─────────────────────────────────────────── */
-
-/* ── FORM LABELS ─────────────────────────────────────────── */
-
-/* ── FORM ICONS ──────────────────────────────────────────── */
-
-/* ── FORM ERROR MESSAGES ─────────────────────────────────── */
-
-
 .text-muted { color: var(--text-muted); }
-
-
-  
-
 
   /* ── EYEBROW PATTERN ─────────────────────────────────────── */
   /* Flanking gradient lines + tracking label.                 */
@@ -352,11 +330,8 @@
   .btn-cta-hero {
    
     @apply relative inline-flex items-center justify-center gap-3 px-10 py-5 w-full sm:w-auto;
-    
     @apply text-lg font-bold text-white bg-[var(--indigo-600)];
-
     @apply rounded-2xl border border-white/10 shadow-lg;
-    
     @apply transition-all duration-300 hover:shadow-indigo-500/25 hover:-translate-y-1 active:scale-95;
   }
 
@@ -364,11 +339,8 @@
   .btn-second-cta {
     
     @apply relative inline-flex items-center justify-center gap-2 px-8 py-4 w-full sm:w-auto;
-    
     @apply font-bold text-white bg-indigo-600 text-h4 md:text-body-lg;
-    
     @apply rounded-2xl shadow-lg;
-    
     @apply transition-all duration-300 hover:shadow-indigo-500/25 hover:-translate-y-0.5 active:scale-95;
   }
 
@@ -376,11 +348,8 @@
   .btn-header {
 
     @apply relative inline-flex items-center justify-center gap-2.5 px-5 py-2;
-    
     @apply text-base font-bold text-white bg-[var(--indigo-600)];
-    
     @apply rounded-xl border border-white/10 shadow-md;
-    
     @apply transition-all duration-300 hover:shadow-indigo-500/25 hover:-translate-y-0.5 active:scale-95;
   }
 

@@ -69,19 +69,18 @@ export default function ManagedPharmacyPage() {
       <main id="main">
         {/* Hero Section — Composition Pattern: Text is delivered in Initial HTML */}
         <MPHero>
-          <div className="space-y-6 md:space-y-8">
-          
-            <h1 className="text-center lg:text-left text-balance max-w-none mx-auto lg:mx-0">
+          <div className="space-y-6 md:space-y-8 text-center lg:text-left">
+            <h1 className="text-balance max-w-none mx-auto lg:mx-0">
               <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
-                <span className="premium-h2 block whitespace-nowrap">
+                <span className="premium-h2 block whitespace-normal md:whitespace-nowrap">
                   Capture 100% of Your Rx Value.
                 </span>
-                <span className="premium-h2 block text-brand-indigo-600 drop-shadow-sm whitespace-nowrap">
+                <span className="premium-h2 block text-brand-indigo-600 drop-shadow-sm whitespace-normal md:whitespace-nowrap">
                   With a Managed Pharmacy.
                 </span>
               </div>
               <div className="mt-6 md:mt-8">
-                <span className="text-h3 md:text-h2 block text-slate-700/90 italic font-semibold tracking-tight leading-tight whitespace-nowrap">
+                <span className="text-h3 md:text-h2 block text-slate-700/90 italic font-semibold tracking-tight leading-tight whitespace-normal md:whitespace-nowrap">
                   Without Touching a Single Box of Stock.
                 </span>
               </div>
