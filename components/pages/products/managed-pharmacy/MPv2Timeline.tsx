@@ -34,7 +34,7 @@ export function MPv2Timeline() {
       className={`bg-white border ${step.theme.border} p-8 lg:p-10 rounded-[2.5rem] shadow-sm group text-left transition-shadow duration-700`}
     >
       <div className="flex flex-col items-start mb-6 space-y-2">
-        <span className={`text-[10px] font-bold tracking-widest uppercase ${step.theme.bg} ${step.theme.base} px-3 py-1.5 rounded-xl border ${step.theme.border} w-fit`}>
+        <span className={`text-xxs font-bold tracking-widest uppercase ${step.theme.bg} ${step.theme.base} px-3 py-1.5 rounded-xl border ${step.theme.border} w-fit`}>
           {step.step}
         </span>
         <h3 className="premium-h3 mt-3">{step.title}</h3>

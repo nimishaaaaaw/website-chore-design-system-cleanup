@@ -70,19 +70,19 @@ export default function Page() {
         <MainHero>
           <div className="space-y-6 md:space-y-8">
             <h1 className="mb-5 md:mb-8 text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl">
-              <span
-                className="block font-bold leading-[1.1] tracking-tighter bg-gradient-display bg-clip-text text-transparent pb-3 mb-2 md:mb-4"
-                style={{ color: '#4F46E5' }}
-              >
+              <span className="display-headline pb-1 mb-1 md:mb-2">
                 Building Fully Managed In-House Pharmacies
               </span>
-              <span className="block text-h2 sm:text-h1 font-bold leading-[1.1] tracking-tight text-slate-700">
+              <span className="display-headline--sub">
                 for Independent Hospitals &amp; Clinics
               </span>
             </h1>
-            <p className="hero-subtitle w-full max-w-[1100px] mx-auto mb-8 md:mb-10">
+            <p className="hero-subtitle w-full max-w-hero-subtitle mx-auto mb-8 md:mb-10">
               MediKloud sets up, staffs, and runs your hospital pharmacy with zero capital investment. You focus on patients — MediKloud HMS turns lost prescriptions into steady revenue.
             </p>
+    
+
+            
           </div>
         </MainHero>
 

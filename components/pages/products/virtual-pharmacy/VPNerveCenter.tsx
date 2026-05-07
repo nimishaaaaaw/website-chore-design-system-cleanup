@@ -164,7 +164,7 @@ export const VPNerveCenter = () => {
                       </div>
                       <span className="text-sm font-bold text-slate-100 text-center leading-tight whitespace-nowrap tracking-wide">{clinic.name}</span>
                     </div>
-                    <div className="mt-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider flex items-center gap-1 shadow-[0_0_10px_rgba(16,185,129,0.1)]">
+                    <div className="mt-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xxs px-2.5 py-1 rounded-full font-bold uppercase tracking-wider flex items-center gap-1 shadow-[0_0_10px_rgba(16,185,129,0.1)]">
                       <MapPin className="w-3 h-3" strokeWidth={1.5} /> Doorstep
                     </div>
                   </div>
@@ -195,7 +195,7 @@ export const VPNerveCenter = () => {
                       <span className="text-base font-bold text-white mb-1.5 tracking-tight">Medikloud Hub</span>
                       <div className="flex items-center gap-1.5 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-lg">
                         <ShieldCheck className="w-3.5 h-3.5 text-blue-400" strokeWidth={1.5} />
-                        <span className="text-[10px] text-blue-300 uppercase tracking-widest font-bold">
+                        <span className="text-xxs text-blue-300 uppercase tracking-widest font-bold">
                           Inventory Core
                         </span>
                       </div>
@@ -214,7 +214,7 @@ export const VPNerveCenter = () => {
                   <Zap className="w-6 h-6 text-emerald-400" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">Avg Response</p>
+                  <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mb-0.5">Avg Response</p>
                   <p className="text-2xl font-bold stat-number !text-white tracking-tight">9.4 min</p>
                 </div>
               </div>
@@ -228,7 +228,7 @@ export const VPNerveCenter = () => {
                   <Activity className="w-6 h-6 text-blue-400" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <p className="text-[11px] text-slate-400 font-bold uppercase tracking-widest mb-0.5">Fulfillment</p>
+                  <p className="text-xs text-slate-400 font-bold uppercase tracking-widest mb-0.5">Fulfillment</p>
                   <p className="text-2xl font-bold stat-number !text-white tracking-tight">100%</p>
                 </div>
               </div>

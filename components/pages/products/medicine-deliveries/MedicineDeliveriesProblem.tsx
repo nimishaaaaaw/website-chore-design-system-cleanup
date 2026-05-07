@@ -56,11 +56,13 @@ export const MedicineDeliveriesProblem = () => {
               className="eyebrow-wrap mb-8 lg:justify-start"
             >
               <span className="eyebrow-line-r" />
-              <span className="eyebrow-text uppercase text-indigo-600">Clinical Insight</span>
+              {/* 1. Removed redundant text-indigo-600 — .eyebrow-text already sets the correct color */}
+              <span className="eyebrow-text uppercase">Clinical Insight</span>
               <span className="eyebrow-line-l" />
             </motion.div>
             
-            <div className="max-w-[900px]">
+            {/* 2. max-w-[900px] → max-w-full lg:max-w-header-lock (design system token) */}
+            <div className="max-w-full lg:max-w-header-lock">
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +80,8 @@ export const MedicineDeliveriesProblem = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: premiumEase, delay: 0.1 }}
-              className="premium-p text-slate-500 font-medium max-w-[800px] leading-relaxed mb-12"
+              
+              className="premium-p text-slate-600 font-medium max-w-full lg:max-w-intro-lock leading-relaxed mb-12"
             >
               Patients will travel across the city to consult with a doctor they trust. But for medicines, they choose the most convenient option—and their loyalty quietly shifts to third-party chemists and delivery apps.
             </motion.p>
@@ -88,11 +91,14 @@ export const MedicineDeliveriesProblem = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: premiumEase, delay: 0.2 }}
-              className="bg-slate-50 border-l-4 border-indigo-600 rounded-r-[2rem] p-8 lg:p-10 text-slate-800 shadow-sm relative overflow-hidden group ring-1 ring-slate-100"
+              
+              className="blog-blockquote group"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700" />
-              <h4 className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest mb-3 relative z-10">Strategic Insight</h4>
-              <p className="text-[17px] font-semibold leading-relaxed relative z-10 text-slate-700">
+              {/* 6. text-10px → text-[10px] */}
+              <h4 className="text-xxs font-bold text-indigo-600 uppercase tracking-widest mb-3 relative z-10">Strategic Insight</h4>
+              {/* 7. text-17px → text-[17px] */}
+              <p className="text-body-lg font-semibold leading-relaxed relative z-10 text-slate-700">
                 Your care shouldn't stop at the hospital door. Patients need a seamless path from your prescription to their home.
               </p>
             </motion.div>
@@ -109,7 +115,8 @@ export const MedicineDeliveriesProblem = () => {
             >
               <div className="mb-6 pb-5 border-b border-slate-100 flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-                <h3 className="text-[11px] font-bold text-slate-800 uppercase tracking-[0.15em]">Operational Leakage Points</h3>
+                {/* 8. text-11px → text-[11px] */}
+                <h3 className="text-xs font-bold text-slate-800 uppercase tracking-[0.15em]">Operational Leakage Points</h3>
               </div>
               
               <div className="space-y-7 pb-8 relative z-10">
@@ -147,12 +154,14 @@ export const MedicineDeliveriesProblem = () => {
                     <TrendingUp className="w-6 h-6" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400 block mb-0.5">Strategy</span>
+                    {/* 9. text-10px → text-[10px] */}
+                    <span className="text-xxs font-bold uppercase tracking-widest text-emerald-400 block mb-0.5">Strategy</span>
                     <span className="text-sm font-bold text-white uppercase tracking-tight">The Cost of Leakage</span>
                   </div>
                 </div>
                 <div className="text-center sm:text-right relative z-10">
-                  <span className="text-[9px] font-bold text-slate-500 uppercase block mb-1 tracking-[0.2em] leading-none">Impact per Patient</span>
+                  {/* 10. text-9px → text-[9px] */}
+                  <span className="text-xxs font-bold text-slate-500 uppercase block mb-1 tracking-[0.2em] leading-none">Impact per Patient</span>
                   <span className="stat-number text-4xl text-white">₹90,000<span className="text-indigo-500 ml-1">+</span></span>
                 </div>
               </motion.div>

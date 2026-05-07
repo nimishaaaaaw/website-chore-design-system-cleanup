@@ -30,15 +30,17 @@ export function VisionMission() {
 
   return (
     <section className="section-py-lg bg-section-surface relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+      <div className="container-page">
+
         {/* Vision & Mission Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+
+          {/* Vision */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="card !p-10 relative overflow-hidden group border border-slate-200 shadow-card-md bg-white"
+            className="card p-10 relative overflow-hidden group"
           >
             <div className="absolute -top-4 -right-4 p-8 text-brand-600 opacity-[0.03] group-hover:scale-110 transition-transform duration-500">
               <Target size={140} />
@@ -48,51 +50,59 @@ export function VisionMission() {
                 <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
                   <Target size={20} />
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-600/80">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
                   Our Vision
                 </span>
               </div>
-              <h3 className="text-xl md:text-2xl font-semibold leading-snug text-slate-800">
+              <h3 className="text-h6 md:text-h6 font-semibold leading-loose text-slate-800">
                 To build the operating infrastructure that powers every independent hospital in India.
               </h3>
             </div>
           </motion.div>
 
+          {/* Mission — same style as Vision */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="card !p-10 relative overflow-hidden group border border-slate-200 shadow-card-md bg-white"
+            className="card p-10 relative overflow-hidden group"
           >
-            <div className="absolute -top-4 -right-4 p-8 text-slate-900 opacity-[0.03] group-hover:scale-110 transition-transform duration-500">
+            <div className="absolute -top-4 -right-4 p-8 text-brand-600 opacity-[0.03] group-hover:scale-110 transition-transform duration-500">
               <Compass size={140} />
             </div>
             <div className="relative z-10">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-900 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
                   <Compass size={20} />
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
                   Our Mission
                 </span>
               </div>
-              <h3 className="text-xl md:text-2xl font-semibold leading-snug text-slate-800">
-                 To give independent hospital pharmacies the infrastructure they were never built with.
+              <h3 className="text-h6 md:text-h6 font-semibold leading-loose text-slate-800">
+                To give independent hospital pharmacies the infrastructure they were never built with.
               </h3>
             </div>
           </motion.div>
+
         </div>
 
         {/* Core Beliefs */}
         <div className="space-y-16">
           <div className="text-center flex flex-col items-center">
-             <div className="eyebrow-wrap !mb-6">
-                <div className="eyebrow-line-r" />
-                <span className="eyebrow-text uppercase tracking-[0.15em] text-[10px]">How We Think</span>
-                <div className="eyebrow-line-l" />
+            <div className="eyebrow-wrap">
+              <div className="eyebrow-line-l" />
+              <span className="eyebrow-text">How We Think</span>
+              <div className="eyebrow-line-r" />
+            </div>
+            <h2 className="text-center lg:text-left text-balance max-w-none mx-auto lg:mx-0">
+              <div className="mb-4 md:mb-6">
+                <span className="premium-h2 block whitespace-nowrap">
+                  Our Core <span className="text-indigo-600">Beliefs</span>
+                </span>
               </div>
-            <h2 className="premium-h2 !text-3xl mb-4 font-semibold">Our Core Beliefs</h2>
-            <p className="premium-p max-w-2xl mx-auto text-base">The principles that guide every operational decision at MediKloud.</p>
+            </h2>
+            <p className="premium-p max-w-2xl mx-auto">The principles that guide every operational decision at MediKloud.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -103,12 +113,12 @@ export function VisionMission() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="card group hover:-translate-y-1 !p-8 border border-slate-100 shadow-sm"
+                className="card group hover:-translate-y-1 p-8"
               >
                 <div className="w-10 h-10 rounded-xl bg-slate-50 text-slate-400 group-hover:bg-brand-600 group-hover:text-white flex items-center justify-center mb-6 transition-all duration-300">
                   <belief.icon size={20} />
                 </div>
-                <h4 className="text-[16px] font-bold text-slate-800 mb-3">{belief.title}</h4>
+                <h4 className="text-h4 font-bold text-slate-800 mb-3">{belief.title}</h4>
                 <p className="text-sm text-slate-500 leading-relaxed font-medium">
                   {belief.desc}
                 </p>

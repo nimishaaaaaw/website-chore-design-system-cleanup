@@ -11,41 +11,41 @@ const fadeInUp = {
 
 export const HospitalWithoutPharmacyEmotionalClose = () => {
   return (
-    <section className="section-py bg-slate-50 border-t border-slate-100">
+    <section className="section-py bg-section-alt border-t border-muted">
       <div className="container-page">
-        <motion.div 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={{ once: true }} 
-          variants={fadeInUp} 
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
           className="max-w-4xl mx-auto"
         >
-          <div className="relative p-10 md:p-16 rounded-[3rem] bg-slate-900 overflow-hidden group shadow-2xl">
-            {/* Background Atmosphere */}
-            <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/20 rounded-full blur-[100px] -mr-32 -mt-32" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] -ml-24 -mb-24" />
+          <div className="relative p-10 md:p-16 rounded-3xl overflow-hidden group shadow-float bg-section-dark">
+
+            <div className="blob-layer">
+              <div className="blob-indigo absolute top-0 right-0 w-80 h-80 -mr-32 -mt-32" />
+              <div className="blob-blue absolute bottom-0 left-0 w-64 h-64 -ml-24 -mb-24" />
             </div>
 
             <div className="relative z-10 text-center space-y-8">
               <div className="flex items-center justify-center gap-3">
                 <span className="h-px w-12 bg-white/20" />
-                <span className="text-indigo-400 font-semibold tracking-widest uppercase text-xs">The vision</span>
+                <span className="eyebrow-text text-white/70">The vision</span>
                 <span className="h-px w-12 bg-white/20" />
               </div>
-              
-              <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight px-4">
-                Your hospital is a hub of healing.<br/>
-                <span className="text-slate-400">Our job is to make the fulfillment silent.</span>
+
+              <h2 className="text-display-sm md:text-display-md font-bold text-white tracking-tight leading-tight px-4">
+                Your hospital is a hub of healing.<br />
+                <span className="text-muted">Our job is to make the fulfillment silent.</span>
               </h2>
-              
-              <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-medium">
+
+              <p className="text-body-lg text-slate-300 max-w-2xl mx-auto font-medium">
                 MediKloud removes the friction of "where do I buy this?" so your team can focus exclusively on "how do I treat this?".
               </p>
-              
+
               <div className="pt-4">
-                <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/5 border border-white/10 text-white/90 text-sm font-bold backdrop-blur-md shadow-2xl tracking-wide group-hover:bg-white/10 transition-all duration-300">
-                  <Sparkles className="w-4 h-4 text-cyan-400" />
+                <div className="card-dark inline-flex items-center gap-3 px-6 py-3 text-white/90 text-sm font-bold backdrop-blur-md shadow-float tracking-wide group-hover:bg-white/10 transition-all duration-300">
+                  <Sparkles className="w-4 h-4 text-brand-500" />
                   Building the integrated future of hospital operations
                 </div>
               </div>

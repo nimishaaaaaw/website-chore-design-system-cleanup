@@ -11,43 +11,40 @@ const fadeInUp = {
 
 const staggerContainerLocal = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
 };
 
 export const HospitalWithoutPharmacyBenefits = () => {
   return (
     <section className="section-py bg-white">
       <div className="container-page">
-        <motion.div 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={{ once: true }} 
-          variants={fadeInUp} 
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
           className="max-w-3xl mb-20 space-y-5"
         >
           <div className="eyebrow-wrap justify-start">
-            <span className="eyebrow-line-l bg-indigo-600/30" />
-            <span className="eyebrow-text text-indigo-600">The healthcare benefits</span>
+            <span className="eyebrow-line-l" />
+            <span className="eyebrow-text">The healthcare benefits</span>
           </div>
-          <h2 className="text-h2 font-black tracking-tight text-slate-900 leading-[1.1] md:text-5xl">
-            Impact that goes <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600">
+          <h2 className="text-h2 font-bold tracking-tight leading-[1.1] md:text-5xl">
+            Impact that goes <br />
+            <span className="display-headline">
               beyond the first sale.
             </span>
           </h2>
-          <p className="text-body-lg text-slate-600 font-medium leading-relaxed max-w-2xl">
+          <p className="text-body-lg font-medium leading-relaxed max-w-2xl" style={{ color: 'var(--text-body)' }}>
             We ensure clinical value translates into long-term patient compliance and sustainable hospital revenue.
           </p>
         </motion.div>
 
-        <motion.div 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={{ once: true }} 
-          variants={staggerContainerLocal} 
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainerLocal}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {[
@@ -76,23 +73,21 @@ export const HospitalWithoutPharmacyBenefits = () => {
               desc: "Ensure medication adherence with automated refills and managed home delivery."
             }
           ].map((item, i) => (
-            <motion.div 
-              key={i} 
-              variants={fadeInUp} 
-              className="card p-8 border-slate-100/60 hover:border-indigo-100 hover:shadow-card-lg transition-all duration-500 flex flex-col group relative overflow-hidden"
+            <motion.div
+              key={i}
+              variants={fadeInUp}
+              className="card p-8 border-slate-100/60 hover:border-brand-indigo-100 hover:shadow-card-lg transition-all duration-500 flex flex-col group relative overflow-hidden"
             >
-              <div className="absolute top-6 right-8 text-[40px] font-black text-slate-50 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity select-none tracking-tighter">
+              <div className="absolute top-6 right-8 text-[40px] font-bold text-slate-50 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity select-none tracking-tighter">
                 {item.index}
               </div>
-
-              <div className="w-14 h-14 rounded-2xl bg-indigo-50/50 text-indigo-600 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-indigo-50 transition-all duration-500 shadow-sm border border-indigo-100/30">
+              <div className="w-14 h-14 rounded-2xl bg-brand-indigo-50 text-brand-indigo-600 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-brand-indigo-100 transition-all duration-500 shadow-sm border border-brand-indigo-100/30">
                 <item.icon className="w-6 h-6 stroke-[1.5]" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">{item.title}</h3>
-              <p className="text-sm font-medium text-slate-500 leading-relaxed">{item.desc}</p>
-              
+              <h3 className="text-h3 font-bold mb-4 tracking-tight leading-tight" style={{ color: 'var(--text-primary)' }}>{item.title}</h3>
+              <p className="premium-p--sm font-medium leading-relaxed">{item.desc}</p>
               <div className="mt-8 overflow-hidden pointer-events-none">
-                <div className="h-0.5 w-12 bg-slate-100 group-hover:w-full group-hover:bg-indigo-600 transition-all duration-700" />
+                <div className="h-0.5 w-12 bg-slate-100 group-hover:w-full group-hover:bg-brand-indigo-600 transition-all duration-700" />
               </div>
             </motion.div>
           ))}
@@ -101,4 +96,3 @@ export const HospitalWithoutPharmacyBenefits = () => {
     </section>
   );
 };
-

@@ -71,19 +71,19 @@ export function MPProblemGrid() {
           
           {/* Card 1: Wasted Money */}
           <div className="group flex flex-col h-full bg-white rounded-[1.5rem] p-6 lg:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-indigo-50 to-transparent rounded-full blur-3xl opacity-50 -z-10 transition-opacity group-hover:opacity-100" />
+            <div className="absolute top-0 right-0 w-300px h-300px bg-gradient-to-bl from-indigo-50 to-transparent rounded-full blur-3xl opacity-50 -z-10 transition-opacity group-hover:opacity-100" />
             
             <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4 text-indigo-600 border border-indigo-100 group-hover:scale-110 transition-transform duration-500 shrink-0">
               <Trash2 size={20} strokeWidth={2} />
             </div>
             <h3 className="premium-h3 mb-2 shrink-0">Wasted Money</h3>
-            <p className="text-sm lg:text-[15px] text-slate-500 leading-relaxed mb-4 shrink-0">
+            <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-4 shrink-0">
               Capital gets completely trapped in aging medicine sitting on shelves until expiry, aggressively starving your clinic of essential growth capital.
             </p>
 
             <div className="flex flex-wrap gap-1.5 mb-5 shrink-0">
               {['Retail Markups', 'Dead Stock', 'Expired Meds'].map(tag => (
-                <span key={tag} className="px-2.5 py-1 bg-indigo-50 border border-indigo-100/50 rounded-md text-[10px] font-bold text-indigo-600 uppercase tracking-widest">
+                <span key={tag} className="px-2.5 py-1 bg-indigo-50 border border-indigo-100/50 rounded-md text-xxs font-bold text-indigo-600 uppercase tracking-widest">
                   {tag}
                 </span>
               ))}
@@ -92,8 +92,8 @@ export function MPProblemGrid() {
             {/* Abstract UI Element */}
             <div className="mt-auto bg-slate-50 rounded-xl p-4 border border-slate-100">
               <div className="flex justify-between items-end mb-3">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Profit Loss</span>
-                <span className="text-[11px] font-bold text-indigo-600 flex items-center gap-1"><TrendingDown size={14}/> HIGH</span>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Profit Loss</span>
+                <span className="text-xs font-bold text-indigo-600 flex items-center gap-1"><TrendingDown size={14}/> HIGH</span>
               </div>
               <div className="flex items-end gap-1.5 h-10 w-full">
                 {[40, 65, 80, 50, 30, 15].map((height, i) => (
@@ -112,19 +112,19 @@ export function MPProblemGrid() {
 
           {/* Card 2: Staff Stress */}
           <div className="group flex flex-col h-full bg-white rounded-[1.5rem] p-6 lg:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-indigo-50 to-transparent rounded-full blur-3xl opacity-50 -z-10 transition-opacity group-hover:opacity-100" />
+             <div className="absolute top-0 right-0 w-300px h-300px bg-gradient-to-bl from-indigo-50 to-transparent rounded-full blur-3xl opacity-50 -z-10 transition-opacity group-hover:opacity-100" />
             
             <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4 text-indigo-600 border border-indigo-100 group-hover:scale-110 transition-transform duration-500 shrink-0">
               <Clock3 size={20} strokeWidth={2} />
             </div>
             <h3 className="premium-h3 mb-2 shrink-0">Staff Stress</h3>
-            <p className="text-sm lg:text-[15px] text-slate-500 leading-relaxed mb-4 shrink-0">
+            <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-4 shrink-0">
               Pharmacists are overwhelmed by manual workloads, driving high attrition. Fragmented systems expose your clinic to fatal underbilling and theft.
             </p>
 
             <div className="flex flex-wrap gap-1.5 mb-5 shrink-0">
               {['Staff Attrition', 'Underbilling', 'Inventory Theft'].map(tag => (
-                <span key={tag} className="px-2.5 py-1 bg-indigo-50 border border-indigo-100/50 rounded-md text-[10px] font-bold text-indigo-600 uppercase tracking-widest">
+                <span key={tag} className="px-2.5 py-1 bg-indigo-50 border border-indigo-100/50 rounded-md text-xxs font-bold text-indigo-600 uppercase tracking-widest">
                   {tag}
                 </span>
               ))}
@@ -133,8 +133,8 @@ export function MPProblemGrid() {
              {/* Abstract UI Element */}
             <div className="mt-auto bg-slate-50 rounded-xl p-4 border border-slate-100">
               <div className="flex justify-between items-center mb-2.5">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Operational Friction</span>
-                <span className="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-[10px] font-bold rounded-md uppercase">Severe</span>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Operational Friction</span>
+                <span className="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-xxs font-bold rounded-md uppercase">Severe</span>
               </div>
               <div className="space-y-2">
                 <div className="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden">
@@ -145,7 +145,7 @@ export function MPProblemGrid() {
                     className="h-full bg-indigo-400 rounded-full" 
                   />
                 </div>
-                <div className="flex justify-between text-[10px] text-slate-500 font-medium tracking-wide">
+                <div className="flex justify-between text-xxs text-slate-500 font-medium tracking-wide">
                   <span>Manual Tasks: 85%</span>
                   <span>Clinical Care: 15%</span>
                 </div>
@@ -162,13 +162,13 @@ export function MPProblemGrid() {
               <EyeOff size={20} strokeWidth={2} />
             </div>
             <h3 className="relative z-10 premium-h3 !text-white mb-2 shrink-0">Operating in the Dark</h3>
-            <p className="relative z-10 text-slate-400 leading-relaxed mb-4 shrink-0 text-sm lg:text-[15px]">
+            <p className="relative z-10 text-slate-400 leading-relaxed mb-4 shrink-0 text-sm lg:text-base">
               Inventory is managed purely by estimation. Devastating operational losses are only discovered during delayed end-of-month reconciliations.
             </p>
 
             <div className="relative z-10 flex flex-wrap gap-1.5 mb-5 shrink-0">
               {['Zero Real-time Data', 'Fragmented CRM', 'Delayed Reports'].map(tag => (
-                <span key={tag} className="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-[10px] font-bold text-slate-300 uppercase tracking-widest backdrop-blur-sm">
+                <span key={tag} className="px-2.5 py-1 bg-white/5 border border-white/10 rounded-md text-xxs font-bold text-slate-300 uppercase tracking-widest backdrop-blur-sm">
                   {tag}
                 </span>
               ))}
@@ -177,7 +177,7 @@ export function MPProblemGrid() {
             {/* Abstract UI Element */}
             <div className="relative z-10 mt-auto bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10 overflow-hidden">
               <div className="absolute inset-0 backdrop-blur-[2px] bg-slate-900/20 z-10 flex items-center justify-center">
-                 <div className="flex items-center gap-1.5 text-indigo-300 text-[10px] font-bold bg-slate-900/80 px-2.5 py-1 rounded-full border border-indigo-500/30">
+                 <div className="flex items-center gap-1.5 text-indigo-300 text-xxs font-bold bg-slate-900/80 px-2.5 py-1 rounded-full border border-indigo-500/30">
                     <Activity size={12} /> Sync Failed
                  </div>
               </div>
@@ -191,19 +191,19 @@ export function MPProblemGrid() {
 
           {/* Card 4: Churn Loop */}
           <div className="group flex flex-col h-full bg-white rounded-[1.5rem] p-6 lg:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-500 relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-indigo-50 to-transparent rounded-full blur-3xl opacity-50 -z-10 transition-opacity group-hover:opacity-100" />
+             <div className="absolute top-0 right-0 w-300px h-300px bg-gradient-to-bl from-indigo-50 to-transparent rounded-full blur-3xl opacity-50 -z-10 transition-opacity group-hover:opacity-100" />
             
             <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4 text-indigo-600 border border-indigo-100 group-hover:scale-110 transition-transform duration-500 shrink-0">
               <UserMinus size={20} strokeWidth={2} />
             </div>
             <h3 className="premium-h3 mb-2 shrink-0">Churn Loop</h3>
-            <p className="text-sm lg:text-[15px] text-slate-500 leading-relaxed mb-4 shrink-0">
+            <p className="text-sm lg:text-base text-slate-500 leading-relaxed mb-4 shrink-0">
               Patients visit your clinic for immediate care, but divert their highly profitable chronic refill prescriptions straight to massive external retail chains.
             </p>
 
             <div className="flex flex-wrap gap-1.5 mb-5 shrink-0">
               {['No Delivery', 'External Refills', 'Lost Retention'].map(tag => (
-                <span key={tag} className="px-2.5 py-1 bg-indigo-50 border border-indigo-100/50 rounded-md text-[10px] font-bold text-indigo-600 uppercase tracking-widest">
+                <span key={tag} className="px-2.5 py-1 bg-indigo-50 border border-indigo-100/50 rounded-md text-xxs font-bold text-indigo-600 uppercase tracking-widest">
                   {tag}
                 </span>
               ))}
@@ -215,12 +215,12 @@ export function MPProblemGrid() {
                 <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 shadow-sm">
                   <PackageX size={14} />
                 </div>
-                <span className="text-[9px] font-bold text-slate-400 uppercase">Clinic</span>
+                <span className="text-xxxs font-bold text-slate-400 uppercase">Clinic</span>
               </div>
               
               <div className="flex-1 flex items-center justify-center relative px-2">
                 <div className="w-full h-px border-t border-dashed border-slate-300"></div>
-                <div className="absolute top-1/2 -translate-y-1/2 bg-white px-2 text-[9px] font-bold text-indigo-600 tracking-wider text-center leading-tight">
+                <div className="absolute top-1/2 -translate-y-1/2 bg-white px-2 text-xxxs font-bold text-indigo-600 tracking-wider text-center leading-tight">
                   NO HOME DELIVERY = <br/> PATIENTS LEAVE
                 </div>
               </div>
@@ -229,7 +229,7 @@ export function MPProblemGrid() {
                 <div className="w-8 h-8 rounded-full bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 shadow-sm">
                   <ArrowRight size={14} />
                 </div>
-                <span className="text-[9px] font-bold text-indigo-600 uppercase">Retailer</span>
+                <span className="text-xxxs font-bold text-indigo-600 uppercase">Retailer</span>
               </div>
             </div>
           </div>
@@ -265,19 +265,21 @@ export function MPProblemGrid() {
             
             <button 
               onClick={() => openModal({
-                    badge: "Managed Operations",
-                    title: "Launch Your Recovery Plan",
-                    description: "Stop the leakage today with our fully managed operational layer.",
-                    btnText: "Start Recovery Plan",
-                    successTitle: "Recovery Plan Initiated!",
-                    successDescription: "Our team will reach out within 24 hours to begin your revenue recovery plan."
-                  })}
-              className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-[#4E46E5] rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all active:scale-95 border border-white/10"
+                badge: "Managed Operations",
+                title: "Launch Your Recovery Plan",
+                description: "Stop the leakage today with our fully managed operational layer.",
+                btnText: "Start Recovery Plan",
+                successTitle: "Recovery Plan Initiated!",
+                successDescription: "Our team will reach out within 24 hours to begin your revenue recovery plan."
+              })}
+              className="group btn-cta-hero"
             >
-              <div className="flex items-center gap-3">
-                <span>Optimize My Pharmacy</span>
-                <ArrowRight size={22} className="transition-transform duration-500 group-hover:translate-x-2" strokeWidth={2.5} />
-              </div>
+              <span>Optimize My Pharmacy</span>
+              <ArrowRight 
+                size={22} 
+                className="transition-transform duration-500 group-hover:translate-x-2" 
+                strokeWidth={2.5} 
+              />
             </button>
           </div>
         </div>

@@ -1,16 +1,10 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Stethoscope, 
-  Pill, 
-  Microscope, 
-  Calculator, 
-  Network,
-  ChevronRight,
-  CheckCircle2,
-  Plus
+  Stethoscope, Pill, Microscope, Calculator, Network,
+  ChevronRight, CheckCircle2
 } from 'lucide-react';
 
 const modulesData = [
@@ -31,7 +25,7 @@ const modulesData = [
       { name: "Inventory Control", desc: "Real-time stock tracking, batch management, and auto-reorder points." },
       { name: "GST Billing", desc: "E-invoicing, credit notes, and GSTR-ready financial reports." },
       { name: "Expiry Alerts", desc: "Proactive notifications 90/60/30 days before stock expires." },
-      { name: "Prescription Sync", desc: "Instant transfer of doctor’s orders to the pharmacy counter." }
+      { name: "Prescription Sync", desc: "Instant transfer of doctor's orders to the pharmacy counter." }
     ]
   },
   {
@@ -71,42 +65,41 @@ export const HMSModules = () => {
 
   return (
     <section className="relative overflow-hidden bg-slate-50 section-py-premium">
-      {/* Gold Standard Atmosphere (Subtle for Alt Section) */}
       <div className="tech-grid-overlay !opacity-[0.02]" />
       <div className="noise-texture !opacity-[0.02]" />
 
       <div className="container-page relative z-10">
+
         <header className="header-lock text-center mb-16 md:mb-24 animate-fade-in-up opacity-0 [animation-fill-mode:forwards]">
           <div className="eyebrow-wrap">
             <span className="eyebrow-line-l" />
             <span className="eyebrow-text">The Clinic OS</span>
             <span className="eyebrow-line-r" />
           </div>
-          <h2 className="premium-h2 mb-6">
+          <h2 className="premium-h2 mb-6 text-slate-900">
             Every Department Consolidated. <br className="hidden md:block" />
-            <span className="text-brand-indigo-600">Built for Absolute Control.</span>
+            <span className="heading-accent">Built for Absolute Control.</span>
           </h2>
         </header>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 max-w-6xl mx-auto items-start">
-          
-          {/* Left Column: Tab Navigation & Mobile Accordion */}
+
           <div className="w-full lg:w-[380px] flex flex-col gap-4">
             {modulesData.map((module, idx) => (
               <div key={idx} className="flex flex-col">
                 <button
                   onClick={() => setActiveModule(activeModule === idx ? null : idx)}
-                  className={`w-full flex items-center justify-between p-5 rounded-[1.5rem] text-left transition-colors duration-300 group border ${
-                    activeModule === idx 
-                      ? 'bg-gradient-action text-white shadow-card-lg lg:scale-[1.02] border-transparent' 
-                      : 'bg-white text-slate-500 hover:bg-white hover:text-brand-600 border-slate-200 shadow-card hover:shadow-card-md hover:border-brand-indigo-100'
+                  className={`w-full flex items-center justify-between p-5 rounded-[1.5rem] text-left transition-all duration-300 group border ${
+                    activeModule === idx
+                      ? 'bg-gradient-to-r from-brand-600 to-brand-700 text-white shadow-xl lg:scale-[1.02] border-transparent'
+                      : 'bg-white text-slate-500 hover:bg-white hover:text-brand-600 border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-100'
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-11 h-11 rounded-xl border flex items-center justify-center transition-colors duration-300 ${
-                      activeModule === idx 
-                        ? 'bg-white/20 border-white/20 text-white' 
-                        : 'bg-slate-50 border-slate-100 text-slate-400 group-hover:bg-brand-50 group-hover:border-brand-100 group-hover:text-brand-600'
+                      activeModule === idx
+                        ? 'bg-white/20 border-white/20 text-white'
+                        : 'bg-slate-50 border-slate-100 text-slate-400 group-hover:bg-indigo-50 group-hover:border-indigo-100 group-hover:text-brand-600'
                     }`}>
                       {React.cloneElement(module.icon as React.ReactElement, { strokeWidth: 1.5 } as any)}
                     </div>
@@ -114,42 +107,44 @@ export const HMSModules = () => {
                       {module.title}
                     </span>
                   </div>
-                  <ChevronRight 
+                  <ChevronRight
                     strokeWidth={1.5}
-                    className={`shrink-0 w-5 h-5 transition-transform duration-300 ${activeModule === idx ? 'text-white rotate-90 lg:rotate-0 lg:translate-x-1' : 'text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1'}`} 
+                    className={`shrink-0 w-5 h-5 transition-transform duration-300 ${
+                      activeModule === idx
+                        ? 'text-white rotate-90 lg:rotate-0 lg:translate-x-1'
+                        : 'text-slate-400 group-hover:text-brand-600 group-hover:translate-x-1'
+                    }`}
                   />
                 </button>
 
-                {/* Mobile Content Display (CSS Grid Accordion) */}
-                <div 
-                  className={`lg:hidden grid transition-all duration-300 ease-in-out ${
-                    activeModule === idx ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                  }`}
-                >
+                <div className={`lg:hidden grid transition-all duration-300 ease-in-out ${
+                  activeModule === idx ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                }`}>
                   <div className="overflow-hidden">
-                    <div className="flex flex-col gap-6 pb-6 pt-5 px-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:pt-5 sm:px-2">
+                    <div className="flex flex-col gap-6 pb-6 pt-5 px-4 sm:grid sm:grid-cols-2 sm:gap-4">
                       {module.features.map((feature, fIdx) => (
-                        <div 
-                          key={fIdx} 
-                          className="flex items-start gap-4"
-                        >
-                          <div className="w-10 h-10 rounded-[10px] bg-brand-50 border border-brand-100/60 flex items-center justify-center shrink-0 shadow-sm mt-0.5">
+                        <div key={fIdx} className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-[10px] bg-indigo-50 border border-indigo-100/60 flex items-center justify-center shrink-0 shadow-sm mt-0.5">
                             <CheckCircle2 strokeWidth={2} className="w-5 h-5 text-brand-600" />
                           </div>
                           <div>
-                            <h4 className="text-[15px] font-bold text-slate-900 mb-1.5 leading-tight tracking-tight">{feature.name}</h4>
-                            <p className="text-[13px] font-medium text-slate-500 leading-relaxed">{feature.desc}</p>
+                            <h4 className="text-lg font-bold mb-1.5 leading-tight tracking-tight text-slate-900">
+                              {feature.name}
+                            </h4>
+                            <p className="text-sm font-medium leading-relaxed text-slate-500">
+                              {feature.desc}
+                            </p>
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
+
               </div>
             ))}
           </div>
 
-          {/* Right Column: Tab Content (Feature Grid) - Desktop Only */}
           <div className="hidden lg:block flex-1 min-h-[460px]">
             <AnimatePresence mode="wait">
               {activeModule !== null && (
@@ -162,18 +157,22 @@ export const HMSModules = () => {
                   className="grid grid-cols-1 md:grid-cols-2 gap-6"
                 >
                   {modulesData[activeModule].features.map((feature, idx) => (
-                    <div 
-                      key={idx} 
-                      className="bg-white p-7 rounded-[2rem] shadow-card border border-slate-200/60 hover:shadow-card-lg hover:border-brand-indigo-100 transition-all duration-300 group relative overflow-hidden"
+                    <div
+                      key={idx}
+                      className="bg-white p-7 rounded-[2rem] shadow-sm border border-slate-200/60 hover:shadow-xl hover:border-indigo-100 transition-all duration-300 group relative overflow-hidden"
                     >
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-50/40 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-brand-100/50 transition-colors duration-500" />
-                      
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50/40 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-indigo-100/50 transition-colors duration-500" />
+
                       <div className="relative z-10">
                         <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-5 group-hover:bg-brand-600 group-hover:border-brand-600 transition-all duration-300">
                           <CheckCircle2 strokeWidth={1.5} className="w-6 h-6 text-brand-600 group-hover:text-white transition-colors" />
                         </div>
-                        <h4 className="text-lg font-bold text-slate-900 mb-2 leading-tight tracking-tight">{feature.name}</h4>
-                        <p className="text-sm font-medium text-slate-500 leading-relaxed">{feature.desc}</p>
+                        <h4 className="text-xl font-bold mb-2 leading-tight tracking-tight text-slate-900">
+                          {feature.name}
+                        </h4>
+                        <p className="text-sm font-medium leading-relaxed text-slate-500">
+                          {feature.desc}
+                        </p>
                       </div>
                     </div>
                   ))}

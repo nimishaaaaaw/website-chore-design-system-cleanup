@@ -62,7 +62,7 @@ export function PersonaROISection() {
     <section id="roi-section" className="bg-section-alt py-12 md:py-16 relative overflow-hidden">
       {/* Blobs */}
       <div className="blob-layer">
-        <div className="blob-blue w-[500px] h-[500px] -top-32 right-0 opacity-30" />
+        <div className="blob-blue w-500px h-500px -top-32 right-0 opacity-30" />
         <div className="blob-indigo w-[400px] h-[400px] bottom-0 -left-20 opacity-20" />
       </div>
 
@@ -115,7 +115,7 @@ export function PersonaROISection() {
                     <Icon size={16} strokeWidth={2.5} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ${catCls}`}>{group.category}</p>
+                    <p className={`text-xxs font-bold uppercase tracking-widest whitespace-nowrap ${catCls}`}>{group.category}</p>
                     <h3 className={`text-sm font-semibold leading-tight tracking-tight whitespace-nowrap ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>{opt.label}</h3>
                   </div>
                   <div className="shrink-0">
@@ -173,7 +173,7 @@ export function PersonaROISection() {
                     <div className="p-1.5 bg-white rounded-lg shadow-sm border border-slate-100">
                       <Activity size={13} className="text-slate-400" />
                     </div>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                    <p className="text-xxs font-bold text-slate-400 uppercase tracking-widest">
                       Your {isClinic ? 'clinic' : 'hospital'} today
                     </p>
                   </div>
@@ -343,7 +343,7 @@ export function PersonaROISection() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.3 }}
-                className="col-start-1 row-start-1 w-full h-auto md:h-[420px] min-h-[380px] rounded-[2.5rem] border-2 border-dashed border-slate-200 bg-slate-50 relative overflow-hidden flex items-center justify-center z-0"
+                className="col-start-1 row-start-1 w-full h-auto md:h-[420px] min-h-380px rounded-[2.5rem] border-2 border-dashed border-slate-200 bg-slate-50 relative overflow-hidden flex items-center justify-center z-0"
               >
                 <div className="absolute inset-0 p-6 flex flex-col md:flex-row gap-8 opacity-[0.16] pointer-events-none blur-[4px] select-none">
                   <div className="w-full md:w-[45%] flex flex-col gap-6">
@@ -388,7 +388,7 @@ export function PersonaROISection() {
                   </div>
                   
                   <div className="flex flex-col items-center gap-1.5 relative z-20">
-                    <p className="text-[10px] text-indigo-600 font-bold uppercase tracking-widest bg-indigo-50/80 px-3 py-1 rounded-full border border-indigo-100 backdrop-blur-sm">
+                    <p className="text-xxs text-indigo-600 font-bold uppercase tracking-widest bg-indigo-50/80 px-3 py-1 rounded-full border border-indigo-100 backdrop-blur-sm">
                       To check
                     </p>
                     <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 leading-tight max-w-[260px]">

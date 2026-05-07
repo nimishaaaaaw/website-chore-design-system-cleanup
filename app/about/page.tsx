@@ -33,23 +33,21 @@ export default function AboutPage() {
       <main id="main">
         {/* 1. Hero — Composition Pattern */}
         <AboutHero>
-          <div className="space-y-6 md:space-y-8">
+          <div className="max-w-7xl mx-auto text-center space-y-6 md:space-y-8">
             <h1 className="mb-20 text-display-sm sm:text-display-md md:text-display-lg lg:text-display-xl">
-              <span
-                className="block font-bold leading-[1.1] tracking-tighter bg-gradient-display bg-clip-text text-transparent pb-3 mb-4 md:mb-8"
-                style={{ color: '#4F46E5' }}
-              >
+              <span className="display-headline block pb-3 mb-4 md:mb-8 mx-auto max-w-[1100px]">
+                
                 Elevating hospitals & clinics in India with tech & Ops infrastructure
               </span>
-              <span className="block text-h2 sm:text-h1 font-bold leading-[1.1] tracking-tight text-slate-700">
+              <span className="display-headline--sub">
                 so patients become the true beneficiaries
               </span>
             </h1>
-            <p className="hero-subtitle max-w-[800px] mx-auto">
+            <p className="hero-subtitle max-w-800px mx-auto">
               MediKloud provides the managed operations and MediKloud HMS that allow independent providers to bypass the supply chain struggle and focus entirely on healing their patients.
             </p>
           </div>
-        </AboutHero>
+        </AboutHero> 
 
         {/* 2. Origin Story — Personal Narrative */}
         <OriginStory />

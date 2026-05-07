@@ -12,31 +12,33 @@ export function AboutCTA() {
   return (
     <section
       id="about-cta"
-      className="relative w-full py-24 md:py-32 flex items-center justify-center overflow-hidden bg-brand-950"
+      className="relative w-full section-py-lg flex items-center justify-center overflow-hidden bg-section-dark"
     >
       <DarkAtmosphere />
 
-      {/* Decorative Network Layer (Subtle) */}
+      {/* Decorative Network Layer */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-        <div className="absolute top-[20%] left-[10%] w-[300px] h-[300px] border border-brand-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] border border-indigo-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-[20%] left-[10%] w-300px h-300px border border-brand-500/20 rounded-full blur-3xl animate-pulse" />
+        <div
+          className="absolute bottom-[20%] right-[10%] w-380px h-380px border border-indigo-500/20 rounded-full blur-3xl animate-pulse [animation-delay:1s]"
+        />
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center">
-        
+
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex items-center justify-center gap-4 mb-8"
+          className="eyebrow-wrap"
         >
-          <div className="h-px w-8 bg-brand-500/50" />
+          <span className="eyebrow-line-l" />
           <div className="flex items-center gap-2">
-            <Activity size={16} className="text-brand-400" />
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-brand-400">Defining the Standard</span>
+            <Activity size={16} className="text-indigo-400" />
+            <span className="eyebrow-text text-indigo-400">Defining the Standard</span>
           </div>
-          <div className="h-px w-8 bg-brand-500/50" />
+          <span className="eyebrow-line-r" />
         </motion.div>
 
         <motion.h2
@@ -47,7 +49,7 @@ export function AboutCTA() {
           className="text-h2 md:text-display-sm lg:text-display-md text-white mb-8 leading-[1.1] tracking-tight font-bold"
         >
           Building a stronger foundation for <br className="hidden md:block" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-indigo-400">
+          <span className="text-display-sm sm:text-display-md md:text-h1 text-indigo-400">
             every independent hospital.
           </span>
         </motion.h2>
@@ -69,7 +71,7 @@ export function AboutCTA() {
           transition={{ delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <button 
+          <button
             onClick={() => openModal({
               badge: "Team",
               title: "Join the MediKloud Mission",
@@ -78,13 +80,13 @@ export function AboutCTA() {
               successTitle: "Message Received!",
               successDescription: "Thank you for your interest! Our team will reach out to you shortly."
             })}
-            className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold text-white bg-brand-600 rounded-2xl shadow-glow hover:shadow-glow-lg hover:-translate-y-1 transition-all w-full sm:w-auto active:scale-95 overflow-hidden"
+            className="group btn-cta-hero"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
-            <div className="relative z-10 flex items-center gap-3">
-              <span>Join the Mission</span>
-              <ArrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-2" />
-            </div>
+            <span>Join the Mission</span>
+            <ArrowRight 
+              className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-2" 
+              strokeWidth={2.5} 
+            />
           </button>
         </motion.div>
 

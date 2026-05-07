@@ -3,72 +3,89 @@
 import React from 'react';
 import { premiumEase } from '@/lib/animation';
 
-
+// Cleaned up data - No more hardcoded <span> or JSX tags here
 const faqs = [
   {
     question: "Do I have to pay anything upfront?",
-    answer: <><span className="text-slate-900 font-bold font-sans">No.</span> MediKloud covers 100% of the opening costs. We fully fund the initial stock, install the shelving, and deploy our smart technology at zero cost to you.</>
+    answer: "No. MediKloud covers 100% of the opening costs. We fully fund the initial stock, install the shelving, and deploy our smart technology at zero cost to you."
   },
   {
     question: "What happens to my current pharmacy staff during transition?",
-    answer: <><span className="text-slate-900 font-bold">We are flexible.</span> We can absorb your high-performing pharmacists directly onto our payroll, or we can simply replace them with our own trained professionals. The choice is yours.</>
+    answer: "We are flexible. We can absorb your high-performing pharmacists directly onto our payroll, or we can simply replace them with our own trained professionals. The choice is yours."
   },
   {
     question: "Do you dictate which specific medicines are stocked?",
-    answer: <><span className="text-slate-900 font-bold">Never.</span> We respect clinical authority. We collaborate directly with your doctors to build a custom formulary perfectly mapped to their exact prescribing habits, ensuring zero disruption to patient care.</>
+    answer: "Never. We respect clinical authority. We collaborate directly with your doctors to build a custom formulary perfectly mapped to their exact prescribing habits, ensuring zero disruption to patient care."
   },
   {
     question: "What is the catch? How long is the contract?",
-    answer: <><span className="text-slate-900 font-bold font-sans">No.</span> We require only an initial 12-month lock-in to justify our setup investment. After year one, the partnership continues strictly based on our ability to grow your clinic's profit.</>
+    answer: "12-month lock-in. We require only an initial 12-month lock-in to justify our setup investment. After year one, the partnership continues strictly based on our ability to grow your clinic's profit."
   },
   {
     question: "How do you stop patients from migrating to online apps?",
-    answer: <><span className="text-slate-900 font-bold">Through automated timing.</span> Our AI calculates the exact day their prescription runs out and proactively sends a WhatsApp refill link, locking in the home delivery through your hospital hub.</>
+    answer: "Through automated timing. Our AI calculates the exact day their prescription runs out and proactively sends a WhatsApp refill link, locking in the home delivery through your hospital hub."
   },
   {
     question: "Do you buy out my existing unsold inventory stock?",
-    answer: <><span className="text-slate-900 font-bold">Yes.</span> If you currently operate your own pharmacy, we audit your viable stock and can purchase it directly to form the opening inventory, instantly freeing up your sunk cash.</>
+    answer: "Yes. If you currently operate your own pharmacy, we audit your viable stock and can purchase it directly to form the opening inventory, instantly freeing up your sunk cash."
   },
   {
     question: "Who handles the medicine inventory and suppliers?",
-    answer: <><span className="text-slate-900 font-bold font-sans">We handle everything.</span> MediKloud oversees 100% of network procurement, purchase orders, and supplier payments. You never have to process an invoice or chase down a delayed shipment ever again.</>
+    answer: "We handle everything. MediKloud oversees 100% of network procurement, purchase orders, and supplier payments. You never have to process an invoice or chase down a delayed shipment ever again."
   },
   {
     question: "How long does the actual physical pharmacy transition take?",
-    answer: <><span className="text-slate-900 font-bold">It happens overnight.</span> While regulatory paperwork takes a few weeks, the actual physical handover—installing shelving, loading inventory, and going live—is executed entirely overnight to ensure zero patient downtime.</>
+    answer: "It happens overnight. While regulatory paperwork takes a few weeks, the actual physical handover—installing shelving, loading inventory, and going live—is executed entirely overnight to ensure zero patient downtime."
   }
 ];
 
 export function MPv2FAQ() {
   return (
-    <section className="relative bg-slate-50 section-py border-t border-slate-100 overflow-hidden">
-      {/* Forensic Atmospheric Finish */}
+    <section className="relative bg-section-alt section-py border-t border-muted overflow-hidden">
+      {/* Background Decorative Element */}
       <div className="tech-grid-overlay opacity-5" />
       
-      <div className="container-page relative z-10 w-full">
+      <div className="container-page relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="header-lock text-center mb-16 space-y-4">
-            <h2 className="premium-h2">
-              Frequently Asked <span className="text-indigo-600">Questions</span>
-            </h2>
-            <p className="premium-p mb-10 max-w-2xl mx-auto">
-              Common questions about our managed pharmacy partnership.
-            </p>
+          <div className="text-center mb-16 md:mb-20">
+            <div className="flex flex-col items-center">
+              <div className="eyebrow-wrap">
+                <span className="eyebrow-line-l" />
+                <span className="eyebrow-text">Clarity & Operations</span>
+                <span className="eyebrow-line-r" />
+              </div>
+
+              <h2 className="premium-h2 mb-4 text-balance">
+                Frequently Asked <span className="text-brand-indigo-600 drop-shadow-sm">Questions</span>
+              </h2>
+              <p className="premium-p intro-lock">
+                Common questions about our managed pharmacy partnership.
+              </p>
+            </div>
           </div>
 
+          {/* FAQ Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-card-sm transition-all duration-300"
-              >
-                <h3 className="text-lg font-bold text-slate-900 mb-4">{faq.question}</h3>
-                <div className="premium-p !text-slate-600 leading-relaxed font-sans">
-                  {faq.answer}
+            {faqs.map((faq, index) => {
+              // Automatically identifies and bolds the first punchy statement
+              const [firstPart, ...rest] = faq.answer.split(/(?<=[.!?])\s+/);
+
+              return (
+                <div
+                  key={index}
+                  className="card card--static p-8 rounded-[2rem] border-muted shadow-card-sm transition-all duration-300 hover:shadow-card"
+                >
+                  <h3 className="text-h3 font-bold text-slate-900 mb-4 tracking-tight">{faq.question}</h3>
+                 
+                  <div className="premium-p text-slate-500 leading-relaxed font-sans">
+                   
+                    <span className="font-bold text-slate-900">{firstPart}</span> {rest.join(' ')}
+                    
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

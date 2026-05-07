@@ -30,15 +30,15 @@ export const ClinicWithPharmacyReality = () => {
           className="max-w-3xl mb-16 space-y-4"
         >
           <div className="eyebrow-wrap justify-start">
-            <span className="eyebrow-line-l bg-rose-500/30" />
-            <span className="eyebrow-text text-rose-500">The hidden reality</span>
+            <span className="eyebrow-line-l" />
+            <span className="eyebrow-text">The hidden reality</span>
           </div>
-          <h2 className="text-h2 font-black tracking-tight text-slate-900 leading-tight">
-            Most clinic pharmacies don’t fail loudly.<br/>
+          <h2 className="premium-h2">
+            Most clinic pharmacies don't fail loudly.<br/>
             <span className="text-slate-400">They leak silently.</span>
           </h2>
           <p className="text-body-lg text-slate-500 font-medium max-w-2xl">
-            You don’t see it in reports. You feel it in inconsistency. Your clinic generates massive demand, but your pharmacy operations fail to capture it.
+            You don't see it in reports. You feel it in inconsistency. Your clinic generates massive demand, but your pharmacy operations fail to capture it.
           </p>
         </motion.div>
 
@@ -82,7 +82,7 @@ export const ClinicWithPharmacyReality = () => {
             >
               {/* Risk Badge */}
               <div className="absolute top-4 right-4 translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                <span className="text-[10px] font-black uppercase tracking-widest text-rose-500 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">
+                <span className="text-xxs font-black uppercase tracking-widest text-rose-500 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">
                   {item.risk}
                 </span>
               </div>
@@ -93,9 +93,9 @@ export const ClinicWithPharmacyReality = () => {
               </div>
               
               <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">{item.title}</h3>
-              <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed font-medium mb-8 flex-grow">{item.desc}</p>
+              <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium mb-8 flex-grow">{item.desc}</p>
               
-              <div className="flex items-center justify-between text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 group-hover:text-rose-500 transition-colors">
+              <div className="flex items-center justify-between text-xs font-black uppercase tracking-[0.2em] text-slate-400 group-hover:text-rose-500 transition-colors">
                 <div className="flex items-center gap-2">
                   <AlertCircle className="w-3.5 h-3.5" />
                   Structural Leak
@@ -139,7 +139,7 @@ export const ClinicWithPharmacyReality = () => {
           </div>
           
           <div className="px-6 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-center relative z-10">
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-1">Impact estimation</span>
+            <span className="text-xxs font-black uppercase tracking-widest text-slate-400 block mb-1">Impact estimation</span>
             <span className="text-xl font-black text-indigo-400 tracking-tighter italic">Significant</span>
           </div>
         </motion.div>

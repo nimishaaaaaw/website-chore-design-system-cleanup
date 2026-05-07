@@ -40,7 +40,7 @@ export const MPHero = ({ children }: MPHeroProps) => {
   const { openModal } = useContactModal();
 
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-start overflow-hidden pt-[75px] pb-12 md:pt-[110px] md:pb-20">
+    <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-start overflow-hidden pt-[75px] pb-12 md:pt-110px md:pb-20">
       <div className="absolute inset-0 bg-gradient-hero z-[-1]" aria-hidden="true" />
       
 
@@ -71,15 +71,22 @@ export const MPHero = ({ children }: MPHeroProps) => {
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
               <div className="flex flex-col gap-10 pt-2 lg:pt-4 animate-fade-in opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
-                  <button onClick={() => openModal({
-                    badge: "Managed Recovery",
-                    title: "Launch Your Recovery Plan",
-                    description: "Schedule a walkthrough to see how our expert-led management can help you capture 100% of your pharmacy margins.",
-                    btnText: "Start Recovery Plan",
-                    successTitle: "Recovery Plan Initiated!",
-                    successDescription: "Our team will reach out within 24 hours to begin your revenue recovery plan."
-                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
-                    Optimize My Pharmacy <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <button 
+                    onClick={() => openModal({
+                      badge: "Managed Recovery",
+                      title: "Launch Your Recovery Plan",
+                      description: "Schedule a walkthrough to see how our expert-led management can help you capture 100% of your pharmacy margins.",
+                      btnText: "Start Recovery Plan",
+                      successTitle: "Recovery Plan Initiated!",
+                      successDescription: "Our team will reach out within 24 hours to begin your revenue recovery plan."
+                    })} 
+                    className="group btn-second-cta"
+                  >
+                    <span>Optimize My Pharmacy</span>
+                    <ChevronRight 
+                      size={20} 
+                      className="group-hover:translate-x-1 transition-transform duration-300" 
+                    />
                   </button>
                 </div>
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">
@@ -111,12 +118,12 @@ export const MPHero = ({ children }: MPHeroProps) => {
                    </div>
                    <div>
                       <h4 className="text-sm font-bold text-slate-900 tracking-tight leading-none mb-1">Fully Managed Operations</h4>
-                      <p className="text-[10px] font-semibold text-[#8696a0] uppercase tracking-widest">End-to-End Execution</p>
+                      <p className="text-xxs font-semibold text-[#8696a0] uppercase tracking-widest">End-to-End Execution</p>
                    </div>
                  </div>
                  <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 flex items-center gap-2 shadow-sm">
                    <Zap className="w-3 h-3 fill-emerald-500" />
-                   <span className="text-[10px] font-semibold tracking-widest uppercase">Proprietary Tech</span>
+                   <span className="text-xxs font-semibold tracking-widest uppercase">Proprietary Tech</span>
                  </div>
               </div>
 
@@ -128,7 +135,7 @@ export const MPHero = ({ children }: MPHeroProps) => {
                       <div className="bg-blue-100/80 p-1.5 rounded-lg border border-blue-200/50">
                         <ShieldCheck size={16} className="text-blue-600" />
                       </div>
-                      <span className="text-[12px] font-bold text-slate-900 uppercase tracking-widest mt-0.5">We Bring</span>
+                      <span className="text-sm font-bold text-slate-900 uppercase tracking-widest mt-0.5">We Bring</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-2.5">
@@ -143,7 +150,7 @@ export const MPHero = ({ children }: MPHeroProps) => {
                           <div className="bg-blue-50 p-1.5 rounded-md text-blue-600 shrink-0">
                             <item.icon size={14} strokeWidth={2.5} />
                           </div>
-                          <span className="text-[11px] font-semibold text-slate-700 relative z-10">{item.label}</span>
+                          <span className="text-xs font-semibold text-slate-700 relative z-10">{item.label}</span>
                           <motion.div
                             animate={{ x: ['-100%', '200%'] }}
                             transition={{ duration: 2.5, repeat: Infinity, ease: 'linear', delay: i * 0.5 }}
@@ -180,7 +187,7 @@ export const MPHero = ({ children }: MPHeroProps) => {
                       <div className="bg-indigo-100/80 p-1.5 rounded-lg border border-indigo-200/50">
                         <CheckCircle2 size={16} className="text-indigo-600" />
                       </div>
-                      <span className="text-[12px] font-bold text-slate-900 uppercase tracking-widest mt-0.5">Your Gains</span>
+                      <span className="text-sm font-bold text-slate-900 uppercase tracking-widest mt-0.5">Your Gains</span>
                     </div>
 
                     <div className="flex flex-wrap gap-2">
@@ -195,7 +202,7 @@ export const MPHero = ({ children }: MPHeroProps) => {
                           <div className="text-indigo-600 relative z-10">
                             <item.icon size={14} strokeWidth={2.5} />
                           </div>
-                          <span className="text-[11px] font-semibold text-slate-800 relative z-10">{item.label}</span>
+                          <span className="text-xs font-semibold text-slate-800 relative z-10">{item.label}</span>
                           <motion.div
                              animate={{ opacity: [0, 0.5, 0] }}
                              transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}

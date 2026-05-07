@@ -46,34 +46,38 @@ export function TeamSection() {
 
   return (
     <section className="section-py-lg bg-slate-50 relative overflow-hidden">
-      {/* Background Atmosphere */}
-      <div className="absolute top-[10%] left-[5%] w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[5%] w-96 h-96 bg-brand-500/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        
+      {/* Background Atmosphere — using blob primitives */}
+      <div className="blob-layer">
+        <div className="blob-indigo w-96 h-96 top-[10%] left-[5%]" />
+        <div className="blob-blue w-96 h-96 bottom-[10%] right-[5%]" />
+      </div>
+
+      <div className="container-page relative z-10 text-center">
+
         <div className="mb-20 flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="eyebrow-wrap !mb-6"
+            className="eyebrow-wrap"
           >
-            <div className="eyebrow-line-r" />
-            <span className="eyebrow-text">The Builders</span>
             <div className="eyebrow-line-l" />
+            <span className="eyebrow-text">The Builders</span>
+            <div className="eyebrow-line-r" />
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="premium-h2 mb-6 text-slate-900"
+            className="premium-h2 mb-6"
           >
-            The <span className="text-brand-indigo-600">Team</span>
+            The <span className="heading-accent">Team</span>
           </motion.h2>
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -89,25 +93,24 @@ export function TeamSection() {
           {team.map((member, i) => (
             <div
               key={member.name}
-              className="card group hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center p-10 bg-white border border-slate-200"
+              className="card group hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center p-10"
             >
-              {/* Profile Image Wrapper */}
-              <div className="relative w-48 h-48 mb-8 pb-2">
-                {/* The Visible Image Box */}
-                <div className="relative w-full h-full bg-slate-100 rounded-[40px] overflow-hidden shadow-card-lg border border-slate-200">
+              {/* Profile Image */}
+              <div className="relative w-48 h-48 mb-8">
+                <div className="relative w-full h-full bg-slate-100 rounded-3xl overflow-hidden shadow-card-lg border border-slate-200">
                   {member.image ? (
-                    <Image 
+                    <Image
                       src={member.image}
                       alt={member.name}
                       fill
                       unoptimized={true}
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      style={{ objectPosition: member.objectPosition || 'top' }}
+                      style={{ objectPosition: member.objectPosition ?? 'top' }}
                       priority={i === 0}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
-                      <span className="text-slate-300 font-bold text-4xl uppercase select-none">
+                      <span className="text-slate-300 font-bold text-h2 uppercase select-none">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
@@ -115,19 +118,19 @@ export function TeamSection() {
                 </div>
               </div>
 
-              {/* Tag / Category */}
+              {/* Category Badge */}
               <div className="mb-4">
-                 <span className={`badge ${member.category === 'Founding Team' ? 'badge-brand' : 'badge-slate'} text-[10px] uppercase tracking-wider`}>
-                    {member.category}
-                 </span>
+                <span className={`badge ${member.category === 'Founding Team' ? 'badge-brand' : 'badge-slate'} text-xxs uppercase tracking-wider`}>
+                  {member.category}
+                </span>
               </div>
 
-              {/* Title & Role */}
-              <h3 className="premium-h3 !text-2xl mb-1">{member.name}</h3>
-              <p className="text-brand-indigo-600 font-bold text-[11px] uppercase tracking-[0.2em] mb-6">{member.role}</p>
-              
+              {/* Name & Role */}
+              <h3 className="text-h6 font-bold text-slate-900 tracking-tight mb-1">{member.name}</h3>
+              <p className="text-indigo-600 font-bold text-xs uppercase tracking-[0.2em] mb-6">{member.role}</p>
+
               {/* Bio */}
-              <p className="premium-p !text-sm leading-relaxed">
+              <p className="premium-p text-sm leading-relaxed">
                 {member.bio}
               </p>
             </div>

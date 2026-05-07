@@ -29,12 +29,12 @@ export const ClinicWithPharmacyBenefits = () => {
           className="max-w-3xl mb-20 space-y-6"
         >
           <div className="eyebrow-wrap justify-start">
-            <span className="eyebrow-line-l bg-indigo-600/30" />
-            <span className="eyebrow-text text-indigo-600 uppercase tracking-tighter">The clinic benefits</span>
+            <span className="eyebrow-line-l" />
+            <span className="eyebrow-text">The clinic benefits</span>
           </div>
-          <h2 className="text-h2 font-black tracking-tight text-slate-900 leading-[1.1] md:text-5xl">
+          <h2 className="premium-h2">
             Impact that goes <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600">
+            <span className="text-indigo-600">
               beyond the consultation.
             </span>
           </h2>
@@ -79,7 +79,7 @@ export const ClinicWithPharmacyBenefits = () => {
             <motion.div 
               key={i} 
               variants={fadeInUp} 
-              className="card p-8 lg:p-10 border-slate-100/60 hover:border-indigo-200 hover:shadow-card-xl transition-all duration-500 flex flex-col group relative overflow-hidden"
+              className="card p-8 lg:p-10 border-slate-100/60 hover:border-indigo-200 hover:shadow-card-lg transition-all duration-500 flex flex-col group relative overflow-hidden"
             >
               {/* Glass Flare Effect */}
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.1] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -translate-x-full group-hover:translate-x-full" />
@@ -95,10 +95,10 @@ export const ClinicWithPharmacyBenefits = () => {
               </div>
               
               <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">{item.title}</h3>
-              <p className="text-slate-500 text-sm md:text-[15px] leading-relaxed font-medium mb-12 flex-grow">{item.desc}</p>
+              <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium mb-12 flex-grow">{item.desc}</p>
               
               <div className="mt-auto pointer-events-none">
-                <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-300 group-hover:text-indigo-600 transition-colors">
+                <div className="flex items-center gap-2 text-xxs font-black uppercase tracking-widest text-slate-300 group-hover:text-indigo-600 transition-colors">
                   <Sparkles className="w-3 h-3" />
                   Standard Verified
                 </div>

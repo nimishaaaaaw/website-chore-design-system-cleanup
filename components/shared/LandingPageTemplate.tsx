@@ -46,7 +46,7 @@ export default function LandingPageTemplate({
         {/* HERO SECTION */}
         <section className="relative pt-32 pb-20 overflow-hidden">
           {/* Background Gradients */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] pointer-events-none -z-10 opacity-30">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-600px pointer-events-none -z-10 opacity-30">
             <div className={`absolute top-0 left-1/4 w-80 h-80 rounded-full blur-[60px] ${accentColor === "blue" ? "bg-blue-400" : "bg-indigo-400"}`} />
             <div className="absolute top-40 right-1/4 w-80 h-80 bg-violet-400 rounded-full blur-[60px]" />
           </div>
@@ -65,7 +65,7 @@ export default function LandingPageTemplate({
                   <ArrowLeft size={14} /> Back to Home
                 </Link>
 
-                <div className={`inline-block px-3 py-1 rounded-full border text-[10px] font-bold uppercase tracking-[0.2em] mb-6 ${accentClass}`}>
+                <div className={`inline-block px-3 py-1 rounded-full border text-xxs font-bold uppercase tracking-[0.2em] mb-6 ${accentClass}`}>
                   {category}
                 </div>
 
@@ -134,7 +134,7 @@ export default function LandingPageTemplate({
         {/* QUICK CTA */}
         <section className="py-20">
             <div className="max-w-5xl mx-auto px-4">
-                <div className={`p-12 rounded-[40px] bg-slate-900 relative overflow-hidden text-center`}>
+                <div className={`p-12 rounded-3xl bg-slate-900 relative overflow-hidden text-center`}>
                     <div className="relative z-10">
                         <h2 className="text-3xl sm:text-5xl font-black text-white mb-6">Ready to see it in action?</h2>
                         <p className="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">

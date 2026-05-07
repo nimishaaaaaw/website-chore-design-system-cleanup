@@ -26,16 +26,16 @@ const VPProblem = () => {
           className="header-lock text-center mb-16 md:mb-20"
         >
           <div className="eyebrow-wrap mb-6 inline-flex mx-auto">
-            <span className="eyebrow-line-r" />
-            <span className="eyebrow-text">The Dilemma</span>
             <span className="eyebrow-line-l" />
+            <span className="eyebrow-text">The Dilemma</span>
+            <span className="eyebrow-line-r" />
           </div>
           
           <h2 className="premium-h2 text-balance lg:max-w-4xl mx-auto mb-6">
             Your clinical expertise. <br className="hidden md:block" /> Someone else’s <span className="text-indigo-600">revenue</span>.
           </h2>
           
-          <p className="premium-p intro-lock max-w-2xl mx-auto text-balance">
+          <p className="premium-p max-w-full lg:max-w-intro-lock mx-auto text-balance">
             You own the diagnosis. But when patients buy medicines elsewhere, you lose visibility into their care and miss out on long-term practice growth.
           </p>
         </motion.div>
@@ -60,12 +60,12 @@ const VPProblem = () => {
             <div className="bg-white rounded-[2rem] p-6 md:p-8 border border-slate-200/60 shadow-sm hover:shadow-card-lg hover:-translate-y-1 hover:border-indigo-200 transition-all duration-300 group">
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 <div className="w-full sm:w-28 shrink-0">
-                  <div className="stat-number !text-indigo-600 text-3xl lg:text-4xl">100<span className="text-indigo-400/80 text-2xl lg:text-3xl">%</span></div>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-tight mt-1 group-hover:text-indigo-500 transition-colors">Care<br/>Compromised</p>
+                  <div className="stat-number text-indigo-600 text-3xl lg:text-4xl">100<span className="text-indigo-400/80 text-2xl lg:text-3xl">%</span></div>
+                  <p className="text-xxs font-bold text-slate-400 uppercase tracking-widest leading-tight mt-1 group-hover:text-indigo-500 transition-colors">Care<br/>Compromised</p>
                 </div>
                 <div className="flex-1">
                   <h3 className="premium-h3 mb-2">Substituted Prescriptions</h3>
-                  <p className="premium-p !text-sm leading-relaxed">
+                  <p className="premium-p text-sm leading-relaxed">
                     Patients often get alternative brands from local chemists, bypassing your exact medical advice.
                   </p>
                 </div>
@@ -76,12 +76,12 @@ const VPProblem = () => {
             <div className="bg-white rounded-[2rem] p-6 md:p-8 border border-slate-200/60 shadow-sm hover:shadow-card-lg hover:-translate-y-1 hover:border-indigo-200 transition-all duration-300 group">
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 <div className="w-full sm:w-28 shrink-0">
-                  <div className="stat-number !text-indigo-600 text-3xl lg:text-4xl">68<span className="text-indigo-400/80 text-2xl lg:text-3xl">%</span></div>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-tight mt-1 group-hover:text-indigo-500 transition-colors">Patients<br/>Lost</p>
+                  <div className="stat-number text-indigo-600 text-3xl lg:text-4xl">68<span className="text-indigo-400/80 text-2xl lg:text-3xl">%</span></div>
+                  <p className="text-xxs font-bold text-slate-400 uppercase tracking-widest leading-tight mt-1 group-hover:text-indigo-500 transition-colors">Patients<br/>Lost</p>
                 </div>
                 <div className="flex-1">
                   <h3 className="premium-h3 mb-2">Fractured Loyalty</h3>
-                  <p className="premium-p !text-sm leading-relaxed">
+                  <p className="premium-p text-sm leading-relaxed">
                     Without automated refills, chronic patients use external apps and rarely return to your clinic.
                   </p>
                 </div>
@@ -92,14 +92,14 @@ const VPProblem = () => {
             <div className="bg-white rounded-[2rem] p-6 md:p-8 border border-slate-200/60 shadow-sm hover:shadow-card-lg hover:-translate-y-1 hover:border-indigo-200 transition-all duration-300 group">
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 <div className="w-full sm:w-28 shrink-0">
-                   <div className="stat-number !text-indigo-600 text-3xl lg:text-4xl">₹0</div>
-                   <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-tight mt-1 group-hover:text-indigo-500 transition-colors">Lost<br/>Value</p>
+                   <div className="stat-number text-indigo-600 text-3xl lg:text-4xl">₹0</div>
+                   <p className="text-xxs font-bold text-slate-400 uppercase tracking-widest leading-tight mt-1 group-hover:text-indigo-500 transition-colors">Lost<br/>Value</p>
                 </div>
                 <div className="flex-1">
                   <h3 className="premium-h3 mb-2 flex items-center justify-between">
                     Lost Patient Value
                   </h3>
-                  <p className="premium-p !text-sm leading-relaxed">
+                  <p className="premium-p text-sm leading-relaxed">
                     Your prescription creates the demand, but external pharmacies capture the lifetime value of the patient.
                   </p>
                 </div>
@@ -128,7 +128,7 @@ const VPProblem = () => {
               
               <div className="relative z-10 mb-8 mt-2">
                 <h3 className="premium-h3 !text-white tracking-tight mb-3">The Physical Reality</h3>
-                <p className="premium-p !text-slate-400 !text-sm leading-relaxed">
+                <p className="premium-p !text-slate-400 text-sm leading-relaxed">
                   You know patients are buying externally. But building your own pharmacy creates massive constraints.
                 </p>
               </div>
@@ -143,7 +143,7 @@ const VPProblem = () => {
                   </div>
                   <div>
                      <h4 className="text-slate-300 font-bold text-sm mb-1 uppercase tracking-wider">No Clinic Space</h4>
-                     <p className="premium-p !text-[13px] !text-slate-400 leading-relaxed">Your clinic needs room for patients, not large storage racks for medicines.</p>
+                     <p className="premium-p !text-slate-400 text-[13px] leading-relaxed">Your clinic needs room for patients, not large storage racks for medicines.</p>
                   </div>
                 </div>
 
@@ -154,7 +154,7 @@ const VPProblem = () => {
                   </div>
                   <div>
                      <h4 className="text-slate-300 font-bold text-sm mb-1 uppercase tracking-wider">Trapped Cash</h4>
-                     <p className="premium-p !text-[13px] !text-slate-400 leading-relaxed">Lakhs of rupees get permanently locked in slow-moving stock.</p>
+                     <p className="premium-p !text-slate-400 text-[13px] leading-relaxed">Lakhs of rupees get permanently locked in slow-moving stock.</p>
                   </div>
                 </div>
 
@@ -165,7 +165,7 @@ const VPProblem = () => {
                   </div>
                   <div>
                      <h4 className="text-slate-300 font-bold text-sm mb-1 uppercase tracking-wider">Vendor Headaches</h4>
-                     <p className="premium-p !text-[13px] !text-slate-400 leading-relaxed">Your staff is forced to manage distributors, licenses, and expiry tracking instead of patients.</p>
+                     <p className="premium-p !text-slate-400 text-[13px] leading-relaxed">Your staff is forced to manage distributors, licenses, and expiry tracking instead of patients.</p>
                   </div>
                 </div>
 

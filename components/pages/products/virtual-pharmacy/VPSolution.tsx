@@ -21,12 +21,12 @@ import { premiumEase } from '@/lib/animation';
 
 const VPSolution = () => {
   return (
-    <section className="py-24 md:py-32 relative text-slate-300 border-t border-slate-900" id="infrastructure">
+    <section className="section-py-lg relative text-slate-300 border-t border-slate-900" id="infrastructure">
       <DarkAtmosphere />
       
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container-page relative z-10">
         
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start max-w-6xl mx-auto w-full">
           
           {/* ── LEFT COLUMN: STICKY NARRATIVE ── */}
           <div className="lg:col-span-5 lg:sticky lg:top-[max(30vh,160px)] space-y-8">
@@ -36,20 +36,20 @@ const VPSolution = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: premiumEase }}
             >
-              <div className="eyebrow-wrap !justify-start mb-6">
+              <div className="eyebrow-wrap !justify-start ml-7 mb-6">
                 <span className="eyebrow-line-l"></span>
-                <span className="eyebrow-text flex items-center gap-2">
-                   <Layers size={14} className="text-blue-400" /> The Virtual Model
+                <span className="eyebrow-text flex items-center gap-2 text-indigo-400">
+                   <Layers size={14} className="text-indigo-400" /> The Virtual Model
                 </span>
                 <span className="eyebrow-line-r"></span>
               </div>
               
-              <h2 className="premium-h2 !text-white mb-6">
+              <h2 className="premium-h2 !text-white ml-7 mb-6">
                 Pharmacy,<br />
-                <span className="text-indigo-600">delivered as a service.</span>
+                <span className="text-indigo-400">delivered as a service.</span>
               </h2>
               
-              <p className="premium-p intro-lock !text-slate-400">
+              <p className="premium-p max-w-full lg:max-w-intro-lock !text-slate-400 ml-7">
                 We build your pharmacy entirely off-site. You keep all the clinical benefits, while we absorb the physical footprint, the inventory risk, and the regulatory burden.
               </p>
             </motion.div>
@@ -59,24 +59,24 @@ const VPSolution = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.2, ease: premiumEase }}
-              className="hidden lg:block pt-8 border-t border-slate-800"
+              className="hidden lg:block pt-8 border-t border-slate-800 ml-7"
             >
               <div className="flex items-center gap-10">
                 <div>
-                  <p className="stat-number !text-white text-3xl">0<span className="text-xl text-slate-500 font-bold ml-1">sq.ft</span></p>
-                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1.5">Space Required</p>
+                  <p className="stat-number  !text-white text-3xl ml-7">0<span className="text-xl text-slate-500 font-bold ml-1">sq.ft</span></p>
+                  <p className="text-xxs font-bold text-slate-500 uppercase tracking-widest mt-1.5 ml-7">Space Required</p>
                 </div>
                 <div className="w-px h-10 bg-slate-800" />
                 <div>
-                  <p className="stat-number !text-white text-3xl">₹0</p>
-                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1.5">Capital Invested</p>
+                  <p className="stat-number  !text-white text-3xl">₹0</p>
+                  <p className="text-xxs font-bold text-slate-500 uppercase tracking-widest mt-1.5">Capital Invested</p>
                 </div>
               </div>
             </motion.div>
           </div>
 
           {/* ── RIGHT COLUMN: INFRASTRUCTURE MODULES ── */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-6 mr-8">
             
             {/* Module 1: The Clinic OS */}
             <motion.div 
@@ -92,7 +92,7 @@ const VPSolution = () => {
               
               <div className="relative z-10">
                 <div className="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center mb-6 border border-blue-600/30">
-                  <Monitor size={20} className="strokeWidth={1.5}" />
+                  <Monitor size={20} strokeWidth={1.5} />
                 </div>
                 <h3 className="premium-h3 !text-white mb-4">Clinic Operating System</h3>
                 <p className="premium-p mb-8 max-w-md !text-slate-400">
@@ -107,7 +107,7 @@ const VPSolution = () => {
                     </div>
                     <div>
                       <p className="text-xs font-bold text-white">Smart E-Prescription</p>
-                      <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Syncing to MediKloud Hub...</p>
+                      <p className="text-xxs text-slate-500 font-bold uppercase tracking-wider">Syncing to MediKloud Hub...</p>
                     </div>
                   </div>
                   <div className="flex space-x-1">
@@ -145,21 +145,21 @@ const VPSolution = () => {
                   <div className="bg-slate-950/50 border border-slate-800 p-3 rounded-xl flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     <div>
-                      <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Licenses</p>
+                      <p className="text-xxxs text-slate-500 font-bold uppercase tracking-wider">Licenses</p>
                       <p className="text-xs font-bold text-slate-300">100% Managed</p>
                     </div>
                   </div>
                   <div className="bg-slate-950/50 border border-slate-800 p-3 rounded-xl flex items-center gap-3">
                     <Package size={14} className="text-blue-600" strokeWidth={1.5} />
                     <div>
-                      <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Inventory</p>
+                      <p className="text-xxxs text-slate-500 font-bold uppercase tracking-wider">Inventory</p>
                       <p className="text-xs font-bold text-slate-300">Brand Matched</p>
                     </div>
                   </div>
-                  <div className="bg-slate-950/50 border border-slate-800 p-3 rounded-xl flex items-center gap-3 hidden sm:flex">
+                  <div className="bg-slate-950/50 border border-slate-800 p-3 rounded-xl items-center gap-3 hidden sm:flex">
                     <Stethoscope size={14} className="text-indigo-400" strokeWidth={1.5} />
                     <div>
-                      <p className="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Staffing</p>
+                      <p className="text-xxxs text-slate-500 font-bold uppercase tracking-wider">Staffing</p>
                       <p className="text-xs font-bold text-slate-300">Provided</p>
                     </div>
                   </div>
@@ -204,8 +204,8 @@ const VPSolution = () => {
                     />
                   </div>
                   <div className="flex justify-between mt-2">
-                    <span className="text-[9px] text-slate-500 font-bold uppercase">MediKloud Hub</span>
-                    <span className="text-[9px] text-slate-300 font-bold uppercase">Clinic Door</span>
+                    <span className="text-xxxs text-slate-500 font-bold uppercase">MediKloud Hub</span>
+                    <span className="text-xxxs text-slate-300 font-bold uppercase">Clinic Door</span>
                   </div>
                 </div>
               </div>
@@ -238,7 +238,7 @@ const VPSolution = () => {
                     <Stethoscope className="w-4 h-4 text-emerald-400" />
                   </div>
                   <div>
-                    <p className="text-[9px] text-slate-500 font-bold uppercase tracking-widest mb-0.5">Patient Retention</p>
+                    <p className="text-xxxs text-slate-500 font-bold uppercase tracking-widest mb-0.5">Patient Retention</p>
                     <p className="stat-number !text-white text-base md:text-lg">100<span className="text-emerald-400">%</span></p>
                   </div>
                 </div>

@@ -3,10 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Activity, 
   TrendingDown, 
   Users, 
-  HeartPulse,
   AlertCircle,
   XCircle
 } from 'lucide-react';
@@ -26,7 +24,7 @@ const staggerContainerLocal = {
 
 export const HospitalWithoutPharmacyReality = () => {
   return (
-    <section className="section-py bg-white border-b border-slate-100">
+    <section className="section-py bg-section-surface border-b border-muted">
       <div className="container-page">
         <motion.div 
           initial="hidden" 
@@ -36,16 +34,16 @@ export const HospitalWithoutPharmacyReality = () => {
           className="max-w-3xl mb-20 space-y-5"
         >
           <div className="eyebrow-wrap justify-start">
-            <span className="eyebrow-line-l bg-indigo-600/30" />
-            <span className="eyebrow-text text-indigo-600">The healthcare reality</span>
+            <span className="eyebrow-line-l" />
+            <span className="eyebrow-text">The healthcare reality</span>
           </div>
-          <h2 className="text-h2 font-black tracking-tight text-slate-900 leading-[1.1] md:text-5xl">
+          <h2 className="text-h2 font-bold tracking-tight text-slate-900 leading-[1.1]">
             Clinical excellence. <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600">
+            <span className="display-headline">
               Operational leakage.
             </span>
           </h2>
-          <p className="text-body-lg text-slate-600 font-medium leading-relaxed max-w-2xl">
+          <p className="text-body-lg text-body font-medium leading-relaxed max-w-2xl">
             Without an integrated fulfillment layer, your hospital isn't just losing revenue — you're losing the patient's trust and their post-visit journey.
           </p>
         </motion.div>
@@ -55,7 +53,7 @@ export const HospitalWithoutPharmacyReality = () => {
           whileInView="visible" 
           viewport={{ once: true }} 
           variants={staggerContainerLocal} 
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-0 border border-slate-100 rounded-[2rem] overflow-hidden shadow-sm"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-0 border border-slate-100 rounded-3xl overflow-hidden shadow-card"
         >
           {[
             {
@@ -86,20 +84,19 @@ export const HospitalWithoutPharmacyReality = () => {
             <motion.div 
               key={i} 
               variants={fadeInUp} 
-              className="p-8 md:p-10 bg-white hover:bg-slate-50 transition-all duration-500 flex flex-col group relative border-r last:border-r-0 border-slate-100"
+              className="p-8 md:p-10 bg-section-surface hover:bg-section-alt transition-all duration-500 flex flex-col group relative border-r last:border-r-0 border-slate-100"
             >
-              {/* Risk Badge */}
               <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                <span className="text-[9px] font-black uppercase tracking-widest px-2 py-1 bg-rose-50 text-rose-600 rounded-md border border-rose-100">
+                <span className="badge badge-danger">
                   {item.badge}
                 </span>
               </div>
 
-              <div className="w-14 h-14 rounded-2xl bg-indigo-50/50 text-indigo-600 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-indigo-50 transition-all duration-500 shadow-sm border border-indigo-100/30">
+              <div className="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-indigo-100 transition-all duration-500 shadow-card border border-indigo-100">
                 <item.icon className="w-6 h-6 stroke-[1.5]" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight leading-tight">{item.title}</h3>
-              <p className="text-sm font-medium text-slate-500 leading-relaxed mb-6">{item.desc}</p>
+              <h3 className="text-h3 font-bold mb-4 tracking-tight leading-tight">{item.title}</h3>
+              <p className="text-sm font-medium text-subtitle leading-relaxed mb-6">{item.desc}</p>
               
               <div className="mt-auto pt-4 overflow-hidden">
                 <div className="h-0.5 w-12 bg-slate-100 group-hover:w-full group-hover:bg-indigo-500 transition-all duration-700" />
@@ -111,4 +108,3 @@ export const HospitalWithoutPharmacyReality = () => {
     </section>
   );
 };
-

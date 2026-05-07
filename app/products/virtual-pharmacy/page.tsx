@@ -74,10 +74,10 @@ export default function VirtualPharmacyPage() {
           <div className="space-y-6 md:space-y-8">
             <h1 className="text-center lg:text-left text-balance">
               <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
-                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight text-slate-900">
+                <span className="block text-1-75rem sm:text-2rem md:text-2-25rem lg:text-2-5rem xl:text-2-75rem font-bold leading-[1.3] tracking-tight text-slate-900">
                   Launch Your Own
                 </span>
-                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>
+                <span className="block text-1-75rem sm:text-2rem md:text-2-25rem lg:text-2-5rem xl:text-2-75rem font-bold leading-[1.3] tracking-tight bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>
                   10-Minute Digital Pharmacy.
                 </span>
               </div>
@@ -88,7 +88,7 @@ export default function VirtualPharmacyPage() {
               </div>
             </h1>
             
-            <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
+            <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0">
               MediKloud delivers medicines straight to your patients at the clinic door in 10 minutes. Eliminate the overhead of inventory, physical space, and hiring pharmacists.
             </p>
           </div>

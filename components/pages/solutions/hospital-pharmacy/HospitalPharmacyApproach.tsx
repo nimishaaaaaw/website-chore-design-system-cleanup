@@ -19,32 +19,31 @@ const staggerContainerLocal: any = {
 
 export const HospitalPharmacyApproach = () => {
   return (
-    <section id="how-it-works" className="section-py bg-slate-100 relative overflow-hidden">
+    <section id="how-it-works" className="section-py bg-section-alt relative overflow-hidden">
       <div className="container-page relative z-10">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} 
           className="max-w-[850px] mx-auto text-center mb-12 lg:mb-20 space-y-6"
         >
           <div className="eyebrow-wrap justify-center">
-            <span className="eyebrow-line-l bg-indigo-500/30" />
-            <span className="eyebrow-text text-indigo-600">The Partnership</span>
-            <span className="eyebrow-line-r bg-indigo-500/30" />
+            <span className="eyebrow-line-l" />
+            <span className="eyebrow-text">The Partnership</span>
+            <span className="eyebrow-line-r" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.3]">
+          <h2 className="premium-h2">
             We run the pharmacy.<br/>
-            <span className="text-indigo-600">You focus on the patient.</span>
+            <span className="heading-accent">You focus on the patient.</span>
           </h2>
-          <p className="text-body-lg text-slate-500 font-medium max-w-[850px] mx-auto mt-4">
+          <p className="text-body-lg text-subtitle font-medium max-w-[850px] mx-auto mt-4">
             We don't believe in generic partnerships. Whether you need us to run your daily counter or just automate your home deliveries, we have a model that fits your clinical workflow.
           </p>
         </motion.div>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1: Inventory (High-Contrast Dark Card) */}
-          <div className="md:col-span-2 bg-[#0B1222] rounded-[2.5rem] p-10 lg:p-12 relative overflow-hidden group shadow-2xl">
+          <div className="md:col-span-2 bg-gradient-dark-alt rounded-3xl p-10 lg:p-12 relative overflow-hidden group shadow-float">
             <DarkAtmosphere withMouseEffect={false} />
             
-            {/* Vivid Background Halo */}
             <div className="absolute -top-10 -left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px]"></div>
             
             <div className="relative z-10 flex flex-col h-full">
@@ -52,7 +51,7 @@ export const HospitalPharmacyApproach = () => {
                 <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center backdrop-blur-md shadow-lg shadow-blue-500/5">
                   <Package className="w-7 h-7 text-blue-400" />
                 </div>
-                <div className="px-3 py-1 rounded-lg bg-blue-500/15 border border-blue-400/20 text-blue-300 text-[12px] font-bold tracking-tight flex items-center gap-2">
+                <div className="px-3 py-1 rounded-lg bg-blue-500/15 border border-blue-400/20 text-blue-300 text-sm font-bold tracking-tight flex items-center gap-2">
                   <Sparkles className="w-3 h-3 text-blue-400" /> Zero Capital Required
                 </div>
               </div>
@@ -67,8 +66,8 @@ export const HospitalPharmacyApproach = () => {
           </div>
 
           {/* Card 2: Staffing (Light Card) */}
-          <div className="md:col-span-1 bg-white rounded-[2.5rem] p-10 border border-slate-200 shadow-sm group hover:shadow-card-lg transition-all duration-300 flex flex-col">
-            <div className="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center mb-8 text-indigo-600 transition-all">
+          <div className="md:col-span-1 bg-white rounded-3xl p-10 border border-slate-200 shadow-card group hover:shadow-card-lg transition-all duration-300 flex flex-col">
+            <div className="w-14 h-14 rounded-2xl bg-[var(--indigo-50)] border border-[var(--indigo-100)] flex items-center justify-center mb-8 text-indigo-600 transition-all">
               <Users2 className="w-7 h-7" />
             </div>
             <div className="mt-auto">
@@ -80,8 +79,8 @@ export const HospitalPharmacyApproach = () => {
           </div>
 
           {/* Card 3: Pilferage (Light Card) */}
-          <div className="md:col-span-1 bg-white rounded-[2.5rem] p-10 border border-slate-200 shadow-sm group hover:shadow-card-lg transition-all duration-300 flex flex-col">
-            <div className="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-8 text-emerald-600 transition-all">
+          <div className="md:col-span-1 bg-white rounded-3xl p-10 border border-slate-200 shadow-card group hover:shadow-card-lg transition-all duration-300 flex flex-col">
+            <div className="w-14 h-14 rounded-2xl bg-[var(--success-light)] border border-emerald-100 flex items-center justify-center mb-8 text-[var(--success)] transition-all">
               <ShieldCheck className="w-7 h-7" />
             </div>
             <div className="mt-auto">
@@ -93,9 +92,8 @@ export const HospitalPharmacyApproach = () => {
           </div>
 
           {/* Card 4: Retention (Gradient Card) */}
-          <div className="md:col-span-2 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-[2.5rem] p-8 md:p-10 lg:p-12 relative overflow-hidden group shadow-xl shadow-indigo-600/20 flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-12">
+          <div className="md:col-span-2 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-3xl p-8 md:p-10 lg:p-12 relative overflow-hidden group shadow-card-lg flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-12">
             
-            {/* Text Content */}
             <div className="relative z-10 flex flex-col h-full flex-1">
               <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/20 border border-white/20 flex items-center justify-center mb-6 md:mb-8 backdrop-blur-sm">
                 <Truck className="w-6 h-6 md:w-7 md:h-7 text-white" />
@@ -109,17 +107,17 @@ export const HospitalPharmacyApproach = () => {
             </div>
 
             {/* Delivery Assistant Chat Bubble */}
-            <div className="relative z-10 w-full sm:w-[320px] shrink-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-5 shadow-2xl transform rotate-[2deg] hover:rotate-0 transition-transform duration-500">
+            <div className="relative z-10 w-full sm:w-[320px] shrink-0 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-5 shadow-float transform rotate-[2deg] hover:rotate-0 transition-transform duration-500">
                <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center shadow-inner shrink-0">
                      <MessageCircle className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <span className="text-white text-[12px] font-bold block tracking-tight">Delivery Assistant</span>
-                    <span className="text-indigo-200 text-xs">Just now</span>
+                    <span className="text-white text-sm font-bold block tracking-tight">Delivery Assistant</span>
+                    <span className="text-[var(--indigo-200)] text-xs">Just now</span>
                   </div>
                </div>
-               <div className="bg-white text-slate-800 text-[13px] sm:text-[14px] p-4 rounded-2xl rounded-tl-sm leading-relaxed shadow-sm font-medium">
+               <div className="bg-white text-slate-800 text-xs sm:text-sm p-4 rounded-2xl rounded-tl-sm leading-relaxed shadow-card font-medium">
                   "Hi! Your monthly BP medicine is ready from <span className="text-indigo-600 font-bold">Your Clinic</span>. Reply 'YES' to confirm home delivery."
                </div>
             </div>

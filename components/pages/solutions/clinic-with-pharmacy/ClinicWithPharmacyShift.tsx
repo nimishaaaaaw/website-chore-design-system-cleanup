@@ -19,7 +19,7 @@ const staggerContainerLocal = {
 
 export const ClinicWithPharmacyShift = () => {
   return (
-    <section className="section-py bg-slate-50 relative overflow-hidden">
+    <section className="section-py bg-section-alt relative overflow-hidden">
       {/* Dynamic Background Blobs */}
       <div className="blob-layer pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80rem] h-[80rem] bg-blue-100/30 rounded-full blur-[140px] animate-pulse"></div>
@@ -34,13 +34,13 @@ export const ClinicWithPharmacyShift = () => {
           className="max-w-4xl mx-auto text-center mb-20 space-y-6"
         >
           <div className="eyebrow-wrap justify-center">
-            <span className="eyebrow-line-l bg-indigo-600/30" />
-            <span className="eyebrow-text text-indigo-600 uppercase tracking-tighter">The system shift</span>
-            <span className="eyebrow-line-r bg-indigo-600/30" />
+            <span className="eyebrow-line-l" />
+            <span className="eyebrow-text">The system shift</span>
+            <span className="eyebrow-line-r" />
           </div>
-          <h2 className="text-h2 font-black tracking-tight text-slate-900 leading-[1.1] md:text-5xl">
-            It’s not a demand problem.<br/>
-            <span className="text-blue-600">It’s an infrastructure gap.</span>
+          <h2 className="premium-h2">
+            It's not a demand problem.<br/>
+            <span className="text-indigo-600">It's an infrastructure gap.</span>
           </h2>
           <p className="text-body-lg text-slate-600 font-medium max-w-2xl mx-auto">
             Traditional clinic pharmacies are manual silos. MediKloud transforms them into high-frequency fulfillment terminals.
@@ -82,10 +82,10 @@ export const ClinicWithPharmacyShift = () => {
                 <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 font-bold border border-slate-200 group-hover:bg-slate-200 transition-colors">
                   01
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">The manual plateau</span>
+                <span className="text-xxs font-black uppercase tracking-[0.2em] text-slate-400">The manual plateau</span>
               </div>
 
-              <h3 className="text-2xl font-black text-slate-900 mb-8 tracking-tight">One-person dependency.</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-8 tracking-tight">One-person dependency.</h3>
               <ul className="space-y-6">
                 {[
                   "No real inventory intelligence",
@@ -94,7 +94,7 @@ export const ClinicWithPharmacyShift = () => {
                   "Limited convenience vs apps",
                   "Fragmented revenue visibility"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 text-slate-500 font-medium text-[15px]">
+                  <li key={i} className="flex items-center gap-4 text-slate-500 font-medium text-base">
                     <div className="w-1.5 h-1.5 rounded-full bg-slate-200 group-hover:bg-slate-400 transition-colors" />
                     {item}
                   </li>
@@ -102,34 +102,34 @@ export const ClinicWithPharmacyShift = () => {
               </ul>
               
               <div className="mt-12 pt-8 border-t border-slate-100 flex items-center gap-4">
-                <div className="text-[11px] font-black uppercase tracking-widest text-slate-400">Legacy operations</div>
+                <div className="text-xs font-black uppercase tracking-widest text-slate-400">Legacy operations</div>
               </div>
             </motion.div>
 
             {/* The MediKloud Way - Platform Card */}
             <motion.div 
               variants={fadeInUp} 
-              className="bg-white border border-blue-200 p-8 lg:p-12 rounded-[2.5rem] shadow-xl relative overflow-hidden group hover:border-blue-400 transition-all duration-500"
+              className="bg-white border border-indigo-200 p-8 lg:p-12 rounded-[2.5rem] shadow-xl relative overflow-hidden group hover:border-indigo-400 transition-all duration-500"
             >
               {/* Scan Line Animation */}
               <motion.div 
                 animate={{ top: ["-10%", "110%"] }} 
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-x-0 h-20 bg-gradient-to-b from-transparent via-blue-500/10 to-transparent pointer-events-none z-10"
+                className="absolute inset-x-0 h-20 bg-gradient-to-b from-transparent via-indigo-500/10 to-transparent pointer-events-none z-10"
               />
 
               <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-all rotate-6 hover:rotate-0">
-                <Sparkles className="w-24 h-24 text-blue-400" />
+                <Sparkles className="w-24 h-24 text-indigo-400" />
               </div>
 
               <div className="flex items-center gap-3 mb-10">
-                <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/20 group-hover:rotate-12 transition-all">
+                <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold shadow-btn group-hover:rotate-12 transition-all">
                   02
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600">The MediKloud terminal</span>
+                <span className="text-xxs font-black uppercase tracking-[0.2em] text-indigo-600">The MediKloud terminal</span>
               </div>
 
-              <h3 className="text-2xl font-black text-slate-900 mb-8 tracking-tight">Systematic operations.</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-8 tracking-tight">Systematic operations.</h3>
               <ul className="space-y-6">
                 {[
                   "AI-driven inventory optimization",
@@ -138,31 +138,31 @@ export const ClinicWithPharmacyShift = () => {
                   "Same-day delivery convenience",
                   "Real-time revenue transparency"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 text-slate-800 font-bold text-[15px]">
+                  <li key={i} className="flex items-center gap-4 text-slate-800 font-bold text-base">
                     <div className="relative flex h-2.5 w-2.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-600"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-indigo-600"></span>
                     </div>
                     {item}
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-12 pt-8 border-t border-blue-50 flex items-center justify-between">
-                <div className="text-[11px] font-black uppercase tracking-widest text-blue-600 flex items-center gap-2">
+              <div className="mt-12 pt-8 border-t border-indigo-50 flex items-center justify-between">
+                <div className="text-xs font-black uppercase tracking-widest text-indigo-600 flex items-center gap-2">
                   <Activity className="w-3 h-3 animate-pulse" />
                   Revenue engine online
                 </div>
-                <ArrowRight className="w-5 h-5 text-blue-600 opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0" />
+                <ArrowRight className="w-5 h-5 text-indigo-600 opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0" />
               </div>
             </motion.div>
           </motion.div>
 
           {/* Central Connecting Node */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white border border-blue-100 rounded-full shadow-2xl z-20 hidden lg:flex items-center justify-center group">
-            <div className="absolute inset-x-0 h-px bg-blue-500/20 animate-pulse" />
-            <div className="absolute inset-0 rounded-full bg-blue-500/5 animate-ping opacity-20" />
-            <div className="relative w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/40 group-hover:scale-110 transition-transform duration-500">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white border border-indigo-100 rounded-full shadow-2xl z-20 hidden lg:flex items-center justify-center group">
+            <div className="absolute inset-x-0 h-px bg-indigo-500/20 animate-pulse" />
+            <div className="absolute inset-0 rounded-full bg-indigo-500/5 animate-ping opacity-20" />
+            <div className="relative w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center shadow-btn group-hover:scale-110 transition-transform duration-500">
               <Zap className="w-5 h-5 text-white fill-white shadow-xl" />
             </div>
           </div>

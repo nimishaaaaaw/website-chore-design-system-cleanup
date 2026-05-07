@@ -27,7 +27,7 @@ export const scaleIn: Variants = {
 
 // --- Reusable Components ---
 export const Section = ({ children, className = "", id = "" }: { children: React.ReactNode, className?: string, id?: string }) => (
-  <section id={id} className={`section-py px-6 lg:px-12 max-w-[1280px] mx-auto overflow-hidden ${className}`}>
+  <section id={id} className={`section-py container-page overflow-hidden ${className}`}>
     {children}
   </section>
 );
@@ -39,7 +39,7 @@ export const Badge = ({ children, color = "blue" }: { children: React.ReactNode,
     green: "bg-teal-50 text-teal-600 border-teal-100",
   };
   return (
-    <span className={`inline-flex items-center px-3 py-1 rounded-lg text-[12px] font-bold border ${colors[color]} mb-6 tracking-tight`}>
+    <span className={`inline-flex items-center px-3 py-1 rounded-lg text-sm font-bold border ${colors[color]} mb-6 tracking-tight`}>
       {children}
     </span>
   );
@@ -57,7 +57,7 @@ export const SectionHeader = ({ title, subtitle, light = false }: SectionHeaderP
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`eyebrow-text ${light ? 'text-blue-200' : 'text-blue-600'} mb-4`}
+      className={`eyebrow-text ${light ? 'text-blue-200' : ''} mb-4`}
     >
       {subtitle}
     </motion.h4>
@@ -66,7 +66,7 @@ export const SectionHeader = ({ title, subtitle, light = false }: SectionHeaderP
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: 0.1 }}
-      className={`text-3xl md:text-5xl font-bold tracking-tight leading-[1.3] ${light ? 'text-white' : 'text-slate-900'}`}
+      className={`premium-h2 ${light ? '!text-white' : ''}`}
     >
       {title}
     </motion.h2>
@@ -86,9 +86,9 @@ export const FeatureCard = ({ icon: Icon, title, description, delay = 0 }: Featu
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay }}
-    className="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 group"
+    className="p-8 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-card-lg transition-all duration-300 group"
   >
-    <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+    <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-indigo-600 transition-colors duration-300">
       <Icon className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors duration-300" />
     </div>
     <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 tracking-tight">{title}</h3>
@@ -103,8 +103,8 @@ interface ComparisonCardProps {
 }
 
 export const ComparisonCard = ({ title, items, type }: ComparisonCardProps) => (
-  <div className={`p-8 rounded-2xl ${type === 'before' ? 'bg-slate-50 border border-slate-200' : 'bg-blue-50 border border-blue-200'}`}>
-    <h4 className={`text-xl font-bold mb-6 ${type === 'before' ? 'text-slate-700' : 'text-blue-900'}`}>
+  <div className={`p-8 rounded-2xl ${type === 'before' ? 'bg-slate-50 border border-slate-200' : 'bg-indigo-50 border border-indigo-200'}`}>
+    <h4 className={`text-xl font-bold mb-6 ${type === 'before' ? 'text-slate-700' : 'text-indigo-900'}`}>
       {type === 'before' ? 'The Traditional Gap' : 'The MediKloud Result'}
     </h4>
     <ul className="space-y-4">
@@ -113,7 +113,7 @@ export const ComparisonCard = ({ title, items, type }: ComparisonCardProps) => (
           {type === 'before' ? (
             <AlertCircle className="w-5 h-5 text-slate-400 mt-1 flex-shrink-0" />
           ) : (
-            <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
+            <CheckCircle2 className="w-5 h-5 text-indigo-600 mt-1 flex-shrink-0" />
           )}
           <span className={type === 'before' ? 'text-slate-500' : 'text-slate-700 font-medium'}>{item}</span>
         </li>

@@ -11,7 +11,7 @@ const fadeInUp = {
 
 export const ClinicWithPharmacyEmotionalClose = () => {
   return (
-    <section className="section-py bg-slate-50 relative overflow-hidden">
+    <section className="section-py bg-section-alt relative overflow-hidden">
       {/* Atmosphere blobs - Multi-layer Parallax Vision */}
       <div className="blob-layer pointer-events-none">
         <motion.div 
@@ -48,9 +48,9 @@ export const ClinicWithPharmacyEmotionalClose = () => {
             </div>
           </div>
 
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
+          <h2 className="premium-h2 lg:text-display-lg">
             Stop letting your clinical value <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-indigo-600 to-violet-600">
+            <span className="text-indigo-600">
               walk out the front door.
             </span>
           </h2>

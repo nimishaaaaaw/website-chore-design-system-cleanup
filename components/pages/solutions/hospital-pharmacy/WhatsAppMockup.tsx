@@ -14,14 +14,14 @@ export const WhatsAppMockup = () => {
     const runSequence = async () => {
       while (isMounted) {
         setStep(1);
-        await new Promise(r => setTimeout(r, 1800)); // Wait before 'tap'
-        if(!isMounted) break; setStep(2); // Patient Reply
+        await new Promise(r => setTimeout(r, 1800));
+        if(!isMounted) break; setStep(2);
         await new Promise(r => setTimeout(r, 1500));
-        if(!isMounted) break; setStep(3); // Invoice
-        await new Promise(r => setTimeout(r, 2800)); // Wait before 'tap' Pay
-        if(!isMounted) break; setStep(4); // Payment Success
+        if(!isMounted) break; setStep(3);
+        await new Promise(r => setTimeout(r, 2800));
+        if(!isMounted) break; setStep(4);
         await new Promise(r => setTimeout(r, 2000));
-        if(!isMounted) break; setStep(5); // Dispatch
+        if(!isMounted) break; setStep(5);
         await new Promise(r => setTimeout(r, 5000));
         
         // Reset loop
@@ -62,7 +62,7 @@ export const WhatsAppMockup = () => {
           <div className="text-white text-[13px] font-bold flex items-center gap-1.5 leading-tight">
             Your Clinic <CheckCircle2 className="w-3 h-3 text-white fill-white/20" />
           </div>
-          <div className="text-white/80 text-[10px] leading-tight">Official business account</div>
+          <div className="text-white/80 text-xxs leading-tight">Official business account</div>
         </div>
       </div>
 
@@ -73,7 +73,7 @@ export const WhatsAppMockup = () => {
         
         {/* Date Pill */}
         <div className="flex justify-center mt-1 mb-2">
-          <span className="bg-white/70 backdrop-blur-sm text-[#667781] text-[10px] px-3 py-1 rounded-lg relative z-10 shadow-sm uppercase font-medium">Today</span>
+          <span className="bg-white/70 backdrop-blur-sm text-[#667781] text-xxs px-3 py-1 rounded-lg relative z-10 shadow-sm uppercase font-medium">Today</span>
         </div>
 
         {/* 1: Automated Bot Message with Modern WhatsApp Buttons */}
@@ -91,13 +91,12 @@ export const WhatsAppMockup = () => {
                 <br/><br/>
                 Would you like us to schedule your home delivery for tomorrow?
               </div>
-              <div className="text-[9px] text-[#667781] text-right mt-1.5">10:42 AM</div>
+              <div className="text-xxxs text-[#667781] text-right mt-1.5">10:42 AM</div>
             </div>
             
             {/* Interactive Buttons */}
             <div className="border-t border-black/5 flex flex-col mt-1 overflow-hidden rounded-b-xl">
               <div className="py-2.5 text-center text-[13px] font-bold text-[#0685fa] border-b border-black/5 relative overflow-hidden cursor-default hover:bg-black/[0.02]">
-                {/* Simulated tap flash effect just before moving to step 2 */}
                 {step === 1 && (
                    <motion.div 
                      initial={{ opacity: 0 }} animate={{ opacity: [0, 0.1, 0] }} transition={{ delay: 1.6, duration: 0.2 }}
@@ -124,7 +123,7 @@ export const WhatsAppMockup = () => {
             
             <span className="text-[13.5px] text-[#111b21] pb-1">Confirm Delivery</span>
             <div className="flex items-center gap-0.5 pb-1">
-              <span className="text-[9px] text-[#667781] opacity-70">10:45 AM</span>
+              <span className="text-xxxs text-[#667781] opacity-70">10:45 AM</span>
               <CheckCheck className="w-3.5 h-3.5 text-[#53bdeb]" />
             </div>
           </motion.div>
@@ -147,14 +146,13 @@ export const WhatsAppMockup = () => {
             {/* Invoice Card embedded in message */}
             <div className="bg-slate-50 rounded-xl border border-black/5 overflow-hidden">
               <div className="p-3 border-b border-black/5 bg-black/[0.01]">
-                <div className="text-[10px] text-[#667781] uppercase tracking-wider mb-1.5 font-bold">Invoice Details</div>
+                <div className="text-xxs text-[#667781] uppercase tracking-wider mb-1.5 font-bold">Invoice Details</div>
                 <div className="flex justify-between items-center">
                     <span className="text-[13px] text-[#111b21] font-medium">Total Amount</span>
                     <span className="text-[14px] text-[#008069] font-bold">₹850</span>
                 </div>
               </div>
               <div className="flex divide-x divide-black/5 relative">
-                {/* Simulated tap on "Pay Now" just before step 4 */}
                 {step === 3 && (
                    <motion.div 
                      initial={{ opacity: 0 }} animate={{ opacity: [0, 0.1, 0] }} transition={{ delay: 2.6, duration: 0.2 }}
@@ -166,7 +164,7 @@ export const WhatsAppMockup = () => {
               </div>
             </div>
 
-            <div className="text-[9px] text-[#667781] text-right mt-1.5">10:45 AM</div>
+            <div className="text-xxxs text-[#667781] text-right mt-1.5">10:45 AM</div>
           </motion.div>
         )}
 
@@ -183,10 +181,10 @@ export const WhatsAppMockup = () => {
                 <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center">
                   <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                 </div>
-                <span className="text-[12px] font-bold text-emerald-600">Payment Successful</span>
+                <span className="text-sm font-bold text-emerald-600">Payment Successful</span>
              </div>
-             <div className="text-[11px] text-[#111b21] leading-normal">₹850 paid via UPI</div>
-             <div className="text-[9px] text-[#667781] text-right mt-1">10:46 AM</div>
+             <div className="text-xs text-[#111b21] leading-normal">₹850 paid via UPI</div>
+             <div className="text-xxxs text-[#667781] text-right mt-1">10:46 AM</div>
           </motion.div>
         )}
 
@@ -204,15 +202,14 @@ export const WhatsAppMockup = () => {
                 <Package className="w-4 h-4 text-emerald-600" />
               </div>
               <div>
-                <div className="text-[11px] font-bold text-emerald-600 tracking-tight">Dispatched</div>
-                <div className="text-[10px] text-slate-600 font-medium mt-0.5 leading-normal">Arriving today by 5 PM</div>
+                <div className="text-xs font-bold text-emerald-600 tracking-tight">Dispatched</div>
+                <div className="text-xxs text-slate-600 font-medium mt-0.5 leading-normal">Arriving today by 5 PM</div>
               </div>
             </div>
-            <div className="text-[9px] text-[#667781] text-right mt-1 px-2 pb-1">10:48 AM</div>
+            <div className="text-xxxs text-[#667781] text-right mt-1 px-2 pb-1">10:48 AM</div>
           </motion.div>
         )}
       </div>
     </div>
-
   );
 };

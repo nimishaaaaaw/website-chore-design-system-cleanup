@@ -35,7 +35,7 @@ export function MPv2ProblemStack() {
         
         {/* STICKY HEADER */}
         <motion.div variants={itemVariants} className="sticky top-[8vh] z-0 flex flex-col items-center text-center pointer-events-none">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-800 bg-slate-900/50 text-slate-400 text-[10px] font-mono tracking-[0.2em] mb-6 md:mb-8 pointer-events-auto">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-slate-800 bg-slate-900/50 text-slate-400 text-xxs font-mono tracking-[0.2em] mb-6 md:mb-8 pointer-events-auto">
             <Activity size={14} className="text-rose-500 animate-pulse" />
             PHARMACY HEALTH CHECK: SYSTEM ERRORS FOUND
           </div>
@@ -83,7 +83,7 @@ export function MPv2ProblemStack() {
               </div>
               
               <div className="w-full md:w-64 bg-[#080a10] rounded-3xl p-8 border border-slate-800/50 flex flex-col justify-center items-center text-center shrink-0">
-                <span className="text-[10px] font-mono text-slate-600 uppercase tracking-widest mb-2">Profit Loss Risk</span>
+                <span className="text-xxs font-mono text-slate-600 uppercase tracking-widest mb-2">Profit Loss Risk</span>
                 <div className="text-4xl font-black text-rose-500 mb-1 leading-none animate-pulse">CRITICAL</div>
               </div>
             </motion.div>
@@ -117,11 +117,11 @@ export function MPv2ProblemStack() {
               </div>
 
               <div className="w-full md:w-64 bg-[#080a10] rounded-3xl p-6 border border-slate-800/50 flex flex-col justify-center shrink-0 space-y-3">
-                <div className="flex justify-between items-center text-[10px] font-mono text-slate-500 uppercase tracking-widest border-b border-slate-800 pb-2">
+                <div className="flex justify-between items-center text-xxs font-mono text-slate-500 uppercase tracking-widest border-b border-slate-800 pb-2">
                   <span>Admin Load</span>
                   <span className="text-orange-500">MAX</span>
                 </div>
-                <div className="flex justify-between items-center text-[10px] font-mono text-slate-500 uppercase tracking-widest border-b border-slate-800 pb-2">
+                <div className="flex justify-between items-center text-xxs font-mono text-slate-500 uppercase tracking-widest border-b border-slate-800 pb-2">
                   <span>Morale</span>
                   <span className="text-orange-500">LOW</span>
                 </div>
@@ -164,7 +164,7 @@ export function MPv2ProblemStack() {
                       </div>
                     ))}
                 </div>
-                <p className="text-[10px] text-center font-mono text-cyan-500 uppercase tracking-widest">
+                <p className="text-xxs text-center font-mono text-cyan-500 uppercase tracking-widest">
                     68% Chronic Patients Lost
                 </p>
               </div>
@@ -206,7 +206,7 @@ export function MPv2ProblemStack() {
                 >
                   FIX THIS NOW <ArrowRight size={18} />
                 </motion.button>
-                <p className="text-[9px] text-center font-mono text-slate-400 uppercase tracking-widest">
+                <p className="text-xxxs text-center font-mono text-slate-400 uppercase tracking-widest">
                   Stop the leaks today
                 </p>
               </div>
@@ -227,16 +227,16 @@ export function MPv2ProblemStack() {
         <div className="flex flex-wrap justify-center md:justify-start gap-12">
           <div>
             <p className="text-3xl font-black text-white">₹1 Lakh+</p>
-            <p className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.2em]">Lost Every Month</p>
+            <p className="text-xxs font-mono text-slate-500 uppercase tracking-[0.2em]">Lost Every Month</p>
           </div>
           <div className="w-px h-10 bg-slate-800 hidden md:block" />
           <div>
             <p className="text-3xl font-black text-white">2 Hours</p>
-            <p className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.2em]">Wasted Daily per Staff</p>
+            <p className="text-xxs font-mono text-slate-500 uppercase tracking-[0.2em]">Wasted Daily per Staff</p>
           </div>
         </div>
         
-        <div className="flex items-center gap-2 text-rose-500 font-mono text-[10px] uppercase tracking-[0.3em] font-bold animate-pulse">
+        <div className="flex items-center gap-2 text-rose-500 font-mono text-xxs uppercase tracking-[0.3em] font-bold animate-pulse">
           <AlertTriangle size={16} />
           Immediate Action Required
         </div>

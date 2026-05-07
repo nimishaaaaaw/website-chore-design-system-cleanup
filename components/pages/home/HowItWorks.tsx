@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { MonitorSmartphone, PackageOpen, CheckCircle, Truck, TrendingUp } from 'lucide-react';
+import { MonitorSmartphone, PackageOpen, CheckCircle, Truck } from 'lucide-react';
 
 const STEPS = [
   {
@@ -30,7 +30,6 @@ const STEPS = [
 export function HowItWorks() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Track scroll for the vertical line
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"]
@@ -39,13 +38,15 @@ export function HowItWorks() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section className="py-24 md:py-32 bg-section-surface relative overflow-hidden" id="how-it-works">
+    <section className="section-py-lg bg-section-surface relative overflow-hidden" id="how-it-works">
 
-      {/* Ambient background glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-50/50 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-[-100px] w-[400px] h-[400px] bg-blue-50/50 rounded-full blur-[100px] pointer-events-none" />
+      {/* Background Atmosphere */}
+      <div className="blob-layer">
+        <div className="blob-indigo w-500px h-500px top-0 right-0" />
+        <div className="blob-blue w-380px h-380px bottom-0 -left-24" />
+      </div>
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10" ref={containerRef}>
+      <div className="container-page relative z-10" ref={containerRef}>
 
         {/* Header */}
         <div className="text-center mb-20 md:mb-32">
@@ -53,7 +54,7 @@ export function HowItWorks() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="eyebrow-wrap justify-center !mb-6"
+            className="eyebrow-wrap"
           >
             <div className="eyebrow-line-r" />
             <span className="eyebrow-text">The Operational Model</span>
@@ -67,18 +68,19 @@ export function HowItWorks() {
             transition={{ delay: 0.1 }}
             className="premium-h2"
           >
-            How our <span className="text-brand-indigo-600 drop-shadow-sm pr-2">hospital pharmacy management</span> works.
+            How our <span className="heading-accent">hospital pharmacy management</span> works.
           </motion.h2>
         </div>
 
         {/* Timeline Container */}
         <div className="relative">
+
           {/* Static Track */}
           <div className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-100 -translate-x-1/2 pointer-events-none" />
 
           {/* Animated active line */}
           <motion.div
-            className="absolute left-[27px] md:left-1/2 top-0 w-[4px] bg-gradient-to-b from-blue-500 to-indigo-500 -translate-x-1/2 rounded-full pointer-events-none z-10"
+            className="absolute left-[27px] md:left-1/2 top-0 w-[4px] bg-gradient-action -translate-x-1/2 rounded-full pointer-events-none z-10"
             style={{ height: lineHeight }}
           />
 
@@ -91,8 +93,8 @@ export function HowItWorks() {
                 <div key={index} className="relative flex items-start w-full group">
 
                   {/* Center Node */}
-                  <div className="absolute left-[8px] md:left-1/2 top-0 -translate-x-1/2 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white border-4 border-slate-50 flex items-center justify-center z-20 shadow-sm transition-transform duration-500 group-hover:scale-110 group-hover:border-indigo-100">
-                    <div className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-indigo-50 flex items-center justify-center">
+                  <div className="absolute left-[8px] md:left-1/2 top-0 -translate-x-1/2 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white border-4 border-muted flex items-center justify-center z-20 shadow-card transition-transform duration-500 group-hover:scale-110 group-hover:border-indigo-100">
+                    <div className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-brand-50 flex items-center justify-center">
                       <Icon className="w-3 h-3 md:w-5 md:h-5 text-indigo-600" />
                     </div>
                   </div>
@@ -102,8 +104,8 @@ export function HowItWorks() {
                     <div className="w-[45%] pr-12 text-right">
                       {isEven ? (
                         <>
-                          <h3 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">{step.title}</h3>
-                          <p className="premium-p !text-lg !leading-relaxed">{step.description}</p>
+                          <h3 className="text-h2 font-bold text-slate-900 mb-4 tracking-tight">{step.title}</h3>
+                          <p className="premium-p text-body-lg leading-relaxed">{step.description}</p>
                         </>
                       ) : (
                         <div className="text-sm font-bold text-slate-300 tracking-widest uppercase mt-2">Step 0{index + 1}</div>
@@ -115,8 +117,8 @@ export function HowItWorks() {
                     <div className="w-[45%] pl-12 text-left">
                       {!isEven ? (
                         <>
-                          <h3 className="text-3xl font-bold text-slate-900 mb-4 tracking-tight">{step.title}</h3>
-                          <p className="premium-p !text-lg !leading-relaxed">{step.description}</p>
+                          <h3 className="text-h2 font-bold text-slate-900 mb-4 tracking-tight">{step.title}</h3>
+                          <p className="premium-p text-body-lg leading-relaxed">{step.description}</p>
                         </>
                       ) : (
                         <div className="text-sm font-bold text-slate-300 tracking-widest uppercase mt-2">Step 0{index + 1}</div>
@@ -127,8 +129,8 @@ export function HowItWorks() {
                   {/* Mobile Layout */}
                   <div className="md:hidden flex flex-col pl-20 pb-4 w-full z-10">
                     <span className="text-xs font-bold text-indigo-600 tracking-widest uppercase mb-2">Step 0{index + 1}</span>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3 tracking-tight">{step.title}</h3>
-                    <p className="premium-p !leading-relaxed">{step.description}</p>
+                    <h3 className="text-h2 font-bold text-slate-900 mb-3 tracking-tight">{step.title}</h3>
+                    <p className="premium-p leading-relaxed">{step.description}</p>
                   </div>
 
                 </div>

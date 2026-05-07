@@ -44,22 +44,22 @@ const RefillMicroDemo = () => {
   }, []);
 
   return (
-    <div className="w-[280px] h-[380px] rounded-[3rem] border-[8px] border-slate-900 shadow-2xl relative overflow-hidden flex flex-col z-10 group-hover:-translate-y-2 transition-transform duration-500 bg-[#0B141A]">
+    <div className="w-280px h-380px rounded-[3rem] border-[8px] border-slate-900 shadow-2xl relative overflow-hidden flex flex-col z-10 group-hover:-translate-y-2 transition-transform duration-500 bg-[#0B141A]">
       <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.05] pointer-events-none" />
       
       {/* ── PHONE HEADER ── */}
       <div className="relative h-14 w-full bg-[#202C33] border-b border-white/5 flex items-center px-4 pt-4 gap-3">
         <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center border border-white/10 overflow-hidden">
-          <div className="w-full h-full bg-indigo-600 flex items-center justify-center text-[10px] font-bold text-white uppercase">MC</div>
+          <div className="w-full h-full bg-indigo-600 flex items-center justify-center text-xxs font-bold text-white uppercase">MC</div>
         </div>
         <div className="flex-1">
           <div className="flex items-center gap-1.5">
-            <span className="text-[11px] font-bold text-white tracking-tight">MediKloud Care</span>
+            <span className="text-xs font-bold text-white tracking-tight">MediKloud Care</span>
             <div className="w-3 h-3 bg-emerald-500 rounded-full flex items-center justify-center">
               <CheckCircle2 size={8} className="text-white" strokeWidth={3} />
             </div>
           </div>
-          <span className="text-[8px] text-emerald-500 font-semibold uppercase tracking-wider">Verified Account</span>
+          <span className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">Verified Account</span>
         </div>
       </div>
 
@@ -69,9 +69,9 @@ const RefillMicroDemo = () => {
         <motion.div 
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
-          className="bg-[#202C33] p-3 rounded-2xl rounded-tl-none border border-white/5 max-w-[85%] shadow-md"
+          className="bg-[#202C33] p-3 rounded-2xl rounded-tl-none border border-white/5 max-w-85% shadow-md"
         >
-          <p className="text-white text-[11px] font-medium leading-[1.4]">
+          <p className="text-white text-xs font-medium leading-[1.4]">
             Hello Mr. Karan, your prescription for <span className="text-indigo-400 font-bold">Glycomet</span> is finishing in 2 days.
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ const RefillMicroDemo = () => {
               className={`p-2.5 rounded-xl rounded-tl-none max-w-[80%] flex items-center gap-2 transition-all duration-300 ${confirmed ? 'bg-slate-800 border-transparent' : 'bg-indigo-600/20 border border-indigo-500/30'}`}
             >
               <div className={`w-2 h-2 rounded-full ${confirmed ? 'bg-slate-500' : 'bg-indigo-400 animate-pulse'}`} />
-              <span className={`text-[10px] font-bold ${confirmed ? 'text-slate-500' : 'text-indigo-100'}`}>Yes, please dispatch</span>
+              <span className={`text-xxs font-bold ${confirmed ? 'text-slate-500' : 'text-indigo-100'}`}>Yes, please dispatch</span>
             </motion.div>
 
             {/* CURSOR ANIMATION */}
@@ -126,8 +126,8 @@ const RefillMicroDemo = () => {
             >
               <CheckCircle2 size={14} className="text-emerald-100" strokeWidth={2.5} />
               <div className="text-right">
-                <p className="text-white text-[10px] font-bold">Refill Confirmed</p>
-                <p className="text-[8px] text-emerald-100/70 font-medium whitespace-nowrap">Order #MK-402 • 4 PM</p>
+                <p className="text-white text-xxs font-bold">Refill Confirmed</p>
+                <p className="text-8px text-emerald-100/70 font-medium whitespace-nowrap">Order #MK-402 • 4 PM</p>
               </div>
             </motion.div>
           )}
@@ -163,7 +163,7 @@ const SoftwareMicroDemo = () => {
       <div className="bg-slate-50/80 px-4 py-3 border-b border-slate-100 flex items-center justify-between relative z-10">
         <div className="flex items-center gap-2 bg-white px-3 py-1 rounded-lg border border-slate-200 flex-1 mr-4">
           <Search size={12} className="text-slate-400" />
-          <span className="text-[10px] text-slate-400 font-medium font-sans">Search Patient...</span>
+          <span className="text-xxs text-slate-400 font-medium font-sans">Search Patient...</span>
         </div>
         <div className="flex gap-1.5">
           <div className="w-2 h-2 rounded-full bg-slate-200" />
@@ -178,15 +178,15 @@ const SoftwareMicroDemo = () => {
             <span className="text-white font-bold text-sm">KS</span>
           </div>
           <div className="flex-1">
-            <h4 className="text-[13px] font-bold text-slate-900 leading-tight">Karan Sharma</h4>
+            <h4 className="text-13px font-bold text-slate-900 leading-tight">Karan Sharma</h4>
             <div className="flex items-center gap-2 mt-1">
-              <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Male • 42 yrs</span>
+              <span className="text-xxs text-slate-500 font-semibold uppercase tracking-wider">Male • 42 yrs</span>
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
             </div>
           </div>
           <div className="text-right">
-            <div className="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none">Status</div>
-            <div className="text-[10px] font-bold text-indigo-600 mt-1">Ongoing OPD</div>
+            <div className="text-xxxs font-bold text-slate-400 uppercase tracking-widest leading-none">Status</div>
+            <div className="text-xxs font-bold text-indigo-600 mt-1">Ongoing OPD</div>
           </div>
         </div>
 
@@ -198,11 +198,11 @@ const SoftwareMicroDemo = () => {
                   <Pill size={14} className="text-slate-400 group-hover/line:text-indigo-600 transition-colors" />
                 </div>
                 <div>
-                   <div className="text-[11px] font-bold text-slate-800">Glycomet GP 1mg</div>
-                   <div className="text-[9px] text-slate-500 font-medium">1-0-1 • After Meals • 30 Days</div>
+                   <div className="text-xs font-bold text-slate-800">Glycomet GP 1mg</div>
+                   <div className="text-xxxs text-slate-500 font-medium">1-0-1 • After Meals • 30 Days</div>
                 </div>
              </div>
-             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-[10px] font-bold text-emerald-500">In Stock</motion.div>
+             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xxs font-bold text-emerald-500">In Stock</motion.div>
           </div>
           <div className="h-px bg-slate-100" />
           <div className="flex items-center justify-between group/line">
@@ -211,11 +211,11 @@ const SoftwareMicroDemo = () => {
                   <Pill size={14} className="text-slate-400 group-hover/line:text-indigo-600 transition-colors" />
                 </div>
                 <div>
-                   <div className="text-[11px] font-bold text-slate-800">Telmikind 40mg</div>
-                   <div className="text-[9px] text-slate-500 font-medium">0-1-0 • Morning • 15 Days</div>
+                   <div className="text-xs font-bold text-slate-800">Telmikind 40mg</div>
+                   <div className="text-xxxs text-slate-500 font-medium">0-1-0 • Morning • 15 Days</div>
                 </div>
              </div>
-             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-[10px] font-bold text-emerald-500">In Stock</motion.div>
+             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xxs font-bold text-emerald-500">In Stock</motion.div>
           </div>
         </div>
       </div>
@@ -234,7 +234,7 @@ const SoftwareMicroDemo = () => {
             {step === 0 && (
               <div className="flex items-center gap-2">
                 <FileText size={14} className="text-slate-400" />
-                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">Sign Prescription</span>
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Sign Prescription</span>
               </div>
             )}
             {step === 1 && (
@@ -242,13 +242,13 @@ const SoftwareMicroDemo = () => {
                 <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 2, ease: "linear" }}>
                   <Activity size={14} className="text-indigo-600" />
                 </motion.div>
-                <span className="text-[11px] font-bold text-indigo-600 uppercase tracking-widest">Routing to hub...</span>
+                <span className="text-xs font-bold text-indigo-600 uppercase tracking-widest">Routing to hub...</span>
               </div>
             )}
             {step === 2 && (
               <div className="flex items-center gap-2">
                 <CheckCircle2 size={16} className="text-white" />
-                <span className="text-[11px] font-bold text-white uppercase tracking-widest">Hub Verified & Ready</span>
+                <span className="text-xs font-bold text-white uppercase tracking-widest">Hub Verified & Ready</span>
               </div>
             )}
           </motion.div>
@@ -306,7 +306,7 @@ const DeliveryMicroDemo = () => {
           <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 border-2 border-white rounded-full" />
         </div>
         <div className="absolute top-full mt-3 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200 shadow-sm whitespace-nowrap">
-          <span className="text-[10px] font-bold text-slate-700 uppercase tracking-widest">Your Clinic</span>
+          <span className="text-xxs font-bold text-slate-700 uppercase tracking-widest">Your Clinic</span>
         </div>
       </div>
       
@@ -317,7 +317,7 @@ const DeliveryMicroDemo = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
           </div>
-          <span className="text-[9px] font-bold text-blue-700 uppercase tracking-[0.2em]">MediKloud Hub</span>
+          <span className="text-xxxs font-bold text-blue-700 uppercase tracking-[0.2em]">MediKloud Hub</span>
         </motion.div>
          <div className="relative w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg shadow-blue-500/30 ring-4 ring-blue-50">
           <Package size={20} strokeWidth={1.5} />
@@ -385,7 +385,7 @@ export const ClinicHowItWorks = () => {
                 ))}
               </ul>
               <div className="pt-4">
-                <button onClick={() => {}} className="inline-flex items-center text-[15px] font-bold text-indigo-600 hover:text-indigo-800 transition-colors group">
+                <button onClick={() => {}} className="inline-flex items-center text-base font-bold text-indigo-600 hover:text-indigo-800 transition-colors group">
                   Explore how our software works
                   <ArrowRight size={16} className="ml-1.5 transition-transform group-hover:translate-x-1" />
                 </button>
@@ -431,7 +431,7 @@ export const ClinicHowItWorks = () => {
                 ))}
               </ul>
               <div className="pt-4">
-                <button onClick={() => {}} className="inline-flex items-center text-[15px] font-bold text-blue-600 hover:text-blue-800 transition-colors group">
+                <button onClick={() => {}} className="inline-flex items-center text-base font-bold text-blue-600 hover:text-blue-800 transition-colors group">
                   Explore how 10-minute delivery works
                   <ArrowRight size={16} className="ml-1.5 transition-transform group-hover:translate-x-1" />
                 </button>
@@ -470,7 +470,7 @@ export const ClinicHowItWorks = () => {
                 ))}
               </ul>
               <div className="pt-4">
-                <button onClick={() => {}} className="inline-flex items-center text-[15px] font-bold text-emerald-600 hover:text-emerald-800 transition-colors group">
+                <button onClick={() => {}} className="inline-flex items-center text-base font-bold text-emerald-600 hover:text-emerald-800 transition-colors group">
                   Explore how home delivery works
                   <ArrowRight size={16} className="ml-1.5 transition-transform group-hover:translate-x-1" />
                 </button>

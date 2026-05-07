@@ -29,14 +29,17 @@ export function MainHero({ children }: MainHeroProps) {
 
       {/* Ambient glow orbs — staggered animations for premium feel */}
       <div className="absolute top-[10%] left-[15%] w-72 h-72 bg-brand-100/30 rounded-full blur-[80px] animate-float-slow" aria-hidden="true" />
-      <div className="absolute bottom-[20%] right-[10%] w-80 h-80 bg-brand-indigo-100/20 rounded-full blur-[90px] animate-float-slower" aria-hidden="true" />
+      {/* Fixed invalid color namespace */}
+      <div className="absolute bottom-[20%] right-[10%] w-80 h-80 bg-indigo-100/20 rounded-full blur-[90px] animate-float-slower" aria-hidden="true" />
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent z-[2]" aria-hidden="true" />
 
       {/* === CONTENT === */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="text-center max-w-[1000px] mx-auto">
+      {/* Mapped to container-page token */}
+      <div className="container-page relative z-10 w-full">
+        {/* Mapped arbitrary 1000px to standard max-w-5xl */}
+        <div className="text-center max-w-5xl mx-auto">
 
           {/* Eyebrow — above the h1, not inside it */}
           <div className="eyebrow-wrap justify-center animate-fade-in opacity-0 [animation-delay:60ms] [animation-fill-mode:forwards]">
@@ -54,17 +57,20 @@ export function MainHero({ children }: MainHeroProps) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-10 md:mb-12 animate-fade-in opacity-0 [animation-delay:450ms] [animation-fill-mode:forwards]">
             <button
               onClick={() => openModal({
-                    badge: "Partnership",
-                    title: "Schedule Your Demo",
-                    description: "Learn how MediKloud can help you recover margins and automate your patient journey.",
-                    btnText: "Book My Free Demo",
-                    successTitle: "Demo Scheduled!",
-                    successDescription: "Our team will reach out within 24 hours to schedule your platform walkthrough."
-                  })}
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4E46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto"
+                badge: "Partnership",
+                title: "Schedule Your Demo",
+                description: "Learn how MediKloud can help you recover margins and automate your patient journey.",
+                btnText: "Book My Free Demo",
+                successTitle: "Demo Scheduled!",
+                successDescription: "Our team will reach out within 24 hours to schedule your platform walkthrough."
+              })}
+              className="group btn-cta-hero"
             >
-              Book A Free Demo
-              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <span>Book A Free Demo</span>
+              <ChevronRight 
+                size={20} 
+                className="group-hover:translate-x-1 transition-transform duration-300" 
+              />
             </button>
           </div>
 

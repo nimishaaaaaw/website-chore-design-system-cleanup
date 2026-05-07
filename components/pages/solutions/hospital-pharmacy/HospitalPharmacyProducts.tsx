@@ -20,14 +20,14 @@ export const HospitalPharmacyProducts = () => {
         >
           <div className="eyebrow-wrap justify-center">
             <span className="eyebrow-line-l" />
-            <span className="eyebrow-text text-indigo-600">The Ecosystem</span>
+            <span className="eyebrow-text">The Ecosystem</span>
             <span className="eyebrow-line-r" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-[1.3]">
+          <h2 className="premium-h2">
             Everything you need to <br className="hidden sm:block"/>
             <span className="text-indigo-600">stop the leak, in one place.</span>
           </h2>
-          <p className="text-body-lg text-slate-500 font-medium max-w-[800px] mx-auto mt-4">
+          <p className="text-body-lg text-slate-500 font-medium max-w-full lg:max-w-intro-lock mx-auto mt-4">
             We don't leave you with half a solution. Our ecosystem handles everything from the physical pharmacist at the counter to the AI that predicts your inventory needs.
           </p>
         </motion.div>
@@ -40,7 +40,7 @@ export const HospitalPharmacyProducts = () => {
             className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
           >
             <div className="order-2 lg:order-1 space-y-6">
-              <div className="px-3 py-1 rounded-lg bg-indigo-50 border border-indigo-100/50 text-indigo-600 text-[12px] font-bold tracking-tight flex items-center gap-2 w-fit">
+              <div className="px-3 py-1 rounded-lg bg-indigo-50 border border-indigo-100/50 text-indigo-600 text-sm font-bold tracking-tight flex items-center gap-2 w-fit">
                 <Sparkles className="w-3 h-3" /> Zero Capital Required
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-slate-900 tracking-tight">Managed Pharmacy Ops</h3>
@@ -55,14 +55,13 @@ export const HospitalPharmacyProducts = () => {
                 ))}
               </ul>
               <div className="pt-4">
-                <a href="/products/managed-pharmacy" className="inline-flex items-center text-[15px] font-bold text-blue-600 hover:text-blue-800 transition-colors group">
+                <a href="/products/managed-pharmacy" className="inline-flex items-center text-base font-bold text-blue-600 hover:text-blue-800 transition-colors group">
                   Explore Managed Pharmacy 
                   <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
             </div>
             
-            {/* ADVANCED VISUAL 1: Live Inventory Dashboard */}
             {/* ADVANCED VISUAL 1: Live Inventory Dashboard (Premium Dark Theme) */}
             <div className="order-1 lg:order-2 p-4 lg:p-8 relative flex items-center justify-center">
               {/* Central Premium Dark Dashboard */}
@@ -72,7 +71,7 @@ export const HospitalPharmacyProducts = () => {
                 <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4 relative z-10">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.8)]"></div>
-                    <span className="text-white text-[12px] font-bold tracking-tight uppercase">Live Pharmacy Inventory</span>
+                    <span className="text-white text-sm font-bold tracking-tight uppercase">Live Pharmacy Inventory</span>
                   </div>
                   <Activity className="w-4 h-4 text-blue-400" />
                 </div>
@@ -86,7 +85,7 @@ export const HospitalPharmacyProducts = () => {
                       </div>
                       <div>
                         <div className="text-white text-sm font-bold tracking-tight">Amoxicillin 500mg</div>
-                        <div className="text-blue-300/70 text-[11px] font-medium mt-0.5 flex items-center gap-1">
+                        <div className="text-blue-300/70 text-xs font-medium mt-0.5 flex items-center gap-1">
                           <RefreshCw className="w-3 h-3 text-emerald-400" /> Auto-replenishing
                         </div>
                       </div>
@@ -102,7 +101,7 @@ export const HospitalPharmacyProducts = () => {
                       </div>
                       <div>
                         <div className="text-white text-sm font-bold tracking-tight">Diagnostic Status</div>
-                        <div className="text-slate-400 text-[11px] font-medium mt-0.5">Verified 2m ago</div>
+                        <div className="text-slate-400 text-xs font-medium mt-0.5">Verified 2m ago</div>
                       </div>
                     </div>
                     <div className="bg-indigo-500/20 p-1.5 rounded-lg border border-indigo-500/30">
@@ -122,7 +121,6 @@ export const HospitalPharmacyProducts = () => {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}
             className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
           >
-            {/* ADVANCED VISUAL 2: Full HMS Dashboard Mockup */}
             {/* ADVANCED VISUAL 2: HMS Enterprise Command Center (Unified Layout) */}
             <div className="p-4 lg:p-12 flex items-center justify-center relative">
               <div className="w-full max-w-[440px] bg-white border border-slate-200 rounded-[2.5rem] p-6 lg:p-8 shadow-card-lg relative">
@@ -133,7 +131,7 @@ export const HospitalPharmacyProducts = () => {
                     </div>
                     <div>
                       <div className="text-sm font-bold text-slate-900 tracking-tight">Enterprise Command</div>
-                      <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Global Status: Active</div>
+                      <div className="text-xxs text-slate-400 font-bold uppercase tracking-widest">Global Status: Active</div>
                     </div>
                   </div>
                   <div className="flex -space-x-2">
@@ -149,7 +147,7 @@ export const HospitalPharmacyProducts = () => {
                 <div className="grid grid-cols-2 gap-4">
                   {/* OPD Status */}
                   <div className="col-span-1 bg-slate-50/50 rounded-2xl p-4 border border-slate-100 flex flex-col justify-between min-h-[120px]">
-                    <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">
+                    <div className="flex items-center gap-2 text-xxs font-bold text-slate-400 uppercase tracking-wider mb-2">
                       <Users2 className="w-3.5 h-3.5" /> OPD Queue
                     </div>
                     <div>
@@ -164,7 +162,7 @@ export const HospitalPharmacyProducts = () => {
 
                   {/* EHR / AI Scribe status */}
                   <div className="col-span-1 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl p-4 shadow-md flex flex-col justify-between min-h-[120px]">
-                    <div className="flex items-center gap-2 text-[10px] font-bold text-white/70 uppercase tracking-wider">
+                    <div className="flex items-center gap-2 text-xxs font-bold text-white/70 uppercase tracking-wider">
                       <Activity className="w-3.5 h-3.5" /> AI Scribe
                     </div>
                     <div>
@@ -181,11 +179,11 @@ export const HospitalPharmacyProducts = () => {
                   {/* Revenue / Billing */}
                   <div className="col-span-2 bg-slate-50/50 rounded-2xl p-5 border border-slate-100 flex items-center justify-between">
                     <div className="space-y-1">
-                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Smart Billing (Daily)</div>
+                      <div className="text-xxs font-bold text-slate-400 uppercase tracking-wider">Smart Billing (Daily)</div>
                       <div className="text-2xl font-bold text-slate-900 font-mono tracking-tight">₹1,24,450</div>
                     </div>
                     <div className="text-right">
-                       <div className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-100">+12% vs avg</div>
+                       <div className="text-xxs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-100">+12% vs avg</div>
                     </div>
                   </div>
                 </div>
@@ -194,13 +192,13 @@ export const HospitalPharmacyProducts = () => {
                 <div className="mt-6 p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100 flex items-center justify-between border-dashed">
                     <div className="flex items-center gap-3">
                        <Store className="w-4 h-4 text-indigo-500" />
-                       <span className="text-[12px] font-bold text-indigo-700">Unified Pharmacy Bridge</span>
+                       <span className="text-sm font-bold text-indigo-700">Unified Pharmacy Bridge</span>
                     </div>
                     <CheckCircle2 className="w-5 h-5 text-indigo-500" />
                 </div>
               </div>
               
-              {/* Animated background blob to replace the generic DarkAtmosphere box */}
+              {/* Animated background blob */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-100/30 rounded-full blur-[80px] -z-10 animate-float-slow"></div>
             </div>
 
@@ -220,7 +218,7 @@ export const HospitalPharmacyProducts = () => {
                 ))}
               </ul>
               <div className="pt-4">
-                <a href="/products/hospital-management-system" className="inline-flex items-center text-[15px] font-bold text-cyan-600 hover:text-cyan-800 transition-colors group">
+                <a href="/products/hospital-management-system" className="inline-flex items-center text-base font-bold text-cyan-600 hover:text-cyan-800 transition-colors group">
                   Explore Full HMS Features 
                   <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
                 </a>
@@ -249,19 +247,16 @@ export const HospitalPharmacyProducts = () => {
                 ))}
               </ul>
               <div className="pt-4">
-                <a href="/products/virtual-pharmacy" className="inline-flex items-center text-[15px] font-bold text-violet-600 hover:text-violet-800 transition-colors group">
+                <a href="/products/virtual-pharmacy" className="group btn-primary">
                   Explore Medicine Delivery 
                   <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
                 </a>
               </div>
             </div>
             
-            {/* ADVANCED VISUAL 3: Realistic WhatsApp Ordering Flow (Clean Backdrop) */}
+            {/* ADVANCED VISUAL 3: Realistic WhatsApp Ordering Flow */}
             <div className="order-1 lg:order-2 p-4 lg:p-8 relative flex items-center justify-center min-h-[550px]">
-              {/* Realistic Phone Chassis sitting directly on page */}
               <WhatsAppMockup />
-              
-              {/* Subtle brand glow to anchor the visual */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-violet-100/40 rounded-full blur-[70px] -z-10 animate-float-medium"></div>
             </div>
           </motion.div>

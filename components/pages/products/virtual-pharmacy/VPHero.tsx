@@ -109,18 +109,25 @@ export const VPHero = ({ children }: VPHeroProps) => {
               {/* STANDARDIZED CTA & BADGE SPACING (Leveraging Space) */}
               <div className="flex flex-col gap-10 pt-2 lg:pt-4 animate-fade-in opacity-0 [animation-delay:300ms] [animation-fill-mode:forwards]">
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-5">
-                  <button onClick={() => openModal({
-                    badge: "Virtual Pharmacy",
-                    title: "Start Your Virtual Pharmacy Launch",
-                    description: "Schedule a demo to see how we can fulfill your exact prescriptions with zero space required.",
-                    btnText: "Schedule Your Demo",
-                    successTitle: "Launch Initiated!",
-                    successDescription: "Our team will be in touch within 24 hours to map your local fulfillment grid."
-                  })} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#4F46E5] text-white font-bold rounded-2xl shadow-lg hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 text-[16px] md:text-[17px] w-full sm:w-auto">
-                    Launch My Pharmacy <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <button 
+                    onClick={() => openModal({
+                      badge: "Virtual Pharmacy",
+                      title: "Start Your Virtual Pharmacy Launch",
+                      description: "Schedule a demo to see how we can fulfill your exact prescriptions with zero space required.",
+                      btnText: "Schedule Your Demo",
+                      successTitle: "Launch Initiated!",
+                      successDescription: "Our team will be in touch within 24 hours to map your local fulfillment grid."
+                    })} 
+                    className="group btn-second-cta"
+                  >
+                    <span>Launch My Pharmacy</span>
+                    <ChevronRight 
+                      size={20} 
+                      className="group-hover:translate-x-1 transition-transform duration-300" 
+                    />
                   </button>
                 </div>
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">
+                              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 w-full lg:w-[700px]">
                   {HERO_TRUST_BADGES.map((badge, idx) => {
                     const Icon = badge.icon;
                     return (
@@ -148,14 +155,14 @@ export const VPHero = ({ children }: VPHeroProps) => {
                   <h3 className="text-sm font-bold text-slate-900 tracking-tight flex items-center gap-2">
                     Live Order #{orderId}
                   </h3>
-                  <p className="text-[10px] font-semibold text-[#8696a0] uppercase tracking-widest mt-1">Virtual Pharmacy Engine</p>
+                  <p className="text-xxs font-semibold text-slate-400 uppercase tracking-widest mt-1">Virtual Pharmacy Engine</p>
                 </div>
                 <div className="flex items-center gap-2 bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full border border-emerald-100 shadow-sm">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
-                  <span className="text-[10px] font-semibold tracking-widest uppercase">Processing</span>
+                  <span className="text-xxs font-semibold tracking-widest uppercase">Processing</span>
                 </div>
               </div>
 
@@ -206,7 +213,7 @@ export const VPHero = ({ children }: VPHeroProps) => {
                               <h4 className={`text-sm font-bold transition-colors ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>
                                 {stage.title}
                               </h4>
-                              <p className="text-[10px] font-bold text-slate-500 mt-0.5 tracking-tight">{stage.desc}</p>
+                              <p className="text-xxs font-bold text-slate-500 mt-0.5 tracking-tight">{stage.desc}</p>
                             </div>
                           </div>
 
@@ -220,7 +227,7 @@ export const VPHero = ({ children }: VPHeroProps) => {
                                 className="overflow-hidden"
                               >
                                 <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between">
-                                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
+                                  <span className="text-xxxs font-bold text-slate-400 uppercase tracking-widest">
                                     {stage.metrics}
                                   </span>
                                   <div className="w-24 h-1.5 bg-slate-100 rounded-full overflow-hidden">

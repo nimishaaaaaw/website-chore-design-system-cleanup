@@ -10,7 +10,7 @@ const fadeInUp: any = {
 
 export const HospitalPharmacyEmotionalClose = () => {
   return (
-    <section className="section-py bg-slate-50 relative overflow-hidden">
+    <section className="section-py bg-section-alt relative overflow-hidden">
       <div className="blob-layer pointer-events-none">
         <motion.div animate={{ x: [-20, 20, -20], y: [-30, 30, -30], scale: [1, 1.1, 1] }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80rem] h-[80rem] bg-indigo-100/40 rounded-full blur-[140px] opacity-60" />
       </div>
@@ -18,15 +18,15 @@ export const HospitalPharmacyEmotionalClose = () => {
       <div className="container-page relative z-10 text-center">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="max-w-[825px] mx-auto space-y-8">
           <div className="flex justify-center">
-            <div className="w-16 h-16 rounded-3xl bg-white shadow-xl flex items-center justify-center text-indigo-600 border border-indigo-50">
+            <div className="w-16 h-16 rounded-3xl bg-white shadow-float flex items-center justify-center text-indigo-600 border border-[var(--indigo-50)]">
               <HeartPulse className="w-8 h-8 stroke-[1.5]" />
             </div>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-[1.3] tracking-tight">
+          <h2 className="premium-h2">
             Your patients trust you. <br className="hidden md:block" />
-            <span className="text-indigo-600">Keep them with you.</span>
+            <span className="heading-accent">Keep them with you.</span>
           </h2>
-          <p className="text-body-lg text-slate-500 font-medium max-w-[800px] mx-auto leading-relaxed">
+          <p className="text-body-lg text-subtitle font-medium leading-relaxed">
             A pharmacy is the final step in your patient's recovery. By bringing your pharmacy operations under our expert management, you ensure that your patients stay within your care, from the first consultation to the final dose.
           </p>
         </motion.div>

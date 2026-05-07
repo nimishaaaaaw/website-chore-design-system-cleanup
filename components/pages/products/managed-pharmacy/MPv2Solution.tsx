@@ -40,6 +40,7 @@ export function MPv2Solution() {
                 <span className="eyebrow-line-r"></span>
               </motion.div>
               
+            
               <motion.h2 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -47,19 +48,15 @@ export function MPv2Solution() {
                 transition={{ duration: 0.8, ease: premiumEase }}
                 className="premium-h2"
               >
-                Your entire pharmacy, <br />
-                <span className="text-indigo-600">running on autopilot.</span>
-              </motion.h2>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1, duration: 0.8, ease: premiumEase }}
-                className="premium-p intro-lock"
-              >
-                We deploy the hardware, technology, and clinical staff directly into your facility. You retain full ownership of the revenue flow. <strong className="text-slate-900 font-bold italic">We handle the rest.</strong>
-              </motion.p>
+                <span className="whitespace-nowrap">Your entire pharmacy,</span><br />
+                <span className="text-brand-indigo-600 drop-shadow-sm whitespace-nowrap">
+                  running on autopilot.
+                </span>
+              </motion.h2>              
+              <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0">
+                We deploy the hardware, technology, and clinical staff directly into your facility. You retain full ownership of the revenue flow.<br />
+                <strong className="text-slate-900 font-bold italic">We handle the rest.</strong>
+              </p>
             </div>
           </div>
 
@@ -158,7 +155,7 @@ export function MPv2Solution() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.8, ease: premiumEase }}
-                  className={`bg-white border ${module.theme.border} rounded-[2.5rem] p-8 md:p-12 shadow-card-sm hover:shadow-card-md ${module.theme.hoverBorder} transition-shadow transition-colors duration-500 group group-hover:z-20`}
+                  className={`bg-white border ${module.theme.border} rounded-[2.5rem] p-8 md:p-12 shadow-card-sm hover:shadow-card-md ${module.theme.hoverBorder} transition-colors duration-500 group group-hover:z-20`}
                 >
                   <div className="flex flex-wrap items-center justify-between gap-6 mb-8">
                     <div className="flex items-center gap-5">
@@ -167,7 +164,7 @@ export function MPv2Solution() {
                       </div>
                       <span className={`text-4xl font-bold text-slate-100 transition-colors duration-500 ${module.theme.hoverText}`}>{module.id}</span>
                     </div>
-                    <div className={`px-5 py-2 text-[11px] font-bold tracking-widest uppercase rounded-xl border ${module.theme.bg} ${module.theme.base} border-opacity-30 border-current`}>
+                    <div className={`px-5 py-2 text-xs font-bold tracking-widest uppercase rounded-xl border ${module.theme.bg} ${module.theme.base} border-opacity-30 border-current`}>
                       {module.tags}
                     </div>
                   </div>

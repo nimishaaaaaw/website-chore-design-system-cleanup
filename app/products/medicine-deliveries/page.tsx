@@ -75,10 +75,10 @@ export default function MedicineDeliveriesPage() {
           <div className="space-y-6 md:space-y-8">
             <h1 className="text-center lg:text-left text-balance">
               <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
-                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight text-slate-900">
+                <span className="block text-1-75rem sm:text-2rem md:text-2-25rem lg:text-2-5rem xl:text-2-75rem font-bold leading-[1.3] tracking-tight text-slate-900">
                   Deliver Medicines From Your
                 </span>
-                <span className="block text-[1.75rem] sm:text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[2.75rem] font-bold leading-[1.3] tracking-tight bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>
+                <span className="block text-1-75rem sm:text-2rem md:text-2-25rem lg:text-2-5rem xl:text-2-75rem font-bold leading-[1.3] tracking-tight bg-gradient-display bg-clip-text text-transparent" style={{ color: '#4F46E5' }}>
                   Hospital Pharmacy
                 </span>
               </div>
@@ -89,7 +89,7 @@ export default function MedicineDeliveriesPage() {
               </div>
             </h1>
             
-            <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0 leading-relaxed text-slate-500/90">
+            <p className="hero-subtitle max-w-[700px] mx-auto lg:mx-0">
               Stop losing revenue to retail aggregators. MediKloud handles the logistics to deliver medicines directly from your hospital to the patient's door, securing 100% retention with automated refills.
             </p>
           </div>
@@ -98,8 +98,8 @@ export default function MedicineDeliveriesPage() {
         <div className="relative overflow-hidden">
           {/* Subtle Global Background Elements */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-blue-50/30 rounded-full blur-[120px]" />
-            <div className="absolute top-2/3 right-0 w-[600px] h-[600px] bg-brand-indigo-50/20 rounded-full blur-[150px]" />
+            <div className="absolute top-1/4 left-0 w-500px h-500px bg-blue-50/30 rounded-full blur-[120px]" />
+            <div className="absolute top-2/3 right-0 w-600px h-600px bg-brand-indigo-50/20 rounded-full blur-[150px]" />
           </div>
 
           {/* Core Content Sections */}
