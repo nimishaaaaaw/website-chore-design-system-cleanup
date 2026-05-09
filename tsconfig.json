@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "lib": [
       "dom",
       "dom.iterable",
@@ -38,6 +37,7 @@
   ],
   "exclude": [
     "node_modules",
-    "_archive"
+    "_archive",
+    "website"
   ]
 }
